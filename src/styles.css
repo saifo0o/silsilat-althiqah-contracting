@@ -118,15 +118,23 @@
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }
+  html[lang="ar"],
+  html[lang="ar"] body,
   html[lang="ar"] h1,
   html[lang="ar"] h2,
   html[lang="ar"] h3,
   html[lang="ar"] h4,
-  html[lang="ar"] * {
-    font-family: var(--font-arabic);
-  }
-  /* Arabic letters must stay connected — neutralise any Tailwind tracking utility */
-  html[lang="ar"] * {
+  html[lang="ar"] h5,
+  html[lang="ar"] h6,
+  html[lang="ar"] p,
+  html[lang="ar"] span,
+  html[lang="ar"] a,
+  html[lang="ar"] button,
+  html[lang="ar"] input,
+  html[lang="ar"] textarea,
+  html[lang="ar"] label,
+  html[lang="ar"] li {
+    font-family: var(--font-arabic) !important;
     letter-spacing: 0 !important;
   }
 }
