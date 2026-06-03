@@ -121,9 +121,13 @@
   html[lang="ar"] h1,
   html[lang="ar"] h2,
   html[lang="ar"] h3,
-  html[lang="ar"] h4 {
+  html[lang="ar"] h4,
+  html[lang="ar"] * {
     font-family: var(--font-arabic);
-    letter-spacing: 0;
+  }
+  /* Arabic letters must stay connected — neutralise any Tailwind tracking utility */
+  html[lang="ar"] * {
+    letter-spacing: 0 !important;
   }
 }
 
