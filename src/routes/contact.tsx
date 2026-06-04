@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { useState, type FormEvent } from "react";
-import { Mail, Phone, MapPin, Check } from "lucide-react";
+import { Mail, Phone, MapPin, Check, Printer } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -12,9 +12,9 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — Seema" },
-      { name: "description", content: "Talk to Seema about a rehabilitation, coating or structural reinforcement project." },
+      { name: "description", content: "Contact Seema's offices in Jubail and Dammam for structural rehabilitation, CFRP, coatings and process piping repair." },
       { property: "og:title", content: "Contact — Seema" },
-      { property: "og:description", content: "Tell us what you're working on." },
+      { property: "og:description", content: "Talk to our engineering team." },
       { property: "og:url", content: "/contact" },
     ],
     links: [{ rel: "canonical", href: "/contact" }],
@@ -39,67 +39,83 @@ function ContactPage() {
         </div>
       </section>
 
-      <section className="container mx-auto px-4 md:px-6 py-16 md:py-24">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr]">
-          <form onSubmit={handleSubmit} className="rounded-2xl border border-border bg-card p-6 md:p-10 shadow-sm">
-            {sent ? (
-              <div className="flex flex-col items-center justify-center text-center py-16">
-                <div className="h-14 w-14 rounded-full bg-accent/15 text-accent flex items-center justify-center">
-                  <Check className="h-7 w-7" />
-                </div>
-                <p className="mt-5 font-display text-xl">{t("contact.form.sent")}</p>
-              </div>
-            ) : (
-              <div className="grid gap-5 md:grid-cols-2">
-                <div className="space-y-2">
-                  <Label htmlFor="name">{t("contact.form.name")}</Label>
-                  <Input id="name" required />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">{t("contact.form.email")}</Label>
-                  <Input id="email" type="email" required />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="company">{t("contact.form.company")}</Label>
-                  <Input id="company" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="subject">{t("contact.form.subject")}</Label>
-                  <Input id="subject" />
-                </div>
-                <div className="space-y-2 md:col-span-2">
-                  <Label htmlFor="message">{t("contact.form.message")}</Label>
-                  <Textarea id="message" rows={6} required />
-                </div>
-                <div className="md:col-span-2">
-                  <Button type="submit" size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
-                    {t("contact.form.submit")}
-                  </Button>
-                </div>
-              </div>
-            )}
-          </form>
-
-          <aside className="space-y-6">
-            {[
-              { Icon: MapPin, title: t("contact.info.addressTitle"), body: t("contact.info.address") },
-              { Icon: Phone, title: t("contact.info.phoneTitle"), body: t("contact.info.phone"), ltr: true },
-              { Icon: Mail, title: t("contact.info.emailTitle"), body: t("contact.info.email") },
-            ].map(({ Icon, title, body, ltr }) => (
-              <div key={title} className="rounded-xl border border-border bg-card p-6">
-                <div className="flex items-start gap-4">
-                  <div className="h-10 w-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{title}</p>
-                    <p className="mt-1 font-medium" {...(ltr ? { dir: "ltr" } : {})}>{body}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </aside>
+      {/* Offices */}
+      <section className="container mx-auto px-4 md:px-6 pt-16 md:pt-20">
+        <div className="grid gap-6 md:grid-cols-2">
+          {(["jubail", "dammam"] as const).map((office) => (
+            <div key={office} className="rounded-2xl border border-border bg-card p-7">
+              <h3 className="font-display text-xl font-semibold">{t(`contact.offices.${office}Title`)}</h3>
+              <ul className="mt-5 space-y-3 text-sm">
+                <li className="flex items-start gap-3 text-muted-foreground">
+                  <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0 text-accent" />
+                  <span>{t(`contact.offices.${office}Address`)}</span>
+                </li>
+                <li className="flex items-center gap-3 text-muted-foreground">
+                  <Phone className="h-4 w-4 flex-shrink-0 text-accent" />
+                  <span dir="ltr">{t(`contact.offices.${office}Phone`)}</span>
+                </li>
+                {office === "jubail" && (
+                  <li className="flex items-center gap-3 text-muted-foreground">
+                    <Printer className="h-4 w-4 flex-shrink-0 text-accent" />
+                    <span dir="ltr">{t("contact.offices.jubailFax")}</span>
+                  </li>
+                )}
+                <li className="flex items-center gap-3 text-muted-foreground">
+                  <Mail className="h-4 w-4 flex-shrink-0 text-accent" />
+                  <a href={`mailto:${t("contact.offices.email")}`} className="hover:text-foreground transition-colors" dir="ltr">
+                    {t("contact.offices.email")}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          ))}
         </div>
+      </section>
+
+      {/* Form */}
+      <section className="container mx-auto px-4 md:px-6 py-16 md:py-24">
+        <form onSubmit={handleSubmit} className="rounded-2xl border border-border bg-card p-6 md:p-10 shadow-sm">
+          {sent ? (
+            <div className="flex flex-col items-center justify-center text-center py-16">
+              <div className="h-14 w-14 rounded-full bg-accent/15 text-accent flex items-center justify-center">
+                <Check className="h-7 w-7" />
+              </div>
+              <p className="mt-5 font-display text-xl">{t("contact.form.sent")}</p>
+            </div>
+          ) : (
+            <div className="grid gap-5 md:grid-cols-2">
+              <div className="space-y-2">
+                <Label htmlFor="name">{t("contact.form.name")}</Label>
+                <Input id="name" required />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="phone">{t("contact.form.phone")}</Label>
+                <Input id="phone" required />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="email">{t("contact.form.email")}</Label>
+                <Input id="email" type="email" required />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="company">{t("contact.form.company")}</Label>
+                <Input id="company" />
+              </div>
+              <div className="space-y-2 md:col-span-2">
+                <Label htmlFor="subject">{t("contact.form.subject")}</Label>
+                <Input id="subject" />
+              </div>
+              <div className="space-y-2 md:col-span-2">
+                <Label htmlFor="message">{t("contact.form.message")}</Label>
+                <Textarea id="message" rows={6} required />
+              </div>
+              <div className="md:col-span-2">
+                <Button type="submit" size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
+                  {t("contact.form.submit")}
+                </Button>
+              </div>
+            </div>
+          )}
+        </form>
       </section>
     </>
   );
