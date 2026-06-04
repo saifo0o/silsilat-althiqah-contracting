@@ -27,7 +27,7 @@ export function SiteFooter() {
           <div>
             <h4 className="text-sm font-semibold text-foreground">{t("footer.explore")}</h4>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              {(["home", "about", "services", "projects", "clients"] as const).map((k) => (
+              {(["home", "about", "services", "projects", "clients", "contact"] as const).map((k) => (
                 <li key={k}>
                   <Link to={k === "home" ? "/" : `/${k}`} className="hover:text-foreground transition-colors">
                     {t(`nav.${k}`)}
@@ -38,20 +38,20 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold text-foreground">{t("footer.contact")}</h4>
+            <h4 className="text-sm font-semibold text-foreground">{t("contact.offices.jubailTitle")}</h4>
             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0 text-accent" />
-                <span>{t("contact.info.address")}</span>
+                <span>{t("contact.offices.jubailAddress")}</span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4 flex-shrink-0 text-accent" />
-                <span dir="ltr">{t("contact.info.phone")}</span>
+                <span dir="ltr">{t("contact.offices.jubailPhone")}</span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 flex-shrink-0 text-accent" />
-                <a href={`mailto:${t("contact.info.email")}`} className="hover:text-foreground transition-colors">
-                  {t("contact.info.email")}
+                <a href={`mailto:${t("contact.offices.email")}`} className="hover:text-foreground transition-colors" dir="ltr">
+                  {t("contact.offices.email")}
                 </a>
               </li>
             </ul>

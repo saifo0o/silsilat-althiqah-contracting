@@ -1,14 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
-import { ShieldCheck, Gauge, Layers } from "lucide-react";
+import { ShieldCheck, Gauge, Layers, BadgeCheck } from "lucide-react";
 import about from "@/assets/about-engineers.jpg";
 import { SectionHeading } from "@/components/site/SectionHeading";
+
+type Vendor = { name: string; number: string };
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Seema" },
-      { name: "description", content: "Seema is a Saudi specialist in structural rehabilitation, partnering with international firms to bring engineered solutions to local industry." },
+      { title: "About — Seema General Contracting & Industrial Services" },
+      { name: "description", content: "Founded in 2013, Seema is a Saudi specialist in the rehabilitation of concrete, steel structures and process pipes." },
       { property: "og:title", content: "About — Seema" },
       { property: "og:description", content: "A specialist contractor for what cannot fail." },
       { property: "og:url", content: "/about" },
@@ -20,6 +22,8 @@ export const Route = createFileRoute("/about")({
 
 function AboutPage() {
   const { t } = useTranslation();
+  const vendors = t("clients.vendors", { returnObjects: true }) as Vendor[];
+
   return (
     <>
       <section className="relative bg-primary text-primary-foreground overflow-hidden">
@@ -34,7 +38,10 @@ function AboutPage() {
       </section>
 
       <section className="container mx-auto px-4 md:px-6 py-20 md:py-28">
-        <SectionHeading eyebrow={t("home.intro.eyebrow")} title={t("home.intro.title")} subtitle={t("home.intro.body")} />
+        <div className="grid gap-10 lg:grid-cols-2">
+          <p className="text-lg text-muted-foreground leading-relaxed">{t("about.body1")}</p>
+          <p className="text-lg text-muted-foreground leading-relaxed">{t("about.body2")}</p>
+        </div>
       </section>
 
       <section className="bg-secondary/40 border-y border-border">
@@ -54,6 +61,25 @@ function AboutPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Vendor numbers */}
+      <section className="container mx-auto px-4 md:px-6 py-20 md:py-28">
+        <div className="flex items-center gap-3">
+          <div className="h-10 w-10 rounded-lg bg-accent/15 text-accent flex items-center justify-center">
+            <BadgeCheck className="h-5 w-5" />
+          </div>
+          <h2 className="font-display text-2xl md:text-3xl font-semibold">{t("about.vendorsTitle")}</h2>
+        </div>
+        <p className="mt-3 text-muted-foreground max-w-2xl">{t("about.vendorsBody")}</p>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {vendors.map((v) => (
+            <div key={v.name} className="rounded-xl border border-border bg-card p-6 flex items-center justify-between gap-4">
+              <p className="font-display text-base font-semibold">{v.name}</p>
+              <p className="text-sm font-mono tabular-nums text-muted-foreground" dir="ltr">#{v.number}</p>
+            </div>
+          ))}
         </div>
       </section>
     </>
