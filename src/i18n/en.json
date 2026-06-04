@@ -11,160 +11,191 @@
   "lang": { "toggle": "العربية" },
   "company": {
     "name": "Seema",
-    "tagline": "General Contracting & Industrial Services"
+    "tagline": "General Contracting & Industrial Services Co."
   },
   "home": {
     "metaTitle": "Seema — Structural Rehabilitation & Industrial Services",
-    "metaDesc": "Specialized engineered services for concrete, steel and process piping — carbon fiber reinforcement and epoxy coatings for the Kingdom's industry.",
-    "heroEyebrow": "Engineered for what holds the Kingdom together",
-    "heroTitle": "Specialized structural rehabilitation, built to last.",
-    "heroSubtitle": "Seema delivers advanced carbon fiber reinforcement, concrete and steel repair, and corrosion-grade epoxy coatings to Saudi Arabia's industrial sector.",
+    "metaDesc": "Specialised structural rehabilitation for concrete, steel and process piping using advanced carbon fiber technology, composite materials and epoxy coatings.",
+    "heroEyebrow": "Specialised engineered services since 2013",
+    "heroTitle": "Structural rehabilitation, engineered to last.",
+    "heroSubtitle": "Seema delivers advanced carbon fiber technology, composite systems and protective coatings for concrete, steel and process piping across Saudi Arabia's industrial sector.",
     "heroCtaPrimary": "Explore our services",
     "heroCtaSecondary": "Talk to an engineer",
     "stats": {
       "yearsLabel": "Years in operation",
-      "yearsValue": "25+",
-      "projectsLabel": "Projects delivered",
-      "projectsValue": "300+",
-      "partnersLabel": "International partners",
-      "partnersValue": "15+",
+      "yearsValue": "12+",
+      "projectsLabel": "Major orders completed",
+      "projectsValue": "17+",
+      "partnersLabel": "Approved vendor lists",
+      "partnersValue": "6",
       "sectorsLabel": "Industries served",
       "sectorsValue": "8"
     },
     "intro": {
       "eyebrow": "Welcome to Seema",
-      "title": "Engineered services for concrete, steel and piping.",
-      "body": "Seema General Contracting & Industrial Services Co. specializes in structural rehabilitation — maintenance and support of concrete and steel structures and the repair of process piping, using advanced carbon fiber composites and epoxy coatings for extreme corrosive environments."
+      "title": "Engineered repair for concrete, steel and process piping.",
+      "body": "Seema General Contracting & Industrial Services Co. specialises in structural rehabilitation services for the maintenance and support of concrete and steel structures and the repair of process piping — using advanced carbon fiber technology, composite materials and epoxy coatings designed for extreme corrosive environments."
     },
     "servicesEyebrow": "What we do",
     "servicesTitle": "A complete rehabilitation toolkit.",
-    "servicesSubtitle": "Six disciplines, one specialised team — covering inspection, repair, reinforcement and protection.",
+    "servicesSubtitle": "From carbon fiber reinforcement to acid-resistant linings — engineered solutions across the lifecycle of industrial assets.",
     "projectsEyebrow": "Selected work",
-    "projectsTitle": "Trusted across the Kingdom's heaviest industries.",
-    "ctaTitle": "Have a structure that needs rehabilitation?",
-    "ctaBody": "Send us the scope. We'll come back with an engineered approach, a timeline and a fixed-fee proposal.",
+    "projectsTitle": "Delivered for the Kingdom's heaviest industries.",
+    "ctaTitle": "Have a structure or pipeline that needs rehabilitation?",
+    "ctaBody": "Send us the scope. We'll come back with an engineered approach, a timeline and a proposal.",
     "ctaButton": "Start a conversation"
   },
   "values": {
     "missionTitle": "Our Mission",
-    "missionBody": "Introduce specialized engineered services and solutions, and build a specialised maintenance team in the rehabilitation field.",
+    "missionBody": "Introduce specialised engineered services and solutions, and build a specialised maintenance team in the rehabilitation field — collaborating with international companies to transfer technology, training and technical support.",
     "goalTitle": "Our Goal",
-    "goalBody": "Team up with international partners to bring specialised engineered services and well-trained personnel that establish localised support for the industrial sector.",
+    "goalBody": "Team up with international companies to bring specialised engineered services, well-trained skilled personnel and localised service support to the industrial sector.",
     "visionTitle": "Our Vision",
-    "visionBody": "Collaborate with international and local companies in civil engineering, structural maintenance and civil construction to raise the bar of what is possible locally."
+    "visionBody": "Partner with international and local companies in civil engineering, structural maintenance and civil construction to be among the market leaders in our field."
   },
   "services": {
     "metaTitle": "Services — Seema",
-    "metaDesc": "Carbon fiber reinforcement, concrete and steel repair, process piping rehabilitation, epoxy coatings and structural inspection.",
-    "title": "Services",
-    "subtitle": "Specialised engineering for the structures that keep industry running.",
+    "metaDesc": "Carbon fiber reinforcement, FRP repair of concrete and steel, process piping repair, leak repair, epoxy coatings, acid lining, expansion joints, waterproofing and industrial supplies.",
+    "title": "Services & Sales",
+    "subtitle": "Engineered repair solutions, carbon fiber sales and industrial material supplies.",
+    "salesTitle": "Sales of Carbon Fiber Reinforced Polymers",
+    "salesBody": "We supply carbon fiber fabric — unidirectional and multi-directional — with GSM ranging from 150 to 900. Contact us by email to check availability.",
     "items": {
       "carbon": {
-        "title": "Carbon Fiber Reinforcement",
-        "body": "Advanced FRP wrapping and laminate systems that restore and increase the structural capacity of concrete columns, beams and slabs — without adding meaningful weight."
+        "title": "Carbon Fiber Reinforcement (FRP)",
+        "body": "Engineered repair solutions using advanced composite systems — carbon fiber reinforcement and FRP for concrete and steel structures."
+      },
+      "piping": {
+        "title": "Process Pipe Repair",
+        "body": "Repair of process pipes using high-strength carbon fiber systems, including in-service leak repair for pressurised lines."
       },
       "concrete": {
         "title": "Concrete Repair",
-        "body": "Crack injection, structural grouting, spall repair and surface restoration using high-performance polymer-modified mortars and resins."
-      },
-      "steel": {
-        "title": "Steel Rehabilitation",
-        "body": "Section replacement, plate bonding, weld repair and corrosion mitigation for industrial frames, racks, jetties and bridges."
-      },
-      "piping": {
-        "title": "Process Piping Repair",
-        "body": "In-service composite repairs and engineered clamps for leaking, corroded or mechanically damaged process lines."
+        "body": "General concrete repair using conventional methods, epoxy grouts and crack injection for structural restoration."
       },
       "epoxy": {
-        "title": "Epoxy & Protective Coatings",
-        "body": "Chemical-resistant coatings and linings engineered for extreme corrosive environments — tanks, secondary containment, refinery floors."
+        "title": "Industrial Coatings",
+        "body": "Application of coating systems engineered for extreme corrosive environments — protecting tanks, structures and containment."
       },
-      "inspection": {
-        "title": "Inspection & Assessment",
-        "body": "Non-destructive testing, condition surveys and structural assessments that translate into a defensible rehabilitation plan."
+      "acid": {
+        "title": "Acid Lining",
+        "body": "Composite carbon fiber lining systems rated for 98% sulfuric acid and 54% phosphoric acid concentrations."
+      },
+      "joints": {
+        "title": "Expansion Joints",
+        "body": "Repair and replacement of expansion joints in industrial and civil structures."
+      },
+      "roof": {
+        "title": "Roof Repair & Waterproofing",
+        "body": "Roof repair and waterproofing services for industrial and commercial facilities."
+      },
+      "supplies": {
+        "title": "Industrial Material Supplies",
+        "body": "Supply of industrial materials, composites and protective coatings to support project and maintenance teams."
       }
     }
   },
   "about": {
-    "metaTitle": "About — Seema",
-    "metaDesc": "Seema is a Saudi specialist in structural rehabilitation — partnering with international firms to bring engineered solutions to local industry.",
+    "metaTitle": "About — Seema General Contracting & Industrial Services",
+    "metaDesc": "Founded in 2013, Seema is a Saudi specialist in the rehabilitation of concrete, steel structures and process pipes — partnering with international firms to bring engineered solutions to local industry.",
     "eyebrow": "About Seema",
     "title": "A specialist contractor for what cannot fail.",
-    "lead": "We exist to extend the working life of the assets that power the Kingdom — refineries, power plants, pipelines, jetties, bridges. Our team combines local execution with international engineering practice.",
-    "since": "Operating across the Kingdom since 2000."
+    "lead": "SEEMA General Contracting & Industrial Services Co. was established in 2013 with a specialised team of professionals and technicians engaged in the rehabilitation of concrete, steel structures and process pipes.",
+    "body1": "We carry out repairs to concrete and steel structures and process pipes using epoxy materials, advanced carbon fiber and fiber-glass wrappings, concrete injections and industrial coating systems.",
+    "body2": "We collaborate and partner with international and local companies in the field of civil engineering, structural maintenance and civil construction — transferring technology, training and technical support to the Kingdom's industrial sector.",
+    "since": "Operating across the Kingdom since 2013.",
+    "vendorsTitle": "Registered vendor numbers",
+    "vendorsBody": "Seema is an approved vendor with the Kingdom's leading industrial operators."
   },
   "projects": {
     "metaTitle": "Projects — Seema",
-    "metaDesc": "Selected rehabilitation, reinforcement and protective coating projects delivered by Seema across Saudi Arabia.",
-    "title": "Projects",
-    "subtitle": "A snapshot of work delivered for refineries, utilities and infrastructure clients.",
-    "items": {
-      "p1": {
-        "title": "Cooling Tower Rehabilitation",
-        "category": "Power generation",
-        "body": "Full external rehabilitation of a hyperbolic concrete cooling tower — including crack injection, surface restoration and protective coating."
-      },
-      "p2": {
-        "title": "Pipeline Protective Coating",
-        "category": "Oil & gas",
-        "body": "Application of corrosion-grade epoxy systems across kilometres of above-ground process pipeline."
-      },
-      "p3": {
-        "title": "Bridge Pier Carbon Fiber Wrap",
-        "category": "Infrastructure",
-        "body": "FRP confinement on bridge piers to restore seismic capacity without interrupting traffic."
-      },
-      "p4": {
-        "title": "Refinery Tank Lining",
-        "category": "Petrochemical",
-        "body": "Chemical-resistant lining of secondary containment and process tanks."
-      }
-    }
+    "metaDesc": "Major orders completed by Seema for SABIC, Aramco, Maaden, SAFCO, KJO, S-Chem and Berry Gas Plant across Jubail, Ras Al Khair and Khafji.",
+    "title": "Major Orders Completed",
+    "subtitle": "A snapshot of rehabilitation, CFRP lining and structural repair work delivered across the Kingdom's industrial sites.",
+    "headers": {
+      "no": "No.",
+      "project": "Project",
+      "client": "Client",
+      "location": "Location",
+      "period": "Period",
+      "status": "Status"
+    },
+    "completed": "Completed",
+    "items": [
+      { "title": "Rectification of a large compressor foundation, fire proofing", "client": "S-Chem", "location": "Jubail", "period": "Apr 2014 – May 2014" },
+      { "title": "Rectification of two transformer foundations, fire proofing & fire wall construction", "client": "Berry Gas Plant", "location": "Jubail", "period": "Jun 2014 – Jul 2014" },
+      { "title": "Rectification of acid sewer system & concrete slab areas", "client": "SAFCO (IBB)", "location": "Jubail", "period": "Dec 2014 – May 2015" },
+      { "title": "Pipe 2.0 repair by CFRP", "client": "SAFCO (IBB)", "location": "Jubail", "period": "Aug 2015" },
+      { "title": "Repair of underground pit I-1012 G pipe", "client": "SAFCO (IBB)", "location": "Jubail", "period": "Oct 2015" },
+      { "title": "Engineering study to rectify / reconstruct oily water pit", "client": "KJO (Aramco)", "location": "Khafji", "period": "Dec 2015" },
+      { "title": "Rectification of oily water pit", "client": "KJO (Aramco)", "location": "Khafji", "period": "Mar 2016 – Sep 2016" },
+      { "title": "Structural integrity analysis of elevated water tank", "client": "KJO (Aramco)", "location": "Khafji", "period": "Nov 2016 – Jan 2017" },
+      { "title": "CFRP lining on reactors (shafts, roof, pump casing & hood)", "client": "Maaden PPC", "location": "Ras Al Khair", "period": "May 2017 – Jul 2017" },
+      { "title": "Repair of 48\" CW return line, 60\" WS supply & two nozzles (pit TI-934 & FT-1111)", "client": "SAFCO (IBB)", "location": "Jubail", "period": "Aug 2017 – Sep 2017" },
+      { "title": "CFRP lining with top coat on reactors PAP Train-C, 6C40-T08, tank repair", "client": "Maaden PPC", "location": "Ras Al Khair", "period": "Dec 2017 – Jan 2018" },
+      { "title": "Emergency CFRP lining on PAP Train-B R04 fume hood sleeve & roof during shutdown", "client": "Maaden PPC", "location": "Ras Al Khair", "period": "Feb 2018 – Mar 2018" },
+      { "title": "CFRP lining on K01/K02/K03 casings and R02/R03 agitator shafts — PAP Train-A emergency TAM", "client": "Maaden PPC", "location": "Ras Al Khair", "period": "Jun 2018 – Jul 2018" },
+      { "title": "CFRP corrosion protection on various components — PAP Train-C TAM Nov 2018", "client": "Maaden PPC", "location": "Ras Al Khair", "period": "Dec 2018 – Jan 2019" },
+      { "title": "Additional CFRP works on various components — PAP Train-C TAM", "client": "Maaden PPC", "location": "Ras Al Khair", "period": "Apr 2019 – May 2019" }
+    ]
   },
   "clients": {
-    "metaTitle": "Clients & Partners — Seema",
-    "metaDesc": "Seema partners with international engineering firms and serves the Kingdom's largest industrial operators.",
-    "title": "Clients & Partners",
-    "subtitle": "We work alongside international specialists to bring engineered solutions to the Kingdom's industrial operators.",
+    "metaTitle": "Clients & Approved Vendor — Seema",
+    "metaDesc": "Seema is an approved vendor with SABIC, Saudi Aramco, SEC, Maaden, Sahara and the Saudi Irrigation Organization, and serves the Kingdom's largest industrial operators.",
+    "title": "Clients & Approved Vendor",
+    "subtitle": "We are a registered and approved vendor with the Kingdom's leading operators in oil & gas, petrochemicals, power, mining and water.",
+    "vendorsTitle": "Vendor numbers",
+    "vendors": [
+      { "name": "SABIC", "number": "507891" },
+      { "name": "Saudi Aramco", "number": "10059513" },
+      { "name": "Saudi Electricity Company (SEC)", "number": "5010646" },
+      { "name": "Maaden", "number": "2377049" },
+      { "name": "Sahara", "number": "101450" },
+      { "name": "Saudi Irrigation Organization", "number": "—" }
+    ],
     "sectorsTitle": "Sectors we serve",
     "sectors": [
       "Oil & Gas",
       "Petrochemical",
       "Power & Utilities",
-      "Water & Desalination",
-      "Cement & Heavy Industry",
-      "Marine & Ports",
-      "Civil Infrastructure",
+      "Mining & Minerals",
+      "Water & Irrigation",
+      "Fertilisers",
+      "Marine & Industrial Plants",
       "Government"
     ],
     "partnersTitle": "International collaboration",
-    "partnersBody": "Our work is backed by long-standing partnerships with international firms specialising in composite materials, structural engineering and protective coatings."
+    "partnersBody": "Our work is backed by partnerships with international firms specialising in composite materials, structural engineering and protective coatings — bringing global technology and training to the Kingdom's industrial sector."
   },
   "contact": {
     "metaTitle": "Contact — Seema",
-    "metaDesc": "Talk to Seema about a rehabilitation, coating or structural reinforcement project.",
+    "metaDesc": "Contact Seema's offices in Jubail and Dammam for structural rehabilitation, CFRP, coatings and process piping repair.",
     "title": "Let's talk about your project.",
-    "subtitle": "Tell us what you're working on. We typically respond within one business day.",
+    "subtitle": "Tell us about your scope. Our team will get back to you with an engineered approach.",
     "form": {
-      "name": "Full name",
+      "name": "Your name",
       "email": "Email",
+      "phone": "Phone",
       "company": "Company",
       "subject": "Subject",
-      "message": "Tell us about the scope",
+      "message": "Your message",
       "submit": "Send message",
       "sent": "Thanks — we'll be in touch shortly."
     },
-    "info": {
-      "addressTitle": "Office",
-      "address": "Al Khobar, Eastern Province, Saudi Arabia",
-      "phoneTitle": "Phone",
-      "phone": "+966 13 000 0000",
+    "offices": {
+      "jubailTitle": "Jubail Office",
+      "jubailAddress": "Unit 13, Suhaimi Building #7585, Al-Fayha Commercial Business Center, Al Jubail Industrial 31961, P.O. Box 35016, K.S.A.",
+      "jubailPhone": "+966 13 348 9987 / +966 13 349 9544",
+      "jubailFax": "Fax: +966 13 348 9299",
+      "dammamTitle": "Dammam Office",
+      "dammamAddress": "Al Taufiq Building, Office No. 4 & 6, Madina Al Umal Road, Dammam 31462, P.O. Box 7492",
+      "dammamPhone": "+966 13 802 4090",
       "emailTitle": "Email",
-      "email": "info@seema.sa"
+      "email": "danny@seema.sa.com"
     }
   },
   "footer": {
-    "tagline": "Specialised structural rehabilitation for the Kingdom's industry.",
+    "tagline": "Specialised structural rehabilitation for the Kingdom's industry — since 2013.",
     "explore": "Explore",
     "company": "Company",
     "contact": "Contact",
