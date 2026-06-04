@@ -1,10 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
-import { ArrowRight, ShieldCheck, Layers, Wrench, HardHat, Droplet, Gauge } from "lucide-react";
+import { ArrowRight, ShieldCheck, Layers, Wrench, Droplet, Gauge, FlaskConical, Package } from "lucide-react";
 import hero from "@/assets/hero-refinery.jpg";
 import carbon from "@/assets/service-carbon-fiber.jpg";
 import epoxy from "@/assets/service-epoxy.jpg";
-import steel from "@/assets/service-steel.jpg";
 import concrete from "@/assets/service-concrete.jpg";
 import piping from "@/assets/service-piping.jpg";
 import project1 from "@/assets/project-1.jpg";
@@ -12,6 +11,8 @@ import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { Button } from "@/components/ui/button";
+
+type ProjectItem = { title: string; client: string; location: string; period: string };
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -27,12 +28,22 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-const serviceIcons = [Layers, Wrench, HardHat, Gauge, Droplet, ShieldCheck];
-const serviceImages = [carbon, concrete, steel, piping, epoxy, null];
-const serviceKeys = ["carbon", "concrete", "steel", "piping", "epoxy", "inspection"] as const;
+const homeServices = [
+  { key: "carbon", Icon: Layers, img: carbon },
+  { key: "piping", Icon: Gauge, img: piping },
+  { key: "concrete", Icon: Wrench, img: concrete },
+  { key: "epoxy", Icon: Droplet, img: epoxy },
+  { key: "acid", Icon: FlaskConical, img: null },
+  { key: "supplies", Icon: Package, img: null },
+] as const;
+
+const projectImages = [project1, project2, project3];
 
 function HomePage() {
   const { t } = useTranslation();
+  const allProjects = t("projects.items", { returnObjects: true }) as ProjectItem[];
+  const featured = allProjects.slice(0, 3);
+
   const stats = [
     { v: t("home.stats.yearsValue"), l: t("home.stats.yearsLabel") },
     { v: t("home.stats.projectsValue"), l: t("home.stats.projectsLabel") },
@@ -123,26 +134,26 @@ function HomePage() {
             subtitle={t("home.servicesSubtitle")}
           />
           <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {serviceKeys.map((key, i) => {
-              const Icon = serviceIcons[i];
-              const img = serviceImages[i];
-              return (
-                <article key={key} className="group relative overflow-hidden rounded-xl border border-border bg-card transition-all hover:shadow-elegant hover:-translate-y-1">
-                  {img && (
-                    <div className="aspect-[4/3] overflow-hidden bg-muted">
-                      <img src={img} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" width={1024} height={768} />
-                    </div>
-                  )}
-                  <div className="p-6">
-                    <div className="h-10 w-10 rounded-md bg-primary/10 text-primary flex items-center justify-center">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <h3 className="mt-4 font-display text-lg font-semibold">{t(`services.items.${key}.title`)}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{t(`services.items.${key}.body`)}</p>
+            {homeServices.map(({ key, Icon, img }) => (
+              <article key={key} className="group relative overflow-hidden rounded-xl border border-border bg-card transition-all hover:shadow-elegant hover:-translate-y-1">
+                {img ? (
+                  <div className="aspect-[4/3] overflow-hidden bg-muted">
+                    <img src={img} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" width={1024} height={768} />
                   </div>
-                </article>
-              );
-            })}
+                ) : (
+                  <div className="aspect-[4/3] bg-hero-gradient flex items-center justify-center">
+                    <Icon className="h-20 w-20 text-primary-foreground/70" />
+                  </div>
+                )}
+                <div className="p-6">
+                  <div className="h-10 w-10 rounded-md bg-primary/10 text-primary flex items-center justify-center">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-4 font-display text-lg font-semibold">{t(`services.items.${key}.title`)}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{t(`services.items.${key}.body`)}</p>
+                </div>
+              </article>
+            ))}
           </div>
           <div className="mt-10 flex justify-center">
             <Button asChild variant="outline">
@@ -159,23 +170,24 @@ function HomePage() {
           title={t("home.projectsTitle")}
         />
         <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {[
-            { img: project1, key: "p1" },
-            { img: project2, key: "p2" },
-            { img: project3, key: "p3" },
-          ].map((p) => (
-            <Link to="/projects" key={p.key} className="group block overflow-hidden rounded-xl border border-border bg-card">
+          {featured.map((p, idx) => (
+            <Link to="/projects" key={idx} className="group block overflow-hidden rounded-xl border border-border bg-card">
               <div className="aspect-[4/3] overflow-hidden bg-muted">
-                <img src={p.img} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" width={1024} height={768} />
+                <img src={projectImages[idx]} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" width={1024} height={768} />
               </div>
               <div className="p-5">
                 <p className="text-xs uppercase tracking-wider text-accent font-semibold">
-                  {t(`projects.items.${p.key}.category`)}
+                  {p.client} · {p.location}
                 </p>
-                <h3 className="mt-2 font-display text-lg font-semibold">{t(`projects.items.${p.key}.title`)}</h3>
+                <h3 className="mt-2 font-display text-lg font-semibold leading-snug">{p.title}</h3>
               </div>
             </Link>
           ))}
+        </div>
+        <div className="mt-10 flex justify-center">
+          <Button asChild variant="outline">
+            <Link to="/projects">{t("nav.projects")} <ArrowRight className="h-4 w-4 ms-2 rtl:rotate-180" /></Link>
+          </Button>
         </div>
       </section>
 
