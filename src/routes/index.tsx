@@ -25,7 +25,7 @@ import carbon from "@/assets/service-carbon-fiber.jpg";
 import epoxy from "@/assets/service-epoxy.jpg";
 import concrete from "@/assets/service-concrete.jpg";
 import piping from "@/assets/service-piping.jpg";
-import steel from "@/assets/service-steel.jpg";
+
 import about from "@/assets/about-engineers.jpg";
 import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
