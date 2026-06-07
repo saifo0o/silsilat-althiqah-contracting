@@ -13,14 +13,23 @@
     "name": "Seema",
     "tagline": "General Contracting & Industrial Services Co."
   },
+  "common": {
+    "learnMore": "Learn more",
+    "viewAll": "View all",
+    "getInTouch": "Get in touch",
+    "discussProject": "Discuss your project",
+    "viewServices": "View all services",
+    "viewProjects": "View all projects"
+  },
   "home": {
     "metaTitle": "Seema — Structural Rehabilitation & Industrial Services",
     "metaDesc": "Specialised structural rehabilitation for concrete, steel and process piping using advanced carbon fiber technology, composite materials and epoxy coatings.",
     "heroEyebrow": "Specialised engineered services since 2013",
-    "heroTitle": "Structural rehabilitation, engineered to last.",
+    "heroTitle": "Engineered rehabilitation for what cannot fail.",
     "heroSubtitle": "Seema delivers advanced carbon fiber technology, composite systems and protective coatings for concrete, steel and process piping across Saudi Arabia's industrial sector.",
     "heroCtaPrimary": "Explore our services",
     "heroCtaSecondary": "Talk to an engineer",
+    "heroBadge": "Approved vendor — SABIC · Aramco · SEC · Maaden",
     "stats": {
       "yearsLabel": "Years in operation",
       "yearsValue": "12+",
@@ -34,7 +43,7 @@
     "intro": {
       "eyebrow": "Welcome to Seema",
       "title": "Engineered repair for concrete, steel and process piping.",
-      "body": "Seema General Contracting & Industrial Services Co. specialises in structural rehabilitation services for the maintenance and support of concrete and steel structures and the repair of process piping — using advanced carbon fiber technology, composite materials and epoxy coatings designed for extreme corrosive environments."
+      "body": "Seema General Contracting & Industrial Services Co. specialises in structural rehabilitation — using advanced carbon fiber technology, composite materials and epoxy coatings designed for extreme corrosive environments."
     },
     "servicesEyebrow": "What we do",
     "servicesTitle": "A complete rehabilitation toolkit.",
@@ -43,7 +52,37 @@
     "projectsTitle": "Delivered for the Kingdom's heaviest industries.",
     "ctaTitle": "Have a structure or pipeline that needs rehabilitation?",
     "ctaBody": "Send us the scope. We'll come back with an engineered approach, a timeline and a proposal.",
-    "ctaButton": "Start a conversation"
+    "ctaButton": "Start a conversation",
+    "whyEyebrow": "Why Seema",
+    "whyTitle": "Specialist engineering, executed on-site.",
+    "whySubtitle": "A focused team, international technology partners, and a delivery model built around the realities of live industrial plants.",
+    "why": {
+      "specialistTitle": "Specialist focus",
+      "specialistBody": "We do one thing — rehabilitation of concrete, steel and process piping — and we do it deeply.",
+      "complianceTitle": "Vendor-approved",
+      "complianceBody": "Registered with SABIC, Aramco, SEC, Maaden, Sahara and the Saudi Irrigation Organization.",
+      "safetyTitle": "Safety first",
+      "safetyBody": "Trained crews, plant-grade PPE and HSE protocols aligned with operator requirements.",
+      "speedTitle": "Shutdown-ready",
+      "speedBody": "Mobilised for emergency TAMs and shutdowns — including overnight CFRP lining works."
+    },
+    "processEyebrow": "How we work",
+    "processTitle": "From inspection to handover.",
+    "process": {
+      "step1Title": "Assess",
+      "step1Body": "Site survey, structural assessment and engineered diagnosis of the defect.",
+      "step2Title": "Engineer",
+      "step2Body": "Repair scheme, material selection and a clear scope, programme and proposal.",
+      "step3Title": "Execute",
+      "step3Body": "Trained crews mobilise on-site with full PPE and operator-aligned HSE protocols.",
+      "step4Title": "Handover",
+      "step4Body": "Quality records, photographs and warranties documenting the completed rehabilitation."
+    },
+    "industriesEyebrow": "Industries",
+    "industriesTitle": "Trusted across the Kingdom's industrial backbone.",
+    "ctaPill": "Available across the Kingdom",
+    "testimonialsEyebrow": "Operator commitments",
+    "testimonialsTitle": "Built around what matters to plant owners."
   },
   "values": {
     "missionTitle": "Our Mission",
@@ -56,10 +95,14 @@
   "services": {
     "metaTitle": "Services — Seema",
     "metaDesc": "Carbon fiber reinforcement, FRP repair of concrete and steel, process piping repair, leak repair, epoxy coatings, acid lining, expansion joints, waterproofing and industrial supplies.",
-    "title": "Services & Sales",
-    "subtitle": "Engineered repair solutions, carbon fiber sales and industrial material supplies.",
-    "salesTitle": "Sales of Carbon Fiber Reinforced Polymers",
+    "eyebrow": "Services & Sales",
+    "title": "Engineered repair across the asset lifecycle.",
+    "subtitle": "Carbon fiber reinforcement, composite systems and protective coatings — plus material supply for in-house maintenance teams.",
+    "salesEyebrow": "Sales",
+    "salesTitle": "Carbon Fiber Reinforced Polymers (CFRP)",
     "salesBody": "We supply carbon fiber fabric — unidirectional and multi-directional — with GSM ranging from 150 to 900. Contact us by email to check availability.",
+    "salesCta": "Enquire about CFRP supply",
+    "capabilitiesTitle": "Core capabilities",
     "items": {
       "carbon": {
         "title": "Carbon Fiber Reinforcement (FRP)",
@@ -93,7 +136,26 @@
         "title": "Industrial Material Supplies",
         "body": "Supply of industrial materials, composites and protective coatings to support project and maintenance teams."
       }
-    }
+    },
+    "faqTitle": "Frequently asked",
+    "faq": [
+      {
+        "q": "Can you work during a live plant shutdown?",
+        "a": "Yes. A large share of our CFRP and lining work is delivered inside operator turnaround (TAM) windows — including overnight and emergency mobilisations."
+      },
+      {
+        "q": "Do you work on pressurised process piping?",
+        "a": "We carry out in-service leak repair and CFRP reinforcement on pressurised lines, engineered to the defect and the service conditions."
+      },
+      {
+        "q": "Which acids are your linings rated for?",
+        "a": "Our composite carbon fiber lining systems are rated for 98% sulfuric acid and 54% phosphoric acid concentrations."
+      },
+      {
+        "q": "Do you only execute or also sell materials?",
+        "a": "Both. We supply CFRP fabric (unidirectional and multi-directional, 150–900 GSM) for maintenance teams that prefer in-house execution."
+      }
+    ]
   },
   "about": {
     "metaTitle": "About — Seema General Contracting & Industrial Services",
@@ -105,13 +167,26 @@
     "body2": "We collaborate and partner with international and local companies in the field of civil engineering, structural maintenance and civil construction — transferring technology, training and technical support to the Kingdom's industrial sector.",
     "since": "Operating across the Kingdom since 2013.",
     "vendorsTitle": "Registered vendor numbers",
-    "vendorsBody": "Seema is an approved vendor with the Kingdom's leading industrial operators."
+    "vendorsBody": "Seema is an approved vendor with the Kingdom's leading industrial operators.",
+    "timelineTitle": "A decade of rehabilitation work.",
+    "timelineSubtitle": "Selected milestones on the path from start-up to specialist contractor.",
+    "timeline": [
+      { "year": "2013", "title": "Company founded", "body": "Seema is established in Jubail with a specialised team of engineers and technicians." },
+      { "year": "2014", "title": "First major orders", "body": "Foundation rectification and fireproofing for S-Chem and Berry Gas Plant." },
+      { "year": "2015", "title": "CFRP for process piping", "body": "First CFRP-based pipe repair delivered for SAFCO (IBB)." },
+      { "year": "2017", "title": "Maaden PPC partnership", "body": "Major CFRP lining works begin on Maaden Phosphate reactors at Ras Al Khair." },
+      { "year": "2019", "title": "Vendor portfolio", "body": "Approved vendor with SABIC, Aramco, SEC, Maaden, Sahara and the Saudi Irrigation Organization." },
+      { "year": "Today", "title": "Specialist contractor", "body": "Mobilising for shutdowns, emergencies and engineered rehabilitation across the Kingdom." }
+    ]
   },
   "projects": {
     "metaTitle": "Projects — Seema",
     "metaDesc": "Major orders completed by Seema for SABIC, Aramco, Maaden, SAFCO, KJO, S-Chem and Berry Gas Plant across Jubail, Ras Al Khair and Khafji.",
-    "title": "Major Orders Completed",
+    "eyebrow": "Selected work",
+    "title": "Major orders completed.",
     "subtitle": "A snapshot of rehabilitation, CFRP lining and structural repair work delivered across the Kingdom's industrial sites.",
+    "filterAll": "All clients",
+    "filterLocation": "Filter by site",
     "headers": {
       "no": "No.",
       "project": "Project",
@@ -142,7 +217,8 @@
   "clients": {
     "metaTitle": "Clients & Approved Vendor — Seema",
     "metaDesc": "Seema is an approved vendor with SABIC, Saudi Aramco, SEC, Maaden, Sahara and the Saudi Irrigation Organization, and serves the Kingdom's largest industrial operators.",
-    "title": "Clients & Approved Vendor",
+    "eyebrow": "Clients & approvals",
+    "title": "An approved vendor to the Kingdom's industry.",
     "subtitle": "We are a registered and approved vendor with the Kingdom's leading operators in oil & gas, petrochemicals, power, mining and water.",
     "vendorsTitle": "Vendor numbers",
     "vendors": [
@@ -170,9 +246,12 @@
   "contact": {
     "metaTitle": "Contact — Seema",
     "metaDesc": "Contact Seema's offices in Jubail and Dammam for structural rehabilitation, CFRP, coatings and process piping repair.",
+    "eyebrow": "Contact",
     "title": "Let's talk about your project.",
     "subtitle": "Tell us about your scope. Our team will get back to you with an engineered approach.",
+    "channelsTitle": "Direct channels",
     "form": {
+      "title": "Send us a brief",
       "name": "Your name",
       "email": "Email",
       "phone": "Phone",
@@ -195,7 +274,7 @@
     }
   },
   "footer": {
-    "tagline": "Specialised structural rehabilitation for the Kingdom's industry — since 2013.",
+    "tagline": "Specialised structural rehabilitation for the Kingdom's industry — engineered to last, executed on-site, since 2013.",
     "explore": "Explore",
     "company": "Company",
     "contact": "Contact",
