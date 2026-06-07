@@ -31,72 +31,89 @@
   --color-ring: var(--ring);
   --color-steel: var(--steel);
   --color-steel-foreground: var(--steel-foreground);
+  --color-safety: var(--safety);
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);
   --font-arabic: var(--font-arabic);
-  --shadow-elegant: 0 24px 60px -20px color-mix(in oklab, var(--primary) 35%, transparent);
-  --gradient-hero: linear-gradient(135deg, oklch(0.18 0.06 255) 0%, oklch(0.28 0.09 260) 100%);
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --shadow-elegant: 0 30px 80px -20px color-mix(in oklab, var(--primary) 35%, transparent);
+  --shadow-glow: 0 0 0 1px color-mix(in oklab, var(--accent) 20%, transparent), 0 20px 60px -20px color-mix(in oklab, var(--accent) 30%, transparent);
+  --gradient-hero: linear-gradient(135deg, oklch(0.14 0.04 240) 0%, oklch(0.22 0.07 230) 60%, oklch(0.30 0.10 200) 100%);
+  --gradient-accent: linear-gradient(135deg, oklch(0.78 0.16 195) 0%, oklch(0.68 0.18 145) 100%);
+  --gradient-radial: radial-gradient(circle at 30% 20%, color-mix(in oklab, var(--accent) 25%, transparent), transparent 60%);
 }
 
 :root {
-  --radius: 0.75rem;
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
-  --font-arabic: "IBM Plex Sans Arabic", "Inter", system-ui, sans-serif;
+  --radius: 0.875rem;
+  --font-sans: "Manrope", "Inter", system-ui, sans-serif;
+  --font-display: "Sora", "Manrope", system-ui, sans-serif;
+  --font-arabic: "IBM Plex Sans Arabic", "Manrope", system-ui, sans-serif;
 
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.18 0.04 260);
+  --background: oklch(0.99 0.005 240);
+  --foreground: oklch(0.16 0.03 245);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.04 260);
+  --card-foreground: oklch(0.16 0.03 245);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.04 260);
+  --popover-foreground: oklch(0.16 0.03 245);
 
-  /* Deep navy primary */
-  --primary: oklch(0.26 0.09 260);
-  --primary-foreground: oklch(0.98 0.005 250);
+  /* Deep ink-navy primary */
+  --primary: oklch(0.20 0.06 245);
+  --primary-foreground: oklch(0.98 0.005 240);
 
   /* Steel surface */
-  --secondary: oklch(0.96 0.01 250);
-  --secondary-foreground: oklch(0.22 0.06 260);
-  --steel: oklch(0.93 0.015 250);
-  --steel-foreground: oklch(0.22 0.06 260);
+  --secondary: oklch(0.965 0.008 240);
+  --secondary-foreground: oklch(0.22 0.05 245);
+  --steel: oklch(0.93 0.012 240);
+  --steel-foreground: oklch(0.22 0.05 245);
 
-  --muted: oklch(0.96 0.01 250);
-  --muted-foreground: oklch(0.5 0.03 255);
+  --muted: oklch(0.965 0.008 240);
+  --muted-foreground: oklch(0.48 0.025 245);
 
-  /* Safety green accent (matches existing Seema logo green) */
-  --accent: oklch(0.68 0.18 145);
-  --accent-foreground: oklch(0.15 0.04 260);
+  /* Electric cyan accent (Petrochemical Noir) */
+  --accent: oklch(0.78 0.15 200);
+  --accent-foreground: oklch(0.13 0.04 245);
 
-  --destructive: oklch(0.58 0.24 27);
-  --destructive-foreground: oklch(0.98 0.005 250);
-  --border: oklch(0.9 0.015 250);
-  --input: oklch(0.9 0.015 250);
-  --ring: oklch(0.55 0.1 260);
+  /* Safety green secondary accent (logo) */
+  --safety: oklch(0.70 0.18 148);
+
+  /* Near-black ink for hero/dark sections */
+  --ink: oklch(0.12 0.025 245);
+  --ink-foreground: oklch(0.98 0.005 240);
+
+  --destructive: oklch(0.62 0.22 27);
+  --destructive-foreground: oklch(0.98 0.005 240);
+  --border: oklch(0.9 0.012 240);
+  --input: oklch(0.9 0.012 240);
+  --ring: oklch(0.55 0.1 220);
 }
 
 .dark {
-  --background: oklch(0.14 0.03 260);
-  --foreground: oklch(0.97 0.005 250);
-  --card: oklch(0.2 0.04 260);
-  --card-foreground: oklch(0.97 0.005 250);
-  --popover: oklch(0.2 0.04 260);
-  --popover-foreground: oklch(0.97 0.005 250);
-  --primary: oklch(0.78 0.12 230);
-  --primary-foreground: oklch(0.15 0.04 260);
-  --secondary: oklch(0.24 0.04 260);
-  --secondary-foreground: oklch(0.97 0.005 250);
-  --steel: oklch(0.22 0.04 260);
-  --steel-foreground: oklch(0.97 0.005 250);
-  --muted: oklch(0.24 0.04 260);
-  --muted-foreground: oklch(0.7 0.02 255);
-  --accent: oklch(0.72 0.18 145);
-  --accent-foreground: oklch(0.15 0.04 260);
+  --background: oklch(0.12 0.025 245);
+  --foreground: oklch(0.97 0.005 240);
+  --card: oklch(0.18 0.03 245);
+  --card-foreground: oklch(0.97 0.005 240);
+  --popover: oklch(0.18 0.03 245);
+  --popover-foreground: oklch(0.97 0.005 240);
+  --primary: oklch(0.82 0.12 200);
+  --primary-foreground: oklch(0.13 0.04 245);
+  --secondary: oklch(0.22 0.04 245);
+  --secondary-foreground: oklch(0.97 0.005 240);
+  --steel: oklch(0.20 0.035 245);
+  --steel-foreground: oklch(0.97 0.005 240);
+  --muted: oklch(0.22 0.04 245);
+  --muted-foreground: oklch(0.7 0.02 245);
+  --accent: oklch(0.80 0.15 200);
+  --accent-foreground: oklch(0.13 0.04 245);
+  --safety: oklch(0.72 0.18 148);
+  --ink: oklch(0.10 0.02 245);
+  --ink-foreground: oklch(0.98 0.005 240);
   --destructive: oklch(0.7 0.19 22);
-  --destructive-foreground: oklch(0.98 0.005 250);
-  --border: oklch(1 0 0 / 12%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.6 0.05 260);
+  --destructive-foreground: oklch(0.98 0.005 240);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.6 0.05 220);
 }
 
 @layer base {
@@ -105,6 +122,7 @@
   }
   html {
     font-family: var(--font-sans);
+    scroll-behavior: smooth;
   }
   html[lang="ar"] {
     font-family: var(--font-arabic);
@@ -113,10 +131,12 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
+    font-weight: 600;
   }
   html[lang="ar"],
   html[lang="ar"] body,
@@ -137,13 +157,64 @@
     font-family: var(--font-arabic) !important;
     letter-spacing: 0 !important;
   }
+  ::selection {
+    background-color: color-mix(in oklab, var(--accent) 40%, transparent);
+    color: var(--ink-foreground);
+  }
 }
 
 @layer utilities {
   .bg-hero-gradient {
     background-image: var(--gradient-hero);
   }
+  .bg-accent-gradient {
+    background-image: var(--gradient-accent);
+  }
+  .bg-radial-accent {
+    background-image: var(--gradient-radial);
+  }
   .shadow-elegant {
     box-shadow: var(--shadow-elegant);
+  }
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .grid-pattern {
+    background-image:
+      linear-gradient(to right, color-mix(in oklab, currentColor 8%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, currentColor 8%, transparent) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+  .noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .animate-marquee {
+    animation: marquee 32s linear infinite;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .animate-shine {
+    background: linear-gradient(110deg, transparent 30%, color-mix(in oklab, var(--accent) 50%, transparent) 50%, transparent 70%);
+    background-size: 200% 100%;
+    animation: shine 3s linear infinite;
+  }
+  @keyframes shine {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
   }
 }
