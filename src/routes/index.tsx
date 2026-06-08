@@ -20,7 +20,6 @@ import {
   ChevronRight,
 } from "lucide-react";
 import hero from "@/assets/hero-refinery.jpg";
-import heroDetail from "@/assets/hero-detail.jpg";
 import aerial from "@/assets/aerial-plant.jpg";
 import ogImage from "@/assets/og-image.jpg";
 import carbon from "@/assets/service-carbon-fiber.jpg";
@@ -35,7 +34,6 @@ import project3 from "@/assets/project-3.jpg";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { StatCounter } from "@/components/site/StatCounter";
-import { Marquee } from "@/components/site/Marquee";
 import { Button } from "@/components/ui/button";
 
 type ProjectItem = { title: string; client: string; location: string; period: string };
@@ -69,7 +67,7 @@ const projectImages = [project1, project2, project3];
 const whyIcons = { specialist: HardHat, compliance: BadgeCheck, safety: ShieldCheck, speed: Zap };
 const processIcons = [Search, PenTool, Hammer, FileCheck];
 
-const clientLogos = ["SABIC", "ARAMCO", "MAADEN", "SEC", "SAFCO", "S-CHEM", "SAHARA", "KJO"];
+
 
 function HomePage() {
   const { t } = useTranslation();
@@ -89,138 +87,74 @@ function HomePage() {
 
   return (
     <>
-      {/* HERO — cinematic split */}
+      {/* HERO — grounded industrial editorial */}
       <section className="relative isolate overflow-hidden bg-ink text-ink-foreground">
-        {/* Background layers */}
         <img
           src={hero}
           alt=""
-          className="absolute inset-0 h-full w-full object-cover opacity-45 scale-105 motion-safe:animate-[heroPan_28s_ease-in-out_infinite_alternate]"
+          className="absolute inset-0 h-full w-full object-cover opacity-70"
           width={1920}
-          height={1088}
+          height={1080}
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/75 to-ink" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-transparent" />
-        <div className="absolute inset-0 grid-pattern opacity-[0.07] text-ink-foreground" />
-        <div className="absolute -top-32 -start-32 h-[28rem] w-[28rem] rounded-full bg-accent/25 blur-[140px]" />
-        <div className="absolute -bottom-40 end-1/4 h-[24rem] w-[24rem] rounded-full bg-[color:var(--safety)]/20 blur-[140px]" />
+        {/* Layered overlays for readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/70 to-ink/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
 
-        <div className="relative container mx-auto px-4 md:px-6 pt-24 pb-20 md:pt-32 md:pb-28 lg:pt-40 lg:pb-32">
-          <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
-            {/* Copy column */}
-            <div className="lg:col-span-7 xl:col-span-7">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-ink-foreground/85 backdrop-blur animate-fade-in">
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="absolute inline-flex h-full w-full rounded-full bg-accent opacity-75 animate-ping" />
-                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
-                </span>
-                {t("home.heroEyebrow")}
-              </div>
-
-              <h1 className="mt-7 font-display font-semibold leading-[1.0] tracking-tight text-balance text-[clamp(2.75rem,7.4vw,5.75rem)]">
-                <span className="block opacity-0 motion-safe:animate-[heroLine_0.9s_ease-out_0.05s_forwards]">
-                  {t("home.heroTitle")}
-                </span>
-              </h1>
-
-              {/* kinetic accent line */}
-              <div className="mt-8 flex items-center gap-4">
-                <span className="h-px w-12 bg-gradient-to-r from-transparent via-accent to-accent/0" />
-                <span className="text-[11px] uppercase tracking-[0.24em] text-accent">
-                  Carbon Fiber · Epoxy · Steel · Piping · Concrete
-                </span>
-              </div>
-
-              <p className="mt-7 max-w-2xl text-base md:text-lg text-ink-foreground/75 leading-relaxed">
-                {t("home.heroSubtitle")}
-              </p>
-
-              <div className="mt-10 flex flex-wrap items-center gap-3">
-                <Button
-                  asChild
-                  size="lg"
-                  className="group rounded-full bg-accent text-accent-foreground hover:bg-accent/90 shadow-glow px-7 h-12"
-                >
-                  <Link to="/services">
-                    {t("home.heroCtaPrimary")}
-                    <ArrowRight className="h-4 w-4 ms-2 rtl:rotate-180 transition-transform group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5" />
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="rounded-full border-white/25 bg-white/5 text-ink-foreground hover:bg-white/10 hover:text-ink-foreground px-7 h-12"
-                >
-                  <Link to="/contact">{t("home.heroCtaSecondary")}</Link>
-                </Button>
-              </div>
-
-              <p className="mt-10 flex items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-ink-foreground/55">
-                <BadgeCheck className="h-4 w-4 text-accent" />
-                {t("home.heroBadge")}
-              </p>
+        <div className="relative container mx-auto px-4 md:px-6 pt-24 pb-24 md:pt-32 md:pb-28 lg:pt-40 lg:pb-36">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2.5 border-s-2 border-accent ps-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-foreground/85">
+              <span className="font-mono text-accent">EST. 2013</span>
+              <span className="h-1 w-1 rounded-full bg-ink-foreground/40" />
+              <span>{t("home.heroEyebrow")}</span>
             </div>
 
-            {/* Visual column */}
-            <div className="lg:col-span-5 xl:col-span-5 relative hidden lg:block">
-              <div className="relative">
-                {/* main detail image */}
-                <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-elegant aspect-[4/5] motion-safe:animate-[heroFloat_8s_ease-in-out_infinite]">
-                  <img
-                    src={heroDetail}
-                    alt="Carbon fiber composite reinforcement being applied to an industrial concrete column"
-                    className="h-full w-full object-cover"
-                    width={1024}
-                    height={1280}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 p-6">
-                    <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent">Live · Field 03</p>
-                    <p className="mt-1 font-display text-lg font-semibold text-ink-foreground">CFRP wrap · Jubail</p>
-                  </div>
-                  <div className="absolute top-4 end-4 inline-flex items-center gap-1.5 rounded-full bg-black/40 backdrop-blur px-2.5 py-1 text-[10px] uppercase tracking-wider text-ink-foreground/90 border border-white/10">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--safety)] animate-pulse" />
-                    On site
-                  </div>
-                </div>
+            <h1 className="mt-7 font-display font-semibold leading-[0.98] tracking-tight text-balance text-[clamp(2.75rem,7.4vw,5.75rem)]">
+              {t("home.heroTitle")}
+            </h1>
 
-                {/* floating credential card */}
-                <div className="absolute -start-8 top-10 hidden xl:flex flex-col rounded-2xl border border-white/10 bg-ink/85 backdrop-blur-xl px-5 py-4 shadow-elegant motion-safe:animate-[heroFloat_9s_ease-in-out_infinite_-2s]">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent">Vendor #507891</p>
-                  <p className="mt-1 font-display text-base font-semibold">SABIC approved</p>
-                  <p className="text-[11px] text-ink-foreground/60">Specialty contractor</p>
-                </div>
+            <p className="mt-7 max-w-2xl text-base md:text-lg text-ink-foreground/80 leading-relaxed">
+              {t("home.heroSubtitle")}
+            </p>
 
-                {/* floating metric */}
-                <div className="absolute -end-4 -bottom-6 rounded-2xl border border-white/10 bg-background text-foreground px-5 py-4 shadow-elegant motion-safe:animate-[heroFloat_10s_ease-in-out_infinite_-4s]">
-                  <p className="font-display text-3xl font-semibold leading-none" dir="ltr">12+</p>
-                  <p className="mt-1 text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Years of field delivery</p>
-                </div>
-
-                {/* glow rings */}
-                <div className="pointer-events-none absolute -inset-10 -z-10">
-                  <div className="absolute inset-0 rounded-[2rem] bg-accent/10 blur-3xl" />
-                </div>
-              </div>
+            <div className="mt-9 flex flex-wrap items-center gap-3">
+              <Button
+                asChild
+                size="lg"
+                className="group rounded-none bg-accent text-accent-foreground hover:bg-accent/90 px-7 h-12 font-semibold uppercase tracking-wider text-xs"
+              >
+                <Link to="/services">
+                  {t("home.heroCtaPrimary")}
+                  <ArrowRight className="h-4 w-4 ms-2 rtl:rotate-180 transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="rounded-none border-white/30 bg-transparent text-ink-foreground hover:bg-white/10 hover:text-ink-foreground px-7 h-12 font-semibold uppercase tracking-wider text-xs"
+              >
+                <Link to="/contact">{t("home.heroCtaSecondary")}</Link>
+              </Button>
             </div>
-          </div>
 
-          {/* scroll indicator */}
-          <div className="hidden md:flex absolute bottom-6 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 flex-col items-center gap-2 text-ink-foreground/50">
-            <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
-            <span className="relative block h-10 w-px overflow-hidden bg-white/10">
-              <span className="absolute inset-x-0 top-0 h-4 bg-accent motion-safe:animate-[scrollDot_2.4s_ease-in-out_infinite]" />
-            </span>
+            {/* Capabilities strip — clearly says what we do */}
+            <div className="mt-12 flex flex-wrap gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.18em] text-ink-foreground/65">
+              {["Carbon Fiber Reinforcement", "Concrete Repair", "Steel Rehabilitation", "Process Piping", "Epoxy Coatings"].map((c, i) => (
+                <span key={c} className="flex items-center gap-2">
+                  {i > 0 && <span className="h-3 w-px bg-ink-foreground/20" />}
+                  {c}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Stats strip overlaying hero bottom */}
-        <div className="relative border-t border-white/10 bg-black/30 backdrop-blur-sm">
+        <div className="relative border-t border-white/10 bg-black/40 backdrop-blur-sm">
           <div className="container mx-auto px-4 md:px-6 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10">
             {stats.map((s) => (
-              <div key={s.l} className="bg-ink/95">
+              <div key={s.l} className="bg-ink">
                 <StatCounter value={s.v} label={s.l} />
               </div>
             ))}
@@ -228,23 +162,43 @@ function HomePage() {
         </div>
       </section>
 
-      {/* CLIENT MARQUEE */}
-      <section className="border-b border-border bg-background py-10">
-
-        <p className="container mx-auto px-4 md:px-6 mb-6 text-center text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-          Approved vendor & trusted by
-        </p>
-        <Marquee
-          items={clientLogos.map((c) => (
-            <span
-              key={c}
-              className="font-display text-2xl md:text-3xl font-semibold tracking-[0.2em] text-muted-foreground/60 hover:text-foreground transition-colors"
-            >
-              {c}
-            </span>
-          ))}
-        />
+      {/* APPROVED VENDOR PLAQUES */}
+      <section className="border-b border-border bg-secondary/40">
+        <div className="container mx-auto px-4 md:px-6 py-14 md:py-16">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-accent">Approved Vendor</p>
+              <h2 className="mt-2 font-display text-2xl md:text-3xl font-semibold tracking-tight">
+                Registered with the Kingdom's industrial leaders
+              </h2>
+            </div>
+            <p className="text-sm text-muted-foreground max-w-md">
+              Pre-qualified specialty contractor across petrochemical, power, mining and infrastructure sectors.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 border border-border bg-border/40 gap-px">
+            {[
+              { mark: "SA", name: "SABIC", vendor: "507891" },
+              { mark: "AR", name: "Saudi Aramco", vendor: "10059513" },
+              { mark: "SE", name: "Saudi Electricity", vendor: "Reg." },
+              { mark: "MA", name: "Ma'aden", vendor: "Approved" },
+              { mark: "SC", name: "S-Chem", vendor: "Approved" },
+              { mark: "KJ", name: "KJO", vendor: "Approved" },
+            ].map((c) => (
+              <div key={c.name} className="bg-background p-5 md:p-6 flex items-center gap-4 hover:bg-card transition-colors group">
+                <div className="h-12 w-12 shrink-0 flex items-center justify-center bg-ink text-ink-foreground font-display font-semibold text-sm tracking-wider group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+                  {c.mark}
+                </div>
+                <div className="min-w-0">
+                  <p className="font-display font-semibold text-sm leading-tight truncate">{c.name}</p>
+                  <p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground mt-0.5">#{c.vendor}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
+
 
       {/* INTRO — split with image */}
       <section className="container mx-auto px-4 md:px-6 py-24 md:py-32">
