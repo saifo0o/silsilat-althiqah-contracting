@@ -40,8 +40,8 @@
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
   --shadow-elegant: 0 30px 80px -20px color-mix(in oklab, var(--primary) 35%, transparent);
   --shadow-glow: 0 0 0 1px color-mix(in oklab, var(--accent) 20%, transparent), 0 20px 60px -20px color-mix(in oklab, var(--accent) 30%, transparent);
-  --gradient-hero: linear-gradient(135deg, oklch(0.14 0.04 240) 0%, oklch(0.22 0.07 230) 60%, oklch(0.30 0.10 200) 100%);
-  --gradient-accent: linear-gradient(135deg, oklch(0.78 0.16 195) 0%, oklch(0.68 0.18 145) 100%);
+  --gradient-hero: linear-gradient(135deg, oklch(0.16 0.012 60) 0%, oklch(0.22 0.018 55) 60%, oklch(0.30 0.04 47) 100%);
+  --gradient-accent: linear-gradient(135deg, oklch(0.68 0.19 47) 0%, oklch(0.58 0.16 35) 100%);
   --gradient-radial: radial-gradient(circle at 30% 20%, color-mix(in oklab, var(--accent) 25%, transparent), transparent 60%);
 }
 
