@@ -533,14 +533,14 @@ function HomePage() {
         <Reveal>
           <div className="relative overflow-hidden rounded-3xl bg-ink text-ink-foreground px-8 py-16 md:px-16 md:py-24">
             <img
-              src={hero}
+              src={aerial}
               alt=""
-              className="absolute inset-0 h-full w-full object-cover opacity-25"
+              className="absolute inset-0 h-full w-full object-cover opacity-35"
               loading="lazy"
               width={1920}
-              height={1088}
+              height={1080}
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-ink via-ink/85 to-ink/40" />
+            <div className="absolute inset-0 bg-gradient-to-br from-ink via-ink/85 to-ink/30" />
             <div className="absolute -top-32 -end-32 h-96 w-96 rounded-full bg-accent/30 blur-[120px]" />
             <div className="relative max-w-2xl">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-ink-foreground/70">
