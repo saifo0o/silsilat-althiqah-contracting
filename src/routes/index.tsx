@@ -20,7 +20,6 @@ import {
   ChevronRight,
 } from "lucide-react";
 import hero from "@/assets/hero-refinery.jpg";
-import heroDetail from "@/assets/hero-detail.jpg";
 import aerial from "@/assets/aerial-plant.jpg";
 import ogImage from "@/assets/og-image.jpg";
 import carbon from "@/assets/service-carbon-fiber.jpg";
@@ -35,7 +34,6 @@ import project3 from "@/assets/project-3.jpg";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { StatCounter } from "@/components/site/StatCounter";
-import { Marquee } from "@/components/site/Marquee";
 import { Button } from "@/components/ui/button";
 
 type ProjectItem = { title: string; client: string; location: string; period: string };
