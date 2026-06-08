@@ -89,61 +89,135 @@ function HomePage() {
 
   return (
     <>
-      {/* HERO — cinematic full-bleed */}
+      {/* HERO — cinematic split */}
       <section className="relative isolate overflow-hidden bg-ink text-ink-foreground">
+        {/* Background layers */}
         <img
           src={hero}
           alt=""
-          className="absolute inset-0 h-full w-full object-cover opacity-50"
+          className="absolute inset-0 h-full w-full object-cover opacity-45 scale-105 motion-safe:animate-[heroPan_28s_ease-in-out_infinite_alternate]"
           width={1920}
           height={1088}
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/70 to-ink" />
-        <div className="absolute inset-0 grid-pattern opacity-[0.08] text-ink-foreground" />
-        <div className="absolute -bottom-32 start-1/4 h-96 w-96 rounded-full bg-accent/30 blur-[120px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/75 to-ink" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-transparent" />
+        <div className="absolute inset-0 grid-pattern opacity-[0.07] text-ink-foreground" />
+        <div className="absolute -top-32 -start-32 h-[28rem] w-[28rem] rounded-full bg-accent/25 blur-[140px]" />
+        <div className="absolute -bottom-40 end-1/4 h-[24rem] w-[24rem] rounded-full bg-[color:var(--safety)]/20 blur-[140px]" />
 
-        <div className="relative container mx-auto px-4 md:px-6 pt-28 pb-24 md:pt-36 md:pb-32 lg:pt-44 lg:pb-40">
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-ink-foreground/80 backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-              {t("home.heroEyebrow")}
+        <div className="relative container mx-auto px-4 md:px-6 pt-24 pb-20 md:pt-32 md:pb-28 lg:pt-40 lg:pb-32">
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+            {/* Copy column */}
+            <div className="lg:col-span-7 xl:col-span-7">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-ink-foreground/85 backdrop-blur animate-fade-in">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-accent opacity-75 animate-ping" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
+                </span>
+                {t("home.heroEyebrow")}
+              </div>
+
+              <h1 className="mt-7 font-display font-semibold leading-[1.0] tracking-tight text-balance text-[clamp(2.75rem,7.4vw,5.75rem)]">
+                <span className="block opacity-0 motion-safe:animate-[heroLine_0.9s_ease-out_0.05s_forwards]">
+                  {t("home.heroTitle")}
+                </span>
+              </h1>
+
+              {/* kinetic accent line */}
+              <div className="mt-8 flex items-center gap-4">
+                <span className="h-px w-12 bg-gradient-to-r from-transparent via-accent to-accent/0" />
+                <span className="text-[11px] uppercase tracking-[0.24em] text-accent">
+                  Carbon Fiber · Epoxy · Steel · Piping · Concrete
+                </span>
+              </div>
+
+              <p className="mt-7 max-w-2xl text-base md:text-lg text-ink-foreground/75 leading-relaxed">
+                {t("home.heroSubtitle")}
+              </p>
+
+              <div className="mt-10 flex flex-wrap items-center gap-3">
+                <Button
+                  asChild
+                  size="lg"
+                  className="group rounded-full bg-accent text-accent-foreground hover:bg-accent/90 shadow-glow px-7 h-12"
+                >
+                  <Link to="/services">
+                    {t("home.heroCtaPrimary")}
+                    <ArrowRight className="h-4 w-4 ms-2 rtl:rotate-180 transition-transform group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5" />
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full border-white/25 bg-white/5 text-ink-foreground hover:bg-white/10 hover:text-ink-foreground px-7 h-12"
+                >
+                  <Link to="/contact">{t("home.heroCtaSecondary")}</Link>
+                </Button>
+              </div>
+
+              <p className="mt-10 flex items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-ink-foreground/55">
+                <BadgeCheck className="h-4 w-4 text-accent" />
+                {t("home.heroBadge")}
+              </p>
             </div>
-            <h1 className="mt-6 font-display text-[clamp(2.5rem,7vw,5.5rem)] font-semibold leading-[1.02] tracking-tight text-balance">
-              {t("home.heroTitle")}
-            </h1>
-            <p className="mt-7 max-w-2xl text-base md:text-lg text-ink-foreground/75 leading-relaxed">
-              {t("home.heroSubtitle")}
-            </p>
-            <div className="mt-10 flex flex-wrap gap-3">
-              <Button
-                asChild
-                size="lg"
-                className="rounded-full bg-accent text-accent-foreground hover:bg-accent/90 shadow-glow px-6"
-              >
-                <Link to="/services">
-                  {t("home.heroCtaPrimary")}
-                  <ArrowRight className="h-4 w-4 ms-2 rtl:rotate-180" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="rounded-full border-white/25 bg-white/5 text-ink-foreground hover:bg-white/10 px-6"
-              >
-                <Link to="/contact">{t("home.heroCtaSecondary")}</Link>
-              </Button>
+
+            {/* Visual column */}
+            <div className="lg:col-span-5 xl:col-span-5 relative hidden lg:block">
+              <div className="relative">
+                {/* main detail image */}
+                <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-elegant aspect-[4/5] motion-safe:animate-[heroFloat_8s_ease-in-out_infinite]">
+                  <img
+                    src={heroDetail}
+                    alt="Carbon fiber composite reinforcement being applied to an industrial concrete column"
+                    className="h-full w-full object-cover"
+                    width={1024}
+                    height={1280}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-6">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent">Live · Field 03</p>
+                    <p className="mt-1 font-display text-lg font-semibold text-ink-foreground">CFRP wrap · Jubail</p>
+                  </div>
+                  <div className="absolute top-4 end-4 inline-flex items-center gap-1.5 rounded-full bg-black/40 backdrop-blur px-2.5 py-1 text-[10px] uppercase tracking-wider text-ink-foreground/90 border border-white/10">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--safety)] animate-pulse" />
+                    On site
+                  </div>
+                </div>
+
+                {/* floating credential card */}
+                <div className="absolute -start-8 top-10 hidden xl:flex flex-col rounded-2xl border border-white/10 bg-ink/85 backdrop-blur-xl px-5 py-4 shadow-elegant motion-safe:animate-[heroFloat_9s_ease-in-out_infinite_-2s]">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent">Vendor #507891</p>
+                  <p className="mt-1 font-display text-base font-semibold">SABIC approved</p>
+                  <p className="text-[11px] text-ink-foreground/60">Specialty contractor</p>
+                </div>
+
+                {/* floating metric */}
+                <div className="absolute -end-4 -bottom-6 rounded-2xl border border-white/10 bg-background text-foreground px-5 py-4 shadow-elegant motion-safe:animate-[heroFloat_10s_ease-in-out_infinite_-4s]">
+                  <p className="font-display text-3xl font-semibold leading-none" dir="ltr">12+</p>
+                  <p className="mt-1 text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Years of field delivery</p>
+                </div>
+
+                {/* glow rings */}
+                <div className="pointer-events-none absolute -inset-10 -z-10">
+                  <div className="absolute inset-0 rounded-[2rem] bg-accent/10 blur-3xl" />
+                </div>
+              </div>
             </div>
-            <p className="mt-10 flex items-center gap-3 text-xs uppercase tracking-[0.18em] text-ink-foreground/55">
-              <BadgeCheck className="h-4 w-4 text-accent" />
-              {t("home.heroBadge")}
-            </p>
+          </div>
+
+          {/* scroll indicator */}
+          <div className="hidden md:flex absolute bottom-6 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 flex-col items-center gap-2 text-ink-foreground/50">
+            <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
+            <span className="relative block h-10 w-px overflow-hidden bg-white/10">
+              <span className="absolute inset-x-0 top-0 h-4 bg-accent motion-safe:animate-[scrollDot_2.4s_ease-in-out_infinite]" />
+            </span>
           </div>
         </div>
 
         {/* Stats strip overlaying hero bottom */}
-        <div className="relative border-t border-white/10 bg-black/20 backdrop-blur-sm">
+        <div className="relative border-t border-white/10 bg-black/30 backdrop-blur-sm">
           <div className="container mx-auto px-4 md:px-6 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10">
             {stats.map((s) => (
               <div key={s.l} className="bg-ink/95">
@@ -156,6 +230,7 @@ function HomePage() {
 
       {/* CLIENT MARQUEE */}
       <section className="border-b border-border bg-background py-10">
+
         <p className="container mx-auto px-4 md:px-6 mb-6 text-center text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
           Approved vendor & trusted by
         </p>
