@@ -46,47 +46,48 @@
 }
 
 :root {
-  --radius: 0.875rem;
+  --radius: 0.625rem;
   --font-sans: "Manrope", "Inter", system-ui, sans-serif;
   --font-display: "Sora", "Manrope", system-ui, sans-serif;
   --font-arabic: "IBM Plex Sans Arabic", "Manrope", system-ui, sans-serif;
 
-  --background: oklch(0.99 0.005 240);
-  --foreground: oklch(0.16 0.03 245);
+  /* Warm concrete / sand background, asphalt foreground */
+  --background: oklch(0.975 0.008 75);
+  --foreground: oklch(0.18 0.015 60);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.16 0.03 245);
+  --card-foreground: oklch(0.18 0.015 60);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.16 0.03 245);
+  --popover-foreground: oklch(0.18 0.015 60);
 
-  /* Deep ink-navy primary */
-  --primary: oklch(0.20 0.06 245);
-  --primary-foreground: oklch(0.98 0.005 240);
+  /* Asphalt charcoal primary */
+  --primary: oklch(0.22 0.015 60);
+  --primary-foreground: oklch(0.98 0.005 75);
 
-  /* Steel surface */
-  --secondary: oklch(0.965 0.008 240);
-  --secondary-foreground: oklch(0.22 0.05 245);
-  --steel: oklch(0.93 0.012 240);
-  --steel-foreground: oklch(0.22 0.05 245);
+  /* Sand/concrete secondary surface */
+  --secondary: oklch(0.94 0.012 75);
+  --secondary-foreground: oklch(0.22 0.015 60);
+  --steel: oklch(0.90 0.012 70);
+  --steel-foreground: oklch(0.22 0.015 60);
 
-  --muted: oklch(0.965 0.008 240);
-  --muted-foreground: oklch(0.48 0.025 245);
+  --muted: oklch(0.94 0.012 75);
+  --muted-foreground: oklch(0.45 0.015 60);
 
-  /* Electric cyan accent (Petrochemical Noir) */
-  --accent: oklch(0.78 0.15 200);
-  --accent-foreground: oklch(0.13 0.04 245);
+  /* Safety orange accent — high-visibility, contractor energy */
+  --accent: oklch(0.68 0.19 47);
+  --accent-foreground: oklch(0.99 0.005 75);
 
-  /* Safety green secondary accent (logo) */
-  --safety: oklch(0.70 0.18 148);
+  /* Safety green secondary accent (existing logo) */
+  --safety: oklch(0.66 0.16 148);
 
-  /* Near-black ink for hero/dark sections */
-  --ink: oklch(0.12 0.025 245);
-  --ink-foreground: oklch(0.98 0.005 240);
+  /* Asphalt ink for dark sections */
+  --ink: oklch(0.16 0.012 60);
+  --ink-foreground: oklch(0.97 0.008 75);
 
-  --destructive: oklch(0.62 0.22 27);
-  --destructive-foreground: oklch(0.98 0.005 240);
-  --border: oklch(0.9 0.012 240);
-  --input: oklch(0.9 0.012 240);
-  --ring: oklch(0.55 0.1 220);
+  --destructive: oklch(0.6 0.22 27);
+  --destructive-foreground: oklch(0.98 0.005 75);
+  --border: oklch(0.88 0.012 70);
+  --input: oklch(0.88 0.012 70);
+  --ring: oklch(0.55 0.15 47);
 }
 
 .dark {
