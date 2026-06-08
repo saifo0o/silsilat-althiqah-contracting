@@ -67,7 +67,7 @@ const projectImages = [project1, project2, project3];
 const whyIcons = { specialist: HardHat, compliance: BadgeCheck, safety: ShieldCheck, speed: Zap };
 const processIcons = [Search, PenTool, Hammer, FileCheck];
 
-const clientLogos = ["SABIC", "ARAMCO", "MAADEN", "SEC", "SAFCO", "S-CHEM", "SAHARA", "KJO"];
+
 
 function HomePage() {
   const { t } = useTranslation();
