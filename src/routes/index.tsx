@@ -20,6 +20,8 @@ import {
   ChevronRight,
 } from "lucide-react";
 import hero from "@/assets/hero-refinery.jpg";
+import heroDetail from "@/assets/hero-detail.jpg";
+import aerial from "@/assets/aerial-plant.jpg";
 import ogImage from "@/assets/og-image.jpg";
 import carbon from "@/assets/service-carbon-fiber.jpg";
 import epoxy from "@/assets/service-epoxy.jpg";
