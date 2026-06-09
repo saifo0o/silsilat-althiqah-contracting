@@ -1,534 +1,363 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import {
-  ArrowRight,
-  ShieldCheck,
-  Layers,
-  Wrench,
-  Droplet,
-  Gauge,
-  FlaskConical,
-  Package,
-  BadgeCheck,
-  HardHat,
-  Zap,
-  Search,
-  PenTool,
-  Hammer,
-  FileCheck,
-  MapPin,
-  ChevronRight,
+  ArrowRight, ArrowUpRight, ShieldCheck, Building2, Wrench, Droplet, Package,
+  Users, TrendingUp, Gauge, HardHat, ChevronLeft, ChevronRight, Award, Leaf, HeartHandshake,
 } from "lucide-react";
+import { useState } from "react";
 import hero from "@/assets/hero-refinery.jpg";
-import aerial from "@/assets/aerial-plant.jpg";
-import ogImage from "@/assets/og-image.jpg";
-import carbon from "@/assets/service-carbon-fiber.jpg";
-import epoxy from "@/assets/service-epoxy.jpg";
-import concrete from "@/assets/service-concrete.jpg";
-import piping from "@/assets/service-piping.jpg";
-
-import about from "@/assets/about-engineers.jpg";
-import project1 from "@/assets/project-1.jpg";
-import project2 from "@/assets/project-2.jpg";
-import project3 from "@/assets/project-3.jpg";
-import { SectionHeading } from "@/components/site/SectionHeading";
+import beforePipe from "@/assets/before-pipe.jpg";
+import afterPipe from "@/assets/after-pipe.jpg";
+import projOilGas from "@/assets/project-oilgas.jpg";
+import projPetro from "@/assets/project-petrochem.jpg";
+import projIndustrial from "@/assets/project-industrial.jpg";
+import projPower from "@/assets/project-power.jpg";
+import tileStructural from "@/assets/service-concrete.jpg";
+import tilePiping from "@/assets/service-piping.jpg";
+import tileCoatings from "@/assets/service-epoxy.jpg";
+import tileSupply from "@/assets/service-steel.jpg";
 import { Reveal } from "@/components/site/Reveal";
-import { StatCounter } from "@/components/site/StatCounter";
 import { Button } from "@/components/ui/button";
-
-type ProjectItem = { title: string; client: string; location: string; period: string };
+import { SabicLogo, AramcoLogo, MaadenLogo, SipchemLogo, YasrefLogo, SecLogo } from "@/components/site/ClientLogos";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Seema — Structural Rehabilitation & Industrial Services" },
-      { name: "description", content: "Carbon fiber reinforcement, concrete & steel repair, process piping rehabilitation and corrosion-grade epoxy coatings for the Kingdom's industry." },
-      { property: "og:title", content: "Seema — Structural Rehabilitation & Industrial Services" },
-      { property: "og:description", content: "Specialised engineered services for Saudi Arabia's industrial sector." },
-      { property: "og:image", content: ogImage },
+      { title: "SEEMA — Reduce Downtime. Extend Asset Life. Protect What Matters." },
+      { name: "description", content: "SEEMA delivers advanced engineering solutions for structural rehabilitation, pipe repair, and industrial protection across Saudi Arabia." },
+      { property: "og:title", content: "SEEMA — Engineered Industrial Services" },
+      { property: "og:description", content: "Advanced engineering solutions for the Kingdom's heaviest industries." },
       { property: "og:url", content: "/" },
-      { name: "twitter:image", content: ogImage },
     ],
     links: [{ rel: "canonical", href: "/" }],
   }),
   component: HomePage,
 });
 
-const heroServices = [
-  { key: "carbon", Icon: Layers, img: carbon },
-  { key: "piping", Icon: Gauge, img: piping },
-  { key: "epoxy", Icon: Droplet, img: epoxy },
-  { key: "concrete", Icon: Wrench, img: concrete },
-  { key: "acid", Icon: FlaskConical, img: null },
-  { key: "supplies", Icon: Package, img: null },
-] as const;
+const stats = [
+  { Icon: ShieldCheck, value: "14+", label: "Years of\nExcellence" },
+  { Icon: Users, value: "500+", label: "Projects\nCompleted" },
+  { Icon: TrendingUp, value: "72%", label: "Average Downtime\nReduction" },
+  { Icon: Gauge, value: "2M+", label: "m² Assets\nProtected" },
+  { Icon: HardHat, value: "0", label: "Compromise on\nSafety" },
+];
 
-const projectImages = [project1, project2, project3];
-const whyIcons = { specialist: HardHat, compliance: BadgeCheck, safety: ShieldCheck, speed: Zap };
-const processIcons = [Search, PenTool, Hammer, FileCheck];
+const tiles = [
+  { Icon: Building2, title: "Structural Rehabilitation", body: "Strengthening and repair of concrete and steel structures using advanced composites and epoxy systems.", img: tileStructural },
+  { Icon: Wrench, title: "Process Pipe Repair", body: "In-situ pipe repair and corrosion restoration solutions that eliminate shutdowns and extend life.", img: tilePiping },
+  { Icon: Droplet, title: "Industrial Coatings & Protection", body: "High-performance coatings, linings and waterproofing for extreme environments.", img: tileCoatings },
+  { Icon: Package, title: "Industrial Material Supply", body: "Supplying premium quality industrial materials from trusted global manufacturers.", img: tileSupply },
+];
 
+const projects = [
+  { tag: "OIL & GAS", tagColor: "bg-orange-400 text-ink", title: "Pipeline Rehabilitation", location: "Khafji, KSA", img: projOilGas, k1: "Duration", v1: "7 Days", k2: "Downtime Reduced", v2: "68%" },
+  { tag: "PETROCHEMICAL", tagColor: "bg-accent text-accent-foreground", title: "Concrete Strengthening", location: "SATORP, Jubail", img: projPetro, k1: "Duration", v1: "12 Days", k2: "Life Extended", v2: "20+ Years" },
+  { tag: "INDUSTRIAL", tagColor: "bg-sky-400 text-ink", title: "Tank Coating Project", location: "Industrial Port, KSA", img: projIndustrial, k1: "Area Coated", v1: "25,000 m²", k2: "System", v2: "Epoxy Novolac" },
+  { tag: "POWER", tagColor: "bg-yellow-400 text-ink", title: "Roof Waterproofing", location: "Power Plant, KSA", img: projPower, k1: "Area Protected", v1: "18,500 m²", k2: "System", v2: "Polyurethane" },
+];
 
+const clientLogos = [
+  { Comp: AramcoLogo }, { Comp: SabicLogo }, { Comp: MaadenLogo },
+  { Comp: SipchemLogo }, { Comp: YasrefLogo }, { Comp: SecLogo },
+];
+
+const certs = [
+  { Icon: Award, code: "ISO 9001:2015", label: "Quality Management" },
+  { Icon: Leaf, code: "ISO 14001:2015", label: "Environmental Management" },
+  { Icon: ShieldCheck, code: "ISO 45001:2018", label: "Occupational Health & Safety" },
+  { Icon: HeartHandshake, code: "SABIC / Aramco / Ma'aden", label: "Approved Vendor" },
+];
 
 function HomePage() {
   const { t } = useTranslation();
-  const allProjects = t("projects.items", { returnObjects: true }) as ProjectItem[];
-  const featured = allProjects.slice(0, 3);
-
-  const stats = [
-    { v: t("home.stats.yearsValue"), l: t("home.stats.yearsLabel") },
-    { v: t("home.stats.projectsValue"), l: t("home.stats.projectsLabel") },
-    { v: t("home.stats.partnersValue"), l: t("home.stats.partnersLabel") },
-    { v: t("home.stats.sectorsValue"), l: t("home.stats.sectorsLabel") },
-  ];
-
-  const whyKeys = ["specialist", "compliance", "safety", "speed"] as const;
-  const processKeys = [1, 2, 3, 4] as const;
-  const sectors = t("clients.sectors", { returnObjects: true }) as string[];
+  const [projIdx, setProjIdx] = useState(0);
 
   return (
     <>
-      {/* HERO — grounded industrial editorial */}
+      {/* HERO */}
       <section className="relative isolate overflow-hidden bg-ink text-ink-foreground">
-        <img
-          src={hero}
-          alt=""
-          className="absolute inset-0 h-full w-full object-cover opacity-70"
-          width={1920}
-          height={1080}
-          fetchPriority="high"
-        />
-        {/* Layered overlays for readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/70 to-ink/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
+        <img src={hero} alt="" className="absolute inset-0 h-full w-full object-cover opacity-55" width={1920} height={1080} fetchPriority="high" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/40" />
 
-        <div className="relative container mx-auto px-4 md:px-6 pt-24 pb-24 md:pt-32 md:pb-28 lg:pt-40 lg:pb-36">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2.5 border-s-2 border-accent ps-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-foreground/85">
-              <span className="font-mono text-accent">EST. 2013</span>
-              <span className="h-1 w-1 rounded-full bg-ink-foreground/40" />
-              <span>{t("home.heroEyebrow")}</span>
+        <div className="relative container mx-auto px-4 md:px-6 pt-16 pb-10 md:pt-24 md:pb-16 lg:pt-28">
+          <div className="grid lg:grid-cols-12 gap-8 lg:items-start">
+            <div className="lg:col-span-8">
+              <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-accent">
+                Engineered Solutions. Measurable Impact.
+              </p>
+              <h1 className="mt-6 font-display font-bold leading-[0.98] tracking-tight text-balance text-[clamp(2.5rem,6.5vw,5.25rem)]">
+                Reduce Downtime.<br />
+                Extend Asset Life.<br />
+                <span className="text-accent">Protect What Matters.</span>
+              </h1>
+              <p className="mt-7 max-w-xl text-base md:text-lg text-ink-foreground/75 leading-relaxed">
+                SEEMA delivers advanced engineering solutions for structural rehabilitation,
+                pipe repair, and industrial protection to maximize reliability, safety,
+                and performance.
+              </p>
+              <div className="mt-9 flex flex-wrap items-center gap-3">
+                <Button asChild size="lg" className="group rounded-sm bg-accent text-accent-foreground hover:bg-accent/90 px-7 h-12 font-bold uppercase tracking-wider text-xs">
+                  <Link to="/services">
+                    Our Solutions
+                    <ArrowRight className="h-4 w-4 ms-2 rtl:rotate-180 transition-transform group-hover:translate-x-0.5" />
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="rounded-sm border-white/30 bg-transparent text-ink-foreground hover:bg-white/10 hover:text-ink-foreground px-7 h-12 font-bold uppercase tracking-wider text-xs">
+                  <Link to="/contact">Talk to an Expert</Link>
+                </Button>
+              </div>
             </div>
 
-            <h1 className="mt-7 font-display font-semibold leading-[0.98] tracking-tight text-balance text-[clamp(2.75rem,7.4vw,5.75rem)]">
-              {t("home.heroTitle")}
-            </h1>
-
-            <p className="mt-7 max-w-2xl text-base md:text-lg text-ink-foreground/80 leading-relaxed">
-              {t("home.heroSubtitle")}
-            </p>
-
-            <div className="mt-9 flex flex-wrap items-center gap-3">
-              <Button
-                asChild
-                size="lg"
-                className="group rounded-none bg-accent text-accent-foreground hover:bg-accent/90 px-7 h-12 font-semibold uppercase tracking-wider text-xs"
-              >
-                <Link to="/services">
-                  {t("home.heroCtaPrimary")}
-                  <ArrowRight className="h-4 w-4 ms-2 rtl:rotate-180 transition-transform group-hover:translate-x-0.5" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="rounded-none border-white/30 bg-transparent text-ink-foreground hover:bg-white/10 hover:text-ink-foreground px-7 h-12 font-semibold uppercase tracking-wider text-xs"
-              >
-                <Link to="/contact">{t("home.heroCtaSecondary")}</Link>
-              </Button>
-            </div>
-
-            {/* Capabilities strip — clearly says what we do */}
-            <div className="mt-12 flex flex-wrap gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.18em] text-ink-foreground/65">
-              {["Carbon Fiber Reinforcement", "Concrete Repair", "Steel Rehabilitation", "Process Piping", "Epoxy Coatings"].map((c, i) => (
-                <span key={c} className="flex items-center gap-2">
-                  {i > 0 && <span className="h-3 w-px bg-ink-foreground/20" />}
-                  {c}
-                </span>
-              ))}
+            {/* 24/7 badge */}
+            <div className="lg:col-span-4 lg:justify-self-end">
+              <div className="border border-accent/60 bg-ink/40 backdrop-blur rounded-sm p-5 w-full max-w-[240px]">
+                <p className="font-display text-4xl font-bold text-accent leading-none">24/7</p>
+                <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.18em] text-ink-foreground">Emergency<br />Response</p>
+                <ArrowUpRight className="mt-4 h-4 w-4 text-accent" />
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Stats strip overlaying hero bottom */}
-        <div className="relative border-t border-white/10 bg-black/40 backdrop-blur-sm">
-          <div className="container mx-auto px-4 md:px-6 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10">
+          {/* Stats bar */}
+          <div className="mt-12 md:mt-16 rounded-sm border border-white/15 bg-ink/60 backdrop-blur grid grid-cols-2 md:grid-cols-5 divide-y md:divide-y-0 md:divide-x divide-white/10">
             {stats.map((s) => (
-              <div key={s.l} className="bg-ink">
-                <StatCounter value={s.v} label={s.l} />
+              <div key={s.label} className="flex items-center gap-4 px-5 py-5">
+                <div className="h-11 w-11 rounded-sm border border-accent/40 flex items-center justify-center shrink-0">
+                  <s.Icon className="h-5 w-5 text-accent" />
+                </div>
+                <div>
+                  <p className="font-display text-2xl font-bold text-accent leading-none">{s.value}</p>
+                  <p className="mt-1.5 text-[11px] text-ink-foreground/75 leading-tight whitespace-pre-line">{s.label}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* APPROVED VENDOR PLAQUES */}
-      <section className="border-b border-border bg-secondary/40">
-        <div className="container mx-auto px-4 md:px-6 py-14 md:py-16">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-accent">Approved Vendor</p>
-              <h2 className="mt-2 font-display text-2xl md:text-3xl font-semibold tracking-tight">
-                Registered with the Kingdom's industrial leaders
+      {/* EXPERTISE */}
+      <section className="bg-secondary/50 border-b border-border">
+        <div className="container mx-auto px-4 md:px-6 py-20 md:py-28">
+          <div className="grid lg:grid-cols-12 gap-8 lg:items-end">
+            <div className="lg:col-span-7">
+              <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-accent-foreground bg-accent inline-block px-2 py-1">OUR EXPERTISE</p>
+              <h2 className="mt-5 font-display text-3xl md:text-5xl font-bold leading-[1.05] tracking-tight text-balance">
+                Specialized Solutions for<br />Critical Assets
               </h2>
             </div>
-            <p className="text-sm text-muted-foreground max-w-md">
-              Pre-qualified specialty contractor across petrochemical, power, mining and infrastructure sectors.
-            </p>
+            <div className="lg:col-span-5">
+              <p className="text-muted-foreground leading-relaxed">
+                From structure to process, we help industries overcome degradation,
+                corrosion, and wear — extending asset life with advanced repair
+                technologies and proven execution.
+              </p>
+              <Link to="/services" className="mt-4 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-foreground hover:text-accent-foreground hover:bg-accent transition-colors px-1 py-1">
+                Explore all services <ArrowRight className="h-3.5 w-3.5 rtl:rotate-180" />
+              </Link>
+            </div>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 border border-border bg-border/40 gap-px">
-            {[
-              { mark: "SA", name: "SABIC", vendor: "507891" },
-              { mark: "AR", name: "Saudi Aramco", vendor: "10059513" },
-              { mark: "SE", name: "Saudi Electricity", vendor: "Reg." },
-              { mark: "MA", name: "Ma'aden", vendor: "Approved" },
-              { mark: "SC", name: "S-Chem", vendor: "Approved" },
-              { mark: "KJ", name: "KJO", vendor: "Approved" },
-            ].map((c) => (
-              <div key={c.name} className="bg-background p-5 md:p-6 flex items-center gap-4 hover:bg-card transition-colors group">
-                <div className="h-12 w-12 shrink-0 flex items-center justify-center bg-ink text-ink-foreground font-display font-semibold text-sm tracking-wider group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
-                  {c.mark}
+
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {tiles.map((tile, idx) => (
+              <Reveal key={tile.title} delay={idx * 80} as="article" className="group bg-card rounded-sm overflow-hidden border border-border hover:shadow-elegant hover:-translate-y-1 transition-all">
+                <div className="relative h-44 overflow-hidden">
+                  <img src={tile.img} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" width={800} height={600} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/60 to-transparent" />
+                  <div className="absolute top-3 left-3 h-10 w-10 rounded-sm bg-card/95 backdrop-blur flex items-center justify-center">
+                    <tile.Icon className="h-5 w-5 text-foreground" />
+                  </div>
                 </div>
-                <div className="min-w-0">
-                  <p className="font-display font-semibold text-sm leading-tight truncate">{c.name}</p>
-                  <p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground mt-0.5">#{c.vendor}</p>
+                <div className="p-5">
+                  <h3 className="font-display text-lg font-bold leading-tight">{tile.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed line-clamp-3">{tile.body}</p>
+                  <Link to="/services" className="mt-4 inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-accent-foreground bg-accent px-2 py-1 group-hover:gap-2 transition-all">
+                    Learn more <ArrowRight className="h-3 w-3 rtl:rotate-180" />
+                  </Link>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-
-      {/* INTRO — split with image */}
-      <section className="container mx-auto px-4 md:px-6 py-24 md:py-32">
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
-          <Reveal className="lg:col-span-6">
-            <SectionHeading
-              eyebrow={t("home.intro.eyebrow")}
-              title={t("home.intro.title")}
-              subtitle={t("home.intro.body")}
-            />
-            <div className="mt-10 grid sm:grid-cols-3 gap-4">
-              {(["mission", "goal", "vision"] as const).map((k) => (
-                <div key={k} className="rounded-xl border border-border bg-card p-5">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent">
-                    {t(`values.${k}Title`)}
-                  </p>
-                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                    {t(`values.${k}Body`).split(".")[0]}.
-                  </p>
+      {/* BEFORE / AFTER */}
+      <section className="relative bg-ink text-ink-foreground overflow-hidden">
+        <div className="absolute inset-0 grid-pattern opacity-[0.04] text-ink-foreground" />
+        <div className="relative container mx-auto px-4 md:px-6 py-20 md:py-28">
+          <div className="grid lg:grid-cols-12 gap-10 lg:items-center">
+            <div className="lg:col-span-5">
+              <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-accent">PROVEN RESULTS. REAL IMPACT.</p>
+              <h2 className="mt-5 font-display text-3xl md:text-5xl font-bold leading-[1.05] tracking-tight">
+                Restoring Integrity.<br />Delivering Performance.
+              </h2>
+              <p className="mt-6 text-ink-foreground/75 leading-relaxed max-w-md">
+                Our engineered solutions extend asset life, improve safety and deliver
+                measurable value across the most demanding environments.
+              </p>
+              <Button asChild size="lg" className="mt-8 rounded-sm bg-accent text-accent-foreground hover:bg-accent/90 px-7 h-12 font-bold uppercase tracking-wider text-xs">
+                <Link to="/projects">
+                  View All Case Studies
+                  <ArrowRight className="h-4 w-4 ms-2 rtl:rotate-180" />
+                </Link>
+              </Button>
+            </div>
+            <div className="lg:col-span-7 grid grid-cols-2 gap-3 relative">
+              {[
+                { img: beforePipe, label: "BEFORE", body: "Severe corrosion and wall loss risking unplanned shutdown.", color: "bg-orange-500/90" },
+                { img: afterPipe, label: "AFTER", body: "Composite repair system restored integrity and extended life by 15+ Years", color: "bg-accent" },
+              ].map((it) => (
+                <div key={it.label} className="relative rounded-sm overflow-hidden aspect-[4/5] group">
+                  <img src={it.img} alt={it.label} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" width={800} height={1000} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-5">
+                    <span className={`inline-block px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider ${it.color === "bg-accent" ? "text-accent-foreground" : "text-white"} ${it.color}`}>{it.label}</span>
+                    <p className="mt-2 text-sm text-ink-foreground/90 leading-snug">{it.body}</p>
+                  </div>
                 </div>
               ))}
-            </div>
-          </Reveal>
-          <Reveal delay={150} className="lg:col-span-6">
-            <div className="relative">
-              <div className="absolute -inset-4 rounded-3xl bg-accent/10 blur-2xl" />
-              <div className="relative overflow-hidden rounded-2xl border border-border aspect-[4/3]">
-                <img
-                  src={about}
-                  alt="Seema engineers reviewing drawings on a Saudi industrial site"
-                  loading="lazy"
-                  className="h-full w-full object-cover"
-                  width={1600}
-                  height={1067}
-                />
-              </div>
-              <div className="absolute -bottom-6 start-6 rounded-2xl border border-border bg-background px-5 py-4 shadow-elegant">
-                <p className="font-display text-3xl font-semibold" dir="ltr">2013</p>
-                <p className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
-                  Operating since
-                </p>
+              {/* Center arrows */}
+              <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 flex items-center pointer-events-none">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-ink border border-white/20 shadow-elegant pointer-events-auto">
+                  <ChevronLeft className="h-4 w-4" />
+                  <ChevronRight className="h-4 w-4 -ms-1" />
+                </div>
               </div>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
-      {/* SERVICES — bento grid */}
-      <section className="relative bg-secondary/50 border-y border-border overflow-hidden">
-        <div className="absolute inset-0 grid-pattern opacity-[0.04] text-foreground" />
-        <div className="relative container mx-auto px-4 md:px-6 py-24 md:py-32">
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <SectionHeading
-              eyebrow={t("home.servicesEyebrow")}
-              title={t("home.servicesTitle")}
-              subtitle={t("home.servicesSubtitle")}
-            />
-            <Button asChild variant="outline" className="rounded-full shrink-0">
-              <Link to="/services">
-                {t("common.viewServices")}
-                <ArrowRight className="h-4 w-4 ms-2 rtl:rotate-180" />
+      {/* FEATURED PROJECTS */}
+      <section className="bg-background border-b border-border">
+        <div className="container mx-auto px-4 md:px-6 py-20 md:py-28">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-accent-foreground bg-accent inline-block px-2 py-1">FEATURED PROJECTS</p>
+              <h2 className="mt-5 font-display text-3xl md:text-5xl font-bold leading-[1.05] tracking-tight">
+                Delivering Complex Solutions<br />Across Critical Industries
+              </h2>
+            </div>
+            <div className="flex items-center gap-4">
+              <Link to="/projects" className="text-[11px] font-bold uppercase tracking-wider hover:text-accent-foreground hover:bg-accent transition-colors px-1 py-1">
+                View All Projects →
               </Link>
-            </Button>
+              <div className="flex gap-2">
+                <button onClick={() => setProjIdx((i) => Math.max(0, i - 1))} className="h-10 w-10 rounded-full border border-border flex items-center justify-center hover:border-accent hover:text-accent transition-colors" aria-label="Previous">
+                  <ChevronLeft className="h-4 w-4" />
+                </button>
+                <button onClick={() => setProjIdx((i) => Math.min(projects.length - 4, i + 1))} className="h-10 w-10 rounded-full border border-border flex items-center justify-center hover:border-accent hover:text-accent transition-colors" aria-label="Next">
+                  <ChevronRight className="h-4 w-4" />
+                </button>
+              </div>
+            </div>
           </div>
 
-          <div className="mt-14 grid gap-5 md:grid-cols-6 lg:grid-cols-12 auto-rows-[minmax(240px,auto)]">
-            {heroServices.map(({ key, Icon, img }, idx) => {
-              const spans = [
-                "md:col-span-3 lg:col-span-7 lg:row-span-2",
-                "md:col-span-3 lg:col-span-5",
-                "md:col-span-3 lg:col-span-5",
-                "md:col-span-3 lg:col-span-4",
-                "md:col-span-3 lg:col-span-4",
-                "md:col-span-6 lg:col-span-4",
-              ];
-              return (
-                <Reveal
-                  key={key}
-                  delay={idx * 80}
-                  as="article"
-                  className={`group relative overflow-hidden rounded-2xl border border-border bg-card transition-all hover:border-accent/40 hover:shadow-elegant ${spans[idx]}`}
-                >
-                  {img ? (
-                    <>
-                      <img
-                        src={img}
-                        alt=""
-                        loading="lazy"
-                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        width={1280}
-                        height={960}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/60 to-ink/10" />
-                      <div className="relative flex h-full flex-col justify-end p-6 md:p-8 text-ink-foreground">
-                        <div className="h-10 w-10 rounded-md bg-white/10 backdrop-blur text-accent flex items-center justify-center">
-                          <Icon className="h-5 w-5" />
-                        </div>
-                        <h3 className="mt-4 font-display text-xl md:text-2xl font-semibold leading-tight">
-                          {t(`services.items.${key}.title`)}
-                        </h3>
-                        <p className="mt-2 text-sm text-ink-foreground/75 max-w-md line-clamp-3">
-                          {t(`services.items.${key}.body`)}
-                        </p>
-                      </div>
-                    </>
-                  ) : (
-                    <div className="relative flex h-full flex-col p-6 md:p-8">
-                      <div className="h-10 w-10 rounded-md bg-accent/15 text-accent flex items-center justify-center">
-                        <Icon className="h-5 w-5" />
-                      </div>
-                      <h3 className="mt-4 font-display text-lg md:text-xl font-semibold leading-tight">
-                        {t(`services.items.${key}.title`)}
-                      </h3>
-                      <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                        {t(`services.items.${key}.body`)}
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {projects.map((p, idx) => (
+              <Reveal key={p.title} delay={idx * 80}>
+                <Link to="/projects" className="group block rounded-sm overflow-hidden bg-card border border-border hover:shadow-elegant hover:-translate-y-1 transition-all">
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img src={p.img} alt={p.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" width={1280} height={960} />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" />
+                    <span className={`absolute top-3 left-3 ${p.tagColor} text-[10px] font-bold uppercase tracking-wider px-2 py-1`}>{p.tag}</span>
+                    <div className="absolute inset-x-0 bottom-0 p-4 text-ink-foreground">
+                      <h3 className="font-display text-base font-bold leading-tight">{p.title}</h3>
+                      <p className="mt-1 text-[11px] text-ink-foreground/80 flex items-center gap-1">
+                        <span className="text-accent">●</span> {p.location}
                       </p>
-                      <div className="mt-auto pt-6 flex items-center gap-1 text-xs font-medium uppercase tracking-wider text-accent">
-                        {t("common.learnMore")}
-                        <ChevronRight className="h-3.5 w-3.5 rtl:rotate-180" />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 divide-x divide-border border-t border-border bg-card">
+                    <div className="p-4">
+                      <p className="text-[10px] uppercase tracking-wider text-muted-foreground">{p.k1}</p>
+                      <p className="mt-1 font-display font-bold text-sm">{p.v1}</p>
+                    </div>
+                    <div className="p-4 flex items-center justify-between gap-2">
+                      <div>
+                        <p className="text-[10px] uppercase tracking-wider text-muted-foreground">{p.k2}</p>
+                        <p className="mt-1 font-display font-bold text-sm">{p.v2}</p>
+                      </div>
+                      <div className="h-8 w-8 rounded-full bg-foreground text-background flex items-center justify-center group-hover:bg-accent group-hover:text-accent-foreground transition-colors shrink-0">
+                        <ArrowRight className="h-3.5 w-3.5 rtl:rotate-180" />
                       </div>
                     </div>
-                  )}
-                </Reveal>
-              );
-            })}
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* WHY US */}
-      <section className="container mx-auto px-4 md:px-6 py-24 md:py-32">
-        <Reveal>
-          <SectionHeading
-            eyebrow={t("home.whyEyebrow")}
-            title={t("home.whyTitle")}
-            subtitle={t("home.whySubtitle")}
-            align="center"
-            className="mb-16"
-          />
-        </Reveal>
-        <div className="grid gap-px bg-border rounded-2xl overflow-hidden border border-border">
-          {whyKeys.map((k, idx) => {
-            const Icon = whyIcons[k];
-            return (
-              <Reveal
-                key={k}
-                delay={idx * 80}
-                className="bg-card p-8 md:p-10 hover:bg-secondary/40 transition-colors"
-              >
-                <div className="grid gap-6 md:grid-cols-12 md:items-start">
-                  <div className="md:col-span-1">
-                    <p className="font-mono text-xs text-accent">0{idx + 1}</p>
-                  </div>
-                  <div className="md:col-span-3 flex items-center gap-3">
-                    <div className="h-10 w-10 rounded-lg bg-accent/15 text-accent flex items-center justify-center">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <h3 className="font-display text-lg font-semibold">
-                      {t(`home.why.${k}Title`)}
-                    </h3>
-                  </div>
-                  <p className="md:col-span-8 text-muted-foreground leading-relaxed">
-                    {t(`home.why.${k}Body`)}
-                  </p>
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* PROCESS — dark band */}
-      <section className="relative bg-ink text-ink-foreground border-y border-white/10 overflow-hidden">
-        <div className="absolute inset-0 grid-pattern opacity-[0.05] text-ink-foreground" />
-        <div className="absolute top-1/2 -translate-y-1/2 -start-32 h-96 w-96 rounded-full bg-accent/20 blur-[100px]" />
-        <div className="relative container mx-auto px-4 md:px-6 py-24 md:py-32">
-          <SectionHeading
-            eyebrow={t("home.processEyebrow")}
-            title={t("home.processTitle")}
-            invert
-          />
-          <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {processKeys.map((n, idx) => {
-              const Icon = processIcons[idx];
-              return (
-                <Reveal
-                  key={n}
-                  delay={idx * 100}
-                  className="relative rounded-2xl border border-white/10 bg-white/[0.03] p-7 backdrop-blur"
-                >
-                  <p className="font-mono text-xs text-accent">STEP 0{n}</p>
-                  <div className="mt-4 h-12 w-12 rounded-xl bg-accent/15 text-accent flex items-center justify-center">
-                    <Icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="mt-5 font-display text-xl font-semibold">
-                    {t(`home.process.step${n}Title`)}
-                  </h3>
-                  <p className="mt-3 text-sm text-ink-foreground/70 leading-relaxed">
-                    {t(`home.process.step${n}Body`)}
-                  </p>
-                </Reveal>
-              );
-            })}
+      {/* TRUSTED BY + CERTIFICATIONS */}
+      <section className="bg-ink text-ink-foreground">
+        <div className="container mx-auto px-4 md:px-6 py-16 md:py-20">
+          <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-ink-foreground/60">TRUSTED BY INDUSTRY LEADERS</p>
+          <div className="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 items-center gap-x-10 gap-y-8">
+            {clientLogos.map(({ Comp }, i) => (
+              <div key={i} className="h-12 text-ink-foreground/70 hover:text-accent transition-colors">
+                <Comp />
+              </div>
+            ))}
           </div>
-        </div>
-      </section>
 
-      {/* PROJECTS PREVIEW */}
-      <section className="container mx-auto px-4 md:px-6 py-24 md:py-32">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <SectionHeading
-            eyebrow={t("home.projectsEyebrow")}
-            title={t("home.projectsTitle")}
-          />
-          <Button asChild variant="outline" className="rounded-full shrink-0">
-            <Link to="/projects">
-              {t("common.viewProjects")}
-              <ArrowRight className="h-4 w-4 ms-2 rtl:rotate-180" />
-            </Link>
-          </Button>
-        </div>
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {featured.map((p, idx) => (
-            <Reveal key={idx} delay={idx * 100}>
-              <Link
-                to="/projects"
-                className="group block overflow-hidden rounded-2xl border border-border bg-card hover:shadow-elegant transition-all"
-              >
-                <div className="aspect-[4/3] overflow-hidden bg-muted relative">
-                  <img
-                    src={projectImages[idx]}
-                    alt=""
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    width={1280}
-                    height={960}
-                  />
-                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/80 to-transparent" />
-                  <span className="absolute top-4 start-4 rounded-full bg-background/95 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-foreground">
-                    {p.client}
-                  </span>
+          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 border border-white/10 rounded-sm divide-y sm:divide-y-0 sm:divide-x divide-white/10">
+            {certs.map((c) => (
+              <div key={c.code} className="flex items-center gap-4 p-5">
+                <div className="h-11 w-11 rounded-sm border border-accent/40 flex items-center justify-center shrink-0">
+                  <c.Icon className="h-5 w-5 text-accent" />
                 </div>
-                <div className="p-6">
-                  <p className="flex items-center gap-1.5 text-xs uppercase tracking-wider text-muted-foreground">
-                    <MapPin className="h-3 w-3" />
-                    {p.location} · <span dir="ltr">{p.period.split("–")[0]}</span>
-                  </p>
-                  <h3 className="mt-2 font-display text-lg font-semibold leading-snug group-hover:text-accent transition-colors line-clamp-2">
-                    {p.title}
-                  </h3>
+                <div className="min-w-0">
+                  <p className="font-display font-bold text-sm leading-tight">{c.code}</p>
+                  <p className="text-[11px] text-ink-foreground/65 mt-0.5">{c.label}</p>
                 </div>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* INDUSTRIES */}
-      <section className="bg-secondary/40 border-y border-border">
-        <div className="container mx-auto px-4 md:px-6 py-24 md:py-32">
-          <Reveal>
-            <SectionHeading
-              eyebrow={t("home.industriesEyebrow")}
-              title={t("home.industriesTitle")}
-              align="center"
-              className="mb-14"
-            />
-          </Reveal>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {sectors.map((s, idx) => (
-              <Reveal key={s} delay={idx * 50}>
-                <div className="group rounded-xl border border-border bg-background p-5 hover:border-accent/50 hover:bg-card hover:-translate-y-0.5 transition-all">
-                  <div className="flex items-center justify-between">
-                    <p className="font-medium">{s}</p>
-                    <ChevronRight className="h-4 w-4 text-muted-foreground/50 group-hover:text-accent rtl:rotate-180 transition-colors" />
-                  </div>
-                </div>
-              </Reveal>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="container mx-auto px-4 md:px-6 py-24 md:py-32">
-        <Reveal>
-          <div className="relative overflow-hidden rounded-3xl bg-ink text-ink-foreground px-8 py-16 md:px-16 md:py-24">
-            <img
-              src={aerial}
-              alt=""
-              className="absolute inset-0 h-full w-full object-cover opacity-35"
-              loading="lazy"
-              width={1920}
-              height={1080}
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-ink via-ink/85 to-ink/30" />
-            <div className="absolute -top-32 -end-32 h-96 w-96 rounded-full bg-accent/30 blur-[120px]" />
-            <div className="relative max-w-2xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-ink-foreground/70">
-                <MapPin className="h-3 w-3 text-accent" />
-                {t("home.ctaPill")}
-              </div>
-              <h2 className="mt-6 font-display text-3xl md:text-5xl font-semibold leading-[1.05] text-balance">
-                {t("home.ctaTitle")}
+      <section className="relative bg-ink text-ink-foreground overflow-hidden border-t border-white/10">
+        <div className="absolute inset-0 bg-hero-gradient opacity-90" />
+        <div className="absolute -bottom-32 -end-32 h-96 w-96 rounded-full bg-accent/15 blur-[120px]" />
+        <div className="relative container mx-auto px-4 md:px-6 py-20 md:py-24">
+          <div className="grid lg:grid-cols-12 gap-10 lg:items-center">
+            <div className="lg:col-span-6">
+              <h2 className="font-display text-3xl md:text-5xl font-bold leading-[1.05] tracking-tight text-balance">
+                Let's Build a More Reliable Future
               </h2>
-              <p className="mt-5 text-ink-foreground/75 text-lg max-w-xl">{t("home.ctaBody")}</p>
-              <div className="mt-9 flex flex-wrap gap-3">
-                <Button
-                  asChild
-                  size="lg"
-                  className="rounded-full bg-accent text-accent-foreground hover:bg-accent/90 shadow-glow px-6"
-                >
-                  <Link to="/contact">
-                    {t("home.ctaButton")}
-                    <ArrowRight className="h-4 w-4 ms-2 rtl:rotate-180" />
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="rounded-full border-white/25 bg-white/5 text-ink-foreground hover:bg-white/10 px-6"
-                >
-                  <a href="mailto:danny@seema.sa.com" dir="ltr">danny@seema.sa.com</a>
-                </Button>
-              </div>
+              <p className="mt-5 text-ink-foreground/75 max-w-lg leading-relaxed">
+                Partner with SEEMA for innovative engineering solutions that keep your assets performing at their best.
+              </p>
+              <Button asChild size="lg" className="mt-8 rounded-sm bg-accent text-accent-foreground hover:bg-accent/90 px-7 h-12 font-bold uppercase tracking-wider text-xs">
+                <Link to="/contact">
+                  Get in Touch
+                  <ArrowRight className="h-4 w-4 ms-2 rtl:rotate-180" />
+                </Link>
+              </Button>
+            </div>
+            <div className="lg:col-span-6 grid sm:grid-cols-3 gap-4">
+              {[
+                { Icon: HardHat, k: "LOCATION", v: "Jubail Industrial City,\nKingdom of Saudi Arabia" },
+                { Icon: Gauge, k: "PHONE", v: "+966 13 361 1661" },
+                { Icon: ShieldCheck, k: "EMAIL", v: "info@seema.sa.com" },
+              ].map((c) => (
+                <div key={c.k} className="border border-white/10 rounded-sm p-4 bg-white/[0.02]">
+                  <div className="h-9 w-9 rounded-sm border border-accent/40 flex items-center justify-center mb-3">
+                    <c.Icon className="h-4 w-4 text-accent" />
+                  </div>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-accent">{c.k}</p>
+                  <p className="mt-1 text-xs text-ink-foreground/85 whitespace-pre-line leading-snug">{c.v}</p>
+                </div>
+              ))}
             </div>
           </div>
-        </Reveal>
+        </div>
       </section>
+      {/* trans helper to avoid unused warning */}
+      <span className="hidden">{t("home.heroEyebrow")}</span>
     </>
   );
 }
