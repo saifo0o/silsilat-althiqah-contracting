@@ -1,12 +1,24 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { useState, type FormEvent } from "react";
-import { Mail, Phone, MapPin, Check, Printer, Send, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, MapPin, Check, Printer, Send, ArrowUpRight, Loader2 } from "lucide-react";
+import { z } from "zod";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/site/Reveal";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
+
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(200),
+  email: z.string().trim().email("Invalid email").max(320),
+  phone: z.string().trim().min(3, "Phone is required").max(50),
+  company: z.string().trim().max(200).optional().or(z.literal("")),
+  subject: z.string().trim().max(300).optional().or(z.literal("")),
+  message: z.string().trim().min(1, "Message is required").max(5000),
+});
 
 export const Route = createFileRoute("/contact")({
   head: () => ({

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://seema-contracting.lovable.app/sitemap.xml
