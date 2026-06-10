@@ -1,12 +1,24 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { useState, type FormEvent } from "react";
-import { Mail, Phone, MapPin, Check, Printer, Send, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, MapPin, Check, Printer, Send, ArrowUpRight, Loader2 } from "lucide-react";
+import { z } from "zod";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/site/Reveal";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
+
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(200),
+  email: z.string().trim().email("Invalid email").max(320),
+  phone: z.string().trim().min(3, "Phone is required").max(50),
+  company: z.string().trim().max(200).optional().or(z.literal("")),
+  subject: z.string().trim().max(300).optional().or(z.literal("")),
+  message: z.string().trim().min(1, "Message is required").max(5000),
+});
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -29,9 +41,39 @@ export const Route = createFileRoute("/contact")({
 function ContactPage() {
   const { t } = useTranslation();
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    const raw = {
+      name: String(fd.get("name") ?? ""),
+      email: String(fd.get("email") ?? ""),
+      phone: String(fd.get("phone") ?? ""),
+      company: String(fd.get("company") ?? ""),
+      subject: String(fd.get("subject") ?? ""),
+      message: String(fd.get("message") ?? ""),
+    };
+    const parsed = contactSchema.safeParse(raw);
+    if (!parsed.success) {
+      toast.error(parsed.error.issues[0]?.message ?? "Please check the form");
+      return;
+    }
+    setSubmitting(true);
+    const { error } = await supabase.from("contact_submissions").insert({
+      name: parsed.data.name,
+      email: parsed.data.email,
+      phone: parsed.data.phone,
+      company: parsed.data.company || null,
+      subject: parsed.data.subject || null,
+      message: parsed.data.message,
+    });
+    setSubmitting(false);
+    if (error) {
+      toast.error("Could not send your inquiry. Please try again.");
+      return;
+    }
     setSent(true);
   };
 
@@ -281,9 +323,14 @@ function ContactPage() {
                   <div className="mt-8 pt-6 border-t border-border flex justify-end">
                     <Button
                       type="submit"
+                      disabled={submitting}
                       className="rounded-sm bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold uppercase tracking-wider px-6 py-2.5"
                     >
-                      <Send className="h-3.5 w-3.5 me-2" />
+                      {submitting ? (
+                        <Loader2 className="h-3.5 w-3.5 me-2 animate-spin" />
+                      ) : (
+                        <Send className="h-3.5 w-3.5 me-2" />
+                      )}
                       {t("contact.form.submit")}
                     </Button>
                   </div>
