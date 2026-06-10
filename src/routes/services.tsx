@@ -49,6 +49,49 @@ export const Route = createFileRoute("/services")({
       { name: "twitter:image", content: carbon },
     ],
     links: [{ rel: "canonical", href: "/services" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "Can you work during a live plant shutdown?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. A large share of our CFRP and lining work is delivered inside operator turnaround (TAM) windows — including overnight and emergency mobilisations.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Do you work on pressurised process piping?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "We carry out in-service leak repair and CFRP reinforcement on pressurised lines, engineered to the defect and the service conditions.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Which acids are your linings rated for?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Our composite carbon fiber lining systems are rated for 98% sulfuric acid and 54% phosphoric acid concentrations.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Do you only execute or also sell materials?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Both. We supply CFRP fabric (unidirectional and multi-directional, 150–900 GSM) for maintenance teams that prefer in-house execution.",
+              },
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: ServicesPage,
 });

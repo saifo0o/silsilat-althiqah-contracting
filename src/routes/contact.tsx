@@ -34,6 +34,40 @@ export const Route = createFileRoute("/contact")({
       { property: "og:url", content: "/contact" },
     ],
     links: [{ rel: "canonical", href: "/contact" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "Seema General Contracting & Industrial Services Co.",
+          url: "https://seema-contracting.lovable.app/contact",
+          email: "info@seema.sa.com",
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+              opens: "08:00",
+              closes: "17:00",
+            },
+          ],
+          address: [
+            {
+              "@type": "PostalAddress",
+              streetAddress: "Jubail Industrial City",
+              addressLocality: "Jubail",
+              addressCountry: "SA",
+            },
+            {
+              "@type": "PostalAddress",
+              streetAddress: "Dammam",
+              addressLocality: "Dammam",
+              addressCountry: "SA",
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: ContactPage,
 });

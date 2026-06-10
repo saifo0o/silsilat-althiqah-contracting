@@ -140,7 +140,7 @@ export function SiteHeader() {
         <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
           <Link to="/" className="flex items-center gap-3 group" data-magnetic>
             <div className="bg-white/95 rounded-md p-1.5 transition-transform group-hover:scale-105">
-              <img src={logo} alt="Seema" className="h-9 w-auto" width={100} height={36} />
+              <img src={logo} alt="Seema General Contracting logo" className="h-9 w-auto" width={100} height={36} />
             </div>
             <div className="hidden sm:flex flex-col leading-tight">
               <span className="font-display text-base font-bold text-ink-foreground tracking-wide">
@@ -317,7 +317,7 @@ export function SiteHeader() {
                 <div className="flex h-20 items-center justify-between px-4 border-b border-white/10 shrink-0">
                   <div className="flex items-center gap-3">
                     <div className="bg-white/95 rounded-md p-1.5">
-                      <img src={logo} alt="Seema" className="h-9 w-auto" width={100} height={36} />
+                      <img src={logo} alt="Seema General Contracting logo" className="h-9 w-auto" width={100} height={36} />
                     </div>
                     <div className="flex flex-col leading-tight">
                       <span className="font-display text-base font-bold text-ink-foreground tracking-wide">

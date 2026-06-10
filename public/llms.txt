@@ -1,0 +1,18 @@
+# Seema General Contracting & Industrial Services
+
+> Saudi specialist in structural rehabilitation, carbon-fiber composite reinforcement (CFRP), process piping repair, industrial epoxy coatings, and acid-resistant linings for refineries, petrochemical plants, and heavy industry across the Kingdom.
+
+Seema (EST. 2013) delivers engineered repair solutions that reduce downtime and extend asset life for SABIC, Aramco, Ma'aden, SEC, SIPCHEM, YASREF, and other major industrial operators. Headquartered in Jubail with a branch office in Dammam.
+
+## Pages
+
+- [Home](/): Company overview, capabilities, and approved-vendor credentials.
+- [About](/about): History since 2013, mission, vision, leadership, and certifications.
+- [Services](/services): Carbon-fiber reinforcement, concrete and steel rehabilitation, process pipe repair, epoxy coatings, acid lining, expansion joints, waterproofing, and industrial supplies.
+- [Projects](/projects): Major orders completed for oil & gas, petrochemical, power, and industrial sectors.
+- [Clients](/clients): Approved vendor registrations and long-standing client partnerships.
+- [Contact](/contact): Jubail and Dammam office addresses, phone numbers, and inquiry form.
+
+## Optional
+
+- [Sitemap](/sitemap.xml): Machine-readable list of indexable pages.
