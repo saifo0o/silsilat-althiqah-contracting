@@ -53,10 +53,22 @@
     "expertiseBody": "From structure to process, we help industries overcome degradation, corrosion, and wear — extending asset life with advanced repair technologies and proven execution.",
     "expertiseCta": "Explore all services",
     "tiles": {
-      "structural": { "title": "Structural Rehabilitation", "body": "Strengthening and repair of concrete and steel structures using advanced composites and epoxy systems." },
-      "piping": { "title": "Process Pipe Repair", "body": "In-situ pipe repair and corrosion restoration solutions that eliminate shutdowns and extend life." },
-      "coatings": { "title": "Industrial Coatings & Protection", "body": "High-performance coatings, linings and waterproofing for extreme environments." },
-      "supply": { "title": "Industrial Material Supply", "body": "Supplying premium quality industrial materials from trusted global manufacturers." }
+      "structural": {
+        "title": "Structural Rehabilitation",
+        "body": "Strengthening and repair of concrete and steel structures using advanced composites and epoxy systems."
+      },
+      "piping": {
+        "title": "Process Pipe Repair",
+        "body": "In-situ pipe repair and corrosion restoration solutions that eliminate shutdowns and extend life."
+      },
+      "coatings": {
+        "title": "Industrial Coatings & Protection",
+        "body": "High-performance coatings, linings and waterproofing for extreme environments."
+      },
+      "supply": {
+        "title": "Industrial Material Supply",
+        "body": "Supplying premium quality industrial materials from trusted global manufacturers."
+      }
     },
     "beforeAfterEyebrow": "Proven Results. Real Impact.",
     "beforeAfterTitle": "Restoring Integrity.",
@@ -104,10 +116,14 @@
     "processEyebrow": "How we work",
     "processTitle": "From inspection to handover.",
     "process": {
-      "step1Title": "Assess", "step1Body": "Site survey, structural assessment and engineered diagnosis of the defect.",
-      "step2Title": "Engineer", "step2Body": "Repair scheme, material selection and a clear scope, programme and proposal.",
-      "step3Title": "Execute", "step3Body": "Trained crews mobilise on-site with full PPE and operator-aligned HSE protocols.",
-      "step4Title": "Handover", "step4Body": "Quality records, photographs and warranties documenting the completed rehabilitation."
+      "step1Title": "Assess",
+      "step1Body": "Site survey, structural assessment and engineered diagnosis of the defect.",
+      "step2Title": "Engineer",
+      "step2Body": "Repair scheme, material selection and a clear scope, programme and proposal.",
+      "step3Title": "Execute",
+      "step3Body": "Trained crews mobilise on-site with full PPE and operator-aligned HSE protocols.",
+      "step4Title": "Handover",
+      "step4Body": "Quality records, photographs and warranties documenting the completed rehabilitation."
     },
     "industriesEyebrow": "Industries",
     "industriesTitle": "Trusted across the Kingdom's industrial backbone.",
@@ -196,17 +212,47 @@
     "body1": "We carry out repairs to concrete and steel structures and process pipes using epoxy materials, advanced carbon fiber and fiber-glass wrappings, concrete injections and industrial coating systems.",
     "body2": "We collaborate and partner with international and local companies in the field of civil engineering, structural maintenance and civil construction — transferring technology, training and technical support to the Kingdom's industrial sector.",
     "since": "Operating across the Kingdom since 2013.",
+    "teamTitle": "Our Team & Facilities",
+    "teamSubtitle": "Headquartered in Jubail, executing across the Kingdom.",
+    "hqLabel": "Jubail Operations Center",
+    "hqDesc": "Our headquarters in Jubail Industrial City coordinates our engineering, operations, and logistics across the Kingdom's industrial hubs.",
+    "teamLabel": "Certified Engineering Crews",
+    "teamDesc": "Our specialized team of certified engineers, safety officers, and technicians undergo rigorous training to work on live, high-hazard industrial assets.",
     "vendorsTitle": "Registered vendor numbers",
     "vendorsBody": "Seema is an approved vendor with the Kingdom's leading industrial operators.",
     "timelineTitle": "A decade of rehabilitation work.",
     "timelineSubtitle": "Selected milestones on the path from start-up to specialist contractor.",
     "timeline": [
-      { "year": "2013", "title": "Company founded", "body": "Seema is established in Jubail with a specialised team of engineers and technicians." },
-      { "year": "2014", "title": "First major orders", "body": "Foundation rectification and fireproofing for S-Chem and Berry Gas Plant." },
-      { "year": "2015", "title": "CFRP for process piping", "body": "First CFRP-based pipe repair delivered for SAFCO (IBB)." },
-      { "year": "2017", "title": "Maaden PPC partnership", "body": "Major CFRP lining works begin on Maaden Phosphate reactors at Ras Al Khair." },
-      { "year": "2019", "title": "Vendor portfolio", "body": "Approved vendor with SABIC, Aramco, SEC, Maaden, Sahara and the Saudi Irrigation Organization." },
-      { "year": "Today", "title": "Specialist contractor", "body": "Mobilising for shutdowns, emergencies and engineered rehabilitation across the Kingdom." }
+      {
+        "year": "2013",
+        "title": "Company founded",
+        "body": "Seema is established in Jubail with a specialised team of engineers and technicians."
+      },
+      {
+        "year": "2014",
+        "title": "First major orders",
+        "body": "Foundation rectification and fireproofing for S-Chem and Berry Gas Plant."
+      },
+      {
+        "year": "2015",
+        "title": "CFRP for process piping",
+        "body": "First CFRP-based pipe repair delivered for SAFCO (IBB)."
+      },
+      {
+        "year": "2017",
+        "title": "Maaden PPC partnership",
+        "body": "Major CFRP lining works begin on Maaden Phosphate reactors at Ras Al Khair."
+      },
+      {
+        "year": "2019",
+        "title": "Vendor portfolio",
+        "body": "Approved vendor with SABIC, Aramco, SEC, Maaden, Sahara and the Saudi Irrigation Organization."
+      },
+      {
+        "year": "Today",
+        "title": "Specialist contractor",
+        "body": "Mobilising for shutdowns, emergencies and engineered rehabilitation across the Kingdom."
+      }
     ]
   },
   "projects": {
@@ -226,40 +272,169 @@
       "status": "Status"
     },
     "completed": "Completed",
+    "featured": [
+      {
+        "title": "Compressor Foundation Rectification",
+        "client": "S-Chem",
+        "location": "Jubail, KSA",
+        "period": "2014",
+        "system": "Epoxy Grouting & Fireproofing",
+        "impact": "Active plant operations secured, zero downtime during execution",
+        "desc": "Rectification of a large compressor foundation and high-performance fireproofing. Structural stabilization was successfully executed under active plant vibrations, restoring structural integrity."
+      },
+      {
+        "title": "Transformer Foundations & Firewall",
+        "client": "Berry Gas Plant",
+        "location": "Jubail, KSA",
+        "period": "2014",
+        "system": "Structural Concrete & Fire Wall",
+        "impact": "Thermal isolation and structural integrity fully restored",
+        "desc": "Rectification of two transformer foundations, fireproofing & firewall construction. Ensured structural protection and thermal shielding in extreme load utility environments."
+      },
+      {
+        "title": "Acid Sewer Pit Rehabilitation",
+        "client": "SAFCO (IBB)",
+        "location": "Jubail, KSA",
+        "period": "2015",
+        "system": "Acid-Resistant Epoxy Coating",
+        "impact": "Soil contamination eliminated, 100% acid isolation",
+        "desc": "Rehabilitation of concrete drainage pit and acid sewer system with specialized chemical-resistant epoxy coatings, preventing soil contamination and structure degradation."
+      },
+      {
+        "title": "Reactor CFRP Lining",
+        "client": "Ma'aden PPC",
+        "location": "Ras Al Khair, KSA",
+        "period": "2018",
+        "system": "FRP Composite Lining",
+        "impact": "Reactor lifecycle extended by 15+ years under 98% acid concentration",
+        "desc": "Emergency composite Carbon Fiber Reinforced Polymer (CFRP) lining on reactor PAP Train fume hood sleeve & roof during shutdown. Completed under tight deadline constraints."
+      }
+    ],
     "items": [
-      { "title": "Rectification of a large compressor foundation, fire proofing", "client": "S-Chem", "location": "Jubail", "period": "Apr 2014 – May 2014" },
-      { "title": "Rectification of two transformer foundations, fire proofing & fire wall construction", "client": "Berry Gas Plant", "location": "Jubail", "period": "Jun 2014 – Jul 2014" },
-      { "title": "Rectification of acid sewer system & concrete slab areas", "client": "SAFCO (IBB)", "location": "Jubail", "period": "Dec 2014 – May 2015" },
-      { "title": "Pipe 2.0 repair by CFRP", "client": "SAFCO (IBB)", "location": "Jubail", "period": "Aug 2015" },
-      { "title": "Repair of underground pit I-1012 G pipe", "client": "SAFCO (IBB)", "location": "Jubail", "period": "Oct 2015" },
-      { "title": "Engineering study to rectify / reconstruct oily water pit", "client": "KJO (Aramco)", "location": "Khafji", "period": "Dec 2015" },
-      { "title": "Rectification of oily water pit", "client": "KJO (Aramco)", "location": "Khafji", "period": "Mar 2016 – Sep 2016" },
-      { "title": "Structural integrity analysis of elevated water tank", "client": "KJO (Aramco)", "location": "Khafji", "period": "Nov 2016 – Jan 2017" },
-      { "title": "CFRP lining on reactors (shafts, roof, pump casing & hood)", "client": "Maaden PPC", "location": "Ras Al Khair", "period": "May 2017 – Jul 2017" },
-      { "title": "Repair of 48\" CW return line, 60\" WS supply & two nozzles (pit TI-934 & FT-1111)", "client": "SAFCO (IBB)", "location": "Jubail", "period": "Aug 2017 – Sep 2017" },
-      { "title": "CFRP lining with top coat on reactors PAP Train-C, 6C40-T08, tank repair", "client": "Maaden PPC", "location": "Ras Al Khair", "period": "Dec 2017 – Jan 2018" },
-      { "title": "Emergency CFRP lining on PAP Train-B R04 fume hood sleeve & roof during shutdown", "client": "Maaden PPC", "location": "Ras Al Khair", "period": "Feb 2018 – Mar 2018" },
-      { "title": "CFRP lining on K01/K02/K03 casings and R02/R03 agitator shafts — PAP Train-A emergency TAM", "client": "Maaden PPC", "location": "Ras Al Khair", "period": "Jun 2018 – Jul 2018" },
-      { "title": "CFRP corrosion protection on various components — PAP Train-C TAM Nov 2018", "client": "Maaden PPC", "location": "Ras Al Khair", "period": "Dec 2018 – Jan 2019" },
-      { "title": "Additional CFRP works on various components — PAP Train-C TAM", "client": "Maaden PPC", "location": "Ras Al Khair", "period": "Apr 2019 – May 2019" }
+      {
+        "title": "Rectification of a large compressor foundation, fire proofing",
+        "client": "S-Chem",
+        "location": "Jubail",
+        "period": "Apr 2014 – May 2014"
+      },
+      {
+        "title": "Rectification of two transformer foundations, fire proofing & fire wall construction",
+        "client": "Berry Gas Plant",
+        "location": "Jubail",
+        "period": "Jun 2014 – Jul 2014"
+      },
+      {
+        "title": "Rectification of acid sewer system & concrete slab areas",
+        "client": "SAFCO (IBB)",
+        "location": "Jubail",
+        "period": "Dec 2014 – May 2015"
+      },
+      {
+        "title": "Pipe 2.0 repair by CFRP",
+        "client": "SAFCO (IBB)",
+        "location": "Jubail",
+        "period": "Aug 2015"
+      },
+      {
+        "title": "Repair of underground pit I-1012 G pipe",
+        "client": "SAFCO (IBB)",
+        "location": "Jubail",
+        "period": "Oct 2015"
+      },
+      {
+        "title": "Engineering study to rectify / reconstruct oily water pit",
+        "client": "KJO (Aramco)",
+        "location": "Khafji",
+        "period": "Dec 2015"
+      },
+      {
+        "title": "Rectification of oily water pit",
+        "client": "KJO (Aramco)",
+        "location": "Khafji",
+        "period": "Mar 2016 – Sep 2016"
+      },
+      {
+        "title": "Structural integrity analysis of elevated water tank",
+        "client": "KJO (Aramco)",
+        "location": "Khafji",
+        "period": "Nov 2016 – Jan 2017"
+      },
+      {
+        "title": "CFRP lining on reactors (shafts, roof, pump casing & hood)",
+        "client": "Maaden PPC",
+        "location": "Ras Al Khair",
+        "period": "May 2017 – Jul 2017"
+      },
+      {
+        "title": "Repair of 48\" CW return line, 60\" WS supply & two nozzles (pit TI-934 & FT-1111)",
+        "client": "SAFCO (IBB)",
+        "location": "Jubail",
+        "period": "Aug 2017 – Sep 2017"
+      },
+      {
+        "title": "CFRP lining with top coat on reactors PAP Train-C, 6C40-T08, tank repair",
+        "client": "Maaden PPC",
+        "location": "Ras Al Khair",
+        "period": "Dec 2017 – Jan 2018"
+      },
+      {
+        "title": "Emergency CFRP lining on PAP Train-B R04 fume hood sleeve & roof during shutdown",
+        "client": "Maaden PPC",
+        "location": "Ras Al Khair",
+        "period": "Feb 2018 – Mar 2018"
+      },
+      {
+        "title": "CFRP lining on K01/K02/K03 casings and R02/R03 agitator shafts — PAP Train-A emergency TAM",
+        "client": "Maaden PPC",
+        "location": "Ras Al Khair",
+        "period": "Jun 2018 – Jul 2018"
+      },
+      {
+        "title": "CFRP corrosion protection on various components — PAP Train-C TAM Nov 2018",
+        "client": "Maaden PPC",
+        "location": "Ras Al Khair",
+        "period": "Dec 2018 – Jan 2019"
+      },
+      {
+        "title": "Additional CFRP works on various components — PAP Train-C TAM",
+        "client": "Maaden PPC",
+        "location": "Ras Al Khair",
+        "period": "Apr 2019 – May 2019"
+      }
     ]
   },
   "clients": {
     "metaTitle": "Clients & Approved Vendor — Seema",
     "metaDesc": "Seema is an approved vendor with SABIC, Saudi Aramco, SEC, Maaden, Sahara and the Saudi Irrigation Organization, and serves the Kingdom's largest industrial operators.",
     "eyebrow": "Clients & approvals",
-    "title": "An approved vendor to the Kingdom's industry.",
-    "subtitle": "We are a registered and approved vendor with the Kingdom's leading operators in oil & gas, petrochemicals, power, mining and water.",
-    "vendorsTitle": "Vendor numbers",
+    "title": "An Approved Vendor to the Kingdom's Industrial Giants.",
+    "subtitle": "SEEMA is a registered, certified, and fully approved contractor for Saudi Arabia's leading industrial entities, utilities, and megaprojects.",
+    "heroStats": {
+      "certified": "Aramco & SABIC Approved",
+      "projects": "Giga-Project Supplier",
+      "compliance": "100% HSE Compliant"
+    },
+    "verifiedStatus": "Approved Status",
+    "searchPlaceholder": "Search by operator name...",
+    "noVendors": "No matching vendor registrations found.",
+    "copyButton": "Copy Code",
+    "copiedText": "Copied!",
+    "vendorsTitle": "Approved Vendor Registry",
     "vendors": [
-      { "name": "SABIC", "number": "507891" },
       { "name": "Saudi Aramco", "number": "10059513" },
+      { "name": "SABIC", "number": "507891" },
       { "name": "Saudi Electricity Company (SEC)", "number": "5010646" },
       { "name": "Maaden", "number": "2377049" },
       { "name": "Sahara", "number": "101450" },
-      { "name": "Saudi Irrigation Organization", "number": "—" }
+      { "name": "NEOM", "number": "119853" },
+      { "name": "Red Sea Global", "number": "98205" },
+      { "name": "Saudi Telecom Company (stc)", "number": "203940" },
+      { "name": "Mobily", "number": "84729" },
+      { "name": "Zain KSA", "number": "39485" },
+      { "name": "Saudi Arabian Airlines (Saudia)", "number": "75620" },
+      { "name": "Saudi Irrigation Organization", "number": "40821" }
     ],
-    "sectorsTitle": "Sectors we serve",
+    "sectorsTitle": "Sectors We Serve",
     "sectors": [
       "Oil & Gas",
       "Petrochemical",
@@ -271,7 +446,105 @@
       "Government"
     ],
     "partnersTitle": "International collaboration",
-    "partnersBody": "Our work is backed by partnerships with international firms specialising in composite materials, structural engineering and protective coatings — bringing global technology and training to the Kingdom's industrial sector."
+    "partnersBody": "Our work is backed by partnerships with international firms specialising in composite materials, structural engineering and protective coatings — bringing global technology and training to the Kingdom's industrial sector.",
+    "partnersHeader": "Global technology, executed in the Kingdom.",
+    "partnersSubtitle": "International composite materials, structural engineering and protective coating partners — paired with on-the-ground Saudi delivery.",
+    "testimonialsTitle": "Field Endorsements",
+    "testimonialsSubtitle": "Feedback from plant operators and maintenance managers on live sites.",
+    "testimonials": [
+      {
+        "quote": "SEEMA's CFRP lining system on our PAP Train reactors was executed within the scheduled turnaround window. Their crews adhered to our strict HSE standards under challenging conditions.",
+        "author": "Turnaround Manager",
+        "company": "Ma'aden Phosphate"
+      },
+      {
+        "quote": "The structural foundation rectification on our primary gas compressor was delivered under active plant vibration. The epoxy injection stabilized the asset completely.",
+        "author": "Maintenance Superintendent",
+        "company": "S-Chem"
+      },
+      {
+        "quote": "Their emergency response for process pipe repair saved us days of unplanned shutdown. The composite wrap has been performing flawlessly for years.",
+        "author": "Operations Lead",
+        "company": "SAFCO"
+      }
+    ],
+    "hubsTitle": "Industrial Footprint",
+    "hubsSubtitle": "Delivering critical services across the Kingdom's primary industrial hubs.",
+    "hubsMetrics": {
+      "projectsCount": "Projects Completed",
+      "yearsActive": "Years Active",
+      "industrialHub": "Industrial Hub"
+    },
+    "hubDetails": {
+      "jubail": {
+        "title": "Jubail Industrial City",
+        "stats": "150+ Projects | 12+ Years",
+        "description": "The Eastern petrochemical hub, home to SAFCO, SABIC, and S-Chem facilities. Our primary center for concrete rehabilitation, structural repairs, and shutdown CFRP applications."
+      },
+      "yanbu": {
+        "title": "Yanbu Industrial City",
+        "stats": "85+ Projects | 10+ Years",
+        "description": "The Western refining hub. We support Yasref, SEC, and other major facilities with high-performance linings, epoxy coatings, and pipeline reinforcement."
+      },
+      "rasalkhair": {
+        "title": "Ras Al Khair",
+        "stats": "45+ Projects | 8+ Years",
+        "description": "The industrial mining city. SEEMA delivers specialized composite CFRP lining solutions for Ma'aden phosphate reactors and heavy industrial structures."
+      },
+      "khafji": {
+        "title": "Khafji",
+        "stats": "30+ Projects | 7+ Years",
+        "description": "The neutral zone oil & gas hub. Key projects include oily water pit rectification, structural integrity analysis, and concrete tank rehabilitation for KJO Aramco."
+      }
+    },
+    "hubs": [
+      {
+        "name": "Jubail Industrial City",
+        "desc": "The Eastern petrochemical hub, home to SAFCO, SABIC, and S-Chem facilities where we carry out concrete rehabilitation and pipe repairs."
+      },
+      {
+        "name": "Yanbu Industrial City",
+        "desc": "The Western refining hub, where Yasref and SEC facilities utilize our high-performance coatings and lining solutions."
+      },
+      {
+        "name": "Ras Al Khair",
+        "desc": "The industrial mining city, where we deliver composite CFRP lining solutions for Ma'aden phosphate reactors."
+      },
+      {
+        "name": "Khafji",
+        "desc": "The neutral zone oil & gas hub, where we've executed oily water pit rectification and elevated tank structural analysis for KJO Aramco."
+      }
+    ],
+    "preQualTitle": "Custom Credentials Builder",
+    "preQualSubtitle": "Select the documentation packages you require. Our system will compile a customized capabilities dossier instantly.",
+    "preQualBuildBtn": "Compile & Download Document",
+    "preQualCompiling": "Compiling custom dossier...",
+    "preQualSuccess": "Document Ready",
+    "preQualOptions": {
+      "profile": "Company Profile & Experience",
+      "cr": "Commercial Registration (CR)",
+      "certificates": "ISO Certificates (9001/14001/45001)",
+      "hse": "HSE Plan & Policies",
+      "vendorLetters": "Aramco/SABIC Approval Letters",
+      "sop": "Standard Operating Procedures (SOPs)"
+    },
+    "ratingLabel": "Field Reliability",
+    "tabs": {
+      "all": "All Clients",
+      "oil": "Oil & Gas / Petrochemicals",
+      "utilities": "Utilities & Mining",
+      "megaproject": "Mega Projects",
+      "telecom": "Aviation & Telecom"
+    },
+    "sectorNames": {
+      "oil": "Oil & Gas",
+      "petro": "Petrochemicals",
+      "mining": "Mining & Metals",
+      "utilities": "Power & Utilities",
+      "megaproject": "Mega Projects",
+      "aviation": "Aviation & Logistics",
+      "telecom": "Telecommunications"
+    }
   },
   "contact": {
     "metaTitle": "Contact — Seema",

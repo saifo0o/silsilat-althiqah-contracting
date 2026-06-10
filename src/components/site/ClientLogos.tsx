@@ -1,51 +1,79 @@
-// Stylized text-mark "logos" for major Saudi industrial operators.
-// Rendered as SVG so they scale crisply on dark backgrounds without copyright risk.
+import aramcoSvg from "@/assets/logos/aramco.svg";
+import sabicSvg from "@/assets/logos/sabic.svg";
+import secSvg from "@/assets/logos/sec.svg";
+import maadenSvg from "@/assets/logos/maaden.svg";
+import stcSvg from "@/assets/logos/stc.svg";
+import mobilySvg from "@/assets/logos/mobily.svg";
+import zainSvg from "@/assets/logos/zain.svg";
+import saudiaSvg from "@/assets/logos/saudia.svg";
+import neomSvg from "@/assets/logos/neom.svg";
+import sipchemSvg from "@/assets/logos/sipchem.svg";
+import yasrefSvg from "@/assets/logos/yasref.svg";
+import redseaSvg from "@/assets/logos/redsea.svg";
+import saharaSvg from "@/assets/logos/sahara.svg";
+import sioPng from "@/assets/logos/sio.png";
 
 type LogoProps = { className?: string };
 
-const base = "h-full w-full";
-
-export const SabicLogo = ({ className }: LogoProps) => (
-  <svg viewBox="0 0 220 60" className={className ?? base} fill="none" aria-label="SABIC">
-    <text x="0" y="42" fontFamily="Sora, sans-serif" fontWeight="700" fontSize="40" fill="currentColor" letterSpacing="-1">sabic</text>
-    <circle cx="195" cy="20" r="10" fill="currentColor" opacity="0.85" />
-  </svg>
-);
+const base = "h-full w-full object-contain";
 
 export const AramcoLogo = ({ className }: LogoProps) => (
-  <svg viewBox="0 0 260 60" className={className ?? base} fill="none" aria-label="Saudi Aramco">
-    <text x="0" y="22" fontFamily="Sora, sans-serif" fontWeight="600" fontSize="13" fill="currentColor" opacity="0.7" letterSpacing="2">العربية السعودية</text>
-    <text x="0" y="50" fontFamily="Sora, sans-serif" fontWeight="700" fontSize="26" fill="currentColor" letterSpacing="-0.5">saudi aramco</text>
-  </svg>
+  <img src={aramcoSvg} className={className ?? base} alt="Saudi Aramco" loading="lazy" />
 );
 
-export const MaadenLogo = ({ className }: LogoProps) => (
-  <svg viewBox="0 0 220 60" className={className ?? base} fill="none" aria-label="Ma'aden">
-    <path d="M10 32 L20 12 L30 32 L20 52 Z" fill="currentColor" opacity="0.9" />
-    <text x="42" y="42" fontFamily="Sora, sans-serif" fontWeight="700" fontSize="32" fill="currentColor" letterSpacing="2">MA'ADEN</text>
-  </svg>
-);
-
-export const SipchemLogo = ({ className }: LogoProps) => (
-  <svg viewBox="0 0 220 60" className={className ?? base} fill="none" aria-label="Sipchem">
-    <circle cx="22" cy="30" r="14" stroke="currentColor" strokeWidth="3" fill="none" />
-    <circle cx="22" cy="30" r="5" fill="currentColor" />
-    <text x="48" y="26" fontFamily="Sora, sans-serif" fontWeight="700" fontSize="20" fill="currentColor">Sipchem</text>
-    <text x="48" y="48" fontFamily="Sora, sans-serif" fontWeight="500" fontSize="11" fill="currentColor" opacity="0.7" letterSpacing="1">PETROCHEMICALS</text>
-  </svg>
-);
-
-export const YasrefLogo = ({ className }: LogoProps) => (
-  <svg viewBox="0 0 220 60" className={className ?? base} fill="none" aria-label="Yasref">
-    <path d="M12 12 L28 30 L12 48 M22 12 L38 30 L22 48" stroke="currentColor" strokeWidth="3" fill="none" strokeLinecap="round" />
-    <text x="52" y="42" fontFamily="Sora, sans-serif" fontWeight="700" fontSize="28" fill="currentColor" letterSpacing="-0.5">Yasref</text>
-  </svg>
+export const SabicLogo = ({ className }: LogoProps) => (
+  <img src={sabicSvg} className={className ?? base} alt="SABIC" loading="lazy" />
 );
 
 export const SecLogo = ({ className }: LogoProps) => (
-  <svg viewBox="0 0 220 60" className={className ?? base} fill="none" aria-label="Saudi Electricity">
-    <path d="M14 8 L8 32 L18 32 L14 52 L26 24 L16 24 Z" fill="currentColor" />
-    <text x="36" y="28" fontFamily="Sora, sans-serif" fontWeight="700" fontSize="14" fill="currentColor">SAUDI</text>
-    <text x="36" y="46" fontFamily="Sora, sans-serif" fontWeight="700" fontSize="14" fill="currentColor">ELECTRICITY</text>
-  </svg>
+  <img src={secSvg} className={className ?? base} alt="Saudi Electricity Company" loading="lazy" />
+);
+
+export const MaadenLogo = ({ className }: LogoProps) => (
+  <img src={maadenSvg} className={className ?? base} alt="Ma'aden" loading="lazy" />
+);
+
+export const StcLogo = ({ className }: LogoProps) => (
+  <img src={stcSvg} className={className ?? base} alt="stc" loading="lazy" />
+);
+
+export const MobilyLogo = ({ className }: LogoProps) => (
+  <img src={mobilySvg} className={className ?? base} alt="Mobily" loading="lazy" />
+);
+
+export const ZainLogo = ({ className }: LogoProps) => (
+  <img src={zainSvg} className={className ?? base} alt="Zain" loading="lazy" />
+);
+
+export const SaudiaLogo = ({ className }: LogoProps) => (
+  <img src={saudiaSvg} className={className ?? base} alt="SAUDIA" loading="lazy" />
+);
+
+export const NeomLogo = ({ className }: LogoProps) => (
+  <img src={neomSvg} className={className ?? base} alt="NEOM" loading="lazy" />
+);
+
+export const SipchemLogo = ({ className }: LogoProps) => (
+  <img src={sipchemSvg} className={className ?? base} alt="Sipchem" loading="lazy" />
+);
+
+export const YasrefLogo = ({ className }: LogoProps) => (
+  <img src={yasrefSvg} className={className ?? base} alt="Yasref" loading="lazy" />
+);
+
+export const RedSeaLogo = ({ className }: LogoProps) => (
+  <img src={redseaSvg} className={className ?? base} alt="Red Sea Global" loading="lazy" />
+);
+
+export const SaharaLogo = ({ className }: LogoProps) => (
+  <img src={saharaSvg} className={className ?? base} alt="Sahara" loading="lazy" />
+);
+
+export const SioLogo = ({ className }: LogoProps) => (
+  <img
+    src={sioPng}
+    className={className ?? base}
+    alt="Saudi Irrigation Organization"
+    loading="lazy"
+  />
 );

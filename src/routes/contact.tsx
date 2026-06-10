@@ -12,7 +12,11 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — Seema" },
-      { name: "description", content: "Contact Seema's offices in Jubail and Dammam for structural rehabilitation, CFRP, coatings and process piping repair." },
+      {
+        name: "description",
+        content:
+          "Contact Seema's offices in Jubail and Dammam for structural rehabilitation, CFRP, coatings and process piping repair.",
+      },
       { property: "og:title", content: "Contact — Seema" },
       { property: "og:description", content: "Talk to our engineering team." },
       { property: "og:url", content: "/contact" },
@@ -38,7 +42,7 @@ function ContactPage() {
         <div className="absolute inset-0 bg-hero-gradient" />
         <div className="absolute inset-0 grid-pattern opacity-[0.06] text-ink-foreground" />
         <div className="absolute -top-32 start-1/3 h-96 w-96 rounded-full bg-accent/25 blur-[120px]" />
-        <div className="relative container mx-auto px-4 md:px-6 py-24 md:py-32">
+        <div className="relative container mx-auto px-4 md:px-6 pt-28 pb-12 md:pt-40 md:pb-32">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-[11px] uppercase tracking-[0.18em]">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />
@@ -58,9 +62,24 @@ function ContactPage() {
       <section className="container mx-auto px-4 md:px-6 -mt-12 md:-mt-16 relative z-10">
         <div className="grid gap-4 md:grid-cols-3">
           {[
-            { Icon: Mail, label: t("contact.offices.emailTitle"), value: t("contact.offices.email"), href: `mailto:${t("contact.offices.email")}` },
-            { Icon: Phone, label: t("contact.offices.jubailTitle"), value: t("contact.offices.jubailPhone"), href: `tel:${String(t("contact.offices.jubailPhone")).split("/")[0].replace(/\s/g, "")}` },
-            { Icon: Phone, label: t("contact.offices.dammamTitle"), value: t("contact.offices.dammamPhone"), href: `tel:${String(t("contact.offices.dammamPhone")).replace(/\s/g, "")}` },
+            {
+              Icon: Mail,
+              label: t("contact.offices.emailTitle"),
+              value: t("contact.offices.email"),
+              href: `mailto:${t("contact.offices.email")}`,
+            },
+            {
+              Icon: Phone,
+              label: t("contact.offices.jubailTitle"),
+              value: t("contact.offices.jubailPhone"),
+              href: `tel:${String(t("contact.offices.jubailPhone")).split("/")[0].replace(/\s/g, "")}`,
+            },
+            {
+              Icon: Phone,
+              label: t("contact.offices.dammamTitle"),
+              value: t("contact.offices.dammamPhone"),
+              href: `tel:${String(t("contact.offices.dammamPhone")).replace(/\s/g, "")}`,
+            },
           ].map((c, idx) => (
             <Reveal key={idx} delay={idx * 80}>
               <a
@@ -75,7 +94,10 @@ function ContactPage() {
                     <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                       {c.label}
                     </p>
-                    <p className="mt-0.5 font-medium text-foreground text-sm md:text-base" dir="ltr">
+                    <p
+                      className="mt-0.5 font-medium text-foreground text-sm md:text-base"
+                      dir="ltr"
+                    >
                       {c.value}
                     </p>
                   </div>
@@ -88,96 +110,182 @@ function ContactPage() {
       </section>
 
       {/* OFFICES + FORM */}
-      <section className="container mx-auto px-4 md:px-6 py-20 md:py-28">
-        <div className="grid gap-10 lg:grid-cols-12">
-          {/* Offices */}
-          <div className="lg:col-span-5 space-y-6">
-            {(["jubail", "dammam"] as const).map((office, idx) => (
-              <Reveal key={office} delay={idx * 100}>
-                <div className="rounded-2xl border border-border bg-card p-7">
-                  <h3 className="font-display text-xl font-semibold">
-                    {t(`contact.offices.${office}Title`)}
-                  </h3>
-                  <ul className="mt-5 space-y-3 text-sm">
-                    <li className="flex items-start gap-3 text-muted-foreground">
-                      <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0 text-accent" />
-                      <span>{t(`contact.offices.${office}Address`)}</span>
-                    </li>
-                    <li className="flex items-center gap-3 text-muted-foreground">
-                      <Phone className="h-4 w-4 flex-shrink-0 text-accent" />
-                      <span dir="ltr">{t(`contact.offices.${office}Phone`)}</span>
-                    </li>
-                    {office === "jubail" && (
-                      <li className="flex items-center gap-3 text-muted-foreground">
-                        <Printer className="h-4 w-4 flex-shrink-0 text-accent" />
-                        <span dir="ltr">{t("contact.offices.jubailFax")}</span>
+      <section className="container mx-auto px-4 md:px-6 py-12 md:py-28 text-start">
+        <div className="grid gap-10 lg:grid-cols-12 items-stretch">
+          {/* Left Column: Offices Directory & Timezone */}
+          <div className="lg:col-span-5 flex flex-col justify-between gap-6">
+            <div className="space-y-6">
+              {(["jubail", "dammam"] as const).map((office, idx) => (
+                <Reveal key={office} delay={idx * 100}>
+                  <div className="rounded-sm border border-border bg-card p-6 md:p-7 relative overflow-hidden group hover:border-emerald-500/25 transition-all duration-300">
+                    <div className="absolute top-0 right-0 h-20 w-20 bg-gradient-to-bl from-accent/5 to-transparent pointer-events-none" />
+                    <h3 className="font-display text-lg font-bold text-foreground">
+                      {t(`contact.offices.${office}Title`)}
+                    </h3>
+                    <ul className="mt-4 space-y-2.5 text-xs text-muted-foreground">
+                      <li className="flex items-start gap-2.5">
+                        <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0 text-emerald-500" />
+                        <span className="leading-relaxed">
+                          {t(`contact.offices.${office}Address`)}
+                        </span>
                       </li>
-                    )}
-                    <li className="flex items-center gap-3 text-muted-foreground">
-                      <Mail className="h-4 w-4 flex-shrink-0 text-accent" />
-                      <a
-                        href={`mailto:${t("contact.offices.email")}`}
-                        className="hover:text-foreground transition-colors"
-                        dir="ltr"
-                      >
-                        {t("contact.offices.email")}
-                      </a>
-                    </li>
-                  </ul>
+                      <li className="flex items-center gap-2.5">
+                        <Phone className="h-4 w-4 flex-shrink-0 text-emerald-500" />
+                        <span dir="ltr">{t(`contact.offices.${office}Phone`)}</span>
+                      </li>
+                      {office === "jubail" && (
+                        <li className="flex items-center gap-2.5">
+                          <Printer className="h-4 w-4 flex-shrink-0 text-emerald-500" />
+                          <span dir="ltr">{t("contact.offices.jubailFax")}</span>
+                        </li>
+                      )}
+                      <li className="flex items-center gap-2.5">
+                        <Mail className="h-4 w-4 flex-shrink-0 text-emerald-500" />
+                        <a
+                          href={`mailto:${t("contact.offices.email")}`}
+                          className="hover:text-emerald-500 transition-colors"
+                          dir="ltr"
+                        >
+                          {t("contact.offices.email")}
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            {/* Timezone Status Card */}
+            <Reveal delay={200}>
+              <div className="rounded-sm border border-border bg-[#0b0f19] p-6 text-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 h-24 w-24 bg-gradient-to-bl from-emerald-500/10 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 grid-pattern opacity-[0.03] pointer-events-none" />
+
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="font-mono text-[9px] uppercase tracking-widest text-emerald-400 font-bold">
+                      SUPPORT ACTIVE
+                    </span>
+                  </div>
+                  <span className="font-mono text-[9px] text-slate-500">AST UTC+3</span>
                 </div>
-              </Reveal>
-            ))}
+
+                <div className="mt-4">
+                  <h4 className="font-display text-sm font-bold text-white">
+                    Arabia Standard Time (AST)
+                  </h4>
+                  <p className="mt-1 text-xs text-slate-400 leading-relaxed">
+                    Our engineering and estimating office in Jubail operates Sunday to Thursday,
+                    from 08:00 AM to 05:00 PM.
+                  </p>
+                </div>
+              </div>
+            </Reveal>
           </div>
 
-          {/* Form */}
+          {/* Right Column: Inquiry Board Form */}
           <Reveal delay={150} className="lg:col-span-7">
             <form
               onSubmit={handleSubmit}
-              className="rounded-2xl border border-border bg-card p-6 md:p-10 shadow-sm h-full"
+              className="rounded-sm border border-border bg-card p-8 md:p-10 shadow-elegant h-full flex flex-col justify-between"
             >
               {sent ? (
-                <div className="flex flex-col items-center justify-center text-center py-20">
-                  <div className="h-16 w-16 rounded-full bg-accent/15 text-accent flex items-center justify-center">
+                <div className="flex flex-col items-center justify-center text-center py-20 my-auto">
+                  <div className="h-16 w-16 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center animate-bounce">
                     <Check className="h-8 w-8" />
                   </div>
-                  <p className="mt-6 font-display text-xl">{t("contact.form.sent")}</p>
+                  <h4 className="mt-6 font-display text-xl font-bold text-foreground">
+                    {t("contact.form.sent")}
+                  </h4>
+                  <p className="text-xs text-muted-foreground mt-2 max-w-xs leading-relaxed">
+                    Your inquiry has been logged in our system. A project engineer will contact you
+                    shortly.
+                  </p>
                 </div>
               ) : (
                 <>
-                  <h3 className="font-display text-xl md:text-2xl font-semibold">
-                    {t("contact.form.title")}
-                  </h3>
-                  <div className="mt-7 grid gap-5 md:grid-cols-2">
-                    <div className="space-y-2">
-                      <Label htmlFor="name">{t("contact.form.name")}</Label>
-                      <Input id="name" required />
+                  <div>
+                    <h3 className="font-display text-xl md:text-2xl font-bold text-foreground">
+                      {t("contact.form.title")}
+                    </h3>
+                    <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
+                      Submit technical details, dimensions, and specifications to receive an
+                      engineered rehabilitation proposal.
+                    </p>
+
+                    <div className="mt-8 grid gap-5 md:grid-cols-2">
+                      <div className="space-y-1.5">
+                        <Label htmlFor="name" className="text-xs font-bold text-foreground">
+                          {t("contact.form.name")}
+                        </Label>
+                        <Input
+                          id="name"
+                          required
+                          className="rounded-sm border-border bg-secondary/35 focus-visible:ring-emerald-500 text-base md:text-xs"
+                        />
+                      </div>
+                      <div className="space-y-1.5">
+                        <Label htmlFor="phone" className="text-xs font-bold text-foreground">
+                          {t("contact.form.phone")}
+                        </Label>
+                        <Input
+                          id="phone"
+                          required
+                          className="rounded-sm border-border bg-secondary/35 focus-visible:ring-emerald-500 text-base md:text-xs"
+                        />
+                      </div>
+                      <div className="space-y-1.5">
+                        <Label htmlFor="email" className="text-xs font-bold text-foreground">
+                          {t("contact.form.email")}
+                        </Label>
+                        <Input
+                          id="email"
+                          type="email"
+                          required
+                          className="rounded-sm border-border bg-secondary/35 focus-visible:ring-emerald-500 text-base md:text-xs"
+                        />
+                      </div>
+                      <div className="space-y-1.5">
+                        <Label htmlFor="company" className="text-xs font-bold text-foreground">
+                          {t("contact.form.company")}
+                        </Label>
+                        <Input
+                          id="company"
+                          className="rounded-sm border-border bg-secondary/35 focus-visible:ring-emerald-500 text-base md:text-xs"
+                        />
+                      </div>
+                      <div className="space-y-1.5 md:col-span-2">
+                        <Label htmlFor="subject" className="text-xs font-bold text-foreground">
+                          {t("contact.form.subject")}
+                        </Label>
+                        <Input
+                          id="subject"
+                          className="rounded-sm border-border bg-secondary/35 focus-visible:ring-emerald-500 text-base md:text-xs"
+                        />
+                      </div>
+                      <div className="space-y-1.5 md:col-span-2">
+                        <Label htmlFor="message" className="text-xs font-bold text-foreground">
+                          {t("contact.form.message")}
+                        </Label>
+                        <Textarea
+                          id="message"
+                          rows={5}
+                          required
+                          className="rounded-sm border-border bg-secondary/35 focus-visible:ring-emerald-500 text-base md:text-xs resize-none"
+                        />
+                      </div>
                     </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">{t("contact.form.phone")}</Label>
-                      <Input id="phone" required />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email">{t("contact.form.email")}</Label>
-                      <Input id="email" type="email" required />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="company">{t("contact.form.company")}</Label>
-                      <Input id="company" />
-                    </div>
-                    <div className="space-y-2 md:col-span-2">
-                      <Label htmlFor="subject">{t("contact.form.subject")}</Label>
-                      <Input id="subject" />
-                    </div>
-                    <div className="space-y-2 md:col-span-2">
-                      <Label htmlFor="message">{t("contact.form.message")}</Label>
-                      <Textarea id="message" rows={6} required />
-                    </div>
-                    <div className="md:col-span-2">
-                      <Button type="submit" size="lg" className="rounded-full">
-                        <Send className="h-4 w-4 me-2" />
-                        {t("contact.form.submit")}
-                      </Button>
-                    </div>
+                  </div>
+
+                  <div className="mt-8 pt-6 border-t border-border flex justify-end">
+                    <Button
+                      type="submit"
+                      className="rounded-sm bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold uppercase tracking-wider px-6 py-2.5"
+                    >
+                      <Send className="h-3.5 w-3.5 me-2" />
+                      {t("contact.form.submit")}
+                    </Button>
                   </div>
                 </>
               )}

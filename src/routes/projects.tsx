@@ -1,21 +1,63 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { useMemo, useState } from "react";
-import { CheckCircle2, MapPin, Building2, Calendar, ArrowRight } from "lucide-react";
+import {
+  CheckCircle2,
+  MapPin,
+  Building2,
+  Calendar,
+  ArrowRight,
+  Gauge,
+  Layers,
+  ShieldCheck,
+  Activity,
+} from "lucide-react";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+
+import caseCompressor from "@/assets/project-compressor.png";
+import caseTransformer from "@/assets/project-transformer.png";
+import caseAcidSewer from "@/assets/project-acid-sewer.png";
+import caseMaadenReactor from "@/assets/project-maaden-reactor.png";
+
+import {
+  SabicLogo,
+  AramcoLogo,
+  MaadenLogo,
+  SipchemLogo,
+  YasrefLogo,
+  SecLogo,
+} from "@/components/site/ClientLogos";
 
 type ProjectItem = { title: string; client: string; location: string; period: string };
+
+type FeaturedProject = {
+  title: string;
+  client: string;
+  location: string;
+  period: string;
+  system: string;
+  impact: string;
+  desc: string;
+};
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
       { title: "Major Orders Completed — Seema" },
-      { name: "description", content: "Rehabilitation, CFRP lining and structural repair work delivered for SABIC, Aramco, Maaden, SAFCO, KJO and others across Saudi Arabia." },
+      {
+        name: "description",
+        content:
+          "Rehabilitation, CFRP lining and structural repair work delivered for SABIC, Aramco, Maaden, SAFCO, KJO and others across Saudi Arabia.",
+      },
       { property: "og:title", content: "Major Orders Completed — Seema" },
-      { property: "og:description", content: "Snapshot of completed work for refineries, petrochemical and mining clients." },
+      {
+        property: "og:description",
+        content: "Snapshot of completed work for refineries, petrochemical and mining clients.",
+      },
       { property: "og:url", content: "/projects" },
     ],
     links: [{ rel: "canonical", href: "/projects" }],
@@ -24,12 +66,48 @@ export const Route = createFileRoute("/projects")({
 });
 
 function ProjectsPage() {
-  const { t } = useTranslation();
-  const items = t("projects.items", { returnObjects: true }) as ProjectItem[];
+  const { t, i18n } = useTranslation();
+
+  const items = useMemo(() => {
+    const itemsData = t("projects.items", { returnObjects: true });
+    return Array.isArray(itemsData) ? (itemsData as ProjectItem[]) : [];
+  }, [t]);
+
   const [filter, setFilter] = useState<string>("all");
 
   const clients = useMemo(() => Array.from(new Set(items.map((i) => i.client))), [items]);
   const filtered = filter === "all" ? items : items.filter((i) => i.client === filter);
+
+  // Dynamic Case Studies mapping AI generated images to case study items in translations
+  const featuredData = t("projects.featured", { returnObjects: true });
+  const featuredArray = Array.isArray(featuredData) ? (featuredData as FeaturedProject[]) : [];
+  const featuredCases = featuredArray.map((c, idx) => {
+    const images = [caseCompressor, caseTransformer, caseAcidSewer, caseMaadenReactor];
+    const tags = ["PETROCHEMICAL", "POWER", "INDUSTRIAL", "MINING & ACID"];
+    const tagColors = [
+      "bg-accent text-accent-foreground",
+      "bg-yellow-400 text-ink",
+      "bg-sky-400 text-ink",
+      "bg-orange-400 text-ink",
+    ];
+    return {
+      ...c,
+      img: images[idx] || caseCompressor,
+      tag: tags[idx],
+      tagColor: tagColors[idx],
+    };
+  });
+
+  const getClientLogo = (clientName: string) => {
+    const name = clientName.toLowerCase();
+    if (name.includes("aramco") || name.includes("kjo")) return AramcoLogo;
+    if (name.includes("sabic") || name.includes("safco")) return SabicLogo;
+    if (name.includes("maaden")) return MaadenLogo;
+    if (name.includes("sipchem")) return SipchemLogo;
+    if (name.includes("yasref")) return YasrefLogo;
+    if (name.includes("sec") || name.includes("electricity")) return SecLogo;
+    return null;
+  };
 
   return (
     <>
@@ -38,7 +116,7 @@ function ProjectsPage() {
         <div className="absolute inset-0 bg-hero-gradient" />
         <div className="absolute inset-0 grid-pattern opacity-[0.06] text-ink-foreground" />
         <div className="absolute -top-32 -start-32 h-96 w-96 rounded-full bg-accent/25 blur-[120px]" />
-        <div className="relative container mx-auto px-4 md:px-6 py-24 md:py-32">
+        <div className="relative container mx-auto px-4 md:px-6 pt-28 pb-12 md:pt-40 md:pb-32">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-[11px] uppercase tracking-[0.18em]">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />
@@ -52,20 +130,137 @@ function ProjectsPage() {
             </p>
             <div className="mt-8 flex gap-6 text-sm">
               <div>
-                <p className="font-display text-3xl font-semibold" dir="ltr">{items.length}+</p>
-                <p className="text-xs uppercase tracking-wider text-ink-foreground/60">Orders</p>
+                <p className="font-display text-3xl font-semibold" dir="ltr">
+                  {items.length}+
+                </p>
+                <p className="text-xs uppercase tracking-wider text-ink-foreground/60">{i18n.language === 'ar' ? 'طلب عمل' : 'Orders'}</p>
               </div>
               <div className="h-12 w-px bg-white/15" />
               <div>
-                <p className="font-display text-3xl font-semibold" dir="ltr">{clients.length}</p>
-                <p className="text-xs uppercase tracking-wider text-ink-foreground/60">Clients</p>
+                <p className="font-display text-3xl font-semibold" dir="ltr">
+                  {clients.length}
+                </p>
+                <p className="text-xs uppercase tracking-wider text-ink-foreground/60">{i18n.language === 'ar' ? 'عملاء' : 'Clients'}</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FILTERS */}
+      {/* FEATURED CASE STUDIES WITH AI GENERATED IMAGES */}
+      <section className="bg-secondary/20 border-b border-border py-12 md:py-28">
+        <div className="container mx-auto px-4 md:px-6">
+          <SectionHeading
+            eyebrow={i18n.language === 'ar' ? 'دراسات حالة' : 'Case Studies'}
+            title={i18n.language === 'ar' ? 'أبرز مشاريع التأهيل الصناعي' : 'Featured Industrial Rehabilitation Projects'}
+          />
+
+          <div className="mt-16 grid lg:grid-cols-12 gap-12 items-start relative">
+            <div className="lg:col-span-4 lg:sticky lg:top-32 self-start hidden lg:block">
+              <h3 className="font-display text-2xl font-bold tracking-tight mb-4 text-foreground">{i18n.language === 'ar' ? 'عمليات استثنائية' : 'Elite Operations'}</h3>
+              <p className="text-muted-foreground leading-relaxed text-sm">
+                {i18n.language === 'ar' ? 'نظرة عامة على تدخلاتنا الهندسية الحرجة، حيث نقدم حلولاً مخصصة نُفذت أثناء التشغيل الحي دون الحاجة لإيقاف الإنتاج.' : 'An overview of our most critical engineering interventions, showcasing bespoke solutions applied under live conditions without halting production.'}
+              </p>
+              <div className="h-px w-12 bg-accent mt-8" />
+            </div>
+            
+            <div className="lg:col-span-8 flex flex-col gap-24">
+            {featuredCases.map((project, idx) => (
+              <motion.article
+                key={idx}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="group flex flex-col relative"
+                data-magnetic
+              >
+                {/* High-end typographic overlap */}
+                <h3 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-none tracking-tighter text-foreground absolute -top-8 -start-4 z-10 opacity-10 pointer-events-none group-hover:text-accent transition-colors duration-700">
+                  {String(idx + 1).padStart(2, '0')}
+                </h3>
+
+                <div className="bg-card border border-border rounded-sm overflow-hidden hover:border-accent/40 hover:shadow-elegant transition-all duration-500 relative z-0 flex flex-col h-full">
+                  <div className="relative aspect-[16/9] overflow-hidden bg-muted">
+                    <img
+                      src={project.img}
+                      alt={project.title}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                      width={800}
+                      height={500}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent pointer-events-none" />
+                    <span
+                      className={`absolute top-4 left-4 ${project.tagColor} text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-sm`}
+                    >
+                      {project.tag}
+                    </span>
+                    <div className="absolute bottom-6 left-6 right-6 text-white flex justify-between items-end">
+                      <div>
+                        <p className="text-[10px] font-bold text-accent uppercase tracking-widest">{project.client}</p>
+                        <h4 className="font-display text-2xl font-bold leading-tight mt-1">
+                          {project.title}
+                        </h4>
+                      </div>
+                      <span
+                        className="text-[10px] bg-ink/80 backdrop-blur border border-white/10 px-2 py-1 rounded-sm flex items-center gap-1.5 font-mono text-white/90"
+                        dir="ltr"
+                      >
+                        <Calendar className="h-3 w-3 text-accent" /> {project.period}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="p-6 md:p-8 flex-1 flex flex-col justify-between bg-card relative">
+                    <div>
+                      <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{project.desc}</p>
+
+                      <div className="grid sm:grid-cols-2 gap-6 mt-8 pt-6 border-t border-border">
+                        <div>
+                          <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest block">
+                            Applied System
+                          </span>
+                          <span className="text-sm font-semibold text-foreground mt-1.5 flex items-start gap-2">
+                            <Layers className="h-4 w-4 text-accent shrink-0 mt-0.5" />
+                            <span className="leading-tight">{project.system}</span>
+                          </span>
+                        </div>
+                        <div>
+                          <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest block">
+                            Measured Impact
+                          </span>
+                          <span className="text-sm font-semibold text-foreground mt-1.5 flex items-start gap-2">
+                            <Activity className="h-4 w-4 text-accent shrink-0 mt-0.5" />
+                            <span className="leading-tight">{project.impact}</span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="mt-8 pt-6 flex justify-between items-center border-t border-border">
+                      <span className="text-xs text-muted-foreground flex items-center gap-1.5 font-medium">
+                        <MapPin className="h-4 w-4 text-accent shrink-0" /> {project.location}
+                      </span>
+                      {getClientLogo(project.client) && (
+                        <div className="h-8 w-24 text-muted-foreground/30 flex items-center justify-end">
+                          {(() => {
+                            const Logo = getClientLogo(project.client)!;
+                            return <Logo className="h-full w-full" />;
+                          })()}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* GENERAL REGISTRY FILTERS */}
       <section className="border-b border-border bg-background sticky top-20 z-30 backdrop-blur-md">
         <div className="container mx-auto px-4 md:px-6 py-4 flex flex-wrap items-center gap-2">
           <button
@@ -99,51 +294,69 @@ function ProjectsPage() {
         </div>
       </section>
 
-      {/* GRID */}
-      <section className="container mx-auto px-4 md:px-6 py-16 md:py-24">
+      {/* PROJECT REGISTRY LIST */}
+      <section className="container mx-auto px-4 md:px-6 py-10 md:py-24">
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {filtered.map((p, idx) => (
             <Reveal
               key={`${filter}-${idx}`}
               delay={idx * 40}
               as="article"
-              className="group rounded-2xl border border-border bg-card p-6 hover:border-accent/50 hover:shadow-elegant hover:-translate-y-0.5 transition-all"
+              className="group rounded-sm border border-border bg-card p-6 hover:border-accent/50 hover:shadow-elegant hover:-translate-y-0.5 transition-all flex flex-col justify-between"
             >
-              <div className="flex items-start justify-between gap-4">
-                <p className="font-mono text-xs font-semibold text-muted-foreground tabular-nums">
-                  #{String(items.indexOf(p) + 1).padStart(2, "0")}
-                </p>
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-accent">
-                  <CheckCircle2 className="h-3 w-3" />
-                  {t("projects.completed")}
-                </span>
+              <div>
+                <div className="flex items-start justify-between gap-4">
+                  <p className="font-mono text-xs font-semibold text-muted-foreground tabular-nums">
+                    #{String(items.indexOf(p) + 1).padStart(2, "0")}
+                  </p>
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-accent-foreground">
+                    <CheckCircle2 className="h-3 w-3 text-accent" />
+                    {t("projects.completed")}
+                  </span>
+                </div>
+                <h3 className="mt-4 font-display text-base md:text-lg font-semibold leading-snug group-hover:text-accent transition-colors">
+                  {p.title}
+                </h3>
               </div>
-              <h3 className="mt-4 font-display text-base md:text-lg font-semibold leading-snug group-hover:text-accent transition-colors">
-                {p.title}
-              </h3>
-              <div className="mt-6 pt-5 border-t border-border space-y-2.5 text-sm">
-                <div className="flex items-center gap-2 text-muted-foreground">
-                  <Building2 className="h-4 w-4 text-accent flex-shrink-0" />
-                  <span className="font-medium text-foreground">{p.client}</span>
+
+              <div className="mt-6 pt-5 border-t border-border flex justify-between items-end">
+                <div className="space-y-2.5 text-sm">
+                  <div className="flex items-center gap-2 text-muted-foreground">
+                    <Building2 className="h-4 w-4 text-accent flex-shrink-0" />
+                    <span className="font-medium text-foreground">{p.client}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-muted-foreground">
+                    <MapPin className="h-4 w-4 text-accent flex-shrink-0" />
+                    <span>{p.location}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-muted-foreground">
+                    <Calendar className="h-4 w-4 text-accent flex-shrink-0" />
+                    <span dir="ltr">{p.period}</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2 text-muted-foreground">
-                  <MapPin className="h-4 w-4 text-accent flex-shrink-0" />
-                  <span>{p.location}</span>
-                </div>
-                <div className="flex items-center gap-2 text-muted-foreground">
-                  <Calendar className="h-4 w-4 text-accent flex-shrink-0" />
-                  <span dir="ltr">{p.period}</span>
-                </div>
+
+                {getClientLogo(p.client) && (
+                  <div className="h-8 w-20 text-muted-foreground/30 flex items-center justify-end">
+                    {(() => {
+                      const Logo = getClientLogo(p.client)!;
+                      return <Logo className="h-full w-full" />;
+                    })()}
+                  </div>
+                )}
               </div>
             </Reveal>
           ))}
         </div>
 
-        <div className="mt-20 rounded-3xl border border-border bg-secondary/40 p-10 md:p-14 text-center">
+        <div className="mt-20 rounded-sm border border-border bg-secondary/40 p-10 md:p-14 text-center">
           <h2 className="font-display text-2xl md:text-4xl font-semibold leading-tight text-balance max-w-2xl mx-auto">
             {t("home.ctaTitle")}
           </h2>
-          <Button asChild size="lg" className="mt-8 rounded-full">
+          <Button
+            asChild
+            size="lg"
+            className="mt-8 rounded-sm bg-accent text-accent-foreground hover:bg-accent/90"
+          >
             <Link to="/contact">
               {t("home.ctaButton")}
               <ArrowRight className="h-4 w-4 ms-2 rtl:rotate-180" />

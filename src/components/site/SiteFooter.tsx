@@ -45,16 +45,18 @@ export function SiteFooter() {
               {t("footer.explore")}
             </h4>
             <ul className="mt-5 space-y-3 text-sm">
-              {(["home", "about", "services", "projects", "clients", "contact"] as const).map((k) => (
-                <li key={k}>
-                  <Link
-                    to={k === "home" ? "/" : `/${k}`}
-                    className="text-ink-foreground/80 hover:text-accent transition-colors"
-                  >
-                    {t(`nav.${k}`)}
-                  </Link>
-                </li>
-              ))}
+              {(["home", "about", "services", "projects", "clients", "contact"] as const).map(
+                (k) => (
+                  <li key={k}>
+                    <Link
+                      to={k === "home" ? "/" : `/${k}`}
+                      className="text-ink-foreground/80 hover:text-accent transition-colors"
+                    >
+                      {t(`nav.${k}`)}
+                    </Link>
+                  </li>
+                ),
+              )}
             </ul>
           </div>
 

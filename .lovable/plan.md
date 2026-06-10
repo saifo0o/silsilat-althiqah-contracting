@@ -1,4 +1,3 @@
-
 ## What Seema does
 
 Seema General Contracting & Industrial Services Co. — Saudi specialist in **structural rehabilitation**: concrete & steel repair, process piping, **carbon-fiber composite reinforcement**, and **epoxy coatings for corrosive environments**. Current site is a dated WordPress build (slider + a few sections). Brand: royal blue + green accent, "SEEMA / General Contracting" logo in a green ellipse.
@@ -43,9 +42,11 @@ Each route gets unique localized `head()` metadata. Shared `<SiteHeader>` and `<
 ## Assets
 
 **Reused from official site → `src/assets/`:**
+
 - `seema-logo.png` (downloaded from seema.sa.com)
 
 **Generated (premium for hero, standard/fast for thumbnails) → `src/assets/`:**
+
 - Hero: dramatic refinery / petrochemical plant at dusk
 - Service tiles: carbon-fiber wrap on concrete column · epoxy coating on pipe · steel structure rehab · concrete crack injection · process piping inspection · structural assessment
 - About: engineers in PPE on industrial site

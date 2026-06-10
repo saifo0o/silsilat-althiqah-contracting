@@ -1,10 +1,42 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
-import { ShieldCheck, Gauge, Layers, BadgeCheck, ArrowRight, MapPin } from "lucide-react";
+import { useState } from "react";
+import {
+  ShieldCheck,
+  Gauge,
+  Layers,
+  BadgeCheck,
+  ArrowRight,
+  MapPin,
+  ChevronLeft,
+  ChevronRight,
+  Activity,
+  Award,
+  Building2,
+} from "lucide-react";
 import about from "@/assets/about-engineers.jpg";
+import officeHq from "@/assets/office-hq.png";
+import teamEngineers from "@/assets/team-engineers.png";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import {
+  SabicLogo,
+  AramcoLogo,
+  MaadenLogo,
+  SipchemLogo,
+  YasrefLogo,
+  SecLogo,
+  NeomLogo,
+  RedSeaLogo,
+  SaudiaLogo,
+  StcLogo,
+  MobilyLogo,
+  ZainLogo,
+  SaharaLogo,
+  SioLogo,
+} from "@/components/site/ClientLogos";
 
 type Vendor = { name: string; number: string };
 type TimelineItem = { year: string; title: string; body: string };
@@ -13,7 +45,11 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About — Seema General Contracting & Industrial Services" },
-      { name: "description", content: "Founded in 2013, Seema is a Saudi specialist in the rehabilitation of concrete, steel structures and process pipes." },
+      {
+        name: "description",
+        content:
+          "Founded in 2013, Seema is a Saudi specialist in the rehabilitation of concrete, steel structures and process pipes.",
+      },
       { property: "og:title", content: "About — Seema" },
       { property: "og:description", content: "A specialist contractor for what cannot fail." },
       { property: "og:image", content: about },
@@ -26,9 +62,32 @@ export const Route = createFileRoute("/about")({
 });
 
 function AboutPage() {
-  const { t } = useTranslation();
-  const vendors = t("clients.vendors", { returnObjects: true }) as Vendor[];
-  const timeline = t("about.timeline", { returnObjects: true }) as TimelineItem[];
+  const { t, i18n } = useTranslation();
+
+  const vendorsData = t("clients.vendors", { returnObjects: true });
+  const vendors = Array.isArray(vendorsData) ? (vendorsData as Vendor[]) : [];
+
+  const timelineData = t("about.timeline", { returnObjects: true });
+  const timeline = Array.isArray(timelineData) ? (timelineData as TimelineItem[]) : [];
+
+  const [activeMilestone, setActiveMilestone] = useState(0);
+
+  const getVendorLogo = (vendorName: string) => {
+    const name = vendorName.toLowerCase();
+    if (name.includes("aramco") || name.includes("kjo")) return AramcoLogo;
+    if (name.includes("sabic")) return SabicLogo;
+    if (name.includes("electricity") || name.includes("sec")) return SecLogo;
+    if (name.includes("maaden") || name.includes("ma'aden")) return MaadenLogo;
+    if (name.includes("sahara")) return SaharaLogo;
+    if (name.includes("neom")) return NeomLogo;
+    if (name.includes("red sea")) return RedSeaLogo;
+    if (name.includes("telecom") || name.includes("stc")) return StcLogo;
+    if (name.includes("mobily")) return MobilyLogo;
+    if (name.includes("zain")) return ZainLogo;
+    if (name.includes("airlines") || name.includes("saudia")) return SaudiaLogo;
+    if (name.includes("irrigation") || name.includes("sio")) return SioLogo;
+    return null;
+  };
 
   return (
     <>
@@ -44,7 +103,7 @@ function AboutPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/80 to-ink" />
         <div className="absolute inset-0 grid-pattern opacity-[0.06] text-ink-foreground" />
-        <div className="relative container mx-auto px-4 md:px-6 py-28 md:py-36 lg:py-44">
+        <div className="relative container mx-auto px-4 md:px-6 pt-28 pb-16 md:pt-40 md:pb-36 lg:pt-44 lg:pb-44">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em]">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             {t("about.eyebrow")}
@@ -52,7 +111,9 @@ function AboutPage() {
           <h1 className="mt-6 font-display text-[clamp(2.25rem,6vw,4.5rem)] font-semibold max-w-3xl leading-[1.05] tracking-tight text-balance">
             {t("about.title")}
           </h1>
-          <p className="mt-7 max-w-2xl text-lg text-ink-foreground/75 leading-relaxed">{t("about.lead")}</p>
+          <p className="mt-7 max-w-2xl text-lg text-ink-foreground/75 leading-relaxed">
+            {t("about.lead")}
+          </p>
           <p className="mt-5 inline-flex items-center gap-2 text-sm text-ink-foreground/60">
             <MapPin className="h-4 w-4 text-accent" />
             {t("about.since")}
@@ -61,14 +122,14 @@ function AboutPage() {
       </section>
 
       {/* BODY — split paragraphs */}
-      <section className="container mx-auto px-4 md:px-6 py-24 md:py-32">
+      <section className="container mx-auto px-4 md:px-6 py-12 md:py-32">
         <div className="grid gap-12 lg:grid-cols-12">
           <Reveal className="lg:col-span-5">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-accent">
-              Our practice
+              {i18n.language === 'ar' ? 'ممارساتنا' : 'Our practice'}
             </p>
             <h2 className="mt-3 font-display text-3xl md:text-4xl font-semibold leading-tight">
-              Engineered repair, executed on live industrial sites.
+              {i18n.language === 'ar' ? 'إصلاحات هندسية، تُنفّذ في المواقع الصناعية النشطة.' : 'Engineered repair, executed on live industrial sites.'}
             </h2>
           </Reveal>
           <div className="lg:col-span-7 grid gap-8 md:grid-cols-2">
@@ -84,75 +145,262 @@ function AboutPage() {
 
       {/* VALUES */}
       <section className="bg-secondary/40 border-y border-border">
-        <div className="container mx-auto px-4 md:px-6 py-24 md:py-32">
-          <div className="grid gap-6 md:grid-cols-3">
-            {([
-              { k: "mission", Icon: ShieldCheck },
-              { k: "goal", Icon: Gauge },
-              { k: "vision", Icon: Layers },
-            ] as const).map(({ k, Icon }, idx) => (
-              <Reveal key={k} delay={idx * 100}>
-                <div className="rounded-2xl border border-border bg-card p-8 h-full">
-                  <div className="h-12 w-12 rounded-xl bg-accent/15 text-accent flex items-center justify-center">
-                    <Icon className="h-6 w-6" />
+        <div className="container mx-auto px-4 md:px-6 py-12 md:py-32 text-start">
+          <div className="grid gap-8 lg:grid-cols-12 items-stretch">
+            {/* Mission: Featured 2/3 width card */}
+            <Reveal className="lg:col-span-8">
+              <div className="rounded-sm border border-border bg-card p-8 md:p-10 h-full flex flex-col justify-between relative overflow-hidden group hover:border-emerald-500/30 hover:shadow-elegant transition-all duration-300">
+                <div className="absolute top-0 right-0 h-32 w-32 bg-gradient-to-bl from-accent/5 to-transparent pointer-events-none" />
+                <div>
+                  <div className="h-12 w-12 rounded-sm bg-accent/10 text-accent-foreground flex items-center justify-center">
+                    <ShieldCheck className="h-6 w-6" />
                   </div>
-                  <h3 className="mt-6 font-display text-xl font-semibold">{t(`values.${k}Title`)}</h3>
-                  <p className="mt-3 text-muted-foreground leading-relaxed">{t(`values.${k}Body`)}</p>
+                  <h3 className="mt-6 font-display text-2xl font-bold tracking-tight text-foreground">
+                    {t("values.missionTitle")}
+                  </h3>
+                  <p className="mt-4 text-base text-muted-foreground leading-relaxed max-w-2xl">
+                    {t("values.missionBody")}
+                  </p>
                 </div>
-              </Reveal>
-            ))}
+                <div className="mt-8 pt-6 border-t border-border flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
+                    Engineering Excellence
+                  </span>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Goal & Vision: Stacked 1/3 width */}
+            <div className="lg:col-span-4 flex flex-col gap-6">
+              {[
+                { k: "goal", Icon: Gauge },
+                { k: "vision", Icon: Layers },
+              ].map(({ k, Icon }) => (
+                <Reveal key={k} className="flex-1">
+                  <div className="rounded-sm border border-border bg-card p-6 h-full flex flex-col justify-between group hover:border-emerald-500/30 hover:shadow-elegant transition-all duration-300">
+                    <div>
+                      <div className="h-10 w-10 rounded-sm bg-accent/10 text-accent-foreground flex items-center justify-center">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <h3 className="mt-4 font-display text-lg font-bold text-foreground">
+                        {t(`values.${k}Title`)}
+                      </h3>
+                      <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
+                        {t(`values.${k}Body`)}
+                      </p>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TEAM & FACILITIES */}
+      <section className="bg-background border-b border-border py-12 md:py-32">
+        <div className="container mx-auto px-4 md:px-6">
+          <SectionHeading
+            eyebrow={t("about.eyebrow")}
+            title={t("about.teamTitle")}
+            subtitle={t("about.teamSubtitle")}
+          />
+          <div className="mt-14 grid gap-8 md:grid-cols-2">
+            <Reveal className="group bg-card border border-border rounded-sm overflow-hidden hover:shadow-elegant hover:border-emerald-500/30 transition-all text-start">
+              <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+                <img
+                  src={officeHq}
+                  alt={t("about.hqLabel")}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  width={800}
+                  height={500}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 to-transparent" />
+
+                {/* Floating parameters overlay dossier */}
+                <div className="absolute top-4 start-4 bg-slate-950/80 border border-white/5 rounded px-2.5 py-1.5 text-[10px] font-mono text-slate-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="font-bold text-emerald-400">HQ COORDINATES</p>
+                  <p className="mt-0.5">27.0097° N, 49.6583° E</p>
+                </div>
+              </div>
+              <div className="p-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <Activity className="h-4 w-4 text-emerald-500" />
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
+                    Jubail Operations Center
+                  </span>
+                </div>
+                <h3 className="font-display text-lg font-bold">{t("about.hqLabel")}</h3>
+                <p className="mt-2.5 text-sm text-muted-foreground leading-relaxed">
+                  {t("about.hqDesc")}
+                </p>
+              </div>
+            </Reveal>
+
+            <Reveal
+              delay={150}
+              className="group bg-card border border-border rounded-sm overflow-hidden hover:shadow-elegant hover:border-emerald-500/30 transition-all text-start"
+            >
+              <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+                <img
+                  src={teamEngineers}
+                  alt={t("about.teamLabel")}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  width={800}
+                  height={500}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 to-transparent" />
+
+                {/* Floating credentials overlay dossier */}
+                <div className="absolute top-4 start-4 bg-slate-950/80 border border-white/5 rounded px-2.5 py-1.5 text-[10px] font-mono text-slate-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="font-bold text-emerald-400">CREW ACCREDITATION</p>
+                  <p className="mt-0.5">ASME PCC-2 & HSE Certified</p>
+                </div>
+              </div>
+              <div className="p-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <Award className="h-4 w-4 text-emerald-500" />
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
+                    Certified Engineering Crews
+                  </span>
+                </div>
+                <h3 className="font-display text-lg font-bold">{t("about.teamLabel")}</h3>
+                <p className="mt-2.5 text-sm text-muted-foreground leading-relaxed">
+                  {t("about.teamDesc")}
+                </p>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
       {/* TIMELINE */}
-      <section className="container mx-auto px-4 md:px-6 py-24 md:py-32">
-        <SectionHeading
-          eyebrow="Milestones"
-          title={t("about.timelineTitle")}
-          subtitle={t("about.timelineSubtitle")}
-        />
-        <div className="mt-16 relative">
-          <div className="absolute start-4 md:start-1/2 top-0 bottom-0 w-px bg-border" aria-hidden />
-          <ol className="space-y-10">
-            {timeline.map((m, idx) => (
-              <Reveal key={m.year + idx} delay={idx * 80} as="li">
-                <div className={`relative grid gap-4 md:grid-cols-2 md:gap-12 ${idx % 2 === 1 ? "md:[direction:rtl]" : ""}`}>
-                  <div className="absolute start-4 md:start-1/2 -translate-x-1/2 rtl:translate-x-1/2 mt-2 h-3 w-3 rounded-full bg-accent ring-4 ring-background" />
-                  <div className="ps-12 md:ps-0 md:text-end md:[direction:ltr]">
-                    <p className="font-display text-2xl md:text-3xl font-semibold text-accent" dir="ltr">
-                      {m.year}
-                    </p>
-                  </div>
-                  <div className="ps-12 md:ps-0 md:[direction:ltr]">
-                    <h3 className="font-display text-xl font-semibold">{m.title}</h3>
-                    <p className="mt-2 text-muted-foreground leading-relaxed">{m.body}</p>
-                  </div>
+      {timeline.length > 0 && (
+        <section className="container mx-auto px-4 md:px-6 py-12 md:py-32 text-start">
+          <SectionHeading
+            eyebrow="Milestones"
+            title={t("about.timelineTitle")}
+            subtitle={t("about.timelineSubtitle")}
+          />
+
+          <div className="mt-14 max-w-4xl mx-auto">
+            {/* Timeline tabs selector */}
+            <div
+              className="flex border-b border-border overflow-x-auto gap-4 pb-1 scrollbar-none"
+              dir="ltr"
+            >
+              {timeline.map((m, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveMilestone(idx)}
+                  className={cn(
+                    "py-4 px-6 font-display text-base font-bold uppercase tracking-wider relative transition-colors whitespace-nowrap shrink-0",
+                    activeMilestone === idx
+                      ? "text-emerald-500 animate-pulse"
+                      : "text-muted-foreground hover:text-foreground",
+                  )}
+                >
+                  {m.year}
+                  {activeMilestone === idx && (
+                    <span className="absolute inset-x-0 bottom-0 h-0.5 bg-emerald-500 rounded-full animate-fade-in" />
+                  )}
+                </button>
+              ))}
+            </div>
+
+            {/* Timeline active item detail card */}
+            <div className="mt-8 bg-card border border-border rounded-sm p-8 md:p-10 shadow-elegant relative overflow-hidden transition-all duration-300 min-h-[220px] flex flex-col justify-between">
+              <div className="absolute top-0 right-0 h-24 w-24 bg-gradient-to-bl from-emerald-500/5 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 grid-pattern opacity-[0.02] pointer-events-none" />
+
+              <div className="relative">
+                <span
+                  className="font-mono text-4xl md:text-5xl font-extrabold text-emerald-500/10 block mb-2 select-none"
+                  dir="ltr"
+                >
+                  {timeline[activeMilestone]?.year}
+                </span>
+                <h3 className="font-display text-xl md:text-2xl font-bold text-foreground">
+                  {timeline[activeMilestone]?.title}
+                </h3>
+                <p className="mt-4 text-sm md:text-base text-muted-foreground leading-relaxed max-w-2xl">
+                  {timeline[activeMilestone]?.body}
+                </p>
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-border flex items-center justify-between">
+                <span className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
+                  Milestone {activeMilestone + 1} / {timeline.length}
+                </span>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() =>
+                      setActiveMilestone((i) => (i === 0 ? timeline.length - 1 : i - 1))
+                    }
+                    className="h-8 w-8 rounded-full border border-border flex items-center justify-center hover:border-emerald-500 hover:text-emerald-500 transition-colors"
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                  </button>
+                  <button
+                    onClick={() =>
+                      setActiveMilestone((i) => (i === timeline.length - 1 ? 0 : i + 1))
+                    }
+                    className="h-8 w-8 rounded-full border border-border flex items-center justify-center hover:border-emerald-500 hover:text-emerald-500 transition-colors"
+                  >
+                    <ChevronRight className="h-4 w-4" />
+                  </button>
                 </div>
-              </Reveal>
-            ))}
-          </ol>
-        </div>
-      </section>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* VENDORS */}
       <section className="bg-secondary/40 border-t border-border">
-        <div className="container mx-auto px-4 md:px-6 py-24 md:py-32">
+        <div className="container mx-auto px-4 md:px-6 py-12 md:py-32">
           <div className="flex items-center gap-3">
             <div className="h-10 w-10 rounded-lg bg-accent/15 text-accent flex items-center justify-center">
               <BadgeCheck className="h-5 w-5" />
             </div>
-            <h2 className="font-display text-2xl md:text-3xl font-semibold">{t("about.vendorsTitle")}</h2>
+            <h2 className="font-display text-2xl md:text-3xl font-semibold">
+              {t("about.vendorsTitle")}
+            </h2>
           </div>
           <p className="mt-3 text-muted-foreground max-w-2xl">{t("about.vendorsBody")}</p>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {vendors.map((v, idx) => (
               <Reveal key={v.name} delay={idx * 60}>
-                <div className="rounded-xl border border-border bg-card p-6 flex items-center justify-between gap-4 hover:border-accent/40 transition-colors">
-                  <p className="font-display text-base font-semibold">{v.name}</p>
-                  <p className="font-mono text-sm tabular-nums text-muted-foreground" dir="ltr">
-                    #{v.number}
-                  </p>
+                <div className="group relative overflow-hidden rounded-sm border border-border bg-card p-5 hover:border-emerald-500/30 hover:shadow-elegant transition-all flex flex-col justify-between h-full min-h-[160px] text-start">
+                  <div className="flex items-center justify-between gap-4">
+                    {/* Logo container */}
+                    <div className="h-8 w-20 bg-muted/30 border border-border/40 rounded-sm p-1.5 flex items-center justify-center shrink-0 select-none">
+                      {(() => {
+                        const LogoComp = getVendorLogo(v.name);
+                        return LogoComp ? (
+                          <LogoComp className="h-full w-full object-contain filter brightness-95 dark:brightness-100" />
+                        ) : (
+                          <Building2 className="h-4 w-4 text-muted-foreground/60" />
+                        );
+                      })()}
+                    </div>
+
+                    {/* Blinking approval indicator */}
+                    <span className="flex h-2 w-2 relative">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                  </div>
+
+                  <div className="mt-4">
+                    <p className="font-display text-sm font-bold text-foreground">{v.name}</p>
+                    <p className="font-mono text-xs text-muted-foreground mt-1" dir="ltr">
+                      #{v.number}
+                    </p>
+                  </div>
                 </div>
               </Reveal>
             ))}

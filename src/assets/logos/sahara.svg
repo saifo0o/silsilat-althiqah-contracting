@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" fill="none">
+  <path d="M12 40C12 25.0883 23.0883 14 38 14C45.4558 14 51.5 17.5 56 22.5C51.5 25.5 45.5 28 38 28C28 28 20 33 16 40H12Z" fill="#F97316" />
+  <path d="M16 40C20 31 29 26 40 26C49 26 56 31.5 60 40H16Z" fill="#EA580C" />
+  <text x="72" y="28" fontFamily="Sora, sans-serif" fontWeight="700" fontSize="22" fill="currentColor">Sahara</text>
+  <text x="72" y="46" fontFamily="Sora, sans-serif" fontWeight="500" fontSize="10" fill="currentColor" opacity="0.7" letterSpacing="1.5">PETROCHEMICAL</text>
+</svg>

@@ -42,7 +42,10 @@ export function StatCounter({ value, label }: Props) {
 
   return (
     <div ref={ref} className="px-4 py-8 text-center md:text-start">
-      <p className="font-display text-4xl md:text-5xl font-semibold tracking-tight tabular-nums" dir="ltr">
+      <p
+        className="font-display text-4xl md:text-5xl font-semibold tracking-tight tabular-nums"
+        dir="ltr"
+      >
         {prefix}
         {match ? n : value}
         {suffix}

@@ -6,9 +6,8 @@ import ar from "./ar.json";
 const STORAGE_KEY = "seema-lang";
 
 function detectInitialLang(): "en" | "ar" {
-  if (typeof window === "undefined") return "en";
-  const stored = window.localStorage.getItem(STORAGE_KEY);
-  if (stored === "en" || stored === "ar") return stored;
+  // Always return "en" during initial hydration to match SSR
+  // The client will pick up the actual language post-hydration in __root.tsx
   return "en";
 }
 

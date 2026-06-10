@@ -14,6 +14,7 @@ import "../i18n";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { SmoothScroll } from "@/components/site/SmoothScroll";
 
 function NotFoundComponent() {
   return (
@@ -87,10 +88,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "SEEMA — Reduce Downtime. Extend Asset Life. Protect What Matters." },
       { property: "og:title", content: "SEEMA — Engineered Industrial Services" },
       { name: "twitter:title", content: "SEEMA — Engineered Industrial Services" },
-      { name: "description", content: "SEEMA delivers advanced engineering solutions for structural rehabilitation, pipe repair, and industrial protection across Saudi Arabia's heaviest industries." },
-      { property: "og:description", content: "Advanced engineering solutions for structural rehabilitation, pipe repair, and industrial protection in the Kingdom." },
-      { name: "twitter:description", content: "Advanced engineering solutions for structural rehabilitation and industrial protection." },
-
+      {
+        name: "description",
+        content:
+          "SEEMA delivers advanced engineering solutions for structural rehabilitation, pipe repair, and industrial protection across Saudi Arabia's heaviest industries.",
+      },
+      {
+        property: "og:description",
+        content:
+          "Advanced engineering solutions for structural rehabilitation, pipe repair, and industrial protection in the Kingdom.",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Advanced engineering solutions for structural rehabilitation and industrial protection.",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -127,19 +139,30 @@ function RootComponent() {
   const { i18n } = useTranslation();
 
   useEffect(() => {
+    // Post-hydration sync: read stored language from client side
+    // This prevents hydration mismatch because initial render is always "en"
+    const stored = window.localStorage.getItem("seema-lang");
+    if (stored === "ar" && i18n.language !== "ar") {
+      i18n.changeLanguage("ar");
+    }
+  }, [i18n]);
+
+  useEffect(() => {
     document.documentElement.lang = i18n.language;
     document.documentElement.dir = i18n.language === "ar" ? "rtl" : "ltr";
   }, [i18n.language]);
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col">
-        <SiteHeader />
-        <main className="flex-1">
-          <Outlet />
-        </main>
-        <SiteFooter />
-      </div>
+      <SmoothScroll>
+        <div className="flex min-h-screen flex-col">
+          <SiteHeader />
+          <main className="flex-1">
+            <Outlet />
+          </main>
+          <SiteFooter />
+        </div>
+      </SmoothScroll>
     </QueryClientProvider>
   );
 }
