@@ -41,9 +41,39 @@ export const Route = createFileRoute("/contact")({
 function ContactPage() {
   const { t } = useTranslation();
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    const raw = {
+      name: String(fd.get("name") ?? ""),
+      email: String(fd.get("email") ?? ""),
+      phone: String(fd.get("phone") ?? ""),
+      company: String(fd.get("company") ?? ""),
+      subject: String(fd.get("subject") ?? ""),
+      message: String(fd.get("message") ?? ""),
+    };
+    const parsed = contactSchema.safeParse(raw);
+    if (!parsed.success) {
+      toast.error(parsed.error.issues[0]?.message ?? "Please check the form");
+      return;
+    }
+    setSubmitting(true);
+    const { error } = await supabase.from("contact_submissions").insert({
+      name: parsed.data.name,
+      email: parsed.data.email,
+      phone: parsed.data.phone,
+      company: parsed.data.company || null,
+      subject: parsed.data.subject || null,
+      message: parsed.data.message,
+    });
+    setSubmitting(false);
+    if (error) {
+      toast.error("Could not send your inquiry. Please try again.");
+      return;
+    }
     setSent(true);
   };
 
