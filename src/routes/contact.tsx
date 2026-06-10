@@ -323,9 +323,14 @@ function ContactPage() {
                   <div className="mt-8 pt-6 border-t border-border flex justify-end">
                     <Button
                       type="submit"
+                      disabled={submitting}
                       className="rounded-sm bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold uppercase tracking-wider px-6 py-2.5"
                     >
-                      <Send className="h-3.5 w-3.5 me-2" />
+                      {submitting ? (
+                        <Loader2 className="h-3.5 w-3.5 me-2 animate-spin" />
+                      ) : (
+                        <Send className="h-3.5 w-3.5 me-2" />
+                      )}
                       {t("contact.form.submit")}
                     </Button>
                   </div>
