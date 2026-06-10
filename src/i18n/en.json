@@ -8,13 +8,15 @@
     "contact": "Contact",
     "cta": "Request a Quote"
   },
-  "lang": { "toggle": "العربية" },
+  "lang": {
+    "toggle": "العربية"
+  },
   "company": {
     "name": "Seema",
     "tagline": "General Contracting & Industrial Services Co."
   },
   "common": {
-    "learnMore": "Learn more",
+    "learnMore": "Explore this service",
     "viewAll": "View all",
     "getInTouch": "Get in touch",
     "discussProject": "Discuss your project",
@@ -84,10 +86,22 @@
     "projectsTitle2": "Across Critical Industries",
     "trustedTitle": "Trusted by Industry Leaders",
     "certs": {
-      "iso9001": { "code": "ISO 9001:2015", "label": "Quality Management" },
-      "iso14001": { "code": "ISO 14001:2015", "label": "Environmental Management" },
-      "iso45001": { "code": "ISO 45001:2018", "label": "Occupational Health & Safety" },
-      "vendor": { "code": "SABIC / Aramco / Ma'aden", "label": "Approved Vendor" }
+      "iso9001": {
+        "code": "ISO 9001:2015",
+        "label": "Quality Management"
+      },
+      "iso14001": {
+        "code": "ISO 14001:2015",
+        "label": "Environmental Management"
+      },
+      "iso45001": {
+        "code": "ISO 45001:2018",
+        "label": "Occupational Health & Safety"
+      },
+      "vendor": {
+        "code": "SABIC / Aramco / Ma'aden",
+        "label": "Approved Vendor"
+      }
     },
     "ctaTitle": "Let's Build a More Reliable Future",
     "ctaBody": "Partner with SEEMA for innovative engineering solutions that keep your assets performing at their best.",
@@ -129,7 +143,6 @@
     "industriesTitle": "Trusted across the Kingdom's industrial backbone.",
     "ctaPill": "Available across the Kingdom"
   },
-
   "values": {
     "missionTitle": "Our Mission",
     "missionBody": "Introduce specialised engineered services and solutions, and build a specialised maintenance team in the rehabilitation field — collaborating with international companies to transfer technology, training and technical support.",
@@ -421,18 +434,54 @@
     "copiedText": "Copied!",
     "vendorsTitle": "Approved Vendor Registry",
     "vendors": [
-      { "name": "Saudi Aramco", "number": "10059513" },
-      { "name": "SABIC", "number": "507891" },
-      { "name": "Saudi Electricity Company (SEC)", "number": "5010646" },
-      { "name": "Maaden", "number": "2377049" },
-      { "name": "Sahara", "number": "101450" },
-      { "name": "NEOM", "number": "119853" },
-      { "name": "Red Sea Global", "number": "98205" },
-      { "name": "Saudi Telecom Company (stc)", "number": "203940" },
-      { "name": "Mobily", "number": "84729" },
-      { "name": "Zain KSA", "number": "39485" },
-      { "name": "Saudi Arabian Airlines (Saudia)", "number": "75620" },
-      { "name": "Saudi Irrigation Organization", "number": "40821" }
+      {
+        "name": "Saudi Aramco",
+        "number": "10059513"
+      },
+      {
+        "name": "SABIC",
+        "number": "507891"
+      },
+      {
+        "name": "Saudi Electricity Company (SEC)",
+        "number": "5010646"
+      },
+      {
+        "name": "Maaden",
+        "number": "2377049"
+      },
+      {
+        "name": "Sahara",
+        "number": "101450"
+      },
+      {
+        "name": "NEOM",
+        "number": "119853"
+      },
+      {
+        "name": "Red Sea Global",
+        "number": "98205"
+      },
+      {
+        "name": "Saudi Telecom Company (stc)",
+        "number": "203940"
+      },
+      {
+        "name": "Mobily",
+        "number": "84729"
+      },
+      {
+        "name": "Zain KSA",
+        "number": "39485"
+      },
+      {
+        "name": "Saudi Arabian Airlines (Saudia)",
+        "number": "75620"
+      },
+      {
+        "name": "Saudi Irrigation Organization",
+        "number": "40821"
+      }
     ],
     "sectorsTitle": "Sectors We Serve",
     "sectors": [
