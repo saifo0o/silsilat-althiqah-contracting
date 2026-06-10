@@ -86,9 +86,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "Seema" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { title: "SEEMA — Reduce Downtime. Extend Asset Life. Protect What Matters." },
-      { property: "og:title", content: "SEEMA — Engineered Industrial Services" },
-      { name: "twitter:title", content: "SEEMA — Engineered Industrial Services" },
+      { title: "SEEMA — Industrial Rehabilitation & CFRP, Saudi Arabia" },
+      { property: "og:title", content: "SEEMA — Industrial Rehabilitation & CFRP" },
+      { name: "twitter:title", content: "SEEMA — Industrial Rehabilitation & CFRP" },
       {
         name: "description",
         content:
@@ -112,6 +112,35 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": "https://seema-contracting.lovable.app/#organization",
+              name: "Seema General Contracting & Industrial Services Co.",
+              alternateName: "SEEMA",
+              url: "https://seema-contracting.lovable.app",
+              logo: "https://seema-contracting.lovable.app/favicon.ico",
+              foundingDate: "2013",
+              areaServed: "SA",
+              sameAs: [],
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://seema-contracting.lovable.app/#website",
+              url: "https://seema-contracting.lovable.app",
+              name: "SEEMA",
+              publisher: { "@id": "https://seema-contracting.lovable.app/#organization" },
+              inLanguage: ["en", "ar"],
+            },
+          ],
+        }),
       },
     ],
   }),
