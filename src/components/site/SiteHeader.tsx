@@ -7,6 +7,7 @@ import logo from "@/assets/silsilat-al-thiqa-logo.png";
 import { setLanguage } from "@/i18n";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { Magnetic } from "@/components/site/Magnetic";
 
 import tileStructural from "@/assets/service-concrete.jpg";
 import tilePiping from "@/assets/service-piping.jpg";
@@ -76,8 +77,9 @@ export function SiteHeader() {
   };
 
   return (
-    <motion.header
-      variants={{
+    <>
+      <motion.header
+        variants={{
         visible: { y: 0 },
         hidden: { y: "-100%" },
       }}
@@ -138,19 +140,21 @@ export function SiteHeader() {
         )}
       >
         <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-          <Link to="/" className="flex items-center gap-3 group" data-magnetic>
-            <div className="bg-white/95 rounded-md p-1.5 transition-transform group-hover:scale-105">
-              <img src={logo} alt="Silsilat Al-Thiqa" className="h-10 w-auto" width={120} height={40} />
-            </div>
-            <div className="hidden sm:flex flex-col leading-tight">
-              <span className="font-display text-sm font-bold text-ink-foreground tracking-wide">
-                {t("company.name")}
-              </span>
-              <span className="text-[8px] uppercase tracking-[0.15em] text-ink-foreground/60">
-                {t("company.tagline")}
-              </span>
-            </div>
-          </Link>
+          <Magnetic>
+            <Link to="/" className="flex items-center gap-3 group">
+              <div className="bg-white/95 rounded-md p-1.5 transition-transform group-hover:scale-105">
+                <img src={logo} alt="Silsilat Al-Thiqa" className="h-10 w-auto" width={120} height={40} />
+              </div>
+              <div className="hidden sm:flex flex-col leading-tight">
+                <span className="font-display text-sm font-bold text-ink-foreground tracking-wide">
+                  {t("company.name")}
+                </span>
+                <span className="text-[8px] uppercase tracking-[0.15em] text-ink-foreground/60">
+                  {t("company.tagline")}
+                </span>
+              </div>
+            </Link>
+          </Magnetic>
 
           <nav className="hidden lg:flex items-center gap-2">
             {navItems.map((item) => {
@@ -161,50 +165,54 @@ export function SiteHeader() {
                   className="relative"
                   onMouseEnter={() => item.hasMegaMenu ? handleMouseEnter(item.key) : handleMouseEnter('')}
                 >
-                  <Link
-                    to={item.to}
-                    data-magnetic
-                    className={cn(
-                      "relative flex items-center gap-1 px-3.5 py-2 text-[12px] font-bold uppercase tracking-wider transition-colors",
-                      active || megaMenuOpen === item.key ? "text-accent" : "text-ink-foreground/85 hover:text-accent",
-                    )}
-                  >
-                    {t(`nav.${item.key}`)}
-                    {item.hasMegaMenu && (
-                      <ChevronDown className={cn("h-3.5 w-3.5 transition-transform", megaMenuOpen === item.key && "rotate-180")} />
-                    )}
-                    {active && (
-                      <motion.span 
-                        layoutId="nav-indicator"
-                        className="absolute inset-x-3 -bottom-0.5 h-0.5 bg-accent rounded-full" 
-                      />
-                    )}
-                  </Link>
+                  <Magnetic>
+                    <Link
+                      to={item.to}
+                      className={cn(
+                        "relative flex items-center gap-1 px-3.5 py-2 text-[12px] font-bold uppercase tracking-wider transition-colors",
+                        active || megaMenuOpen === item.key ? "text-accent" : "text-ink-foreground/85 hover:text-accent",
+                      )}
+                    >
+                      {t(`nav.${item.key}`)}
+                      {item.hasMegaMenu && (
+                        <ChevronDown className={cn("h-3.5 w-3.5 transition-transform", megaMenuOpen === item.key && "rotate-180")} />
+                      )}
+                      {active && (
+                        <motion.span 
+                          layoutId="nav-indicator"
+                          transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                          className="absolute inset-x-3 -bottom-0.5 h-0.5 bg-accent rounded-full" 
+                        />
+                      )}
+                    </Link>
+                  </Magnetic>
                 </div>
               );
             })}
           </nav>
 
           <div className="flex items-center gap-2">
-            <button
-              onClick={toggleLang}
-              data-magnetic
-              className="inline-flex items-center gap-1.5 rounded-md border border-white/15 bg-white/5 px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-ink-foreground hover:bg-white/10 transition-colors"
-              aria-label="Toggle language"
-            >
-              <Languages className="h-3.5 w-3.5" />
-              <span>{t("lang.toggle")}</span>
-            </button>
-            <Button
-              asChild
-              data-magnetic
-              className="hidden md:inline-flex bg-accent text-accent-foreground hover:bg-accent/90 rounded-md px-6 font-bold uppercase tracking-wider text-[11px]"
-            >
-              <Link to="/contact">
-                {t("nav.cta")}
-                <ArrowRight className="h-3.5 w-3.5 ms-1.5 rtl:rotate-180" />
-              </Link>
-            </Button>
+            <Magnetic>
+              <button
+                onClick={toggleLang}
+                className="inline-flex items-center gap-1.5 rounded-md border border-white/15 bg-white/5 px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-ink-foreground hover:bg-white/10 transition-colors"
+                aria-label="Toggle language"
+              >
+                <Languages className="h-3.5 w-3.5" />
+                <span>{t("lang.toggle")}</span>
+              </button>
+            </Magnetic>
+            <Magnetic>
+              <Button
+                asChild
+                className="hidden md:inline-flex bg-accent text-accent-foreground hover:bg-accent/90 rounded-md px-6 font-bold uppercase tracking-wider text-[11px]"
+              >
+                <Link to="/contact">
+                  {t("nav.cta")}
+                  <ArrowRight className="h-3.5 w-3.5 ms-1.5 rtl:rotate-180" />
+                </Link>
+              </Button>
+            </Magnetic>
             <button
               className="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-ink-foreground hover:bg-white/10"
               onClick={() => setOpen((v) => !v)}
@@ -286,9 +294,11 @@ export function SiteHeader() {
             </motion.div>
           )}
         </AnimatePresence>
+      </div>
+    </motion.header>
 
-        {/* Mobile Menu */}
-        <AnimatePresence>
+    {/* Mobile Menu */}
+    <AnimatePresence>
           {open && (
             <>
               {/* Backdrop */}
@@ -456,7 +466,6 @@ export function SiteHeader() {
             </>
           )}
         </AnimatePresence>
-      </div>
-    </motion.header>
+    </>
   );
 }

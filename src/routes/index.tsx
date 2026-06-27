@@ -24,6 +24,9 @@ import {
   Anchor,
   FlaskConical,
   MapPin,
+  Search,
+  Shield,
+  Activity,
 } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -151,27 +154,27 @@ function HomePage() {
 
   const tiles = [
     {
-      Icon: Building2,
-      title: t("home.tiles.structural.title"),
-      body: t("home.tiles.structural.body"),
-      img: tileStructural,
-    },
-    {
-      Icon: Wrench,
-      title: t("home.tiles.piping.title"),
-      body: t("home.tiles.piping.body"),
+      Icon: Search,
+      title: t("home.tiles.assessment.title"),
+      body: t("home.tiles.assessment.body"),
       img: tilePiping,
     },
     {
-      Icon: Droplet,
-      title: t("home.tiles.coatings.title"),
-      body: t("home.tiles.coatings.body"),
+      Icon: Layers,
+      title: t("home.tiles.rehabilitation.title"),
+      body: t("home.tiles.rehabilitation.body"),
+      img: tileStructural,
+    },
+    {
+      Icon: Shield,
+      title: t("home.tiles.protection.title"),
+      body: t("home.tiles.protection.body"),
       img: tileCoatings,
     },
     {
-      Icon: Package,
-      title: t("home.tiles.supply.title"),
-      body: t("home.tiles.supply.body"),
+      Icon: Activity,
+      title: t("home.tiles.endurance.title"),
+      body: t("home.tiles.endurance.body"),
       img: tileSupply,
     },
   ];
@@ -383,8 +386,8 @@ function HomePage() {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, delay: idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
-                className={cn("group bg-card rounded-sm overflow-hidden border border-border hover:border-accent/40 hover:shadow-elegant transition-all", colSpans[idx])}
+                transition={{ duration: 0.6, delay: idx * 0.15, ease: [0.32, 0.72, 0, 1] }}
+                className={cn("group bg-card rounded-md overflow-hidden shadow-emil hover:shadow-emil-hover transition-[box-shadow,transform] duration-500 ease-[var(--ease-emil)] active:scale-[0.98]", colSpans[idx])}
                 data-magnetic
               >
                 <div className={cn("relative overflow-hidden", heights[idx])}>
@@ -408,7 +411,7 @@ function HomePage() {
                   </p>
                   <Link
                     to="/services"
-                    className="mt-6 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-accent-foreground bg-accent px-3 py-1.5 group-hover:gap-3 transition-all"
+                    className="mt-6 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-accent-foreground bg-accent px-3 py-1.5 group-hover:gap-3 transition-[gap,background-color]"
                   >
                     {t("common.learnMore")} <ArrowRight className="h-3.5 w-3.5 rtl:rotate-180" />
                   </Link>
@@ -423,7 +426,7 @@ function HomePage() {
               <CarouselContent className="-ms-4">
                 {tiles.map((tile, idx) => (
                   <CarouselItem key={idx} className="ps-4 basis-[85%] sm:basis-[60%] flex">
-                    <article className="bg-card rounded-sm overflow-hidden border border-border flex flex-col justify-between w-full">
+                    <article className="bg-card rounded-md overflow-hidden shadow-emil active:scale-[0.98] transition-transform duration-300 ease-[var(--ease-emil)] flex flex-col justify-between w-full">
                       <div>
                         <div className="relative overflow-hidden h-48">
                           <img
@@ -503,15 +506,15 @@ function HomePage() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.32, 0.72, 0, 1] }}
                   className={cn(
-                    "bg-card rounded-sm border border-border p-8 hover:border-accent/40 hover:shadow-elegant transition-all group relative overflow-hidden",
+                    "bg-card rounded-md p-8 shadow-emil hover:shadow-emil-hover transition-[box-shadow,transform] duration-500 ease-[var(--ease-emil)] active:scale-[0.98] group relative overflow-hidden",
                     isEven ? "md:col-span-7 lg:col-span-7 md:mt-12" : "md:col-span-5 lg:col-span-5",
                   )}
                   data-magnetic
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                  <div className="h-14 w-14 rounded-full bg-secondary text-foreground flex items-center justify-center group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300 shadow-sm border border-border group-hover:border-transparent">
+                  <div className="h-14 w-14 rounded-full bg-secondary text-foreground flex items-center justify-center group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-300 shadow-sm border border-border group-hover:border-transparent">
                     <card.Icon className="h-6 w-6" />
                   </div>
                   <h3 className="mt-8 font-display text-xl font-bold leading-tight group-hover:text-accent transition-colors">
@@ -588,7 +591,7 @@ function HomePage() {
                 <Reveal
                   key={idx}
                   delay={idx * 100}
-                  className="relative bg-card border border-border p-6 rounded-sm group hover:border-accent/40 transition-all"
+                  className="relative bg-card p-6 rounded-md group shadow-emil hover:shadow-emil-hover transition-[box-shadow,transform] duration-500 ease-[var(--ease-emil)] active:scale-[0.98]"
                 >
                   <div className="flex justify-between items-start">
                     <span className="font-mono text-3xl font-bold text-accent/20 group-hover:text-accent transition-colors duration-300">
@@ -654,7 +657,7 @@ function HomePage() {
           {/* Desktop Case Studies Grid (hidden on mobile) */}
           <div className="hidden lg:grid gap-8 lg:grid-cols-12 mt-12 items-stretch text-start">
             {/* Left Column: Big Spotlight Card */}
-            <div className="lg:col-span-8 flex flex-col justify-between rounded-sm border border-border bg-card overflow-hidden group hover:border-accent/40 transition-all duration-300">
+            <div className="lg:col-span-8 flex flex-col justify-between rounded-md bg-card overflow-hidden group shadow-emil hover:shadow-emil-hover transition-[box-shadow,transform] duration-500 ease-[var(--ease-emil)] active:scale-[0.98]">
               <div className="relative aspect-[16/9] overflow-hidden bg-muted">
                 {featuredCases[activeCase]?.img && (
                   <img
@@ -923,7 +926,7 @@ function HomePage() {
               <Reveal
                 key={sector.key}
                 delay={idx * 50}
-                className="bg-card border border-border rounded-sm p-6 flex items-center gap-4 hover:border-accent/40 hover:-translate-y-0.5 hover:shadow-elegant transition-all duration-300 group"
+                className="bg-card rounded-md p-6 flex items-center gap-4 shadow-emil hover:shadow-emil-hover transition-[box-shadow,transform] duration-500 ease-[var(--ease-emil)] active:scale-[0.98] group"
               >
                 <div className="h-10 w-10 rounded-sm bg-accent/15 text-accent-foreground flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300">
                   <sector.Icon className="h-5 w-5" />

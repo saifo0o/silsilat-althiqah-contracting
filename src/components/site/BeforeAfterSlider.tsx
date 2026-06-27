@@ -91,7 +91,7 @@ export function BeforeAfterSlider({
 
       {/* After Image Overlay */}
       <div
-        className="absolute inset-y-0 left-0 overflow-hidden pointer-events-none transition-all duration-75"
+        className="absolute inset-y-0 left-0 overflow-hidden pointer-events-none"
         style={{ width: `${sliderPosition}%` }}
       >
         <div
@@ -115,13 +115,13 @@ export function BeforeAfterSlider({
 
       {/* Slider Handle Divider Line */}
       <div
-        className="absolute inset-y-0 w-0.5 bg-emerald-400 z-20 pointer-events-none transition-all duration-75"
+        className="absolute inset-y-0 w-[1.5px] bg-emerald-400 z-20 pointer-events-none"
         style={{ left: `${sliderPosition}%` }}
       >
         {/* Center Drag Button */}
-        <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 h-9 w-9 rounded-full bg-slate-950 border border-emerald-400 shadow-elegant flex items-center justify-center text-white cursor-ew-resize pointer-events-auto">
-          <ChevronLeft className="h-3.5 w-3.5 shrink-0" />
-          <ChevronRight className="h-3.5 w-3.5 -ms-1 shrink-0" />
+        <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 h-10 w-10 rounded-full bg-slate-950 border border-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.4)] flex items-center justify-center text-white cursor-ew-resize pointer-events-auto transition-transform duration-300 hover:scale-110 active:scale-90">
+          <ChevronLeft className="h-4 w-4 shrink-0 text-emerald-400" />
+          <ChevronRight className="h-4 w-4 -ms-1.5 shrink-0 text-emerald-400" />
         </div>
       </div>
     </div>

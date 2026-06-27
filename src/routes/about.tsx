@@ -17,10 +17,12 @@ import {
 import about from "@/assets/about-engineers.jpg";
 import officeHq from "@/assets/office-hq.png";
 import teamEngineers from "@/assets/team-engineers.png";
+import founderImage from "@/assets/founder.jpg";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { ScrollTimeline } from "@/components/site/ScrollTimeline";
 import {
   SabicLogo,
   AramcoLogo,
@@ -70,7 +72,6 @@ function AboutPage() {
   const timelineData = t("about.timeline", { returnObjects: true });
   const timeline = Array.isArray(timelineData) ? (timelineData as TimelineItem[]) : [];
 
-  const [activeMilestone, setActiveMilestone] = useState(0);
 
   const getVendorLogo = (vendorName: string) => {
     const name = vendorName.toLowerCase();
@@ -149,7 +150,7 @@ function AboutPage() {
           <div className="grid gap-8 lg:grid-cols-12 items-stretch">
             {/* Mission: Featured 2/3 width card */}
             <Reveal className="lg:col-span-8">
-              <div className="rounded-sm border border-border bg-card p-8 md:p-10 h-full flex flex-col justify-between relative overflow-hidden group hover:border-emerald-500/30 hover:shadow-elegant transition-all duration-300">
+              <div className="rounded-md bg-card p-8 md:p-10 h-full flex flex-col justify-between relative overflow-hidden group shadow-emil hover:shadow-emil-hover transition-[box-shadow,transform] duration-500 ease-[var(--ease-emil)] active:scale-[0.98]">
                 <div className="absolute top-0 right-0 h-32 w-32 bg-gradient-to-bl from-accent/5 to-transparent pointer-events-none" />
                 <div>
                   <div className="h-12 w-12 rounded-sm bg-accent/10 text-accent-foreground flex items-center justify-center">
@@ -178,7 +179,7 @@ function AboutPage() {
                 { k: "vision", Icon: Layers },
               ].map(({ k, Icon }) => (
                 <Reveal key={k} className="flex-1">
-                  <div className="rounded-sm border border-border bg-card p-6 h-full flex flex-col justify-between group hover:border-emerald-500/30 hover:shadow-elegant transition-all duration-300">
+                  <div className="rounded-md bg-card p-6 h-full flex flex-col justify-between group shadow-emil hover:shadow-emil-hover transition-[box-shadow,transform] duration-500 ease-[var(--ease-emil)] active:scale-[0.98]">
                     <div>
                       <div className="h-10 w-10 rounded-sm bg-accent/10 text-accent-foreground flex items-center justify-center">
                         <Icon className="h-5 w-5" />
@@ -198,6 +199,43 @@ function AboutPage() {
         </div>
       </section>
 
+      {/* FOUNDER'S MESSAGE */}
+      <section className="bg-background border-b border-border py-12 md:py-32">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid gap-12 lg:grid-cols-12 items-center">
+            <Reveal className="lg:col-span-5 relative">
+              <div className="aspect-square md:aspect-[4/5] overflow-hidden rounded-sm bg-muted border border-border">
+                <img
+                  src={founderImage}
+                  alt={t("home.founder.name", { defaultValue: "Founders" })}
+                  className="h-full w-full object-cover transition-transform duration-700"
+                />
+              </div>
+              <div className="absolute -bottom-6 -end-6 h-32 w-32 bg-emerald-500/10 rounded-sm -z-10" />
+            </Reveal>
+            <Reveal className="lg:col-span-7 lg:ps-8 text-start" delay={150}>
+              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/5 px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-emerald-600 dark:text-emerald-400">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                {t("home.founder.eyebrow", { defaultValue: "Leadership Message" })}
+              </div>
+              <blockquote className="mt-8">
+                <p className="font-display text-2xl md:text-3xl leading-relaxed text-foreground font-semibold">
+                  "{t("home.founder.message", { defaultValue: "At Silsilat Al-Thiqa, our mission goes beyond contracting; it is about safeguarding the industrial pillars of the Kingdom. We translate deep engineering knowledge into operational endurance." })}"
+                </p>
+              </blockquote>
+              <div className="mt-8 pt-6 border-t border-border flex flex-col">
+                <span className="font-display text-lg font-bold text-foreground">
+                  {t("home.founder.name", { defaultValue: "Youssef Khaled Abou Abdallah" })}
+                </span>
+                <span className="mt-1 text-sm text-muted-foreground uppercase tracking-widest font-mono">
+                  {t("home.founder.title", { defaultValue: "Founder, SILSILAT AL-THIQA" })}
+                </span>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* TEAM & FACILITIES */}
       <section className="bg-background border-b border-border py-12 md:py-32">
         <div className="container mx-auto px-4 md:px-6">
@@ -207,7 +245,7 @@ function AboutPage() {
             subtitle={t("about.teamSubtitle")}
           />
           <div className="mt-14 grid gap-8 md:grid-cols-2">
-            <Reveal className="group bg-card border border-border rounded-sm overflow-hidden hover:shadow-elegant hover:border-emerald-500/30 transition-all text-start">
+            <Reveal className="group bg-card rounded-md overflow-hidden shadow-emil hover:shadow-emil-hover transition-[box-shadow,transform] duration-500 ease-[var(--ease-emil)] text-start active:scale-[0.98]">
               <div className="relative aspect-[16/10] overflow-hidden bg-muted">
                 <img
                   src={officeHq}
@@ -241,7 +279,7 @@ function AboutPage() {
 
             <Reveal
               delay={150}
-              className="group bg-card border border-border rounded-sm overflow-hidden hover:shadow-elegant hover:border-emerald-500/30 transition-all text-start"
+              className="group bg-card rounded-md overflow-hidden shadow-emil hover:shadow-emil-hover transition-[box-shadow,transform] duration-500 ease-[var(--ease-emil)] active:scale-[0.98] text-start"
             >
               <div className="relative aspect-[16/10] overflow-hidden bg-muted">
                 <img
@@ -287,74 +325,7 @@ function AboutPage() {
           />
 
           <div className="mt-14 max-w-4xl mx-auto">
-            {/* Timeline tabs selector */}
-            <div
-              className="flex border-b border-border overflow-x-auto gap-4 pb-1 scrollbar-none"
-              dir="ltr"
-            >
-              {timeline.map((m, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setActiveMilestone(idx)}
-                  className={cn(
-                    "py-4 px-6 font-display text-base font-bold uppercase tracking-wider relative transition-colors whitespace-nowrap shrink-0",
-                    activeMilestone === idx
-                      ? "text-emerald-500 animate-pulse"
-                      : "text-muted-foreground hover:text-foreground",
-                  )}
-                >
-                  {m.year}
-                  {activeMilestone === idx && (
-                    <span className="absolute inset-x-0 bottom-0 h-0.5 bg-emerald-500 rounded-full animate-fade-in" />
-                  )}
-                </button>
-              ))}
-            </div>
-
-            {/* Timeline active item detail card */}
-            <div className="mt-8 bg-card border border-border rounded-sm p-8 md:p-10 shadow-elegant relative overflow-hidden transition-all duration-300 min-h-[220px] flex flex-col justify-between">
-              <div className="absolute top-0 right-0 h-24 w-24 bg-gradient-to-bl from-emerald-500/5 to-transparent pointer-events-none" />
-              <div className="absolute inset-0 grid-pattern opacity-[0.02] pointer-events-none" />
-
-              <div className="relative">
-                <span
-                  className="font-mono text-4xl md:text-5xl font-extrabold text-emerald-500/10 block mb-2 select-none"
-                  dir="ltr"
-                >
-                  {timeline[activeMilestone]?.year}
-                </span>
-                <h3 className="font-display text-xl md:text-2xl font-bold text-foreground">
-                  {timeline[activeMilestone]?.title}
-                </h3>
-                <p className="mt-4 text-sm md:text-base text-muted-foreground leading-relaxed max-w-2xl">
-                  {timeline[activeMilestone]?.body}
-                </p>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-border flex items-center justify-between">
-                <span className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
-                  Milestone {activeMilestone + 1} / {timeline.length}
-                </span>
-                <div className="flex gap-2">
-                  <button
-                    onClick={() =>
-                      setActiveMilestone((i) => (i === 0 ? timeline.length - 1 : i - 1))
-                    }
-                    className="h-8 w-8 rounded-full border border-border flex items-center justify-center hover:border-emerald-500 hover:text-emerald-500 transition-colors"
-                  >
-                    <ChevronLeft className="h-4 w-4" />
-                  </button>
-                  <button
-                    onClick={() =>
-                      setActiveMilestone((i) => (i === timeline.length - 1 ? 0 : i + 1))
-                    }
-                    className="h-8 w-8 rounded-full border border-border flex items-center justify-center hover:border-emerald-500 hover:text-emerald-500 transition-colors"
-                  >
-                    <ChevronRight className="h-4 w-4" />
-                  </button>
-                </div>
-              </div>
-            </div>
+            <ScrollTimeline items={timeline} />
           </div>
         </section>
       )}
@@ -374,7 +345,7 @@ function AboutPage() {
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {vendors.map((v, idx) => (
               <Reveal key={v.name} delay={idx * 60}>
-                <div className="group relative overflow-hidden rounded-sm border border-border bg-card p-5 hover:border-emerald-500/30 hover:shadow-elegant transition-all flex flex-col justify-between h-full min-h-[160px] text-start">
+                <div className="group relative overflow-hidden rounded-md bg-card p-5 shadow-emil hover:shadow-emil-hover transition-[box-shadow,transform] duration-500 ease-[var(--ease-emil)] active:scale-[0.98] flex flex-col justify-between h-full min-h-[160px] text-start">
                   <div className="flex items-center justify-between gap-4">
                     {/* Logo container */}
                     <div className="h-8 w-20 bg-muted/30 border border-border/40 rounded-sm p-1.5 flex items-center justify-center shrink-0 select-none">

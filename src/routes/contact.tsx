@@ -160,7 +160,7 @@ function ContactPage() {
             <Reveal key={idx} delay={idx * 80}>
               <a
                 href={c.href}
-                className="group flex items-center justify-between gap-4 rounded-2xl border border-border bg-card p-5 hover:border-accent/40 hover:shadow-elegant transition-all"
+                className="group flex items-center justify-between gap-4 rounded-2xl bg-card p-5 shadow-emil hover:shadow-emil-hover transition-[box-shadow,transform] duration-500 ease-[var(--ease-emil)] active:scale-[0.98]"
               >
                 <div className="flex items-center gap-4">
                   <div className="h-11 w-11 rounded-lg bg-accent/15 text-accent flex items-center justify-center">
@@ -193,7 +193,7 @@ function ContactPage() {
             <div className="space-y-6">
               {(["jubail", "dammam"] as const).map((office, idx) => (
                 <Reveal key={office} delay={idx * 100}>
-                  <div className="rounded-sm border border-border bg-card p-6 md:p-7 relative overflow-hidden group hover:border-emerald-500/25 transition-all duration-300">
+                  <div className="rounded-md bg-card p-6 md:p-7 relative overflow-hidden group shadow-emil hover:shadow-emil-hover transition-[box-shadow,transform] duration-500 ease-[var(--ease-emil)] active:scale-[0.98]">
                     <div className="absolute top-0 right-0 h-20 w-20 bg-gradient-to-bl from-accent/5 to-transparent pointer-events-none" />
                     <h3 className="font-display text-lg font-bold text-foreground">
                       {t(`contact.offices.${office}Title`)}
@@ -264,7 +264,7 @@ function ContactPage() {
           <Reveal delay={150} className="lg:col-span-7">
             <form
               onSubmit={handleSubmit}
-              className="rounded-sm border border-border bg-card p-8 md:p-10 shadow-elegant h-full flex flex-col justify-between"
+              className="rounded-md bg-card p-8 md:p-10 shadow-emil h-full flex flex-col justify-between"
             >
               {sent ? (
                 <div className="flex flex-col items-center justify-center text-center py-20 my-auto">

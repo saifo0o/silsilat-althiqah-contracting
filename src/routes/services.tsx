@@ -10,6 +10,9 @@ import {
   Combine,
   Umbrella,
   Package,
+  Search,
+  Shield,
+  Activity,
   ArrowRight,
   Plus,
   Minus,
@@ -27,6 +30,7 @@ import { SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { GlowCard } from "@/components/site/GlowCard";
 
 type Faq = { q: string; a: string };
 
@@ -97,14 +101,10 @@ export const Route = createFileRoute("/services")({
 });
 
 const services = [
-  { key: "carbon", Icon: Layers, img: carbon },
-  { key: "piping", Icon: Gauge, img: piping },
-  { key: "concrete", Icon: Wrench, img: concrete },
-  { key: "epoxy", Icon: Droplet, img: epoxy },
-  { key: "acid", Icon: FlaskConical, img: steel },
-  { key: "joints", Icon: Combine, img: jointsImg },
-  { key: "roof", Icon: Umbrella, img: roofImg },
-  { key: "supplies", Icon: Package, img: suppliesImg },
+  { key: "assessment", Icon: Search, img: piping },
+  { key: "rehabilitation", Icon: Layers, img: carbon },
+  { key: "protection", Icon: Shield, img: epoxy },
+  { key: "endurance", Icon: Activity, img: concrete },
 ] as const;
 
 function ServicesPage() {
@@ -118,61 +118,33 @@ function ServicesPage() {
   const getServiceSpecs = (key: string) => {
     const isAr = i18n.language === "ar";
     switch (key) {
-      case "carbon":
+      case "assessment":
         return [
-          { label: isAr ? "تكوين المواد" : "Material Composition", value: isAr ? "نسيج كربون أحادي الاتجاه CFRP" : "CFRP Unidirectional Carbon Fabric" },
-          { label: isAr ? "قوة الشد" : "Tensile Strength", value: isAr ? "4900 ميجا باسكال (عالي المعامل)" : "4900 MPa (High Modulus)" },
-          { label: isAr ? "معيار الامتثال" : "Compliance Standard", value: "ASME PCC-2 / ISO 24817" },
-          { label: isAr ? "التطبيق الإنشائي" : "Structural Application", value: isAr ? "أعمدة خرسانية، كمرات، أسطح فولاذية" : "Concrete Columns, Beams, Steel Decks" },
+          { label: isAr ? "نطاق الفحص" : "Inspection Scope", value: isAr ? "تشخيص الأعطال وتقييم الحالة الإنشائية" : "Defect Diagnostics & Structural Assessment" },
+          { label: isAr ? "المنهجية" : "Methodology", value: isAr ? "اختبارات غير متلفة والتحليل الهندسي" : "NDT & Engineering Analysis" },
+          { label: isAr ? "معيار التقييم" : "Assessment Standard", value: "ASME PCC-2 / ACI" },
+          { label: isAr ? "المخرجات" : "Deliverables", value: isAr ? "تقارير سلامة الأصول والتوصيات الهندسية" : "Asset Integrity Reports & Engineering Recommendations" },
         ];
-      case "piping":
+      case "rehabilitation":
         return [
-          { label: isAr ? "تطبيقات الاستخدام" : "Service Application", value: isAr ? "هيدروكربون، شبكات صرف حمضية، بخار عالي الحرارة" : "Hydrocarbon, Acid Sewers, High-Temp Steam" },
-          { label: isAr ? "ضغط التشغيل" : "Operating Pressure", value: isAr ? "حتى 64 بار (إصلاح مباشر)" : "Up to 64 Bar (Live Repairs)" },
-          { label: isAr ? "وقت الجفاف" : "Cure Time", value: isAr ? "24 ساعة (حرارة محيطة)" : "24 Hours (Ambient Temp)" },
-          { label: isAr ? "معيار الامتثال" : "Compliance Standard", value: "ASME PCC-2 Article 4.1" },
+          { label: isAr ? "التقنيات المستخدمة" : "Technologies Used", value: isAr ? "ألياف الكربون (CFRP)، حقن الإيبوكسي" : "Carbon Fiber (CFRP), Epoxy Injection" },
+          { label: isAr ? "الاسترداد الإنشائي" : "Structural Recovery", value: isAr ? "استعادة القدرة التحميلية للخرسانة والصلب" : "Load Capacity Restoration for Concrete & Steel" },
+          { label: isAr ? "المواد" : "Materials", value: isAr ? "مركبات عالية القوة ومواد متقدمة" : "High-Strength Composites & Advanced Materials" },
+          { label: isAr ? "وقت التعطل" : "Downtime", value: isAr ? "منخفض جداً، يمكن إجراؤه أثناء التشغيل" : "Minimal, Can Be Executed Live" },
         ];
-      case "concrete":
+      case "protection":
         return [
-          { label: isAr ? "أنظمة الإصلاح" : "Repair Systems", value: isAr ? "حقن الإيبوكسي، خرسانة دقيقة، جراوت" : "Epoxy Injection, Micro-Concrete, Grout" },
-          { label: isAr ? "قوة الضغط" : "Compressive Strength", value: isAr ? "75 ميجا باسكال (إصلاح بالإيبوكسي)" : "75 MPa (Epoxy Repair)" },
-          { label: isAr ? "مناطق التطبيق" : "Application Areas", value: isAr ? "قواعد الآلات الثقيلة، الأعمدة" : "Heavy Machine Foundations, Columns" },
-          { label: isAr ? "التقنية المستخدمة" : "Technique", value: isAr ? "حقن الشقوق الهيكلية، حشو الفراغات" : "Structural Crack Injections, Void Grouting" },
+          { label: isAr ? "أنظمة الحماية" : "Protection Systems", value: isAr ? "طلاءات إيبوكسي، بطانات مقاومة للأحماض" : "Epoxy Coatings, Acid-Resistant Linings" },
+          { label: isAr ? "المقاومة الكيميائية" : "Chemical Resistance", value: isAr ? "حمض الكبريتيك 98%، حمض الفوسفوريك 54%" : "Sulfuric Acid 98%, Phosphoric Acid 54%" },
+          { label: isAr ? "البيئة" : "Environment", value: isAr ? "غمر كامل، بيئات بحرية، انسكاب كيميائي" : "Full Immersion, Marine, Chemical Spills" },
+          { label: isAr ? "العمر الافتراضي" : "Lifespan", value: isAr ? "15-20+ عام للمنشآت الحرجة" : "15-20+ Years for Critical Assets" },
         ];
-      case "epoxy":
+      case "endurance":
         return [
-          { label: isAr ? "نوع الطلاء" : "Coating Type", value: isAr ? "إيبوكسي نقي 100%، بطانات نوفولاك" : "100% Solids Epoxy, Novolac Linings" },
-          { label: isAr ? "تصنيف البيئة" : "Environment Rating", value: isAr ? "منطقة الرذاذ، غمر كامل، انسكاب الأحماض" : "Splash Zone, Full Immersion, Acid Spill" },
-          { label: isAr ? "الأسطح المتوافقة" : "Substrate compatibility", value: isAr ? "الصلب الكربوني، الخرسانة، FRP" : "Carbon Steel, Concrete, FRP" },
-          { label: isAr ? "سُمك الفيلم الجاف" : "Dry Film Thickness (DFT)", value: isAr ? "300 إلى 2000 ميكرون" : "300 to 2000 microns" },
-        ];
-      case "acid":
-        return [
-          { label: isAr ? "التقييم الكيميائي" : "Chemical Rating", value: isAr ? "حمض الكبريتيك 98%، حمض الفوسفوريك 54%" : "Sulfuric Acid 98%, Phosphoric Acid 54%" },
-          { label: isAr ? "نظام التبطين" : "Lining System", value: isAr ? "غلاف مركب متعدد الطبقات من CFRP" : "Composite Multi-Layer CFRP Wrapper" },
-          { label: isAr ? "حدود درجة الحرارة" : "Temperature Limit", value: isAr ? "حتى 120 درجة مئوية (مستمر)" : "Up to 120°C Continuous" },
-          { label: isAr ? "عمر الخدمة" : "Service Life", value: isAr ? "15+ عام (للاحتواء الكيميائي)" : "15+ Years (Chemical Containment)" },
-        ];
-      case "joints":
-        return [
-          { label: isAr ? "أنظمة الفواصل" : "Joint Systems", value: isAr ? "أنظمة إيلاستومر، بولي يوريثين، أغطية معدنية" : "Elastomeric, Polyurethane, Metal Covers" },
-          { label: isAr ? "قدرة الحركة" : "Movement Capability", value: isAr ? "حتى ±50% في القص والشد" : "Up to ±50% Shear & Tension" },
-          { label: isAr ? "تصنيف الحريق" : "Fire Rating", value: isAr ? "حتى 4 ساعات (تصنيف UL)" : "Up to 4 Hours (UL Classified)" },
-          { label: isAr ? "مناطق التطبيق" : "Application Areas", value: isAr ? "الأرضيات الصناعية، منصات الجسور" : "Industrial Floors, Bridge Decks" },
-        ];
-      case "roof":
-        return [
-          { label: isAr ? "نوع النظام" : "System Type", value: isAr ? "بولي يوريثين مطبق سائل، بيتومين" : "Liquid Applied Polyurethane, Bituminous" },
-          { label: isAr ? "عمر العزل" : "Waterproofing Life", value: isAr ? "ضمان نظام لمدة 20 عاماً" : "20 Years System Warranty" },
-          { label: isAr ? "انعكاس الشمس (SRI)" : "Solar Reflectance (SRI)", value: isAr ? "104 (سقف بارد موفر للطاقة)" : "104 (Energy Saving Cool Roof)" },
-          { label: isAr ? "الأسطح" : "Substrates", value: isAr ? "أسطح خرسانية، ألواح معدنية متعرجة" : "Concrete Deck, Corrugated Metal Sheets" },
-        ];
-      case "supplies":
-        return [
-          { label: isAr ? "نطاق المواد" : "Material Range", value: isAr ? "أقمشة CFRP (150-900 جم/م²)، إيبوكسي لاصق" : "CFRP Fabrics (150-900 GSM), Epoxy Adhesives" },
-          { label: isAr ? "طرق التوريد" : "Supply Formats", value: isAr ? "لفائف، دلاء، ألواح مسبقة التحضير" : "Rolls, Pails, Pre-preg laminates" },
-          { label: isAr ? "الشركاء الدوليون" : "International partners", value: isAr ? "مصنعون معتمدون في أوروبا وأمريكا" : "Bespoke EU & US Manufacturers" },
-          { label: isAr ? "وقت التسليم" : "Lead Time", value: isAr ? "متوفر في مستودع الجبيل" : "Ex-Stock Jubail Warehouse" },
+          { label: isAr ? "التركيز الأساسي" : "Primary Focus", value: isAr ? "استمرارية التشغيل وإطالة عمر الأصل" : "Operational Continuity & Life Extension" },
+          { label: isAr ? "التدخل" : "Intervention", value: isAr ? "إدارة دورة الحياة، صيانة وقائية" : "Lifecycle Management, Preventative Maintenance" },
+          { label: isAr ? "النتائج" : "Outcomes", value: isAr ? "خفض تكاليف الاستبدال، تقليل الأعطال المفاجئة" : "Reduced Replacement Costs, Fewer Unplanned Outages" },
+          { label: isAr ? "الصناعات المدعومة" : "Supported Industries", value: isAr ? "بتروكيماويات، طاقة، تحلية المياه" : "Petrochemicals, Power, Desalination" },
         ];
       default:
         return [];
@@ -205,7 +177,7 @@ function ServicesPage() {
       {/* SALES CALLOUT */}
       <section className="container mx-auto px-4 md:px-6 -mt-12 md:-mt-16 relative z-10">
         <Reveal>
-          <div className="rounded-2xl border border-border bg-card p-8 md:p-10 grid gap-6 md:grid-cols-[1fr_auto] md:items-center shadow-elegant">
+          <div className="rounded-2xl bg-card p-8 md:p-10 grid gap-6 md:grid-cols-[1fr_auto] md:items-center shadow-emil">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-accent">
                 {t("services.salesEyebrow")}
@@ -243,7 +215,7 @@ function ServicesPage() {
                   key={key}
                   onClick={() => setActiveService(idx)}
                   className={cn(
-                    "w-full text-start p-4 rounded-sm border transition-all duration-300 flex items-center justify-between gap-4 group",
+                    "w-full text-start p-4 rounded-md border transition-colors duration-300 flex items-center justify-between gap-4 group",
                     isActive
                       ? "bg-slate-950 border-white/10 text-white shadow-lg shadow-black/10"
                       : "bg-card border-border text-foreground hover:border-emerald-500/25",
@@ -293,7 +265,7 @@ function ServicesPage() {
               {String(activeService + 1).padStart(2, '0')}
             </h3>
             
-            <div className="bg-card border border-border rounded-sm overflow-hidden flex flex-col justify-between shadow-elegant relative z-0">
+            <GlowCard className="overflow-hidden flex flex-col justify-between relative z-0">
               <div>
                 {/* Asset Image */}
               <div className="relative aspect-[21/9] overflow-hidden bg-muted">
@@ -358,7 +330,7 @@ function ServicesPage() {
                   </Link>
                 </Button>
               </div>
-            </div>
+            </GlowCard>
           </div>
         </div>
       </section>

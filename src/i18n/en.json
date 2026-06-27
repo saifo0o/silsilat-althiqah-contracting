@@ -24,13 +24,13 @@
     "viewProjects": "View all projects"
   },
   "home": {
-    "metaTitle": "SILSILAT AL-THIQA — Engineered Industrial Services",
-    "metaDesc": "Advanced engineering solutions for structural rehabilitation, pipe repair, and industrial protection across the Kingdom.",
-    "heroEyebrow": "Engineered Solutions. Measurable Impact.",
-    "heroTitle1": "Reduce Downtime.",
-    "heroTitle2": "Extend Asset Life.",
-    "heroTitle3": "Protect What Matters.",
-    "heroSubtitle": "SILSILAT AL-THIQA delivers advanced engineering solutions for structural rehabilitation, pipe repair, and industrial protection to maximize reliability, safety, and performance.",
+    "metaTitle": "SILSILAT AL-THIQA — The National Authority on Asset Integrity",
+    "metaDesc": "Silsilat Althiqah extends the operational life of critical industrial assets through advanced engineering diagnostics, structural rehabilitation, and protection.",
+    "heroEyebrow": "Engineered Endurance",
+    "heroTitle1": "Engineering",
+    "heroTitle2": "That",
+    "heroTitle3": "Endures.",
+    "heroSubtitle": "We protect critical industrial assets and extend their operational life, ensuring the pillars of the national economy continue operating safely and capably.",
     "heroCtaPrimary": "Our Solutions",
     "heroCtaSecondary": "Talk to an Expert",
     "heroBadge": "24/7 Emergency Response",
@@ -52,24 +52,24 @@
     },
     "expertiseEyebrow": "Our Expertise",
     "expertiseTitle": "Specialized Solutions for Critical Assets",
-    "expertiseBody": "From structure to process, we help industries overcome degradation, corrosion, and wear — extending asset life with advanced repair technologies and proven execution.",
+    "expertiseBody": "We extend the life of your industrial assets and safeguard your operational continuity with proven engineering evidence.",
     "expertiseCta": "Explore all services",
     "tiles": {
-      "structural": {
+      "assessment": {
+        "title": "Assessment & Diagnostics",
+        "body": "Engineering diagnostics and asset integrity assessment to minimize risk."
+      },
+      "rehabilitation": {
         "title": "Structural Rehabilitation",
-        "body": "Strengthening and repair of concrete and steel structures using advanced composites and epoxy systems."
+        "body": "Restoring structural performance and extending asset life using advanced CFRP technologies."
       },
-      "piping": {
-        "title": "Process Pipe Repair",
-        "body": "In-situ pipe repair and corrosion restoration solutions that eliminate shutdowns and extend life."
+      "protection": {
+        "title": "Industrial Protection",
+        "body": "Protective systems and industrial coatings designed for extreme corrosion resistance."
       },
-      "coatings": {
-        "title": "Industrial Coatings & Protection",
-        "body": "High-performance coatings, linings and waterproofing for extreme environments."
-      },
-      "supply": {
-        "title": "Industrial Material Supply",
-        "body": "Supplying premium quality industrial materials from trusted global manufacturers."
+      "endurance": {
+        "title": "Asset Endurance",
+        "body": "Long-term asset integrity management for operational continuity."
       }
     },
     "beforeAfterEyebrow": "Proven Results. Real Impact.",
@@ -107,9 +107,9 @@
     "ctaBody": "Partner with SILSILAT AL-THIQA for innovative engineering solutions that keep your assets performing at their best.",
     "ctaButton": "Get in Touch",
     "intro": {
-      "eyebrow": "Welcome to Silsilat Al-Thiqa",
-      "title": "Engineered repair for concrete, steel and process piping.",
-      "body": "SILSILAT AL-THIQA, Engineering Solutions & Asset Protection specialises in structural rehabilitation — using advanced carbon fiber technology, composite materials and epoxy coatings designed for extreme corrosive environments."
+      "eyebrow": "Engineered Endurance",
+      "title": "A promise of endurance, underpinned by engineering depth.",
+      "body": "SILSILAT AL-THIQA translates engineering depth into reliable operational continuity, safeguarding our clients' investments and contributing to a national industrial capability aligned with Saudi Vision 2030."
     },
     "servicesEyebrow": "What we do",
     "servicesTitle": "A complete rehabilitation toolkit.",
@@ -126,6 +126,12 @@
       "safetyBody": "Trained crews, plant-grade PPE and HSE protocols aligned with operator requirements.",
       "speedTitle": "Shutdown-ready",
       "speedBody": "Mobilised for emergency TAMs and shutdowns — including overnight CFRP lining works."
+    },
+    "founder": {
+      "eyebrow": "Leadership Message",
+      "name": "Youssef Khaled Abou Abdallah",
+      "title": "Founder, SILSILAT AL-THIQA",
+      "message": "At Silsilat Al-Thiqa, our mission goes beyond contracting; it is about safeguarding the industrial pillars of the Kingdom. We translate deep engineering knowledge into operational endurance, ensuring our nation's vital assets operate safely, continuously, and efficiently in alignment with Saudi Vision 2030."
     },
     "processEyebrow": "How we work",
     "processTitle": "From inspection to handover.",
@@ -163,37 +169,21 @@
     "salesCta": "Enquire about CFRP supply",
     "capabilitiesTitle": "Core capabilities",
     "items": {
-      "carbon": {
-        "title": "Carbon Fiber Reinforcement (FRP)",
-        "body": "Engineered repair solutions using advanced composite systems — carbon fiber reinforcement and FRP for concrete and steel structures."
+      "assessment": {
+        "title": "Assessment & Diagnostics",
+        "body": "Engineering diagnostics and asset integrity assessment to minimize operational and financial risk."
       },
-      "piping": {
-        "title": "Process Pipe Repair",
-        "body": "Repair of process pipes using high-strength carbon fiber systems, including in-service leak repair for pressurised lines."
+      "rehabilitation": {
+        "title": "Structural Rehabilitation",
+        "body": "Restoring structural performance and extending asset life using advanced CFRP technologies without the need for replacement."
       },
-      "concrete": {
-        "title": "Concrete Repair",
-        "body": "General concrete repair using conventional methods, epoxy grouts and crack injection for structural restoration."
+      "protection": {
+        "title": "Industrial Protection",
+        "body": "Protective systems and industrial coatings designed for extended asset life and extreme corrosion resistance."
       },
-      "epoxy": {
-        "title": "Industrial Coatings",
-        "body": "Application of coating systems engineered for extreme corrosive environments — protecting tanks, structures and containment."
-      },
-      "acid": {
-        "title": "Acid Lining",
-        "body": "Composite carbon fiber lining systems rated for 98% sulfuric acid and 54% phosphoric acid concentrations."
-      },
-      "joints": {
-        "title": "Expansion Joints",
-        "body": "Repair and replacement of expansion joints in industrial and civil structures."
-      },
-      "roof": {
-        "title": "Roof Repair & Waterproofing",
-        "body": "Roof repair and waterproofing services for industrial and commercial facilities."
-      },
-      "supplies": {
-        "title": "Industrial Material Supplies",
-        "body": "Supply of industrial materials, composites and protective coatings to support project and maintenance teams."
+      "endurance": {
+        "title": "Asset Endurance",
+        "body": "Long-term asset integrity management, ensuring operational continuity across the full lifecycle of critical facilities."
       }
     },
     "faqTitle": "Frequently asked",

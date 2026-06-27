@@ -17,6 +17,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import { GlowCard } from "@/components/site/GlowCard";
 
 import caseCompressor from "@/assets/project-compressor.png";
 import caseTransformer from "@/assets/project-transformer.png";
@@ -171,7 +172,7 @@ function ProjectsPage() {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
                 className="group flex flex-col relative"
                 data-magnetic
               >
@@ -180,7 +181,7 @@ function ProjectsPage() {
                   {String(idx + 1).padStart(2, '0')}
                 </h3>
 
-                <div className="bg-card border border-border rounded-sm overflow-hidden hover:border-accent/40 hover:shadow-elegant transition-all duration-500 relative z-0 flex flex-col h-full">
+                <div className="bg-card rounded-md overflow-hidden shadow-emil hover:shadow-emil-hover transition-[box-shadow,transform] duration-500 ease-[var(--ease-emil)] active:scale-[0.98] relative z-0 flex flex-col h-full">
                   <div className="relative aspect-[16/9] overflow-hidden bg-muted">
                     <img
                       src={project.img}
@@ -301,49 +302,49 @@ function ProjectsPage() {
             <Reveal
               key={`${filter}-${idx}`}
               delay={idx * 40}
-              as="article"
-              className="group rounded-sm border border-border bg-card p-6 hover:border-accent/50 hover:shadow-elegant hover:-translate-y-0.5 transition-all flex flex-col justify-between"
             >
-              <div>
-                <div className="flex items-start justify-between gap-4">
-                  <p className="font-mono text-xs font-semibold text-muted-foreground tabular-nums">
-                    #{String(items.indexOf(p) + 1).padStart(2, "0")}
-                  </p>
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-accent-foreground">
-                    <CheckCircle2 className="h-3 w-3 text-accent" />
-                    {t("projects.completed")}
-                  </span>
-                </div>
-                <h3 className="mt-4 font-display text-base md:text-lg font-semibold leading-snug group-hover:text-accent transition-colors">
-                  {p.title}
-                </h3>
-              </div>
-
-              <div className="mt-6 pt-5 border-t border-border flex justify-between items-end">
-                <div className="space-y-2.5 text-sm">
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <Building2 className="h-4 w-4 text-accent flex-shrink-0" />
-                    <span className="font-medium text-foreground">{p.client}</span>
+              <GlowCard className="h-full flex flex-col justify-between">
+                <div>
+                  <div className="flex items-start justify-between gap-4">
+                    <p className="font-mono text-xs font-semibold text-muted-foreground tabular-nums">
+                      #{String(items.indexOf(p) + 1).padStart(2, "0")}
+                    </p>
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-accent-foreground">
+                      <CheckCircle2 className="h-3 w-3 text-accent" />
+                      {t("projects.completed")}
+                    </span>
                   </div>
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <MapPin className="h-4 w-4 text-accent flex-shrink-0" />
-                    <span>{p.location}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <Calendar className="h-4 w-4 text-accent flex-shrink-0" />
-                    <span dir="ltr">{p.period}</span>
-                  </div>
+                  <h3 className="mt-4 font-display text-base md:text-lg font-semibold leading-snug group-hover:text-accent transition-colors">
+                    {p.title}
+                  </h3>
                 </div>
 
-                {getClientLogo(p.client) && (
-                  <div className="h-8 w-20 text-muted-foreground/30 flex items-center justify-end">
-                    {(() => {
-                      const Logo = getClientLogo(p.client)!;
-                      return <Logo className="h-full w-full" />;
-                    })()}
+                <div className="mt-6 pt-5 border-t border-border flex justify-between items-end">
+                  <div className="space-y-2.5 text-sm">
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <Building2 className="h-4 w-4 text-accent flex-shrink-0" />
+                      <span className="font-medium text-foreground">{p.client}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <MapPin className="h-4 w-4 text-accent flex-shrink-0" />
+                      <span>{p.location}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <Calendar className="h-4 w-4 text-accent flex-shrink-0" />
+                      <span dir="ltr">{p.period}</span>
+                    </div>
                   </div>
-                )}
-              </div>
+
+                  {getClientLogo(p.client) && (
+                    <div className="h-8 w-20 text-muted-foreground/30 flex items-center justify-end">
+                      {(() => {
+                        const Logo = getClientLogo(p.client)!;
+                        return <Logo className="h-full w-full" />;
+                      })()}
+                    </div>
+                  )}
+                </div>
+              </GlowCard>
             </Reveal>
           ))}
         </div>

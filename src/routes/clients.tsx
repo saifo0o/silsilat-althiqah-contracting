@@ -410,7 +410,7 @@ function ClientsPage() {
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={cn(
-                  "rounded-full px-5 py-2.5 text-xs font-semibold uppercase tracking-wider transition-all duration-300",
+                  "rounded-full px-5 py-2.5 text-xs font-semibold uppercase tracking-wider transition-colors duration-300",
                   activeTab === tab.id
                     ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/10"
                     : "border border-border bg-card text-muted-foreground hover:text-foreground hover:border-emerald-500/30",
@@ -428,7 +428,7 @@ function ClientsPage() {
                 key={client.name}
                 delay={idx * 40}
                 className={cn(
-                  "bg-card border border-border rounded-sm p-8 flex flex-col items-center justify-center min-h-[150px] transition-all duration-300 group animate-fade-in relative overflow-hidden",
+                  "bg-card rounded-md p-8 flex flex-col items-center justify-center min-h-[150px] transition-[box-shadow,transform] duration-500 ease-[var(--ease-emil)] active:scale-[0.98] group animate-fade-in relative overflow-hidden shadow-emil hover:shadow-emil-hover",
                   client.hoverClass,
                 )}
               >
@@ -481,7 +481,7 @@ function ClientsPage() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {filteredVendors.map((v, idx) => (
               <Reveal key={v.name} delay={idx * 40}>
-                <div className="group relative overflow-hidden rounded-sm border border-border bg-card p-5 hover:border-emerald-500/30 hover:shadow-elegant transition-all flex flex-col justify-between h-full min-h-[180px]">
+                <div className="group relative overflow-hidden rounded-md bg-card p-5 shadow-emil hover:shadow-emil-hover transition-[box-shadow,transform] duration-500 ease-[var(--ease-emil)] active:scale-[0.98] flex flex-col justify-between h-full min-h-[180px]">
                   <div className="flex items-center justify-between gap-4">
                     {/* Logo container */}
                     <div className="h-8 w-20 bg-muted/30 border border-border/40 rounded-sm p-1.5 flex items-center justify-center shrink-0 select-none">
@@ -753,7 +753,7 @@ function ClientsPage() {
               </div>
 
               {/* Active Hub details Card */}
-              <div className="bg-card border border-border rounded-sm p-8 shadow-elegant relative overflow-hidden transition-all duration-300">
+              <div className="bg-card rounded-md p-8 shadow-emil hover:shadow-emil-hover relative overflow-hidden transition-[box-shadow,transform] duration-500 ease-[var(--ease-emil)] active:scale-[0.98]">
                 <div className="absolute top-0 right-0 h-24 w-24 bg-gradient-to-bl from-emerald-500/5 to-transparent pointer-events-none" />
 
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-border">
@@ -822,7 +822,7 @@ function ClientsPage() {
             </div>
 
             <div className="max-w-4xl mx-auto relative">
-              <div className="relative bg-card border border-border rounded-sm p-8 md:p-12 shadow-elegant min-h-[260px] flex flex-col justify-between">
+              <div className="relative bg-card rounded-md p-8 md:p-12 shadow-emil min-h-[260px] flex flex-col justify-between">
                 {/* Giant decorative quotation mark */}
                 <Quote className="absolute top-6 left-6 h-12 w-12 text-emerald-500/10 pointer-events-none" />
 
@@ -915,7 +915,7 @@ function ClientsPage() {
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {sectors.map((s, idx) => (
               <Reveal key={s} delay={idx * 50}>
-                <div className="rounded-sm border border-border bg-card p-6 text-center hover:border-emerald-500/30 hover:-translate-y-0.5 transition-all shadow-sm">
+                <div className="rounded-md bg-card p-6 text-center shadow-emil hover:shadow-emil-hover transition-[box-shadow,transform] duration-500 ease-[var(--ease-emil)] active:scale-[0.98]">
                   <p className="font-display font-medium text-foreground text-sm">{s}</p>
                 </div>
               </Reveal>
