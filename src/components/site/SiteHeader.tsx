@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Menu, X, Languages, ArrowRight, MapPin, Phone, Mail, Linkedin, ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
-import logo from "@/assets/seema-logo.png";
+import logo from "@/assets/silsilat-al-thiqa-logo.png";
 import { setLanguage } from "@/i18n";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -140,14 +140,14 @@ export function SiteHeader() {
         <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
           <Link to="/" className="flex items-center gap-3 group" data-magnetic>
             <div className="bg-white/95 rounded-md p-1.5 transition-transform group-hover:scale-105">
-              <img src={logo} alt="Seema General Contracting logo" className="h-9 w-auto" width={100} height={36} />
+              <img src={logo} alt="Silsilat Al-Thiqa" className="h-10 w-auto" width={120} height={40} />
             </div>
             <div className="hidden sm:flex flex-col leading-tight">
-              <span className="font-display text-base font-bold text-ink-foreground tracking-wide">
-                SEEMA
+              <span className="font-display text-sm font-bold text-ink-foreground tracking-wide">
+                {t("company.name")}
               </span>
-              <span className="text-[9px] uppercase tracking-[0.18em] text-ink-foreground/60">
-                General Contracting & Industrial Services Co.
+              <span className="text-[8px] uppercase tracking-[0.15em] text-ink-foreground/60">
+                {t("company.tagline")}
               </span>
             </div>
           </Link>
@@ -317,14 +317,14 @@ export function SiteHeader() {
                 <div className="flex h-20 items-center justify-between px-4 border-b border-white/10 shrink-0">
                   <div className="flex items-center gap-3">
                     <div className="bg-white/95 rounded-md p-1.5">
-                      <img src={logo} alt="Seema General Contracting logo" className="h-9 w-auto" width={100} height={36} />
+                      <img src={logo} alt="Silsilat Al-Thiqa" className="h-10 w-auto" width={120} height={40} />
                     </div>
                     <div className="flex flex-col leading-tight">
-                      <span className="font-display text-base font-bold text-ink-foreground tracking-wide">
-                        SEEMA
+                      <span className="font-display text-sm font-bold text-ink-foreground tracking-wide">
+                        {t("company.name")}
                       </span>
                       <span className="text-[8px] uppercase tracking-[0.15em] text-ink-foreground/50">
-                        General Contracting & Industrial Services
+                        {t("company.tagline")}
                       </span>
                     </div>
                   </div>

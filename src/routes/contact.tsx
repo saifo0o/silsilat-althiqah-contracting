@@ -23,13 +23,13 @@ const contactSchema = z.object({
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Seema" },
+      { title: "Contact — Silsilat Al-Thiqa" },
       {
         name: "description",
         content:
-          "Contact Seema's offices in Jubail and Dammam for structural rehabilitation, CFRP, coatings and process piping repair.",
+          "Contact Silsilat Al-Thiqa's offices in Jubail and Dammam for structural rehabilitation, CFRP, coatings and process piping repair.",
       },
-      { property: "og:title", content: "Contact — Seema" },
+      { property: "og:title", content: "Contact — Silsilat Al-Thiqa" },
       { property: "og:description", content: "Talk to our engineering team." },
       { property: "og:url", content: "/contact" },
     ],

@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
-import logo from "@/assets/seema-logo.png";
+import logo from "@/assets/silsilat-al-thiqa-logo.png";
 
 export function SiteFooter() {
   const { t } = useTranslation();
@@ -15,8 +15,8 @@ export function SiteFooter() {
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <div className="flex items-center gap-3">
-              <div className="rounded-xl bg-white/95 p-2">
-                <img src={logo} alt="Seema" className="h-10 w-auto" width={100} height={40} />
+              <div className="rounded-xl p-1">
+                <img src={logo} alt="Silsilat Al-Thiqa" className="h-12 w-auto" width={140} height={48} />
               </div>
               <div>
                 <p className="font-display text-lg font-semibold">{t("company.name")}</p>

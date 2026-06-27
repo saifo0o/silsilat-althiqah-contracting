@@ -12,8 +12,8 @@
     "toggle": "العربية"
   },
   "company": {
-    "name": "Seema",
-    "tagline": "General Contracting & Industrial Services Co."
+    "name": "SILSILAT AL-THIQA",
+    "tagline": "Engineering Solutions & Asset Protection"
   },
   "common": {
     "learnMore": "Explore this service",
@@ -24,13 +24,13 @@
     "viewProjects": "View all projects"
   },
   "home": {
-    "metaTitle": "SEEMA — Engineered Industrial Services",
+    "metaTitle": "SILSILAT AL-THIQA — Engineered Industrial Services",
     "metaDesc": "Advanced engineering solutions for structural rehabilitation, pipe repair, and industrial protection across the Kingdom.",
     "heroEyebrow": "Engineered Solutions. Measurable Impact.",
     "heroTitle1": "Reduce Downtime.",
     "heroTitle2": "Extend Asset Life.",
     "heroTitle3": "Protect What Matters.",
-    "heroSubtitle": "SEEMA delivers advanced engineering solutions for structural rehabilitation, pipe repair, and industrial protection to maximize reliability, safety, and performance.",
+    "heroSubtitle": "SILSILAT AL-THIQA delivers advanced engineering solutions for structural rehabilitation, pipe repair, and industrial protection to maximize reliability, safety, and performance.",
     "heroCtaPrimary": "Our Solutions",
     "heroCtaSecondary": "Talk to an Expert",
     "heroBadge": "24/7 Emergency Response",
@@ -104,17 +104,17 @@
       }
     },
     "ctaTitle": "Let's Build a More Reliable Future",
-    "ctaBody": "Partner with SEEMA for innovative engineering solutions that keep your assets performing at their best.",
+    "ctaBody": "Partner with SILSILAT AL-THIQA for innovative engineering solutions that keep your assets performing at their best.",
     "ctaButton": "Get in Touch",
     "intro": {
-      "eyebrow": "Welcome to Seema",
+      "eyebrow": "Welcome to Silsilat Al-Thiqa",
       "title": "Engineered repair for concrete, steel and process piping.",
-      "body": "Seema General Contracting & Industrial Services Co. specialises in structural rehabilitation — using advanced carbon fiber technology, composite materials and epoxy coatings designed for extreme corrosive environments."
+      "body": "SILSILAT AL-THIQA, Engineering Solutions & Asset Protection specialises in structural rehabilitation — using advanced carbon fiber technology, composite materials and epoxy coatings designed for extreme corrosive environments."
     },
     "servicesEyebrow": "What we do",
     "servicesTitle": "A complete rehabilitation toolkit.",
     "servicesSubtitle": "From carbon fiber reinforcement to acid-resistant linings — engineered solutions across the lifecycle of industrial assets.",
-    "whyEyebrow": "Why Seema",
+    "whyEyebrow": "Why Silsilat Al-Thiqa",
     "whyTitle": "Specialist engineering, executed on-site.",
     "whySubtitle": "A focused team, international technology partners, and a delivery model built around the realities of live industrial plants.",
     "why": {
@@ -152,7 +152,7 @@
     "visionBody": "Partner with international and local companies in civil engineering, structural maintenance and civil construction to be among the market leaders in our field."
   },
   "services": {
-    "metaTitle": "Services — Seema",
+    "metaTitle": "Services — Silsilat Al-Thiqa",
     "metaDesc": "Carbon fiber reinforcement, FRP repair of concrete and steel, process piping repair, leak repair, epoxy coatings, acid lining, expansion joints, waterproofing and industrial supplies.",
     "eyebrow": "Services & Sales",
     "title": "Engineered repair across the asset lifecycle.",
@@ -217,11 +217,11 @@
     ]
   },
   "about": {
-    "metaTitle": "About — Seema General Contracting & Industrial Services",
-    "metaDesc": "Founded in 2013, Seema is a Saudi specialist in the rehabilitation of concrete, steel structures and process pipes — partnering with international firms to bring engineered solutions to local industry.",
-    "eyebrow": "About Seema",
+    "metaTitle": "About — SILSILAT AL-THIQA, Engineering Solutions & Asset Protection",
+    "metaDesc": "Founded in 2013, Silsilat Al-Thiqa is a Saudi specialist in the rehabilitation of concrete, steel structures and process pipes — partnering with international firms to bring engineered solutions to local industry.",
+    "eyebrow": "About Silsilat Al-Thiqa",
     "title": "A specialist contractor for what cannot fail.",
-    "lead": "SEEMA General Contracting & Industrial Services Co. was established in 2013 with a specialised team of professionals and technicians engaged in the rehabilitation of concrete, steel structures and process pipes.",
+    "lead": "SILSILAT AL-THIQA, Engineering Solutions & Asset Protection was established in 2013 with a specialised team of professionals and technicians engaged in the rehabilitation of concrete, steel structures and process pipes.",
     "body1": "We carry out repairs to concrete and steel structures and process pipes using epoxy materials, advanced carbon fiber and fiber-glass wrappings, concrete injections and industrial coating systems.",
     "body2": "We collaborate and partner with international and local companies in the field of civil engineering, structural maintenance and civil construction — transferring technology, training and technical support to the Kingdom's industrial sector.",
     "since": "Operating across the Kingdom since 2013.",
@@ -232,14 +232,14 @@
     "teamLabel": "Certified Engineering Crews",
     "teamDesc": "Our specialized team of certified engineers, safety officers, and technicians undergo rigorous training to work on live, high-hazard industrial assets.",
     "vendorsTitle": "Registered vendor numbers",
-    "vendorsBody": "Seema is an approved vendor with the Kingdom's leading industrial operators.",
+    "vendorsBody": "Silsilat Al-Thiqa is an approved vendor with the Kingdom's leading industrial operators.",
     "timelineTitle": "A decade of rehabilitation work.",
     "timelineSubtitle": "Selected milestones on the path from start-up to specialist contractor.",
     "timeline": [
       {
         "year": "2013",
         "title": "Company founded",
-        "body": "Seema is established in Jubail with a specialised team of engineers and technicians."
+        "body": "Silsilat Al-Thiqa is established in Jubail with a specialised team of engineers and technicians."
       },
       {
         "year": "2014",
@@ -269,8 +269,8 @@
     ]
   },
   "projects": {
-    "metaTitle": "Projects — Seema",
-    "metaDesc": "Major orders completed by Seema for SABIC, Aramco, Maaden, SAFCO, KJO, S-Chem and Berry Gas Plant across Jubail, Ras Al Khair and Khafji.",
+    "metaTitle": "Projects — Silsilat Al-Thiqa",
+    "metaDesc": "Major orders completed by Silsilat Al-Thiqa for SABIC, Aramco, Maaden, SAFCO, KJO, S-Chem and Berry Gas Plant across Jubail, Ras Al Khair and Khafji.",
     "eyebrow": "Selected work",
     "title": "Major orders completed.",
     "subtitle": "A snapshot of rehabilitation, CFRP lining and structural repair work delivered across the Kingdom's industrial sites.",
@@ -417,11 +417,11 @@
     ]
   },
   "clients": {
-    "metaTitle": "Clients & Approved Vendor — Seema",
-    "metaDesc": "Seema is an approved vendor with SABIC, Saudi Aramco, SEC, Maaden, Sahara and the Saudi Irrigation Organization, and serves the Kingdom's largest industrial operators.",
+    "metaTitle": "Clients & Approved Vendor — Silsilat Al-Thiqa",
+    "metaDesc": "Silsilat Al-Thiqa is an approved vendor with SABIC, Saudi Aramco, SEC, Maaden, Sahara and the Saudi Irrigation Organization, and serves the Kingdom's largest industrial operators.",
     "eyebrow": "Clients & approvals",
     "title": "An Approved Vendor to the Kingdom's Industrial Giants.",
-    "subtitle": "SEEMA is a registered, certified, and fully approved contractor for Saudi Arabia's leading industrial entities, utilities, and megaprojects.",
+    "subtitle": "SILSILAT AL-THIQA is a registered, certified, and fully approved contractor for Saudi Arabia's leading industrial entities, utilities, and megaprojects.",
     "heroStats": {
       "certified": "Aramco & SABIC Approved",
       "projects": "Giga-Project Supplier",
@@ -502,7 +502,7 @@
     "testimonialsSubtitle": "Feedback from plant operators and maintenance managers on live sites.",
     "testimonials": [
       {
-        "quote": "SEEMA's CFRP lining system on our PAP Train reactors was executed within the scheduled turnaround window. Their crews adhered to our strict HSE standards under challenging conditions.",
+        "quote": "SILSILAT AL-THIQA's CFRP lining system on our PAP Train reactors was executed within the scheduled turnaround window. Their crews adhered to our strict HSE standards under challenging conditions.",
         "author": "Turnaround Manager",
         "company": "Ma'aden Phosphate"
       },
@@ -538,7 +538,7 @@
       "rasalkhair": {
         "title": "Ras Al Khair",
         "stats": "45+ Projects | 8+ Years",
-        "description": "The industrial mining city. SEEMA delivers specialized composite CFRP lining solutions for Ma'aden phosphate reactors and heavy industrial structures."
+        "description": "The industrial mining city. SILSILAT AL-THIQA delivers specialized composite CFRP lining solutions for Ma'aden phosphate reactors and heavy industrial structures."
       },
       "khafji": {
         "title": "Khafji",
@@ -596,8 +596,8 @@
     }
   },
   "contact": {
-    "metaTitle": "Contact — Seema",
-    "metaDesc": "Contact Seema's offices in Jubail and Dammam for structural rehabilitation, CFRP, coatings and process piping repair.",
+    "metaTitle": "Contact — Silsilat Al-Thiqa",
+    "metaDesc": "Contact Silsilat Al-Thiqa's offices in Jubail and Dammam for structural rehabilitation, CFRP, coatings and process piping repair.",
     "eyebrow": "Contact",
     "title": "Let's talk about your project.",
     "subtitle": "Tell us about your scope. Our team will get back to you with an engineered approach.",

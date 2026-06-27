@@ -44,13 +44,13 @@ type TimelineItem = { year: string; title: string; body: string };
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Seema General Contracting & Industrial Services" },
+      { title: "About — SILSILAT AL-THIQA, Engineering Solutions & Asset Protection" },
       {
         name: "description",
         content:
-          "Founded in 2013, Seema is a Saudi specialist in the rehabilitation of concrete, steel structures and process pipes.",
+          "Founded in 2013, Silsilat Al-Thiqa is a Saudi specialist in the rehabilitation of concrete, steel structures and process pipes.",
       },
-      { property: "og:title", content: "About — Seema" },
+      { property: "og:title", content: "About — Silsilat Al-Thiqa" },
       { property: "og:description", content: "A specialist contractor for what cannot fail." },
       { property: "og:image", content: about },
       { property: "og:url", content: "/about" },

@@ -63,13 +63,13 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SEEMA — Reduce Downtime. Extend Asset Life. Protect What Matters." },
+      { title: "SILSILAT AL-THIQA — Reduce Downtime. Extend Asset Life. Protect What Matters." },
       {
         name: "description",
         content:
-          "SEEMA delivers advanced engineering solutions for structural rehabilitation, pipe repair, and industrial protection across Saudi Arabia.",
+          "SILSILAT AL-THIQA delivers advanced engineering solutions for structural rehabilitation, pipe repair, and industrial protection across Saudi Arabia.",
       },
-      { property: "og:title", content: "SEEMA — Engineered Industrial Services" },
+      { property: "og:title", content: "SILSILAT AL-THIQA — Engineered Industrial Services" },
       {
         property: "og:description",
         content: "Advanced engineering solutions for the Kingdom's heaviest industries.",
@@ -478,7 +478,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* WHY CHOOSE SEEMA */}
+      {/* WHY CHOOSE SILSILAT AL-THIQA */}
       <section className="bg-background border-b border-border relative overflow-hidden py-12 md:py-28">
         <div className="absolute -top-32 -start-32 h-96 w-96 rounded-full bg-accent/5 blur-[120px] pointer-events-none" />
         <div className="container mx-auto px-4 md:px-6">

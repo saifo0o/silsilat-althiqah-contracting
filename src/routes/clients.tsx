@@ -49,13 +49,13 @@ type IndustrialHub = { name: string; desc: string };
 export const Route = createFileRoute("/clients")({
   head: () => ({
     meta: [
-      { title: "Clients & Approved Vendor — Seema" },
+      { title: "Clients & Approved Vendor — Silsilat Al-Thiqa" },
       {
         name: "description",
         content:
-          "Seema is an approved vendor with SABIC, Saudi Aramco, SEC, Maaden, Sahara and the Saudi Irrigation Organization.",
+          "Silsilat Al-Thiqa is an approved vendor with SABIC, Saudi Aramco, SEC, Maaden, Sahara and the Saudi Irrigation Organization.",
       },
-      { property: "og:title", content: "Clients & Approved Vendor — Seema" },
+      { property: "og:title", content: "Clients & Approved Vendor — Silsilat Al-Thiqa" },
       {
         property: "og:description",
         content: "Working alongside the Kingdom's leading industrial operators.",
@@ -368,7 +368,7 @@ function ClientsPage() {
                 <div className="relative overflow-hidden rounded-sm border border-white/10 shadow-2xl bg-slate-900 group">
                   <img
                     src={teamEngineersImg}
-                    alt="SEEMA Engineering Team"
+                    alt="SILSILAT AL-THIQA Engineering Team"
                     className="w-full h-[320px] md:h-[380px] object-cover object-center filter brightness-95 contrast-105 group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent" />
