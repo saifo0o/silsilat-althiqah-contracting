@@ -6,7 +6,13 @@
     "projects": "Projects",
     "clients": "Clients",
     "contact": "Contact",
-    "cta": "Request a Quote"
+    "cta": "Request a Quote",
+    "megaMenu": {
+      "latestStandard": "Latest Standard",
+      "asme": "ASME PCC-2 Compliant Systems",
+      "caseStudy": "Case Study",
+      "liveLeak": "Live Leak Sealing at 145°C"
+    }
   },
   "lang": {
     "toggle": "العربية"
@@ -171,19 +177,51 @@
     "items": {
       "assessment": {
         "title": "Assessment & Diagnostics",
-        "body": "Engineering diagnostics and asset integrity assessment to minimize operational and financial risk."
+        "body": "Engineering diagnostics and asset integrity assessment to minimize operational and financial risk.",
+        "overview": "Our Assessment & Diagnostics division utilizes state-of-the-art non-destructive testing (NDT) and advanced engineering analysis to evaluate the true condition of your industrial assets. We go beyond surface-level inspections to uncover hidden vulnerabilities in piping, concrete structures, and steel reinforcements. By quantifying corrosion rates, structural fatigue, and material degradation, we provide actionable data that allows you to address critical flaws before they lead to catastrophic failures or unplanned downtime.",
+        "features": [
+          "Non-Destructive Testing (NDT)",
+          "Corrosion Under Insulation (CUI) Scanning",
+          "Structural Fatigue Analysis",
+          "Remaining Life Assessment (RLA)"
+        ],
+        "secondaryImageCaption": "Advanced ultrasonic diagnostics in action."
       },
       "rehabilitation": {
         "title": "Structural Rehabilitation",
-        "body": "Restoring structural performance and extending asset life using advanced CFRP technologies without the need for replacement."
+        "body": "Restoring structural performance and extending asset life using advanced CFRP technologies without the need for replacement.",
+        "overview": "We specialize in the structural reinforcement of aging or compromised industrial infrastructure. Using advanced Carbon Fiber Reinforced Polymer (CFRP) wrap systems, we restore load-bearing capacities to columns, beams, and slabs without adding significant weight or altering dimensions. This trenchless, rapid-deployment technology is ASME PCC-2 compliant and specifically designed to rehabilitate process piping, silos, and critical plant structures with minimal disruption to your daily operations.",
+        "features": [
+          "CFRP Structural Strengthening",
+          "Concrete Spalling & Crack Injection",
+          "Steel Support Reinforcement",
+          "ASME PCC-2 Compliant Pipe Wraps"
+        ],
+        "secondaryImageCaption": "Precision application of carbon fiber composite."
       },
       "protection": {
         "title": "Industrial Protection",
-        "body": "Protective systems and industrial coatings designed for extended asset life and extreme corrosion resistance."
+        "body": "Protective systems and industrial coatings designed for extreme corrosion, chemical and abrasion resistance.",
+        "overview": "Industrial assets face relentless exposure to harsh chemicals, extreme temperatures, and mechanical abrasion. Our Industrial Protection services deploy high-performance epoxy coatings, acid-resistant linings, and heavy-duty polyurethanes designed to withstand the most severe environments. Whether lining a primary containment tank or coating offshore structural steel, our NACE-certified application teams ensure complete surface isolation, preventing aggressive corrosion and significantly extending the operational lifespan of your vital equipment.",
+        "features": [
+          "Acid-Resistant Epoxy Linings",
+          "High-Temperature Internal Coatings",
+          "Polyurethane & Polyurea Systems",
+          "Secondary Containment Waterproofing"
+        ],
+        "secondaryImageCaption": "Application of highly durable chemical resistant epoxy."
       },
       "endurance": {
         "title": "Asset Endurance",
-        "body": "Long-term asset integrity management, ensuring operational continuity across the full lifecycle of critical facilities."
+        "body": "Long-term asset integrity management for operational continuity and sustained performance.",
+        "overview": "Asset Endurance is our holistic approach to facility maintenance. We don't just repair; we engineer long-term solutions that guarantee operational continuity for years to come. By combining predictive maintenance strategies with rapid-response repair capabilities, we help facility owners in the petrochemical, power, and manufacturing sectors maximize their return on investment. Our localized teams provide continuous support, ensuring your operations remain safe, efficient, and fully compliant with all regulatory standards.",
+        "features": [
+          "Predictive Maintenance Programs",
+          "Emergency Leak Sealing",
+          "Continuous Integrity Monitoring",
+          "Turnaround & Shutdown Support"
+        ],
+        "secondaryImageCaption": "Ensuring long-term operational continuity."
       }
     },
     "faqTitle": "Frequently asked",

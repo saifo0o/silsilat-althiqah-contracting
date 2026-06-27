@@ -142,8 +142,8 @@ export function SiteHeader() {
         <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
           <Magnetic>
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="bg-white/95 rounded-md p-1.5 transition-transform group-hover:scale-105">
-                <img src={logo} alt="Silsilat Al-Thiqa" className="h-10 w-auto" width={120} height={40} />
+              <div className="transition-transform group-hover:scale-105">
+                <img src={logo} alt="Silsilat Al-Thiqa" className="h-12 md:h-14 w-auto object-contain" />
               </div>
               <div className="hidden sm:flex flex-col leading-tight">
                 <span className="font-display text-sm font-bold text-ink-foreground tracking-wide">
@@ -231,7 +231,7 @@ export function SiteHeader() {
               animate={{ opacity: 1, y: 0, height: "auto" }}
               exit={{ opacity: 0, y: -10, height: 0 }}
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute top-full left-0 w-full overflow-hidden bg-ink/95 backdrop-blur-xl border-b border-white/10 shadow-2xl origin-top"
+              className="absolute top-full left-0 w-full overflow-hidden bg-ink border-b border-white/10 shadow-2xl origin-top"
               onMouseEnter={() => handleMouseEnter("services")}
               onMouseLeave={handleMouseLeave}
             >
@@ -241,26 +241,26 @@ export function SiteHeader() {
                     <p className="text-[10px] font-bold uppercase tracking-widest text-accent mb-6">{t('home.servicesEyebrow', 'Our Services')}</p>
                     <ul className="space-y-4">
                       <li>
-                        <Link to="/services" hash="structural" className="text-ink-foreground hover:text-accent transition-colors font-bold text-lg flex items-center group">
-                          {t('home.tiles.structural.title', 'Structural Rehabilitation')}
+                        <Link to="/services" className="text-ink-foreground hover:text-accent transition-colors font-bold text-lg flex items-center group">
+                          {t('services.items.assessment.title')}
                           <ArrowRight className="h-4 w-4 ms-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all rtl:rotate-180" />
                         </Link>
                       </li>
                       <li>
-                        <Link to="/services" hash="piping" className="text-ink-foreground hover:text-accent transition-colors font-bold text-lg flex items-center group">
-                          {t('home.tiles.piping.title', 'Pipe Repair & Wraps')}
+                        <Link to="/services" className="text-ink-foreground hover:text-accent transition-colors font-bold text-lg flex items-center group">
+                          {t('services.items.rehabilitation.title')}
                           <ArrowRight className="h-4 w-4 ms-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all rtl:rotate-180" />
                         </Link>
                       </li>
                       <li>
-                        <Link to="/services" hash="coatings" className="text-ink-foreground hover:text-accent transition-colors font-bold text-lg flex items-center group">
-                          {t('home.tiles.coatings.title', 'Specialized Coatings')}
+                        <Link to="/services" className="text-ink-foreground hover:text-accent transition-colors font-bold text-lg flex items-center group">
+                          {t('services.items.protection.title')}
                           <ArrowRight className="h-4 w-4 ms-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all rtl:rotate-180" />
                         </Link>
                       </li>
                       <li>
-                        <Link to="/services" hash="supply" className="text-ink-foreground hover:text-accent transition-colors font-bold text-lg flex items-center group">
-                          {t('home.tiles.supply.title', 'Material Supply')}
+                        <Link to="/services" className="text-ink-foreground hover:text-accent transition-colors font-bold text-lg flex items-center group">
+                          {t('services.items.endurance.title')}
                           <ArrowRight className="h-4 w-4 ms-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all rtl:rotate-180" />
                         </Link>
                       </li>
@@ -276,16 +276,16 @@ export function SiteHeader() {
                       <img src={tileStructural} alt="Structural" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                       <div className="absolute inset-0 bg-gradient-to-t from-ink/90 to-transparent pointer-events-none" />
                       <div className="absolute bottom-6 start-6 end-6">
-                        <span className="text-[9px] uppercase tracking-widest text-accent font-bold">{i18n.language === 'ar' ? 'أحدث المعايير' : 'Latest Standard'}</span>
-                        <h4 className="text-xl font-display font-bold text-white mt-1" dir="ltr">{i18n.language === 'ar' ? 'أنظمة متوافقة مع معيار ASME PCC-2' : 'ASME PCC-2 Compliant Systems'}</h4>
+                        <span className="text-[9px] uppercase tracking-widest text-accent font-bold">{t('nav.megaMenu.latestStandard')}</span>
+                        <h4 className="text-xl font-display font-bold text-white mt-1" dir="ltr">{t('nav.megaMenu.asme')}</h4>
                       </div>
                     </div>
                     <div className="group relative overflow-hidden rounded-sm h-64">
                       <img src={tilePiping} alt="Piping" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                       <div className="absolute inset-0 bg-gradient-to-t from-ink/90 to-transparent pointer-events-none" />
                       <div className="absolute bottom-6 start-6 end-6">
-                        <span className="text-[9px] uppercase tracking-widest text-emerald-400 font-bold">{i18n.language === 'ar' ? 'دراسة حالة' : 'Case Study'}</span>
-                        <h4 className="text-xl font-display font-bold text-white mt-1" dir="ltr">{i18n.language === 'ar' ? 'إغلاق تسريب مباشر عند 145 درجة مئوية' : 'Live Leak Sealing at 145°C'}</h4>
+                        <span className="text-[9px] uppercase tracking-widest text-emerald-400 font-bold">{t('nav.megaMenu.caseStudy')}</span>
+                        <h4 className="text-xl font-display font-bold text-white mt-1" dir="ltr">{t('nav.megaMenu.liveLeak')}</h4>
                       </div>
                     </div>
                   </div>
@@ -326,8 +326,8 @@ export function SiteHeader() {
                 {/* Header inside drawer */}
                 <div className="flex h-20 items-center justify-between px-4 border-b border-white/10 shrink-0">
                   <div className="flex items-center gap-3">
-                    <div className="bg-white/95 rounded-md p-1.5">
-                      <img src={logo} alt="Silsilat Al-Thiqa" className="h-10 w-auto" width={120} height={40} />
+                    <div>
+                      <img src={logo} alt="Silsilat Al-Thiqa" className="h-10 md:h-12 w-auto object-contain" />
                     </div>
                     <div className="flex flex-col leading-tight">
                       <span className="font-display text-sm font-bold text-ink-foreground tracking-wide">

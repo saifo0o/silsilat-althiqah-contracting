@@ -3,21 +3,16 @@ import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 import {
   Building2,
-  Handshake,
   BadgeCheck,
   ArrowRight,
-  Globe2,
   CheckCircle,
   MapPin,
   Quote,
-  FileText,
-  Download,
   ChevronLeft,
   ChevronRight,
   Search,
   Copy,
   Check,
-  Loader2,
   Star,
 } from "lucide-react";
 import { SectionHeading } from "@/components/site/SectionHeading";
@@ -41,6 +36,7 @@ import {
   SaharaLogo,
   SioLogo,
 } from "@/components/site/ClientLogos";
+import { ksaMapPath } from "@/components/site/KsaMapPath";
 
 type Vendor = { name: string; number: string };
 type Testimonial = { quote: string; author: string; company: string };
@@ -115,17 +111,6 @@ function ClientsPage() {
   const [copiedVendor, setCopiedVendor] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Capabilities Wizard States
-  const [wizardState, setWizardState] = useState<"idle" | "compiling" | "success">("idle");
-  const [wizardProgress, setWizardProgress] = useState(0);
-  const [selectedOptions, setSelectedOptions] = useState<Record<string, boolean>>({
-    profile: true,
-    cr: true,
-    certificates: true,
-    hse: false,
-    vendorLetters: false,
-    sop: false,
-  });
 
   const clients = [
     {
@@ -275,41 +260,6 @@ function ClientsPage() {
     setTimeout(() => setCopiedVendor(null), 2000);
   };
 
-  // Compile capabilities simulation
-  const handleWizardCompile = () => {
-    setWizardState("compiling");
-    setWizardProgress(0);
-  };
-
-  useEffect(() => {
-    if (wizardState !== "compiling") return;
-
-    const interval = setInterval(() => {
-      setWizardProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setWizardState("success");
-          return 100;
-        }
-        return prev + 10;
-      });
-    }, 200);
-
-    return () => clearInterval(interval);
-  }, [wizardState]);
-
-  const handleCheckboxChange = (key: string) => {
-    setSelectedOptions((prev) => ({
-      ...prev,
-      [key]: !prev[key],
-    }));
-  };
-
-  const getWizardStepMessage = () => {
-    if (wizardProgress < 30) return t("clients.preQualCompiling");
-    if (wizardProgress < 75) return t("clients.preQualOptions.certificates");
-    return t("clients.preQualSuccess");
-  };
 
   // Active Map Details Panel Helper
   const hubDetailsData = t(`clients.hubDetails.${selectedHub}`, { returnObjects: true });
@@ -574,18 +524,18 @@ function ClientsPage() {
                   viewBox="0 0 300 200"
                   className="w-full max-w-[280px] text-muted-foreground/60 relative z-10"
                 >
-                  {/* Detailed KSA Silhouette Path approximation */}
+                  {/* Detailed KSA Silhouette Path */}
                   <path
-                    d="M 25 115 L 35 105 L 50 85 L 85 70 L 130 65 L 180 70 L 210 65 L 235 60 L 245 70 L 275 90 L 285 110 L 265 130 L 280 145 L 260 165 L 215 175 L 175 185 L 135 180 L 100 185 L 75 170 L 65 145 L 45 130 Z"
+                    d={ksaMapPath}
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="1.5"
+                    strokeWidth="0.8"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     className="text-muted-foreground opacity-30"
                   />
                   <path
-                    d="M 25 115 L 35 105 L 50 85 L 85 70 L 130 65 L 180 70 L 210 65 L 235 60 L 245 70 L 275 90 L 285 110 L 265 130 L 280 145 L 260 165 L 215 175 L 175 185 L 135 180 L 100 185 L 75 170 L 65 145 L 45 130 Z"
+                    d={ksaMapPath}
                     fill="currentColor"
                     className="text-muted opacity-[0.05]"
                   />
@@ -596,15 +546,15 @@ function ClientsPage() {
                   <g className="cursor-pointer" onClick={() => setSelectedHub("jubail")}>
                     {selectedHub === "jubail" && (
                       <circle
-                        cx="210"
-                        cy="100"
+                        cx="202.5"
+                        cy="67.9"
                         r="8"
                         className="animate-ping fill-emerald-500/40"
                       />
                     )}
                     <circle
-                      cx="210"
-                      cy="100"
+                      cx="202.5"
+                      cy="67.9"
                       r="4"
                       className={cn(
                         "transition-all duration-300",
@@ -614,8 +564,8 @@ function ClientsPage() {
                       )}
                     />
                     <text
-                      x="218"
-                      y="103"
+                      x="210.5"
+                      y="70.9"
                       fontSize="8"
                       fontWeight="bold"
                       fill={
@@ -632,11 +582,11 @@ function ClientsPage() {
                   {/* Yanbu */}
                   <g className="cursor-pointer" onClick={() => setSelectedHub("yanbu")}>
                     {selectedHub === "yanbu" && (
-                      <circle cx="70" cy="115" r="8" className="animate-ping fill-emerald-500/40" />
+                      <circle cx="70.3" cy="105.9" r="8" className="animate-ping fill-emerald-500/40" />
                     )}
                     <circle
-                      cx="70"
-                      cy="115"
+                      cx="70.3"
+                      cy="105.9"
                       r="4"
                       className={cn(
                         "transition-all duration-300",
@@ -646,8 +596,8 @@ function ClientsPage() {
                       )}
                     />
                     <text
-                      x="78"
-                      y="118"
+                      x="78.3"
+                      y="108.9"
                       fontSize="8"
                       fontWeight="bold"
                       fill={
@@ -664,11 +614,11 @@ function ClientsPage() {
                   {/* Ras Al Khair */}
                   <g className="cursor-pointer" onClick={() => setSelectedHub("rasalkhair")}>
                     {selectedHub === "rasalkhair" && (
-                      <circle cx="195" cy="85" r="8" className="animate-ping fill-emerald-500/40" />
+                      <circle cx="197.2" cy="60.8" r="8" className="animate-ping fill-emerald-500/40" />
                     )}
                     <circle
-                      cx="195"
-                      cy="85"
+                      cx="197.2"
+                      cy="60.8"
                       r="4"
                       className={cn(
                         "transition-all duration-300",
@@ -678,8 +628,8 @@ function ClientsPage() {
                       )}
                     />
                     <text
-                      x="145"
-                      y="82"
+                      x="150"
+                      y="60"
                       fontSize="8"
                       fontWeight="bold"
                       fill={
@@ -696,11 +646,11 @@ function ClientsPage() {
                   {/* Khafji */}
                   <g className="cursor-pointer" onClick={() => setSelectedHub("khafji")}>
                     {selectedHub === "khafji" && (
-                      <circle cx="218" cy="74" r="8" className="animate-ping fill-emerald-500/40" />
+                      <circle cx="189.1" cy="49.2" r="8" className="animate-ping fill-emerald-500/40" />
                     )}
                     <circle
-                      cx="218"
-                      cy="74"
+                      cx="189.1"
+                      cy="49.2"
                       r="4"
                       className={cn(
                         "transition-all duration-300",
@@ -710,8 +660,8 @@ function ClientsPage() {
                       )}
                     />
                     <text
-                      x="226"
-                      y="77"
+                      x="197.1"
+                      y="52.2"
                       fontSize="8"
                       fontWeight="bold"
                       fill={
@@ -924,161 +874,7 @@ function ClientsPage() {
         </div>
       </section>
 
-      {/* PARTNERS & CUSTOM BUILDER PORTAL */}
-      <section className="container mx-auto px-4 md:px-6 py-12 md:py-32">
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
-          {/* Left Side: Standard Compliance */}
-          <Reveal className="lg:col-span-6 text-start">
-            <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-lg bg-emerald-500/10 text-emerald-500 flex items-center justify-center">
-                <Handshake className="h-5 w-5" />
-              </div>
-              <h2 className="font-display text-2xl md:text-3xl font-semibold">
-                {t("clients.partnersTitle")}
-              </h2>
-            </div>
-            <p className="mt-6 text-muted-foreground text-base leading-relaxed">
-              {t("clients.partnersBody")}
-            </p>
 
-            {/* Standards Compliance Enrichment */}
-            <div className="mt-8 pt-6 border-t border-border">
-              <h4 className="font-display text-sm font-bold uppercase tracking-wider text-foreground mb-4">
-                {i18n.language === "ar"
-                  ? "الأكواد الهندسية والامتثال"
-                  : "Engineering Codes & Compliance"}
-              </h4>
-              <ul className="grid grid-cols-2 gap-3">
-                {[
-                  "ASME PCC-2 (Composite Repairs)",
-                  "ISO 24817 (Pipeline Rehabilitation)",
-                  "ACI 440.2R (FRP Concrete Rehab)",
-                  "ASTM Protective Linings & Coatings",
-                  "SABIC SES Standards Compliance",
-                  "Aramco Engineering Standards (SAES)",
-                ].map((std, i) => (
-                  <li key={i} className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" />
-                    <span dir="ltr">{std}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <Button
-              asChild
-              className="mt-8 rounded-sm bg-emerald-600 text-white hover:bg-emerald-500"
-            >
-              <Link to="/contact">
-                {t("common.getInTouch")}
-                <ArrowRight className="h-4 w-4 ms-2 rtl:rotate-180" />
-              </Link>
-            </Button>
-          </Reveal>
-
-          {/* Right Side: Capabilities Customization Builder Widget */}
-          <Reveal delay={150} className="lg:col-span-6">
-            <div className="relative overflow-hidden rounded-sm bg-[#0d1527] border border-white/10 p-8 md:p-10 text-white min-h-[420px] flex flex-col justify-between shadow-2xl">
-              <div className="absolute inset-0 grid-pattern opacity-[0.06] text-white" />
-              <div className="absolute -top-20 -end-20 h-64 w-64 rounded-full bg-emerald-500/10 blur-[80px]" />
-
-              <div className="relative text-start">
-                <Globe2 className="h-10 w-10 text-emerald-400" />
-                <h3 className="mt-6 font-display text-xl font-bold tracking-tight">
-                  {t("clients.preQualTitle")}
-                </h3>
-                <p className="mt-2 text-slate-300 text-xs leading-relaxed">
-                  {t("clients.preQualSubtitle")}
-                </p>
-
-                {/* Compilation Checklist Options */}
-                <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {Object.keys(selectedOptions).map((key) => (
-                    <label
-                      key={key}
-                      className="flex items-center gap-3 rounded-sm border border-white/5 bg-white/[0.02] p-3 text-xs text-slate-300 hover:bg-white/[0.05] hover:border-emerald-500/25 transition-all cursor-pointer"
-                    >
-                      <input
-                        type="checkbox"
-                        checked={selectedOptions[key]}
-                        onChange={() => handleCheckboxChange(key)}
-                        className="rounded border-white/20 bg-transparent text-emerald-500 focus:ring-emerald-500/30 h-4 w-4 shrink-0"
-                      />
-                      <span>{t(`clients.preQualOptions.${key}`)}</span>
-                    </label>
-                  ))}
-                </div>
-              </div>
-
-              {/* Progress and Download Action Trigger */}
-              <div className="relative mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row gap-4 items-center justify-between">
-                {wizardState === "compiling" ? (
-                  <div className="w-full flex flex-col items-start gap-2">
-                    <div className="flex justify-between items-center w-full text-xs text-slate-300">
-                      <span className="flex items-center gap-2">
-                        <Loader2 className="h-3 w-3 animate-spin text-emerald-400" />
-                        {getWizardStepMessage()}
-                      </span>
-                      <span className="font-mono">{wizardProgress}%</span>
-                    </div>
-                    {/* Progress Bar Container */}
-                    <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-emerald-500 rounded-full transition-all duration-200"
-                        style={{ width: `${wizardProgress}%` }}
-                      />
-                    </div>
-                  </div>
-                ) : wizardState === "success" ? (
-                  <div className="w-full flex items-center justify-between gap-4">
-                    <div className="flex items-center gap-3">
-                      <div className="h-9 w-9 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
-                        <CheckCircle className="h-5 w-5" />
-                      </div>
-                      <div className="text-start">
-                        <h5 className="font-display text-xs font-bold text-white">
-                          {t("clients.preQualSuccess")}
-                        </h5>
-                        <p className="text-[10px] text-emerald-400 mt-0.5">
-                          {i18n.language === 'ar' ? 'تم تجميع الملف بنجاح' : 'Dossier Compiled Successfully'}
-                        </p>
-                      </div>
-                    </div>
-                    <Button
-                      onClick={() => setWizardState("idle")}
-                      size="sm"
-                      className="rounded-sm bg-emerald-600 text-white hover:bg-emerald-500 text-xs uppercase tracking-wider font-bold"
-                    >
-                      <Download className="h-3.5 w-3.5 me-1.5" /> Recompile
-                    </Button>
-                  </div>
-                ) : (
-                  <>
-                    <div className="flex items-center gap-3 text-start">
-                      <FileText className="h-8 w-8 text-emerald-400 shrink-0 animate-pulse" />
-                      <div>
-                        <h5 className="font-display text-xs font-bold text-white">
-                          {i18n.language === 'ar' ? 'ملف المؤهلات المخصص' : 'Credentials & Pre-Qual Dossier'}
-                        </h5>
-                        <p className="text-[10px] text-slate-400 mt-0.5">
-                          {i18n.language === 'ar' ? 'تجميع سجل القدرات والمؤهلات' : 'Build custom capabilities packet'}
-                        </p>
-                      </div>
-                    </div>
-                    <Button
-                      onClick={handleWizardCompile}
-                      size="sm"
-                      className="rounded-sm bg-emerald-600 text-white hover:bg-emerald-500 text-xs font-bold w-full sm:w-auto uppercase tracking-wider"
-                    >
-                      <Download className="h-3.5 w-3.5 me-1.5" /> {t("clients.preQualBuildBtn")}
-                    </Button>
-                  </>
-                )}
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
     </>
   );
 }

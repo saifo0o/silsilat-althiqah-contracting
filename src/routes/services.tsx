@@ -22,6 +22,10 @@ import carbon from "@/assets/service-carbon-fiber.jpg";
 import epoxy from "@/assets/service-epoxy.jpg";
 import concrete from "@/assets/service-concrete.jpg";
 import piping from "@/assets/service-piping.jpg";
+import assessmentDetail from "@/assets/service-assessment-detail.png";
+import rehabilitationDetail from "@/assets/service-rehabilitation-detail.png";
+import protectionDetail from "@/assets/service-protection-detail.png";
+import enduranceDetail from "@/assets/service-endurance-detail.png";
 import steel from "@/assets/service-steel.jpg";
 import jointsImg from "@/assets/service-expansion-joints.png";
 import roofImg from "@/assets/service-roof-waterproofing.png";
@@ -101,10 +105,10 @@ export const Route = createFileRoute("/services")({
 });
 
 const services = [
-  { key: "assessment", Icon: Search, img: piping },
-  { key: "rehabilitation", Icon: Layers, img: carbon },
-  { key: "protection", Icon: Shield, img: epoxy },
-  { key: "endurance", Icon: Activity, img: concrete },
+  { key: "assessment", Icon: Search, img: piping, secondaryImg: assessmentDetail },
+  { key: "rehabilitation", Icon: Layers, img: carbon, secondaryImg: rehabilitationDetail },
+  { key: "protection", Icon: Shield, img: epoxy, secondaryImg: protectionDetail },
+  { key: "endurance", Icon: Activity, img: concrete, secondaryImg: enduranceDetail },
 ] as const;
 
 function ServicesPage() {
@@ -292,15 +296,52 @@ function ServicesPage() {
 
               {/* Text content & specifications dossier */}
               <div className="p-6 md:p-8">
-                <h3 className="font-display text-xl md:text-2xl font-bold text-foreground">
+                <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground">
                   {t(`services.items.${services[activeService].key}.title`)}
                 </h3>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                <p className="mt-3 text-sm md:text-base text-muted-foreground leading-relaxed font-medium">
                   {t(`services.items.${services[activeService].key}.body`)}
                 </p>
+                <div className="mt-6 prose prose-invert max-w-none text-muted-foreground text-sm leading-relaxed border-b border-border pb-6">
+                  <p>{t(`services.items.${services[activeService].key}.overview`)}</p>
+                </div>
+                
+                {/* Secondary Grid */}
+                <div className="mt-8 grid lg:grid-cols-2 gap-8 items-start">
+                  <div>
+                    <h4 className="font-display text-xs font-bold uppercase tracking-wider text-foreground mb-4">
+                      {i18n.language === 'ar' ? 'الميزات الرئيسية' : 'Key Features'}
+                    </h4>
+                    <ul className="space-y-3">
+                      {((t(`services.items.${services[activeService].key}.features`, { returnObjects: true }) as string[]) || []).map((feature, i) => (
+                        <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
+                          <div className="h-5 w-5 rounded-sm bg-emerald-500/10 text-emerald-500 flex items-center justify-center shrink-0 mt-0.5">
+                            <Plus className="h-3 w-3" />
+                          </div>
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="relative aspect-video rounded-sm overflow-hidden border border-border/50 shadow-inner">
+                      {services[activeService]?.secondaryImg && (
+                        <img 
+                          src={services[activeService].secondaryImg} 
+                          alt={t(`services.items.${services[activeService].key}.secondaryImageCaption`)}
+                          className="w-full h-full object-cover"
+                        />
+                      )}
+                    </div>
+                    <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-mono text-center">
+                      {t(`services.items.${services[activeService].key}.secondaryImageCaption`)}
+                    </p>
+                  </div>
+                </div>
 
                 {/* Technical Specs List */}
-                <div className="mt-6 pt-6 border-t border-border">
+                <div className="mt-8 pt-8 border-t border-border">
                   <h4 className="font-display text-xs font-bold uppercase tracking-wider text-foreground mb-4">
                     {i18n.language === 'ar' ? 'المواصفات الفنية' : 'Technical Specifications'}
                   </h4>
@@ -308,7 +349,7 @@ function ServicesPage() {
                     {getServiceSpecs(services[activeService].key).map((spec, i) => (
                       <div
                         key={i}
-                        className="flex justify-between items-center py-2 px-3 bg-secondary/50 rounded-sm border border-border/40 text-xs"
+                        className="flex justify-between items-center py-2 px-3 bg-secondary/50 rounded-sm border border-border/40 text-xs transition-colors hover:bg-secondary/80"
                       >
                         <span className="text-muted-foreground">{spec.label}</span>
                         <span className="font-mono font-bold text-foreground" dir="ltr">{spec.value}</span>
