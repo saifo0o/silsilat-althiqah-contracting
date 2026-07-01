@@ -143,7 +143,7 @@ export function SiteHeader() {
           <Magnetic>
             <Link to="/" className="flex items-center gap-3 group">
               <div className="transition-transform group-hover:scale-105">
-                <img src={logo} alt="Silsilat Al-Thiqa" className="h-12 md:h-14 w-auto object-contain" />
+                <img src={logo} alt="SEEMA General Contracting" className="h-12 md:h-14 w-auto object-contain" />
               </div>
               <div className="hidden sm:flex flex-col leading-tight">
                 <span className="font-display text-sm font-bold text-ink-foreground tracking-wide">
@@ -327,7 +327,7 @@ export function SiteHeader() {
                 <div className="flex h-20 items-center justify-between px-4 border-b border-white/10 shrink-0">
                   <div className="flex items-center gap-3">
                     <div>
-                      <img src={logo} alt="Silsilat Al-Thiqa" className="h-10 md:h-12 w-auto object-contain" />
+                      <img src={logo} alt="SEEMA General Contracting" className="h-10 md:h-12 w-auto object-contain" />
                     </div>
                     <div className="flex flex-col leading-tight">
                       <span className="font-display text-sm font-bold text-ink-foreground tracking-wide">

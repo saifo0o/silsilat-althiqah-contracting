@@ -82,17 +82,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "author", content: "SILSILAT AL-THIQA, Engineering Solutions & Asset Protection" },
-      { property: "og:site_name", content: "Silsilat Al-Thiqa" },
+      { name: "author", content: "SEEMA General Contracting, Engineering Solutions & Asset Protection" },
+      { property: "og:site_name", content: "SEEMA General Contracting" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { title: "SILSILAT AL-THIQA — Reduce Downtime. Extend Asset Life. Protect What Matters." },
-      { property: "og:title", content: "SILSILAT AL-THIQA — Engineered Industrial Services" },
-      { name: "twitter:title", content: "SILSILAT AL-THIQA — Engineered Industrial Services" },
+      { title: "SEEMA General Contracting — Reduce Downtime. Extend Asset Life. Protect What Matters." },
+      { property: "og:title", content: "SEEMA General Contracting — Engineered Industrial Services" },
+      { name: "twitter:title", content: "SEEMA General Contracting — Engineered Industrial Services" },
       {
         name: "description",
         content:
-          "SILSILAT AL-THIQA delivers advanced engineering solutions for structural rehabilitation, pipe repair, and industrial protection across Saudi Arabia's heaviest industries.",
+          "SEEMA General Contracting delivers advanced engineering solutions for structural rehabilitation, pipe repair, and industrial protection across Saudi Arabia's heaviest industries.",
       },
       {
         property: "og:description",
