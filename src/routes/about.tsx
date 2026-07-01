@@ -46,13 +46,13 @@ type TimelineItem = { year: string; title: string; body: string };
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — SEEMA General Contracting, Engineering Solutions & Asset Protection" },
+      { title: "About — SILSILAT AL-THIQA, Engineering Solutions & Asset Protection" },
       {
         name: "description",
         content:
-          "Founded in 2013, SEEMA General Contracting is a Saudi specialist in the rehabilitation of concrete, steel structures and process pipes.",
+          "Founded in 2013, SILSILAT AL-THIQA is a Saudi specialist in the rehabilitation of concrete, steel structures and process pipes.",
       },
-      { property: "og:title", content: "About — SEEMA General Contracting" },
+      { property: "og:title", content: "About — SILSILAT AL-THIQA" },
       { property: "og:description", content: "A specialist contractor for what cannot fail." },
       { property: "og:image", content: about },
       { property: "og:url", content: "/about" },
@@ -220,7 +220,7 @@ function AboutPage() {
               </div>
               <blockquote className="mt-8">
                 <p className="font-display text-2xl md:text-3xl leading-relaxed text-foreground font-semibold">
-                  "{t("home.founder.message", { defaultValue: "At SEEMA General Contracting, our mission goes beyond contracting; it is about safeguarding the industrial pillars of the Kingdom. We translate deep engineering knowledge into operational endurance." })}"
+                  "{t("home.founder.message", { defaultValue: "At SILSILAT AL-THIQA, our mission goes beyond contracting; it is about safeguarding the industrial pillars of the Kingdom. We translate deep engineering knowledge into operational endurance." })}"
                 </p>
               </blockquote>
               <div className="mt-8 pt-6 border-t border-border flex flex-col">
@@ -228,7 +228,7 @@ function AboutPage() {
                   {t("home.founder.name", { defaultValue: "Youssef Khaled Abou Abdallah" })}
                 </span>
                 <span className="mt-1 text-sm text-muted-foreground uppercase tracking-widest font-mono">
-                  {t("home.founder.title", { defaultValue: "Founder, SEEMA General Contracting" })}
+                  {t("home.founder.title", { defaultValue: "Founder, SILSILAT AL-THIQA" })}
                 </span>
               </div>
             </Reveal>

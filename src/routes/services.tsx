@@ -41,13 +41,13 @@ type Faq = { q: string; a: string };
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services & Sales — SEEMA General Contracting" },
+      { title: "Services & Sales — SILSILAT AL-THIQA" },
       {
         name: "description",
         content:
           "Carbon fiber reinforcement, process pipe repair, concrete repair, industrial coatings, acid lining, expansion joints, waterproofing and industrial supplies.",
       },
-      { property: "og:title", content: "Services & Sales — SEEMA General Contracting" },
+      { property: "og:title", content: "Services & Sales — SILSILAT AL-THIQA" },
       {
         property: "og:description",
         content: "Engineered repair solutions and carbon fiber sales.",

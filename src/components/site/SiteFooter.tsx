@@ -16,7 +16,7 @@ export function SiteFooter() {
           <div className="lg:col-span-5">
             <div className="flex items-center gap-3">
               <div className="rounded-xl p-1">
-                <img src={logo} alt="SEEMA General Contracting" className="h-12 w-auto" width={140} height={48} />
+                <img src={logo} alt="SILSILAT AL-THIQA" className="h-12 w-auto" width={140} height={48} />
               </div>
               <div>
                 <p className="font-display text-lg font-semibold">{t("company.name")}</p>
