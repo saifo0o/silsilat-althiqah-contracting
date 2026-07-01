@@ -48,13 +48,13 @@ type FeaturedProject = {
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
-      { title: "Major Orders Completed — SEEMA General Contracting" },
+      { title: "Major Orders Completed — SILSILAT AL-THIQA" },
       {
         name: "description",
         content:
           "Rehabilitation, CFRP lining and structural repair work delivered for SABIC, Aramco, Maaden, SAFCO, KJO and others across Saudi Arabia.",
       },
-      { property: "og:title", content: "Major Orders Completed — SEEMA General Contracting" },
+      { property: "og:title", content: "Major Orders Completed — SILSILAT AL-THIQA" },
       {
         property: "og:description",
         content: "Snapshot of completed work for refineries, petrochemical and mining clients.",
