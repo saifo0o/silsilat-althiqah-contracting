@@ -464,26 +464,26 @@
     "vendors": [
       {
         "name": "Saudi Aramco",
-        "number": "10059513"
+        "number": "507891"
       },
       {
         "name": "SABIC",
-        "number": "507891"
+        "number": "10059513"
+      },
+      {
+        "name": "Ma'aden",
+        "number": "2377049"
       },
       {
         "name": "Saudi Electricity Company (SEC)",
         "number": "5010646"
       },
       {
-        "name": "Maaden",
-        "number": "2377049"
-      },
-      {
-        "name": "Sahara",
+        "name": "Sahara Petrochemicals",
         "number": "101450"
       },
       {
-        "name": "Saudi Irrigation Organization",
+        "name": "Saudi Irrigation Organization (SIO)",
         "number": "—"
       }
     ],
