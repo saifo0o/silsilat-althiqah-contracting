@@ -18,8 +18,10 @@ import about from "@/assets/about-engineers.jpg";
 import officeHq from "@/assets/office-hq.png";
 import teamEngineers from "@/assets/team-engineers.png";
 import founderImage from "@/assets/founder.jpg";
+import commercialRegistration from "@/assets/commercial-registration.png";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
+import { BoardOfDirectors } from "@/components/site/BoardOfDirectors";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ScrollTimeline } from "@/components/site/ScrollTimeline";
@@ -236,6 +238,9 @@ function AboutPage() {
         </div>
       </section>
 
+      {/* BOARD OF DIRECTORS */}
+      <BoardOfDirectors />
+
       {/* TEAM & FACILITIES */}
       <section className="bg-background border-b border-border py-12 md:py-32">
         <div className="container mx-auto px-4 md:px-6">
@@ -309,6 +314,29 @@ function AboutPage() {
                 <p className="mt-2.5 text-sm text-muted-foreground leading-relaxed">
                   {t("about.teamDesc")}
                 </p>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* CERTIFICATIONS */}
+      <section className="bg-secondary/20 py-12 md:py-32">
+        <div className="container mx-auto px-4 md:px-6">
+          <SectionHeading
+            eyebrow={t("about.certificationsTitle")}
+            title={t("about.certificationsTitle")}
+            subtitle={t("about.certificationsSubtitle")}
+          />
+          <div className="mt-14 max-w-3xl mx-auto">
+            <Reveal>
+              <div className="rounded-md bg-card p-6 shadow-emil border border-border/50">
+                <img 
+                  src={commercialRegistration} 
+                  alt="Commercial Registration Certificate" 
+                  className="w-full h-auto rounded-sm"
+                  loading="lazy"
+                />
               </div>
             </Reveal>
           </div>

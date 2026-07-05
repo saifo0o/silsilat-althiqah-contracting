@@ -242,7 +242,17 @@
         "q": "Do you only execute or also sell materials?",
         "a": "Both. We supply CFRP fabric (unidirectional and multi-directional, 150–900 GSM) for maintenance teams that prefer in-house execution."
       }
-    ]
+    ],
+    "advantages": {
+      "title": "Key Advantages",
+      "points": [
+        "Long-term protection against moisture, salts, and weathering, suitable for highly corrosive industrial and marine environments.",
+        "Reduced maintenance costs and extended operational life of assets compared to traditional protection systems.",
+        "Fast application with minimal surface preparation, reducing downtime and operational costs.",
+        "High flexibility allowing for inspection, maintenance, and re-application without damaging components or disrupting operations.",
+        "Ideal for protecting flanges, bolts, valves, pipelines, and industrial equipment, fully environmentally certified and VOC-free."
+      ]
+    }
   },
   "about": {
     "metaTitle": "About — SILSILAT AL-THIQA, Engineering Solutions & Asset Protection",
@@ -250,8 +260,8 @@
     "eyebrow": "About SILSILAT AL-THIQA",
     "title": "A specialist contractor for what cannot fail.",
     "lead": "SILSILAT AL-THIQA, Engineering Solutions & Asset Protection was established in 2013 with a specialised team of professionals and technicians engaged in the rehabilitation of concrete, steel structures and process pipes.",
-    "body1": "We carry out repairs to concrete and steel structures and process pipes using epoxy materials, advanced carbon fiber and fiber-glass wrappings, concrete injections and industrial coating systems.",
-    "body2": "We collaborate and partner with international and local companies in the field of civil engineering, structural maintenance and civil construction — transferring technology, training and technical support to the Kingdom's industrial sector.",
+    "body1": "We execute repair works for concrete and steel structures and process pipelines using advanced epoxy materials, carbon fiber, fiberglass technologies, concrete injection, and industrial coating systems.",
+    "body2": "We collaborate with international and local companies in civil engineering, facility maintenance, and construction — to transfer technology, training, and technical support to the industrial sector in the Kingdom.",
     "since": "Operating across the Kingdom since 2013.",
     "teamTitle": "Our Team & Facilities",
     "teamSubtitle": "Headquartered in Jubail, executing across the Kingdom.",
@@ -294,7 +304,35 @@
         "title": "Specialist contractor",
         "body": "Mobilising for shutdowns, emergencies and engineered rehabilitation across the Kingdom."
       }
-    ]
+    ],
+    "board": {
+      "title": "Board of Directors",
+      "members": [
+        {
+          "name": "Yousef Al-Najem",
+          "title": "Board Member, Authorized Contact for Oxifree TM198",
+          "phone": "+966 56 119 4438",
+          "email": "Najem@silsilat-sa.com",
+          "imageId": "image1"
+        },
+        {
+          "name": "Abdulaziz Al-Sardi",
+          "title": "Board Member, Authorized Contact for Carbon Fiber",
+          "phone": "+966 56 097 6454",
+          "email": "alsardi@silsilat-sa.com",
+          "imageId": "image0"
+        },
+        {
+          "name": "Yousef Buobaid",
+          "title": "Founding Member, Chairman of the Board and CEO",
+          "email": "yousef@silsilat-sa.com",
+          "imageId": "image2"
+        }
+      ],
+      "footer": "The allocation of authorized contacts for both FRP and Carbon Fiber materials ensures a rapid and direct technical and commercial response to client and partner inquiries regarding these specialized materials."
+    },
+    "certificationsTitle": "Official Registrations",
+    "certificationsSubtitle": "Company registration and government accreditations"
   },
   "projects": {
     "metaTitle": "Projects — SILSILAT AL-THIQA",
@@ -353,108 +391,276 @@
     ],
     "items": [
       {
-        "title": "Rectification of a large compressor foundation, fire proofing",
+        "title": "Large Compressor Foundation Remediation & Fireproofing",
         "client": "S-Chem",
         "location": "Jubail",
-        "period": "Apr 2014 – May 2014"
+        "period": "April 2014 - May 2014"
       },
       {
-        "title": "Rectification of two transformer foundations, fire proofing & fire wall construction",
+        "title": "Transformers Foundation Remediation, Fireproofing & Firewall Construction",
         "client": "Berry Gas Plant",
         "location": "Jubail",
-        "period": "Jun 2014 – Jul 2014"
+        "period": "June 2014 - July 2014"
       },
       {
-        "title": "Rectification of acid sewer system & concrete slab areas",
+        "title": "Acidic Drainage Network & Concrete Slabs Remediation",
         "client": "SAFCO (IBB)",
         "location": "Jubail",
-        "period": "Dec 2014 – May 2015"
+        "period": "Dec 2014 - May 2015"
       },
       {
-        "title": "Pipe 2.0 repair by CFRP",
+        "title": "20\" Pipeline Repair using CFRP",
         "client": "SAFCO (IBB)",
         "location": "Jubail",
-        "period": "Aug 2015"
+        "period": "August 2015"
       },
       {
-        "title": "Repair of underground pit I-1012 G pipe",
+        "title": "Sub-surface Pipe Trench Repair I 1012-G",
         "client": "SAFCO (IBB)",
         "location": "Jubail",
-        "period": "Oct 2015"
+        "period": "October 2015"
       },
       {
-        "title": "Engineering study to rectify / reconstruct oily water pit",
-        "client": "KJO (Aramco)",
+        "title": "Engineering Study for Oily Water Trench Remediation & Reconstruction",
+        "client": "Aramco (KJO)",
         "location": "Khafji",
-        "period": "Dec 2015"
+        "period": "December 2015"
       },
       {
-        "title": "Rectification of oily water pit",
-        "client": "KJO (Aramco)",
+        "title": "Oily Water Trench Remediation",
+        "client": "Aramco (KJO)",
         "location": "Khafji",
-        "period": "Mar 2016 – Sep 2016"
+        "period": "March 2016 - Sept 2016"
       },
       {
-        "title": "Structural integrity analysis of elevated water tank",
-        "client": "KJO (Aramco)",
+        "title": "Structural Safety Analysis for Elevated Water Tank",
+        "client": "Aramco (KJO)",
         "location": "Khafji",
-        "period": "Nov 2016 – Jan 2017"
+        "period": "Nov 2016 - Jan 2017"
       },
       {
-        "title": "CFRP lining on reactors (shafts, roof, pump casing & hood)",
-        "client": "Maaden PPC",
-        "location": "Ras Al Khair",
-        "period": "May 2017 – Jul 2017"
+        "title": "CFRP Lining for Reactors (Columns, Roof, Pump Body & Cover)",
+        "client": "Ma'aden PPC",
+        "location": "Ras Al-Khair",
+        "period": "May 2017 - July 2017"
       },
       {
-        "title": "Repair of 48\" CW return line, 60\" WS supply & two nozzles (pit TI-934 & FT-1111)",
+        "title": "Repair Works for 48\" Cooling Water Line & 60\" Feed Line",
         "client": "SAFCO (IBB)",
         "location": "Jubail",
-        "period": "Aug 2017 – Sep 2017"
+        "period": "August 2017 - Sept 2017"
       },
       {
-        "title": "CFRP lining with top coat on reactors PAP Train-C, 6C40-T08, tank repair",
-        "client": "Maaden PPC",
-        "location": "Ras Al Khair",
-        "period": "Dec 2017 – Jan 2018"
+        "title": "CFRP Lining with Top Coat for Reactors - PAP C Line",
+        "client": "Ma'aden PPC",
+        "location": "Ras Al-Khair",
+        "period": "Dec 2017 - Jan 2018"
       },
       {
-        "title": "Emergency CFRP lining on PAP Train-B R04 fume hood sleeve & roof during shutdown",
-        "client": "Maaden PPC",
-        "location": "Ras Al Khair",
-        "period": "Feb 2018 – Mar 2018"
+        "title": "Emergency CFRP Lining - PAP B Line",
+        "client": "Ma'aden PPC",
+        "location": "Ras Al-Khair",
+        "period": "Feb 2018 - March 2018"
       },
       {
-        "title": "CFRP lining on K01/K02/K03 casings and R02/R03 agitator shafts — PAP Train-A emergency TAM",
-        "client": "Maaden PPC",
-        "location": "Ras Al Khair",
-        "period": "Jun 2018 – Jul 2018"
+        "title": "CFRP Lining Services - PAP A Line",
+        "client": "Ma'aden PPC",
+        "location": "Ras Al-Khair",
+        "period": "June 2018 - July 2018"
       },
       {
-        "title": "CFRP corrosion protection on various components — PAP Train-C TAM Nov 2018",
-        "client": "Maaden PPC",
-        "location": "Ras Al Khair",
-        "period": "Dec 2018 – Jan 2019"
+        "title": "Corrosion Protection using CFRP - PAP C Line",
+        "client": "Ma'aden PPC",
+        "location": "Ras Al-Khair",
+        "period": "Dec 2018 - Jan 2019"
       },
       {
-        "title": "Additional CFRP works on various components — PAP Train-C TAM",
-        "client": "Maaden PPC",
-        "location": "Ras Al Khair",
-        "period": "Apr 2019 – May 2019"
+        "title": "Additional CFRP Works - PAP C Line",
+        "client": "Ma'aden PPC",
+        "location": "Ras Al-Khair",
+        "period": "April 2019 - May 2019"
       },
       {
-        "title": "Fiberglass pit rehabilitation with protective coating (irrigation infrastructure)",
-        "client": "Saudi Irrigation Organization (SIO)",
+        "title": "Fiberglass Trench Restoration with Protective Coating",
+        "client": "Saudi Irrigation Org (SIO)",
         "location": "Al-Ahsa",
-        "period": "May 2019 – Dec 2019"
+        "period": "May 2019 - Dec 2019"
       },
       {
-        "title": "CFRP corrosion protection — PAP Train-B",
-        "client": "Maaden PPC",
-        "location": "Ras Al Khair",
-        "period": "Dec 2019 – Jan 2020"
+        "title": "Corrosion Protection using CFRP - PAP B Line",
+        "client": "Ma'aden PPC",
+        "location": "Ras Al-Khair",
+        "period": "Dec 2019 - Jan 2020"
       }
-    ]
+    ],
+    "historyTable": [
+      {
+        "no": 1,
+        "name": "Large Compressor Foundation Remediation & Fireproofing",
+        "client": "S-Chem",
+        "location": "Jubail",
+        "duration": "April 2014 - May 2014",
+        "value": "1,250,000",
+        "status": "Completed"
+      },
+      {
+        "no": 2,
+        "name": "Transformers Foundation Remediation, Fireproofing & Firewall Construction",
+        "client": "Berry Gas Plant",
+        "location": "Jubail",
+        "duration": "June 2014 - July 2014",
+        "value": "425,000",
+        "status": "Completed"
+      },
+      {
+        "no": 3,
+        "name": "Acidic Drainage Network & Concrete Slabs Remediation",
+        "client": "SAFCO (IBB)",
+        "location": "Jubail",
+        "duration": "Dec 2014 - May 2015",
+        "value": "1,700,000",
+        "status": "Completed"
+      },
+      {
+        "no": 4,
+        "name": "20\" Pipeline Repair using CFRP",
+        "client": "SAFCO (IBB)",
+        "location": "Jubail",
+        "duration": "August 2015",
+        "value": "47,278",
+        "status": "Completed"
+      },
+      {
+        "no": 5,
+        "name": "Sub-surface Pipe Trench Repair I 1012-G",
+        "client": "SAFCO (IBB)",
+        "location": "Jubail",
+        "duration": "October 2015",
+        "value": "151,028",
+        "status": "Completed"
+      },
+      {
+        "no": 6,
+        "name": "Engineering Study for Oily Water Trench Remediation & Reconstruction",
+        "client": "Aramco (KJO)",
+        "location": "Khafji",
+        "duration": "December 2015",
+        "value": "288,000",
+        "status": "Completed"
+      },
+      {
+        "no": 7,
+        "name": "Oily Water Trench Remediation",
+        "client": "Aramco (KJO)",
+        "location": "Khafji",
+        "duration": "March 2016 - Sept 2016",
+        "value": "5,240,000",
+        "status": "Completed"
+      },
+      {
+        "no": 8,
+        "name": "Structural Safety Analysis for Elevated Water Tank",
+        "client": "Aramco (KJO)",
+        "location": "Khafji",
+        "duration": "Nov 2016 - Jan 2017",
+        "value": "500,000",
+        "status": "Completed"
+      },
+      {
+        "no": 9,
+        "name": "CFRP Lining for Reactors (Columns, Roof, Pump Body & Cover)",
+        "client": "Ma'aden PPC",
+        "location": "Ras Al-Khair",
+        "duration": "May 2017 - July 2017",
+        "value": "472,797",
+        "status": "Completed"
+      },
+      {
+        "no": 10,
+        "name": "Repair Works for 48\" Cooling Water Line & 60\" Feed Line",
+        "client": "SAFCO (IBB)",
+        "location": "Jubail",
+        "duration": "August 2017 - Sept 2017",
+        "value": "60,600",
+        "status": "Completed"
+      },
+      {
+        "no": 11,
+        "name": "CFRP Lining with Top Coat for Reactors - PAP C Line",
+        "client": "Ma'aden PPC",
+        "location": "Ras Al-Khair",
+        "duration": "Dec 2017 - Jan 2018",
+        "value": "180,000",
+        "status": "Completed"
+      },
+      {
+        "no": 12,
+        "name": "Emergency CFRP Lining - PAP B Line",
+        "client": "Ma'aden PPC",
+        "location": "Ras Al-Khair",
+        "duration": "Feb 2018 - March 2018",
+        "value": "139,008",
+        "status": "Completed"
+      },
+      {
+        "no": 13,
+        "name": "CFRP Lining Services - PAP A Line",
+        "client": "Ma'aden PPC",
+        "location": "Ras Al-Khair",
+        "duration": "June 2018 - July 2018",
+        "value": "194,552",
+        "status": "Completed"
+      },
+      {
+        "no": 14,
+        "name": "Corrosion Protection using CFRP - PAP C Line",
+        "client": "Ma'aden PPC",
+        "location": "Ras Al-Khair",
+        "duration": "Dec 2018 - Jan 2019",
+        "value": "223,635",
+        "status": "Completed"
+      },
+      {
+        "no": 15,
+        "name": "Additional CFRP Works - PAP C Line",
+        "client": "Ma'aden PPC",
+        "location": "Ras Al-Khair",
+        "duration": "April 2019 - May 2019",
+        "value": "211,573",
+        "status": "Completed"
+      },
+      {
+        "no": 16,
+        "name": "Fiberglass Trench Restoration with Protective Coating",
+        "client": "Saudi Irrigation Org (SIO)",
+        "location": "Al-Ahsa",
+        "duration": "May 2019 - Dec 2019",
+        "value": "1,542,725",
+        "status": "Completed"
+      },
+      {
+        "no": 17,
+        "name": "Corrosion Protection using CFRP - PAP B Line",
+        "client": "Ma'aden PPC",
+        "location": "Ras Al-Khair",
+        "duration": "Dec 2019 - Jan 2020",
+        "value": "265,152",
+        "status": "Completed"
+      }
+    ],
+    "historyKeys": {
+      "pastProjectsTitle": "Project History",
+      "pastProjectsDesc": "The following table showcases a sample of projects executed by SILSILAT AL-THIQA between 2014 and 2020 for leading industrial and government clients in Jubail, Khafji, Ras Al-Khair, and Al-Ahsa. These include foundation remediation, CFRP/FRP lining, and corrosion protection—all completed fully within specifications and agreed timelines.",
+      "tableHeaders": {
+        "no": "No",
+        "project": "Project",
+        "client": "Client",
+        "location": "Location",
+        "duration": "Duration",
+        "value": "Value (SAR)",
+        "status": "Status"
+      }
+    }
   },
   "clients": {
     "metaTitle": "Clients & Approved Vendor — SILSILAT AL-THIQA",

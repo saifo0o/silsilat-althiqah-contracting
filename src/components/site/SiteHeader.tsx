@@ -272,22 +272,22 @@ export function SiteHeader() {
                   
                   {/* Featured Service Spotlight */}
                   <div className="col-span-9 grid grid-cols-2 gap-6 border-s border-white/10 ps-8">
-                    <div className="group relative overflow-hidden rounded-sm h-64">
+                    <Link to="/services" className="group relative overflow-hidden rounded-sm h-64 block">
                       <img src={tileStructural} alt="Structural" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                       <div className="absolute inset-0 bg-gradient-to-t from-ink/90 to-transparent pointer-events-none" />
                       <div className="absolute bottom-6 start-6 end-6">
                         <span className="text-[9px] uppercase tracking-widest text-accent font-bold">{t('nav.megaMenu.latestStandard')}</span>
                         <h4 className="text-xl font-display font-bold text-white mt-1" dir="ltr">{t('nav.megaMenu.asme')}</h4>
                       </div>
-                    </div>
-                    <div className="group relative overflow-hidden rounded-sm h-64">
+                    </Link>
+                    <Link to="/projects" className="group relative overflow-hidden rounded-sm h-64 block">
                       <img src={tilePiping} alt="Piping" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                       <div className="absolute inset-0 bg-gradient-to-t from-ink/90 to-transparent pointer-events-none" />
                       <div className="absolute bottom-6 start-6 end-6">
                         <span className="text-[9px] uppercase tracking-widest text-emerald-400 font-bold">{t('nav.megaMenu.caseStudy')}</span>
                         <h4 className="text-xl font-display font-bold text-white mt-1" dir="ltr">{t('nav.megaMenu.liveLeak')}</h4>
                       </div>
-                    </div>
+                    </Link>
                   </div>
                 </div>
               </div>

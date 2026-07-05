@@ -114,11 +114,20 @@ function ProjectsPage() {
     <>
       {/* HERO */}
       <section className="relative bg-ink text-ink-foreground border-b border-white/10 overflow-hidden">
-        <div className="absolute inset-0 bg-hero-gradient" />
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 mix-blend-luminosity"
+          style={{ backgroundImage: `url(${caseCompressor})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/80 to-ink" />
         <div className="absolute inset-0 grid-pattern opacity-[0.06] text-ink-foreground" />
         <div className="absolute -top-32 -start-32 h-96 w-96 rounded-full bg-accent/25 blur-[120px]" />
         <div className="relative container mx-auto px-4 md:px-6 pt-28 pb-12 md:pt-40 md:pb-32">
-          <div className="max-w-3xl">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-3xl"
+          >
             <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-[11px] uppercase tracking-[0.18em]">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />
               {t("projects.eyebrow")}
@@ -144,7 +153,7 @@ function ProjectsPage() {
                 <p className="text-xs uppercase tracking-wider text-ink-foreground/60">{i18n.language === 'ar' ? 'عملاء' : 'Clients'}</p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -261,9 +270,12 @@ function ProjectsPage() {
         </div>
       </section>
 
+
       {/* GENERAL REGISTRY FILTERS */}
       <section className="border-b border-border bg-background sticky top-20 z-30 backdrop-blur-md">
-        <div className="container mx-auto px-4 md:px-6 py-4 flex flex-wrap items-center gap-2">
+        {/* Covers the 80px gap above when the main header hides on scroll */}
+        <div className="absolute left-0 right-0 h-20 -top-20 bg-background pointer-events-none" />
+        <div className="container mx-auto px-4 md:px-6 py-4 flex overflow-x-auto no-scrollbar items-center gap-2 whitespace-nowrap">
           <button
             onClick={() => setFilter("all")}
             className={cn(

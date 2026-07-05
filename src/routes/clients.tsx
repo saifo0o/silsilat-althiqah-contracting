@@ -19,6 +19,7 @@ import { SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 import teamEngineersImg from "@/assets/team-engineers.png";
 import {
   SabicLogo,
@@ -279,7 +280,12 @@ function ClientsPage() {
         <div className="container mx-auto px-4 md:px-6 pt-28 pb-12 md:pt-40 md:pb-28 relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
-            <div className="lg:col-span-7 flex flex-col items-start text-start">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-7 flex flex-col items-start text-start"
+            >
               <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-400">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 {t("clients.eyebrow")}
@@ -306,7 +312,7 @@ function ClientsPage() {
                   <span>{t("clients.heroStats.compliance")}</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Right Graphics/Image Panel */}
             <div className="lg:col-span-5 relative mt-6 lg:mt-0">

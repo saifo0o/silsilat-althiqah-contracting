@@ -17,6 +17,7 @@ import {
   Plus,
   Minus,
   Mail,
+  CheckCircle2,
 } from "lucide-react";
 import carbon from "@/assets/service-carbon-fiber.jpg";
 import epoxy from "@/assets/service-epoxy.jpg";
@@ -34,6 +35,7 @@ import { SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 import { GlowCard } from "@/components/site/GlowCard";
 
 type Faq = { q: string; a: string };
@@ -159,11 +161,21 @@ function ServicesPage() {
     <>
       {/* HERO */}
       <section className="relative bg-ink text-ink-foreground overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0 bg-hero-gradient" />
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 mix-blend-luminosity"
+          style={{ backgroundImage: `url(${carbon})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/80 to-ink" />
         <div className="absolute inset-0 grid-pattern opacity-[0.06] text-ink-foreground" />
         <div className="absolute -bottom-32 end-1/4 h-96 w-96 rounded-full bg-accent/25 blur-[120px]" />
+        
         <div className="relative container mx-auto px-4 md:px-6 pt-28 pb-12 md:pt-40 md:pb-32">
-          <div className="max-w-3xl">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-3xl"
+          >
             <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-[11px] uppercase tracking-[0.18em]">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />
               {t("services.eyebrow")}
@@ -174,7 +186,7 @@ function ServicesPage() {
             <p className="mt-6 text-lg text-ink-foreground/75 leading-relaxed">
               {t("services.subtitle")}
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -203,6 +215,32 @@ function ServicesPage() {
             </div>
           </div>
         </Reveal>
+      </section>
+
+      {/* KEY ADVANTAGES SECTION */}
+      <section className="bg-secondary/20 py-16 md:py-24 border-b border-border">
+        <div className="container mx-auto px-4 md:px-6">
+          <SectionHeading eyebrow={i18n.language === 'ar' ? 'فوائدنا' : 'Our Benefits'} title={t("services.advantages.title")} />
+          
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {(() => {
+              const pointsData = t("services.advantages.points", { returnObjects: true });
+              const points = Array.isArray(pointsData) ? pointsData : [];
+              return points.map((point: string, idx: number) => (
+                <Reveal key={idx} delay={idx * 50}>
+                  <div className="bg-card border border-border p-6 rounded-md shadow-sm h-full flex items-start gap-4 hover:border-emerald-500/50 transition-colors">
+                    <div className="h-8 w-8 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center shrink-0 mt-0.5">
+                      <CheckCircle2 className="h-4 w-4" />
+                    </div>
+                    <p className="text-sm text-foreground font-medium leading-relaxed">
+                      {point}
+                    </p>
+                  </div>
+                </Reveal>
+              ));
+            })()}
+          </div>
+        </div>
       </section>
 
       {/* CAPABILITIES EXPLORER */}

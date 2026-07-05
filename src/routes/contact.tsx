@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/site/Reveal";
+import { motion } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
@@ -105,21 +106,30 @@ function ContactPage() {
     });
     setSubmitting(false);
     if (error) {
-      toast.error("Could not send your inquiry. Please try again.");
-      return;
+      console.error(error);
+      toast.error("Failed to send message. Please try again.");
+    } else {
+      setSent(true);
+      toast.success("Message sent successfully!");
+      form.reset();
     }
-    setSent(true);
   };
 
   return (
     <>
       {/* HERO */}
       <section className="relative bg-ink text-ink-foreground border-b border-white/10 overflow-hidden">
-        <div className="absolute inset-0 bg-hero-gradient" />
+        <div className="absolute inset-0 bg-hero-gradient opacity-50" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(16,185,129,0.15),transparent_70%)]" />
         <div className="absolute inset-0 grid-pattern opacity-[0.06] text-ink-foreground" />
-        <div className="absolute -top-32 start-1/3 h-96 w-96 rounded-full bg-accent/25 blur-[120px]" />
+        <div className="absolute -top-32 start-1/3 h-96 w-96 rounded-full bg-accent/25 blur-[120px] animate-pulse" />
         <div className="relative container mx-auto px-4 md:px-6 pt-28 pb-12 md:pt-40 md:pb-32">
-          <div className="max-w-3xl">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-3xl"
+          >
             <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-[11px] uppercase tracking-[0.18em]">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />
               {t("contact.eyebrow")}
@@ -130,7 +140,7 @@ function ContactPage() {
             <p className="mt-6 text-lg text-ink-foreground/75 leading-relaxed">
               {t("contact.subtitle")}
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 

@@ -71,20 +71,11 @@ export function SiteFooter() {
                     <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0 text-accent" />
                     <span className="leading-relaxed">{t(`contact.offices.${office}Address`)}</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <Phone className="h-4 w-4 flex-shrink-0 text-accent" />
-                    <span dir="ltr">{t(`contact.offices.${office}Phone`)}</span>
+                  <li className="flex items-start gap-2">
+                    <Phone className="h-4 w-4 mt-0.5 flex-shrink-0 text-accent" />
+                    <span className="leading-relaxed" dir="ltr">{t(`contact.offices.${office}Phone`)}</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <Mail className="h-4 w-4 flex-shrink-0 text-accent" />
-                    <a
-                      href={`mailto:${t("contact.offices.email")}`}
-                      className="hover:text-accent transition-colors"
-                      dir="ltr"
-                    >
-                      {t("contact.offices.email")}
-                    </a>
-                  </li>
+
                 </ul>
               </div>
             ))}
