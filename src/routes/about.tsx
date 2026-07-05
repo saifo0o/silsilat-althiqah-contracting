@@ -225,10 +225,10 @@ function AboutPage() {
               </blockquote>
               <div className="mt-8 pt-6 border-t border-border flex flex-col">
                 <span className="font-display text-lg font-bold text-foreground">
-                  {t("home.founder.name", { defaultValue: "Youssef Khaled Abou Abdallah" })}
+                  {t("home.founder.name", { defaultValue: "Youssef Buobaid" })}
                 </span>
                 <span className="mt-1 text-sm text-muted-foreground uppercase tracking-widest font-mono">
-                  {t("home.founder.title", { defaultValue: "Founder, SILSILAT AL-THIQA" })}
+                  {t("home.founder.title", { defaultValue: "Founder, Chairman & CEO" })}
                 </span>
               </div>
             </Reveal>

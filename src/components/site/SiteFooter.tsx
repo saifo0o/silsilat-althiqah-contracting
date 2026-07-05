@@ -30,11 +30,11 @@ export function SiteFooter() {
             </p>
             <div className="mt-8 flex gap-3">
               <a
-                href="mailto:danny@seema.sa.com"
+                href="mailto:yousef@silsilat-sa.com"
                 className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2.5 text-sm font-medium text-ink-foreground hover:bg-white/10 transition-colors"
                 dir="ltr"
               >
-                danny@seema.sa.com
+                yousef@silsilat-sa.com
                 <ArrowUpRight className="h-3.5 w-3.5" />
               </a>
             </div>
