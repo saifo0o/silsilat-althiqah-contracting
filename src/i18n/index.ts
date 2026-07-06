@@ -3,7 +3,7 @@ import { initReactI18next } from "react-i18next";
 import en from "./en.json";
 import ar from "./ar.json";
 
-const STORAGE_KEY = "seema-lang";
+const STORAGE_KEY = "silsilat-lang";
 
 function detectInitialLang(): "en" | "ar" {
   // Always return "en" during initial hydration to match SSR
