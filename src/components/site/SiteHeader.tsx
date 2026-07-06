@@ -112,12 +112,12 @@ export function SiteHeader() {
               +966 13 361 1661
             </a>
             <a
-              href="mailto:info@seema.sa.com"
+              href="mailto:info@silsilat-sa.com"
               dir="ltr"
               className="inline-flex items-center gap-2 hover:text-accent transition-colors"
             >
               <Mail className="h-3.5 w-3.5 text-accent" />
-              info@seema.sa.com
+              info@silsilat-sa.com
             </a>
             <a
               href="https://linkedin.com"
@@ -452,9 +452,9 @@ export function SiteHeader() {
                       <Phone className="h-4 w-4 text-accent" />
                       +966 13 361 1661
                     </a>
-                    <a href="mailto:info@seema.sa.com" dir="ltr" className="flex items-center gap-3 hover:text-accent transition-colors py-1">
+                    <a href="mailto:info@silsilat-sa.com" dir="ltr" className="flex items-center gap-3 hover:text-accent transition-colors py-1">
                       <Mail className="h-4 w-4 text-accent" />
-                      info@seema.sa.com
+                      info@silsilat-sa.com
                     </a>
                     <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="flex items-center gap-3 hover:text-accent transition-colors py-1">
                       <Linkedin className="h-4 w-4 text-accent" />

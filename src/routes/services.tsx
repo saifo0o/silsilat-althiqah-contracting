@@ -207,7 +207,7 @@ function ServicesPage() {
             </div>
             <div className="flex md:justify-end">
               <Button asChild size="lg" className="rounded-full">
-                <a href="mailto:danny@seema.sa.com">
+                <a href="mailto:info@silsilat-sa.com">
                   <Mail className="h-4 w-4 me-2" />
                   {t("services.salesCta")}
                 </a>

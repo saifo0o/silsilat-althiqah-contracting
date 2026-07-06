@@ -1015,7 +1015,7 @@ function HomePage() {
                 { 
                   Icon: ShieldCheck, 
                   k: t("contact.form.email"), 
-                  v: "info@seema.sa.com",
+                  v: "info@silsilat-sa.com",
                   ltr: true 
                 },
               ].map((c, idx) => (
