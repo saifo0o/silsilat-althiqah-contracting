@@ -24,6 +24,11 @@ import caseTransformer from "@/assets/project-transformer.png";
 import caseAcidSewer from "@/assets/project-acid-sewer.png";
 import caseMaadenReactor from "@/assets/project-maaden-reactor.png";
 
+import fieldTankPrep from "@/assets/field-tank-prep.jpg";
+import fieldTankCfrp from "@/assets/field-tank-cfrp.jpg";
+import fieldPipelineWrap from "@/assets/field-pipeline-wrap.jpg";
+import fieldCrewFrp from "@/assets/field-crew-frp.jpg";
+
 import {
   SabicLogo,
   AramcoLogo,
@@ -154,6 +159,90 @@ function ProjectsPage() {
               </div>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* FROM THE FIELD — REAL PROJECT DOCUMENTATION */}
+      <section className="bg-background border-b border-border py-16 md:py-24">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="max-w-2xl mb-12">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/50 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+              {i18n.language === "ar" ? "من الميدان" : "From the Field"}
+            </div>
+            <h2 className="mt-5 font-display text-3xl md:text-4xl font-semibold tracking-tight text-balance">
+              {i18n.language === "ar"
+                ? "توثيق ميداني حقيقي لأعمال التأهيل والحماية"
+                : "Real field documentation from live rehabilitation work"}
+            </h2>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              {i18n.language === "ar"
+                ? "لقطات مباشرة من فرقنا أثناء تنفيذ أنظمة CFRP، تبطين الخزانات، تغليف الأنابيب، والعزل المائي داخل منشآت صناعية عاملة."
+                : "Direct captures of our crews executing CFRP wrapping, tank lining, pipeline reinforcement and waterproofing inside live industrial facilities."}
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                img: fieldPipelineWrap,
+                tag: i18n.language === "ar" ? "تغليف أنابيب CFRP" : "CFRP Pipeline Wrap",
+                caption:
+                  i18n.language === "ar"
+                    ? "إصلاح أنبوب عمليات أثناء التشغيل — دون لحام حار ودون إيقاف الإنتاج."
+                    : "Live in-service pipeline repair — no hot work, zero production shutdown.",
+              },
+              {
+                img: fieldTankPrep,
+                tag: i18n.language === "ar" ? "تجهيز خزان" : "Tank Preparation",
+                caption:
+                  i18n.language === "ar"
+                    ? "تجهيز سطح خزان مياه صناعي مفتوح قبل تطبيق العزل المائي."
+                    : "Surface preparation of an open industrial water tank prior to waterproofing.",
+              },
+              {
+                img: fieldTankCfrp,
+                tag: i18n.language === "ar" ? "طبقة CFRP" : "CFRP Layer",
+                caption:
+                  i18n.language === "ar"
+                    ? "طبقة عزل وحماية مركبة بألياف الكربون بعرض 1.28 متر."
+                    : "1.28-metre carbon-fibre composite waterproofing & protection layer.",
+              },
+              {
+                img: fieldCrewFrp,
+                tag: i18n.language === "ar" ? "فريق FRP" : "FRP Crew",
+                caption:
+                  i18n.language === "ar"
+                    ? "فريق سلسلة الثقة أثناء تطبيق نظام تبطين FRP على جدار خرساني."
+                    : "Silsilat Althiqah crew applying an FRP lining system to a concrete wall.",
+              },
+            ].map((item, idx) => (
+              <motion.figure
+                key={idx}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.6, delay: idx * 0.08, ease: [0.32, 0.72, 0, 1] }}
+                className="group relative overflow-hidden rounded-md bg-card shadow-emil hover:shadow-emil-hover transition-[box-shadow,transform] duration-500 ease-[var(--ease-emil)]"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+                  <img
+                    src={item.img}
+                    alt={item.tag}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-[900ms] group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent" />
+                  <span className="absolute top-3 start-3 bg-accent text-accent-foreground text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-sm">
+                    {item.tag}
+                  </span>
+                </div>
+                <figcaption className="absolute inset-x-0 bottom-0 p-4 text-sm text-white/90 leading-snug">
+                  {item.caption}
+                </figcaption>
+              </motion.figure>
+            ))}
+          </div>
         </div>
       </section>
 
