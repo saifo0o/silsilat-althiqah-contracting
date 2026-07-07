@@ -122,21 +122,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@graph": [
             {
               "@type": "Organization",
-              "@id": "https://seema-contracting.lovable.app/#organization",
-              name: "Seema General Contracting & Industrial Services Co.",
-              alternateName: "SEEMA",
-              url: "https://seema-contracting.lovable.app",
-              logo: "https://seema-contracting.lovable.app/favicon.ico",
+              "@id": "https://silsilat-sa.com/#organization",
+              name: "Silsilat Althiqah for Engineering Solutions & Asset Protection",
+              alternateName: "Silsilat Althiqah",
+              url: "https://silsilat-sa.com",
+              logo: "https://silsilat-sa.com/favicon.ico",
               foundingDate: "2013",
               areaServed: "SA",
               sameAs: [],
             },
             {
               "@type": "WebSite",
-              "@id": "https://seema-contracting.lovable.app/#website",
-              url: "https://seema-contracting.lovable.app",
-              name: "SEEMA",
-              publisher: { "@id": "https://seema-contracting.lovable.app/#organization" },
+              "@id": "https://silsilat-sa.com/#website",
+              url: "https://silsilat-sa.com",
+              name: "Silsilat Althiqah",
+              publisher: { "@id": "https://silsilat-sa.com/#organization" },
               inLanguage: ["en", "ar"],
             },
           ],
@@ -171,7 +171,7 @@ function RootComponent() {
   useEffect(() => {
     // Post-hydration sync: read stored language from client side
     // This prevents hydration mismatch because initial render is always "en"
-    const stored = window.localStorage.getItem("seema-lang");
+    const stored = window.localStorage.getItem("silsilat-lang");
     if (stored === "ar" && i18n.language !== "ar") {
       i18n.changeLanguage("ar");
     }

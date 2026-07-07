@@ -42,8 +42,8 @@ export const Route = createFileRoute("/contact")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
-          name: "Seema General Contracting & Industrial Services Co.",
-          url: "https://seema-contracting.lovable.app/contact",
+          name: "Silsilat Althiqah for Engineering Solutions & Asset Protection",
+          url: "https://silsilat-sa.com/contact",
           email: "info@silsilat-sa.com",
           openingHoursSpecification: [
             {
