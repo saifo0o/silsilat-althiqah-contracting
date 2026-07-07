@@ -8,13 +8,9 @@ import {
   Wrench,
   Droplet,
   Package,
-  Users,
-  TrendingUp,
-  Gauge,
   HardHat,
   ChevronLeft,
   ChevronRight,
-  Award,
   Leaf,
   HeartHandshake,
   Zap,
@@ -27,13 +23,13 @@ import {
   Search,
   Shield,
   Activity,
+  Phone,
 } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
 import hero from "@/assets/hero-refinery.jpg";
-import beforePipe from "@/assets/before-pipe.jpg";
-import afterPipe from "@/assets/after-pipe.jpg";
+import { PromoVideo } from "@/components/site/PromoVideo";
 import tileStructural from "@/assets/service-concrete.jpg";
 import tilePiping from "@/assets/service-piping.jpg";
 import tileCoatings from "@/assets/service-epoxy.jpg";
@@ -47,20 +43,11 @@ import caseMaadenReactor from "@/assets/project-maaden-reactor.png";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
-import { BeforeAfterSlider } from "@/components/site/BeforeAfterSlider";
 import {
   SabicLogo,
   AramcoLogo,
   MaadenLogo,
   SipchemLogo,
-  YasrefLogo,
-  SecLogo,
-  NeomLogo,
-  RedSeaLogo,
-  SaudiaLogo,
-  StcLogo,
-  MobilyLogo,
-  ZainLogo,
 } from "@/components/site/ClientLogos";
 
 export const Route = createFileRoute("/")({
@@ -140,17 +127,7 @@ function HomePage() {
 
 
   // Dynamic lists using translation keys to avoid hardcoded text
-  const stats = [
-    { Icon: ShieldCheck, value: t("home.stats.yearsValue"), label: t("home.stats.yearsLabel") },
-    { Icon: Users, value: t("home.stats.projectsValue"), label: t("home.stats.projectsLabel") },
-    {
-      Icon: TrendingUp,
-      value: t("home.stats.downtimeValue"),
-      label: t("home.stats.downtimeLabel"),
-    },
-    { Icon: Gauge, value: t("home.stats.protectedValue"), label: t("home.stats.protectedLabel") },
-    { Icon: HardHat, value: t("home.stats.safetyValue"), label: t("home.stats.safetyLabel") },
-  ];
+
 
   const tiles = [
     {
@@ -225,30 +202,9 @@ function HomePage() {
     { Comp: SabicLogo },
     { Comp: MaadenLogo },
     { Comp: SipchemLogo },
-    { Comp: YasrefLogo },
-    { Comp: SecLogo },
-    { Comp: NeomLogo },
-    { Comp: RedSeaLogo },
-    { Comp: SaudiaLogo },
-    { Comp: StcLogo },
-    { Comp: MobilyLogo },
-    { Comp: ZainLogo },
   ];
 
-  const certs = [
-    { Icon: Award, code: t("home.certs.iso9001.code"), label: t("home.certs.iso9001.label") },
-    { Icon: Leaf, code: t("home.certs.iso14001.code"), label: t("home.certs.iso14001.label") },
-    {
-      Icon: ShieldCheck,
-      code: t("home.certs.iso45001.code"),
-      label: t("home.certs.iso45001.label"),
-    },
-    {
-      Icon: HeartHandshake,
-      code: t("home.certs.vendor.code"),
-      label: t("home.certs.vendor.label"),
-    },
-  ];
+
 
   // Dynamic Case Studies mapping AI generated images to case study items in translations
   const featuredData = t("projects.featured", { returnObjects: true });
@@ -288,16 +244,13 @@ function HomePage() {
         <div className="relative container mx-auto px-4 md:px-6 pt-28 pb-10 md:pt-40 md:pb-16 lg:pt-44">
           <div className="grid lg:grid-cols-12 gap-8 lg:items-start">
             <div className="lg:col-span-12 max-w-4xl">
-              <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-accent">
+              <h1 className="font-display font-bold leading-[0.98] tracking-tight text-balance text-[clamp(2.5rem,6.5vw,5.25rem)]">
                 {t("home.heroEyebrow")}
-              </p>
-              <h1 className="mt-6 font-display font-bold leading-[0.98] tracking-tight text-balance text-[clamp(2.5rem,6.5vw,5.25rem)]">
-                {t("home.heroTitle1")}
-                <br />
-                {t("home.heroTitle2")}
-                <br />
-                <span className="text-accent">{t("home.heroTitle3")}</span>
               </h1>
+              <p className="mt-4 font-display font-semibold leading-tight tracking-tight text-balance text-[clamp(1.25rem,2.8vw,2rem)] text-ink-foreground/90">
+                {t("home.heroTitle1")} {t("home.heroTitle2")}{" "}
+                <span className="text-accent">{t("home.heroTitle3")}</span>
+              </p>
               <p className="mt-7 max-w-xl text-base md:text-lg text-ink-foreground/75 leading-relaxed">
                 {t("home.heroSubtitle")}
               </p>
@@ -325,23 +278,26 @@ function HomePage() {
 
           </div>
 
-          {/* Stats Bar */}
-          <div className="mt-12 md:mt-16 rounded-sm border border-white/15 bg-ink/60 backdrop-blur grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 divide-y sm:divide-y-0 lg:divide-x divide-white/10">
-            {stats.map((s, idx) => (
-              <div key={idx} className="flex items-center gap-4 px-5 py-5">
-                <div className="h-11 w-11 rounded-sm border border-accent/40 flex items-center justify-center shrink-0">
-                  <s.Icon className="h-5 w-5 text-accent" />
-                </div>
-                <div>
-                  <p className="font-display text-2xl font-bold text-accent leading-none">
-                    {s.value}
-                  </p>
-                  <p className="mt-1.5 text-[11px] text-ink-foreground/75 leading-tight whitespace-pre-line">
-                    {s.label}
-                  </p>
-                </div>
-              </div>
-            ))}
+
+        </div>
+      </section>
+
+      {/* PROMO VIDEO */}
+      <section className="bg-background border-b border-border">
+        <div className="container mx-auto px-4 md:px-6 py-12 md:py-24">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-accent">
+              {t("home.videoEyebrow")}
+            </p>
+            <h2 className="mt-4 font-display text-2xl md:text-4xl font-bold tracking-tight text-balance">
+              {t("home.videoTitle")}
+            </h2>
+            <p className="mt-3 text-muted-foreground text-sm md:text-base">
+              {t("home.videoSubtitle")}
+            </p>
+          </div>
+          <div className="max-w-4xl mx-auto">
+            <PromoVideo />
           </div>
         </div>
       </section>
@@ -528,47 +484,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* BEFORE / AFTER */}
-      <section className="relative bg-ink text-ink-foreground overflow-hidden">
-        <div className="absolute inset-0 grid-pattern opacity-[0.04] text-ink-foreground" />
-        <div className="relative container mx-auto px-4 md:px-6 py-12 md:py-28">
-          <div className="grid lg:grid-cols-12 gap-10 lg:items-center">
-            <div className="lg:col-span-5">
-              <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-accent">
-                {t("home.beforeAfterEyebrow")}
-              </p>
-              <h2 className="mt-5 font-display text-3xl md:text-5xl font-bold leading-[1.05] tracking-tight">
-                {t("home.beforeAfterTitle")}
-                <br />
-                {t("home.beforeAfterTitle2")}
-              </h2>
-              <p className="mt-6 text-ink-foreground/75 leading-relaxed max-w-md">
-                {t("home.beforeAfterBody")}
-              </p>
-              <Button
-                asChild
-                size="lg"
-                className="mt-8 rounded-sm bg-accent text-accent-foreground hover:bg-accent/90 px-7 h-12 font-bold uppercase tracking-wider text-xs"
-              >
-                <Link to="/projects">
-                  {t("home.beforeAfterCta")}
-                  <ArrowRight className="h-4 w-4 ms-2 rtl:rotate-180" />
-                </Link>
-              </Button>
-            </div>
-            <div className="lg:col-span-7 relative flex items-center justify-center">
-              <BeforeAfterSlider
-                beforeImg={beforePipe}
-                afterImg={afterPipe}
-                beforeLabel={t("home.beforeLabel")}
-                beforeBody={t("home.beforeBody")}
-                afterLabel={t("home.afterLabel")}
-                afterBody={t("home.afterBody")}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* REHABILITATION PROCESS */}
       <section className="bg-secondary/40 border-b border-border py-12 md:py-28 relative overflow-hidden">
@@ -956,22 +872,7 @@ function HomePage() {
             ))}
           </div>
 
-          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 border border-white/10 rounded-sm divide-y sm:divide-y-0 sm:divide-x divide-white/10 bg-white/[0.01]">
-            {certs.map((c, idx) => (
-              <div
-                key={idx}
-                className="flex items-center gap-4 p-5 hover:bg-white/[0.02] transition-colors"
-              >
-                <div className="h-11 w-11 rounded-sm border border-accent/40 flex items-center justify-center shrink-0">
-                  <c.Icon className="h-5 w-5 text-accent" />
-                </div>
-                <div className="min-w-0">
-                  <p className="font-display font-bold text-sm leading-tight">{c.code}</p>
-                  <p className="text-[11px] text-ink-foreground/65 mt-0.5">{c.label}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+
         </div>
       </section>
 
@@ -1007,15 +908,17 @@ function HomePage() {
                   v: i18n.language === "ar" ? "الجبيل الصناعية،\nالمملكة العربية السعودية" : "Jubail Industrial City,\nKingdom of Saudi Arabia",
                 },
                 { 
-                  Icon: Gauge, 
+                  Icon: Phone, 
                   k: t("contact.form.phone"), 
-                  v: "+966 13 361 1661",
-                  ltr: true 
+                  v: i18n.language === "ar" 
+                    ? "يوسف الناجم:\n+966 56 119 4438\n\nعبدالعزيز السردي:\n+966 56 097 6454"
+                    : "Yousef Al-Najem:\n+966 56 119 4438\n\nAbdulaziz Al-Sardi:\n+966 56 097 6454",
+                  ltr: true
                 },
                 { 
                   Icon: ShieldCheck, 
                   k: t("contact.form.email"), 
-                  v: "info@seema.sa.com",
+                  v: "info@silsilat-sa.com",
                   ltr: true 
                 },
               ].map((c, idx) => (

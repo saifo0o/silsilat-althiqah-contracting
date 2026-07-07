@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Layers,
   Wrench,
@@ -121,6 +121,21 @@ function ServicesPage() {
   const [open, setOpen] = useState<number | null>(0);
   const [activeService, setActiveService] = useState(0);
 
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace("#", "");
+      if (hash) {
+        const idx = services.findIndex((s) => s.key === hash);
+        if (idx !== -1) {
+          setActiveService(idx);
+        }
+      }
+    };
+    handleHashChange();
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
+
   const getServiceSpecs = (key: string) => {
     const isAr = i18n.language === "ar";
     switch (key) {
@@ -207,7 +222,7 @@ function ServicesPage() {
             </div>
             <div className="flex md:justify-end">
               <Button asChild size="lg" className="rounded-full">
-                <a href="mailto:danny@seema.sa.com">
+                <a href="mailto:info@silsilat-sa.com">
                   <Mail className="h-4 w-4 me-2" />
                   {t("services.salesCta")}
                 </a>

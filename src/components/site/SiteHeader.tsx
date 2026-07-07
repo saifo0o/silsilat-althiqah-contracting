@@ -8,9 +8,7 @@ import { setLanguage } from "@/i18n";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Magnetic } from "@/components/site/Magnetic";
-
-import tileStructural from "@/assets/service-concrete.jpg";
-import tilePiping from "@/assets/service-piping.jpg";
+import { FaWhatsapp } from "react-icons/fa";
 
 const navItems = [
   { to: "/", key: "home" as const, hasMegaMenu: false },
@@ -103,30 +101,55 @@ export function SiteHeader() {
             </a>
           </div>
           <div className="flex items-center gap-6">
+            <span className="inline-flex items-center gap-2">
+              <a
+                href="tel:+966561194438"
+                dir="ltr"
+                className="inline-flex items-center gap-2 hover:text-accent transition-colors"
+                title={isRtl ? "يوسف الناجم" : "Yousef Al-Najem"}
+              >
+                <Phone className="h-3.5 w-3.5 text-accent" />
+                +966 56 119 4438
+              </a>
+              <a
+                href="https://wa.me/966561194438"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Message Yousef Al-Najem on WhatsApp"
+                title="WhatsApp"
+                className="hover:text-accent transition-colors"
+              >
+                <FaWhatsapp className="h-3.5 w-3.5 text-accent" />
+              </a>
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <a
+                href="tel:+966560976454"
+                dir="ltr"
+                className="inline-flex items-center gap-2 hover:text-accent transition-colors"
+                title={isRtl ? "عبدالعزيز السردي" : "Abdulaziz Al-Sardi"}
+              >
+                <Phone className="h-3.5 w-3.5 text-accent" />
+                +966 56 097 6454
+              </a>
+              <a
+                href="https://wa.me/966560976454"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Message Abdulaziz Al-Sardi on WhatsApp"
+                title="WhatsApp"
+                className="hover:text-accent transition-colors"
+              >
+                <FaWhatsapp className="h-3.5 w-3.5 text-accent" />
+              </a>
+            </span>
             <a
-              href="tel:+966133611661"
-              dir="ltr"
-              className="inline-flex items-center gap-2 hover:text-accent transition-colors"
-            >
-              <Phone className="h-3.5 w-3.5 text-accent" />
-              +966 13 361 1661
-            </a>
-            <a
-              href="mailto:info@seema.sa.com"
+              href="mailto:info@silsilat-sa.com"
               dir="ltr"
               className="inline-flex items-center gap-2 hover:text-accent transition-colors"
             >
               <Mail className="h-3.5 w-3.5 text-accent" />
-              info@seema.sa.com
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="LinkedIn"
-              className="hover:text-accent transition-colors"
-            >
-              <Linkedin className="h-4 w-4" />
+              info@silsilat-sa.com
             </a>
           </div>
         </div>
@@ -235,60 +258,38 @@ export function SiteHeader() {
               onMouseEnter={() => handleMouseEnter("services")}
               onMouseLeave={handleMouseLeave}
             >
-              <div className="container mx-auto px-4 md:px-6 py-10">
-                <div className="grid grid-cols-12 gap-8">
-                  <div className="col-span-3">
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-accent mb-6">{t('home.servicesEyebrow', 'Our Services')}</p>
-                    <ul className="space-y-4">
-                      <li>
-                        <Link to="/services" className="text-ink-foreground hover:text-accent transition-colors font-bold text-lg flex items-center group">
-                          {t('services.items.assessment.title')}
-                          <ArrowRight className="h-4 w-4 ms-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all rtl:rotate-180" />
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/services" className="text-ink-foreground hover:text-accent transition-colors font-bold text-lg flex items-center group">
-                          {t('services.items.rehabilitation.title')}
-                          <ArrowRight className="h-4 w-4 ms-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all rtl:rotate-180" />
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/services" className="text-ink-foreground hover:text-accent transition-colors font-bold text-lg flex items-center group">
-                          {t('services.items.protection.title')}
-                          <ArrowRight className="h-4 w-4 ms-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all rtl:rotate-180" />
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/services" className="text-ink-foreground hover:text-accent transition-colors font-bold text-lg flex items-center group">
-                          {t('services.items.endurance.title')}
-                          <ArrowRight className="h-4 w-4 ms-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all rtl:rotate-180" />
-                        </Link>
-                      </li>
-                    </ul>
-                    <Button asChild variant="link" className="mt-6 p-0 text-muted-foreground hover:text-accent h-auto font-bold uppercase text-[10px] tracking-wider">
-                      <Link to="/services">{t('nav.services', 'View All Services')} &rarr;</Link>
-                    </Button>
-                  </div>
-                  
-                  {/* Featured Service Spotlight */}
-                  <div className="col-span-9 grid grid-cols-2 gap-6 border-s border-white/10 ps-8">
-                    <Link to="/services" className="group relative overflow-hidden rounded-sm h-64 block">
-                      <img src={tileStructural} alt="Structural" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-ink/90 to-transparent pointer-events-none" />
-                      <div className="absolute bottom-6 start-6 end-6">
-                        <span className="text-[9px] uppercase tracking-widest text-accent font-bold">{t('nav.megaMenu.latestStandard')}</span>
-                        <h4 className="text-xl font-display font-bold text-white mt-1" dir="ltr">{t('nav.megaMenu.asme')}</h4>
-                      </div>
-                    </Link>
-                    <Link to="/projects" className="group relative overflow-hidden rounded-sm h-64 block">
-                      <img src={tilePiping} alt="Piping" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-ink/90 to-transparent pointer-events-none" />
-                      <div className="absolute bottom-6 start-6 end-6">
-                        <span className="text-[9px] uppercase tracking-widest text-emerald-400 font-bold">{t('nav.megaMenu.caseStudy')}</span>
-                        <h4 className="text-xl font-display font-bold text-white mt-1" dir="ltr">{t('nav.megaMenu.liveLeak')}</h4>
-                      </div>
-                    </Link>
-                  </div>
+              <div className="container mx-auto px-4 md:px-6 py-6">
+                <div className="flex flex-col items-center justify-center text-center">
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-accent mb-4">{t('home.servicesEyebrow', 'Our Services')}</p>
+                  <ul className="flex flex-wrap justify-center gap-x-8 gap-y-4 max-w-4xl">
+                    <li>
+                      <Link to="/services" hash="assessment" className="text-ink-foreground hover:text-accent transition-colors font-bold text-lg flex items-center group">
+                        {t('services.items.assessment.title')}
+                        <ArrowRight className="h-4 w-4 ms-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all rtl:rotate-180" />
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/services" hash="rehabilitation" className="text-ink-foreground hover:text-accent transition-colors font-bold text-lg flex items-center group">
+                        {t('services.items.rehabilitation.title')}
+                        <ArrowRight className="h-4 w-4 ms-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all rtl:rotate-180" />
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/services" hash="protection" className="text-ink-foreground hover:text-accent transition-colors font-bold text-lg flex items-center group">
+                        {t('services.items.protection.title')}
+                        <ArrowRight className="h-4 w-4 ms-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all rtl:rotate-180" />
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/services" hash="endurance" className="text-ink-foreground hover:text-accent transition-colors font-bold text-lg flex items-center group">
+                        {t('services.items.endurance.title')}
+                        <ArrowRight className="h-4 w-4 ms-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all rtl:rotate-180" />
+                      </Link>
+                    </li>
+                  </ul>
+                  <Button asChild variant="link" className="mt-4 p-0 text-muted-foreground hover:text-accent h-auto font-bold uppercase text-[10px] tracking-wider">
+                    <Link to="/services">{t('nav.services', 'View All Services')} &rarr;</Link>
+                  </Button>
                 </div>
               </div>
             </motion.div>
@@ -377,35 +378,35 @@ export function SiteHeader() {
                                 >
                                   <Link
                                     to="/services"
-                                    hash="structural"
+                                    hash="assessment"
                                     onClick={() => setOpen(false)}
                                     className="rounded-md px-3 py-2 text-sm font-semibold text-ink-foreground/85 hover:text-accent transition-colors text-start"
                                   >
-                                    {t("home.tiles.structural.title")}
+                                    {t("services.items.assessment.title")}
                                   </Link>
                                   <Link
                                     to="/services"
-                                    hash="piping"
+                                    hash="rehabilitation"
                                     onClick={() => setOpen(false)}
                                     className="rounded-md px-3 py-2 text-sm font-semibold text-ink-foreground/85 hover:text-accent transition-colors text-start"
                                   >
-                                    {t("home.tiles.piping.title")}
+                                    {t("services.items.rehabilitation.title")}
                                   </Link>
                                   <Link
                                     to="/services"
-                                    hash="coatings"
+                                    hash="protection"
                                     onClick={() => setOpen(false)}
                                     className="rounded-md px-3 py-2 text-sm font-semibold text-ink-foreground/85 hover:text-accent transition-colors text-start"
                                   >
-                                    {t("home.tiles.coatings.title")}
+                                    {t("services.items.protection.title")}
                                   </Link>
                                   <Link
                                     to="/services"
-                                    hash="supply"
+                                    hash="endurance"
                                     onClick={() => setOpen(false)}
                                     className="rounded-md px-3 py-2 text-sm font-semibold text-ink-foreground/85 hover:text-accent transition-colors text-start"
                                   >
-                                    {t("home.tiles.supply.title")}
+                                    {t("services.items.endurance.title")}
                                   </Link>
                                   <Link
                                     to="/services"
@@ -448,17 +449,39 @@ export function SiteHeader() {
                   </Button>
                   
                   <div className="flex flex-col gap-3 text-xs text-ink-foreground/75 mt-2">
-                    <a href="tel:+966133611661" dir="ltr" className="flex items-center gap-3 hover:text-accent transition-colors py-1">
-                      <Phone className="h-4 w-4 text-accent" />
-                      +966 13 361 1661
-                    </a>
-                    <a href="mailto:info@seema.sa.com" dir="ltr" className="flex items-center gap-3 hover:text-accent transition-colors py-1">
+                    <div className="flex items-center justify-between gap-3 py-1">
+                      <a href="tel:+966561194438" dir="ltr" className="flex items-center gap-3 hover:text-accent transition-colors">
+                        <Phone className="h-4 w-4 text-accent" />
+                        {isRtl ? "يوسف الناجم: " : "Yousef Al-Najem: "}+966 56 119 4438
+                      </a>
+                      <a
+                        href="https://wa.me/966561194438"
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label="Message Yousef Al-Najem on WhatsApp"
+                        className="hover:text-accent transition-colors"
+                      >
+                        <FaWhatsapp className="h-4 w-4 text-accent" />
+                      </a>
+                    </div>
+                    <div className="flex items-center justify-between gap-3 py-1">
+                      <a href="tel:+966560976454" dir="ltr" className="flex items-center gap-3 hover:text-accent transition-colors">
+                        <Phone className="h-4 w-4 text-accent" />
+                        {isRtl ? "عبدالعزيز السردي: " : "Abdulaziz Al-Sardi: "}+966 56 097 6454
+                      </a>
+                      <a
+                        href="https://wa.me/966560976454"
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label="Message Abdulaziz Al-Sardi on WhatsApp"
+                        className="hover:text-accent transition-colors"
+                      >
+                        <FaWhatsapp className="h-4 w-4 text-accent" />
+                      </a>
+                    </div>
+                    <a href="mailto:info@silsilat-sa.com" dir="ltr" className="flex items-center gap-3 hover:text-accent transition-colors py-1">
                       <Mail className="h-4 w-4 text-accent" />
-                      info@seema.sa.com
-                    </a>
-                    <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="flex items-center gap-3 hover:text-accent transition-colors py-1">
-                      <Linkedin className="h-4 w-4 text-accent" />
-                      LinkedIn
+                      info@silsilat-sa.com
                     </a>
                   </div>
                 </div>

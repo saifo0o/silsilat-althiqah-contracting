@@ -10,13 +10,9 @@ import {
   MapPin,
   ChevronLeft,
   ChevronRight,
-  Activity,
-  Award,
   Building2,
 } from "lucide-react";
 import about from "@/assets/about-engineers.jpg";
-import officeHq from "@/assets/office-hq.png";
-import teamEngineers from "@/assets/team-engineers.png";
 import founderImage from "@/assets/founder.jpg";
 import commercialRegistration from "@/assets/commercial-registration.png";
 import { SectionHeading } from "@/components/site/SectionHeading";
@@ -30,14 +26,7 @@ import {
   AramcoLogo,
   MaadenLogo,
   SipchemLogo,
-  YasrefLogo,
   SecLogo,
-  NeomLogo,
-  RedSeaLogo,
-  SaudiaLogo,
-  StcLogo,
-  MobilyLogo,
-  ZainLogo,
   SaharaLogo,
   SioLogo,
 } from "@/components/site/ClientLogos";
@@ -82,12 +71,6 @@ function AboutPage() {
     if (name.includes("electricity") || name.includes("sec")) return SecLogo;
     if (name.includes("maaden") || name.includes("ma'aden")) return MaadenLogo;
     if (name.includes("sahara")) return SaharaLogo;
-    if (name.includes("neom")) return NeomLogo;
-    if (name.includes("red sea")) return RedSeaLogo;
-    if (name.includes("telecom") || name.includes("stc")) return StcLogo;
-    if (name.includes("mobily")) return MobilyLogo;
-    if (name.includes("zain")) return ZainLogo;
-    if (name.includes("airlines") || name.includes("saudia")) return SaudiaLogo;
     if (name.includes("irrigation") || name.includes("sio")) return SioLogo;
     return null;
   };
@@ -241,84 +224,7 @@ function AboutPage() {
       {/* BOARD OF DIRECTORS */}
       <BoardOfDirectors />
 
-      {/* TEAM & FACILITIES */}
-      <section className="bg-background border-b border-border py-12 md:py-32">
-        <div className="container mx-auto px-4 md:px-6">
-          <SectionHeading
-            eyebrow={t("about.eyebrow")}
-            title={t("about.teamTitle")}
-            subtitle={t("about.teamSubtitle")}
-          />
-          <div className="mt-14 grid gap-8 md:grid-cols-2">
-            <Reveal className="group bg-card rounded-md overflow-hidden shadow-emil hover:shadow-emil-hover transition-[box-shadow,transform] duration-500 ease-[var(--ease-emil)] text-start active:scale-[0.98]">
-              <div className="relative aspect-[16/10] overflow-hidden bg-muted">
-                <img
-                  src={officeHq}
-                  alt={t("about.hqLabel")}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  width={800}
-                  height={500}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 to-transparent" />
 
-                {/* Floating parameters overlay dossier */}
-                <div className="absolute top-4 start-4 bg-slate-950/80 border border-white/5 rounded px-2.5 py-1.5 text-[10px] font-mono text-slate-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="font-bold text-emerald-400">HQ COORDINATES</p>
-                  <p className="mt-0.5">27.0097° N, 49.6583° E</p>
-                </div>
-              </div>
-              <div className="p-6">
-                <div className="flex items-center gap-2 mb-2">
-                  <Activity className="h-4 w-4 text-emerald-500" />
-                  <span className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
-                    Jubail Operations Center
-                  </span>
-                </div>
-                <h3 className="font-display text-lg font-bold">{t("about.hqLabel")}</h3>
-                <p className="mt-2.5 text-sm text-muted-foreground leading-relaxed">
-                  {t("about.hqDesc")}
-                </p>
-              </div>
-            </Reveal>
-
-            <Reveal
-              delay={150}
-              className="group bg-card rounded-md overflow-hidden shadow-emil hover:shadow-emil-hover transition-[box-shadow,transform] duration-500 ease-[var(--ease-emil)] active:scale-[0.98] text-start"
-            >
-              <div className="relative aspect-[16/10] overflow-hidden bg-muted">
-                <img
-                  src={teamEngineers}
-                  alt={t("about.teamLabel")}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  width={800}
-                  height={500}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 to-transparent" />
-
-                {/* Floating credentials overlay dossier */}
-                <div className="absolute top-4 start-4 bg-slate-950/80 border border-white/5 rounded px-2.5 py-1.5 text-[10px] font-mono text-slate-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="font-bold text-emerald-400">CREW ACCREDITATION</p>
-                  <p className="mt-0.5">ASME PCC-2 & HSE Certified</p>
-                </div>
-              </div>
-              <div className="p-6">
-                <div className="flex items-center gap-2 mb-2">
-                  <Award className="h-4 w-4 text-emerald-500" />
-                  <span className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
-                    Certified Engineering Crews
-                  </span>
-                </div>
-                <h3 className="font-display text-lg font-bold">{t("about.teamLabel")}</h3>
-                <p className="mt-2.5 text-sm text-muted-foreground leading-relaxed">
-                  {t("about.teamDesc")}
-                </p>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
 
       {/* CERTIFICATIONS */}
       <section className="bg-secondary/20 py-12 md:py-32">

@@ -6,7 +6,6 @@ import {
   BadgeCheck,
   ArrowRight,
   CheckCircle,
-  MapPin,
   Quote,
   ChevronLeft,
   ChevronRight,
@@ -18,30 +17,20 @@ import {
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import teamEngineersImg from "@/assets/team-engineers.png";
+import { cn } from "@/lib/utils";
 import {
   SabicLogo,
   AramcoLogo,
   MaadenLogo,
   SipchemLogo,
-  YasrefLogo,
   SecLogo,
-  NeomLogo,
-  RedSeaLogo,
-  SaudiaLogo,
-  StcLogo,
-  MobilyLogo,
-  ZainLogo,
   SaharaLogo,
   SioLogo,
 } from "@/components/site/ClientLogos";
-import { ksaMapPath } from "@/components/site/KsaMapPath";
 
 type Vendor = { name: string; number: string };
 type Testimonial = { quote: string; author: string; company: string };
-type IndustrialHub = { name: string; desc: string };
 
 export const Route = createFileRoute("/clients")({
   head: () => ({
@@ -93,12 +82,6 @@ function ClientsPage() {
     if (name.includes("electricity") || name.includes("sec")) return SecLogo;
     if (name.includes("maaden") || name.includes("ma'aden")) return MaadenLogo;
     if (name.includes("sahara")) return SaharaLogo;
-    if (name.includes("neom")) return NeomLogo;
-    if (name.includes("red sea")) return RedSeaLogo;
-    if (name.includes("telecom") || name.includes("stc")) return StcLogo;
-    if (name.includes("mobily")) return MobilyLogo;
-    if (name.includes("zain")) return ZainLogo;
-    if (name.includes("airlines") || name.includes("saudia")) return SaudiaLogo;
     if (name.includes("irrigation") || name.includes("sio")) return SioLogo;
     return null;
   };
@@ -106,12 +89,8 @@ function ClientsPage() {
   // Interactive States
   const [activeTab, setActiveTab] = useState<string>("all");
   const [activeTestimonial, setActiveTestimonial] = useState(0);
-  const [selectedHub, setSelectedHub] = useState<"jubail" | "yanbu" | "rasalkhair" | "khafji">(
-    "jubail",
-  );
   const [copiedVendor, setCopiedVendor] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
-
 
   const clients = [
     {
@@ -147,70 +126,6 @@ function ClientsPage() {
         "hover:border-blue-500/40 hover:shadow-[0_0_20px_rgba(59,130,246,0.12)] hover:bg-blue-500/[0.02]",
     },
     {
-      Comp: YasrefLogo,
-      name: "Yasref",
-      category: "oil",
-      sectorKey: "oil",
-      hoverClass:
-        "hover:border-teal-500/40 hover:shadow-[0_0_20px_rgba(20,184,166,0.12)] hover:bg-teal-500/[0.02]",
-    },
-    {
-      Comp: SecLogo,
-      name: "SEC",
-      category: "utilities",
-      sectorKey: "utilities",
-      hoverClass:
-        "hover:border-yellow-500/40 hover:shadow-[0_0_20px_rgba(234,179,8,0.12)] hover:bg-yellow-500/[0.02]",
-    },
-    {
-      Comp: NeomLogo,
-      name: "NEOM",
-      category: "megaproject",
-      sectorKey: "megaproject",
-      hoverClass:
-        "hover:border-slate-800 hover:shadow-[0_0_20px_rgba(0,0,0,0.12)] hover:bg-slate-500/[0.02]",
-    },
-    {
-      Comp: RedSeaLogo,
-      name: "Red Sea Global",
-      category: "megaproject",
-      sectorKey: "megaproject",
-      hoverClass:
-        "hover:border-cyan-600/40 hover:shadow-[0_0_20px_rgba(8,145,178,0.12)] hover:bg-cyan-600/[0.02]",
-    },
-    {
-      Comp: SaudiaLogo,
-      name: "SAUDIA",
-      category: "aviation",
-      sectorKey: "aviation",
-      hoverClass:
-        "hover:border-indigo-950/40 hover:shadow-[0_0_20px_rgba(30,58,138,0.12)] hover:bg-indigo-900/[0.02]",
-    },
-    {
-      Comp: StcLogo,
-      name: "stc",
-      category: "telecom",
-      sectorKey: "telecom",
-      hoverClass:
-        "hover:border-purple-600/40 hover:shadow-[0_0_20px_rgba(147,51,234,0.12)] hover:bg-purple-600/[0.02]",
-    },
-    {
-      Comp: MobilyLogo,
-      name: "Mobily",
-      category: "telecom",
-      sectorKey: "telecom",
-      hoverClass:
-        "hover:border-sky-500/40 hover:shadow-[0_0_20px_rgba(14,165,233,0.12)] hover:bg-sky-500/[0.02]",
-    },
-    {
-      Comp: ZainLogo,
-      name: "Zain KSA",
-      category: "telecom",
-      sectorKey: "telecom",
-      hoverClass:
-        "hover:border-lime-500/40 hover:shadow-[0_0_20px_rgba(132,204,22,0.12)] hover:bg-lime-500/[0.02]",
-    },
-    {
       Comp: SaharaLogo,
       name: "Sahara",
       category: "oil",
@@ -234,8 +149,6 @@ function ClientsPage() {
     { id: "all", label: t("clients.tabs.all") },
     { id: "oil", label: t("clients.tabs.oil") },
     { id: "utilities", label: t("clients.tabs.utilities") },
-    { id: "megaproject", label: t("clients.tabs.megaproject") },
-    { id: "telecom", label: t("clients.tabs.telecom") },
   ];
 
   const filteredClients =
@@ -261,14 +174,6 @@ function ClientsPage() {
     setTimeout(() => setCopiedVendor(null), 2000);
   };
 
-
-  // Active Map Details Panel Helper
-  const hubDetailsData = t(`clients.hubDetails.${selectedHub}`, { returnObjects: true });
-  const activeHubDetails =
-    hubDetailsData && typeof hubDetailsData === "object" && "title" in hubDetailsData
-      ? (hubDetailsData as { title: string; stats: string; description: string })
-      : { title: "", stats: "", description: "" };
-
   return (
     <>
       {/* HERO SECTION - SPLIT DESIGN */}
@@ -278,19 +183,19 @@ function ClientsPage() {
         <div className="absolute inset-0 grid-pattern opacity-[0.03]" />
 
         <div className="container mx-auto px-4 md:px-6 pt-28 pb-12 md:pt-40 md:pb-28 relative z-10">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content */}
+          <div className="flex flex-col items-center justify-center text-center">
+            {/* Center Content */}
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-7 flex flex-col items-start text-start"
+              className="max-w-3xl flex flex-col items-center text-center"
             >
               <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-400">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 {t("clients.eyebrow")}
               </div>
-              <h1 className="mt-6 font-display text-[clamp(2rem,5vw,3.75rem)] font-bold leading-[1.1] tracking-tight text-white max-w-2xl">
+              <h1 className="mt-6 font-display text-[clamp(2rem,5vw,3.75rem)] font-bold leading-[1.1] tracking-tight text-white">
                 {t("clients.title")}
               </h1>
               <p className="mt-6 text-lg text-slate-300 leading-relaxed max-w-xl">
@@ -298,7 +203,7 @@ function ClientsPage() {
               </p>
 
               {/* Trust Indicators / Badges */}
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-8 flex flex-wrap justify-center gap-3">
                 <div className="flex items-center gap-2 rounded-sm border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-200">
                   <BadgeCheck className="h-4 w-4 text-emerald-400 shrink-0" />
                   <span>{t("clients.heroStats.certified")}</span>
@@ -313,38 +218,6 @@ function ClientsPage() {
                 </div>
               </div>
             </motion.div>
-
-            {/* Right Graphics/Image Panel */}
-            <div className="lg:col-span-5 relative mt-6 lg:mt-0">
-              <div className="relative mx-auto max-w-[420px] lg:max-w-none">
-                {/* Decorative border outline */}
-                <div className="absolute -inset-4 rounded-sm border border-emerald-500/20 translate-x-2 translate-y-2 pointer-events-none" />
-
-                {/* Main Image Card */}
-                <div className="relative overflow-hidden rounded-sm border border-white/10 shadow-2xl bg-slate-900 group">
-                  <img
-                    src={teamEngineersImg}
-                    alt="SILSILAT AL-THIQA Engineering Team"
-                    className="w-full h-[320px] md:h-[380px] object-cover object-center filter brightness-95 contrast-105 group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent" />
-
-                  {/* Floating Glassmorphic Overlay Badge */}
-                  <div className="absolute bottom-6 start-6 end-6 backdrop-blur-md bg-slate-900/60 border border-white/10 rounded-sm p-4 text-start">
-                    <p className="text-[10px] font-mono uppercase tracking-widest text-emerald-400">
-                      {t("clients.verifiedStatus")}
-                    </p>
-                    <p className="mt-1 font-display text-sm font-bold text-white">
-                      {t("company.name")} {t("company.tagline")}
-                    </p>
-                    <div className="mt-3 flex items-center gap-2 text-xs text-slate-300">
-                      <span className="h-2 w-2 rounded-full bg-emerald-500 animate-ping" />
-                      <span>{t("about.since")}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -501,263 +374,6 @@ function ClientsPage() {
             <p className="text-sm text-muted-foreground">{t("clients.noVendors")}</p>
           </div>
         )}
-      </section>
-
-      {/* INDUSTRIAL FOOTPRINT (INTERACTIVE KSA MAP) */}
-      <section className="bg-secondary/40 border-b border-border py-12 md:py-28">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content Column */}
-            <div className="lg:col-span-5 text-start">
-              <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-emerald-400 bg-emerald-950/60 border border-emerald-500/20 inline-block px-3 py-1 rounded-sm">
-                {t("clients.hubsTitle")}
-              </p>
-              <h2 className="mt-5 font-display text-3xl md:text-5xl font-bold tracking-tight">
-                {i18n.language === "ar"
-                  ? "نعمل في قلب الصناعة السعودية"
-                  : "Operating Across KSA's Industrial Core"}
-              </h2>
-              <p className="mt-4 text-muted-foreground text-sm leading-relaxed">
-                {t("clients.hubsSubtitle")}
-              </p>
-
-              {/* Interactive SVG Saudi Map Representation */}
-              <div className="mt-8 relative border border-border bg-card rounded-sm p-6 overflow-hidden flex items-center justify-center shadow-elegant">
-                {/* Background grid dots */}
-                <div className="absolute inset-0 grid-pattern opacity-[0.03]" />
-
-                <svg
-                  viewBox="0 0 300 200"
-                  className="w-full max-w-[280px] text-muted-foreground/60 relative z-10"
-                >
-                  {/* Detailed KSA Silhouette Path */}
-                  <path
-                    d={ksaMapPath}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="0.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-muted-foreground opacity-30"
-                  />
-                  <path
-                    d={ksaMapPath}
-                    fill="currentColor"
-                    className="text-muted opacity-[0.05]"
-                  />
-
-                  {/* Map Coordinate Pins */}
-
-                  {/* Jubail */}
-                  <g className="cursor-pointer" onClick={() => setSelectedHub("jubail")}>
-                    {selectedHub === "jubail" && (
-                      <circle
-                        cx="202.5"
-                        cy="67.9"
-                        r="8"
-                        className="animate-ping fill-emerald-500/40"
-                      />
-                    )}
-                    <circle
-                      cx="202.5"
-                      cy="67.9"
-                      r="4"
-                      className={cn(
-                        "transition-all duration-300",
-                        selectedHub === "jubail"
-                          ? "fill-emerald-500"
-                          : "fill-muted-foreground group-hover:fill-emerald-400",
-                      )}
-                    />
-                    <text
-                      x="210.5"
-                      y="70.9"
-                      fontSize="8"
-                      fontWeight="bold"
-                      fill={
-                        selectedHub === "jubail"
-                          ? "var(--color-emerald-500, #10b981)"
-                          : "currentColor"
-                      }
-                      className="pointer-events-none select-none font-mono"
-                    >
-                      Jubail
-                    </text>
-                  </g>
-
-                  {/* Yanbu */}
-                  <g className="cursor-pointer" onClick={() => setSelectedHub("yanbu")}>
-                    {selectedHub === "yanbu" && (
-                      <circle cx="70.3" cy="105.9" r="8" className="animate-ping fill-emerald-500/40" />
-                    )}
-                    <circle
-                      cx="70.3"
-                      cy="105.9"
-                      r="4"
-                      className={cn(
-                        "transition-all duration-300",
-                        selectedHub === "yanbu"
-                          ? "fill-emerald-500"
-                          : "fill-muted-foreground group-hover:fill-emerald-400",
-                      )}
-                    />
-                    <text
-                      x="78.3"
-                      y="108.9"
-                      fontSize="8"
-                      fontWeight="bold"
-                      fill={
-                        selectedHub === "yanbu"
-                          ? "var(--color-emerald-500, #10b981)"
-                          : "currentColor"
-                      }
-                      className="pointer-events-none select-none font-mono"
-                    >
-                      Yanbu
-                    </text>
-                  </g>
-
-                  {/* Ras Al Khair */}
-                  <g className="cursor-pointer" onClick={() => setSelectedHub("rasalkhair")}>
-                    {selectedHub === "rasalkhair" && (
-                      <circle cx="197.2" cy="60.8" r="8" className="animate-ping fill-emerald-500/40" />
-                    )}
-                    <circle
-                      cx="197.2"
-                      cy="60.8"
-                      r="4"
-                      className={cn(
-                        "transition-all duration-300",
-                        selectedHub === "rasalkhair"
-                          ? "fill-emerald-500"
-                          : "fill-muted-foreground group-hover:fill-emerald-400",
-                      )}
-                    />
-                    <text
-                      x="150"
-                      y="60"
-                      fontSize="8"
-                      fontWeight="bold"
-                      fill={
-                        selectedHub === "rasalkhair"
-                          ? "var(--color-emerald-500, #10b981)"
-                          : "currentColor"
-                      }
-                      className="pointer-events-none select-none font-mono"
-                    >
-                      Ras Al Khair
-                    </text>
-                  </g>
-
-                  {/* Khafji */}
-                  <g className="cursor-pointer" onClick={() => setSelectedHub("khafji")}>
-                    {selectedHub === "khafji" && (
-                      <circle cx="189.1" cy="49.2" r="8" className="animate-ping fill-emerald-500/40" />
-                    )}
-                    <circle
-                      cx="189.1"
-                      cy="49.2"
-                      r="4"
-                      className={cn(
-                        "transition-all duration-300",
-                        selectedHub === "khafji"
-                          ? "fill-emerald-500"
-                          : "fill-muted-foreground group-hover:fill-emerald-400",
-                      )}
-                    />
-                    <text
-                      x="197.1"
-                      y="52.2"
-                      fontSize="8"
-                      fontWeight="bold"
-                      fill={
-                        selectedHub === "khafji"
-                          ? "var(--color-emerald-500, #10b981)"
-                          : "currentColor"
-                      }
-                      className="pointer-events-none select-none font-mono"
-                    >
-                      Khafji
-                    </text>
-                  </g>
-                </svg>
-              </div>
-            </div>
-
-            {/* Right Information Display Panel */}
-            <div className="lg:col-span-7 flex flex-col justify-center">
-              {/* Hub Quick Info Tabs */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6">
-                {(["jubail", "yanbu", "rasalkhair", "khafji"] as const).map((hub) => (
-                  <button
-                    key={hub}
-                    onClick={() => setSelectedHub(hub)}
-                    className={cn(
-                      "py-3 px-1.5 text-center rounded-sm border transition-all text-[11px] font-bold uppercase tracking-wider",
-                      selectedHub === hub
-                        ? "bg-card border-emerald-500/30 text-emerald-500 shadow-md"
-                        : "bg-card/40 border-border text-muted-foreground hover:text-foreground",
-                    )}
-                  >
-                    {hub === "rasalkhair"
-                      ? i18n.language === "ar"
-                        ? "رأس الخير"
-                        : "Ras Al Khair"
-                      : hub.charAt(0).toUpperCase() + hub.slice(1)}
-                  </button>
-                ))}
-              </div>
-
-              {/* Active Hub details Card */}
-              <div className="bg-card rounded-md p-8 shadow-emil hover:shadow-emil-hover relative overflow-hidden transition-[box-shadow,transform] duration-500 ease-[var(--ease-emil)] active:scale-[0.98]">
-                <div className="absolute top-0 right-0 h-24 w-24 bg-gradient-to-bl from-emerald-500/5 to-transparent pointer-events-none" />
-
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-border">
-                  <div className="flex items-center gap-2">
-                    <MapPin className="h-5 w-5 text-emerald-500" />
-                    <h3 className="font-display text-xl font-bold text-foreground">
-                      {activeHubDetails.title}
-                    </h3>
-                  </div>
-                  <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1 text-[11px] font-bold text-emerald-500 uppercase tracking-wider">
-                    <CheckCircle className="h-3 w-3" />
-                    {activeHubDetails.stats}
-                  </div>
-                </div>
-
-                <p className="mt-6 text-sm text-muted-foreground leading-relaxed text-start min-h-[72px]">
-                  {activeHubDetails.description}
-                </p>
-
-                {/* Hub Metrics Statistics Row */}
-                <div className="mt-8 grid grid-cols-2 gap-4 pt-6 border-t border-border">
-                  <div className="text-start">
-                    <p className="text-[10px] uppercase tracking-wider text-muted-foreground">
-                      {t("clients.hubsMetrics.projectsCount")}
-                    </p>
-                    <p className="mt-1 font-display text-2xl font-bold text-foreground">
-                      {selectedHub === "jubail" && "150+"}
-                      {selectedHub === "yanbu" && "85+"}
-                      {selectedHub === "rasalkhair" && "45+"}
-                      {selectedHub === "khafji" && "30+"}
-                    </p>
-                  </div>
-                  <div className="text-start">
-                    <p className="text-[10px] uppercase tracking-wider text-muted-foreground">
-                      {t("clients.hubsMetrics.yearsActive")}
-                    </p>
-                    <p className="mt-1 font-display text-2xl font-bold text-foreground">
-                      {selectedHub === "jubail" && "12+"}
-                      {selectedHub === "yanbu" && "10+"}
-                      {selectedHub === "rasalkhair" && "8+"}
-                      {selectedHub === "khafji" && "7+"}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* TESTIMONIALS / FIELD ENDORSEMENTS */}

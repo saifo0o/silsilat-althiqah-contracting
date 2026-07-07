@@ -11,6 +11,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { motion } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { FaWhatsapp } from "react-icons/fa";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(200),
@@ -43,7 +44,7 @@ export const Route = createFileRoute("/contact")({
           "@type": "LocalBusiness",
           name: "Seema General Contracting & Industrial Services Co.",
           url: "https://seema-contracting.lovable.app/contact",
-          email: "info@seema.sa.com",
+          email: "info@silsilat-sa.com",
           openingHoursSpecification: [
             {
               "@type": "OpeningHoursSpecification",
@@ -74,7 +75,7 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
@@ -156,23 +157,22 @@ function ContactPage() {
             },
             {
               Icon: Phone,
-              label: t("contact.offices.jubailTitle"),
-              value: t("contact.offices.jubailPhone"),
-              href: `tel:${String(t("contact.offices.jubailPhone")).split("/")[0].replace(/\s/g, "")}`,
+              label: i18n.language === "ar" ? "يوسف الناجم" : "Yousef Al-Najem",
+              value: "+966 56 119 4438",
+              href: "tel:+966561194438",
+              whatsappHref: "https://wa.me/966561194438",
             },
             {
               Icon: Phone,
-              label: t("contact.offices.dammamTitle"),
-              value: t("contact.offices.dammamPhone"),
-              href: `tel:${String(t("contact.offices.dammamPhone")).replace(/\s/g, "")}`,
+              label: i18n.language === "ar" ? "عبدالعزيز السردي" : "Abdulaziz Al-Sardi",
+              value: "+966 56 097 6454",
+              href: "tel:+966560976454",
+              whatsappHref: "https://wa.me/966560976454",
             },
           ].map((c, idx) => (
             <Reveal key={idx} delay={idx * 80}>
-              <a
-                href={c.href}
-                className="group flex items-center justify-between gap-4 rounded-2xl bg-card p-5 shadow-emil hover:shadow-emil-hover transition-[box-shadow,transform] duration-500 ease-[var(--ease-emil)] active:scale-[0.98]"
-              >
-                <div className="flex items-center gap-4">
+              <div className="group flex items-center justify-between gap-4 rounded-2xl bg-card p-5 shadow-emil hover:shadow-emil-hover transition-[box-shadow,transform] duration-500 ease-[var(--ease-emil)] active:scale-[0.98]">
+                <a href={c.href} className="flex items-center gap-4 min-w-0">
                   <div className="h-11 w-11 rounded-lg bg-accent/15 text-accent flex items-center justify-center">
                     <c.Icon className="h-5 w-5" />
                   </div>
@@ -187,9 +187,22 @@ function ContactPage() {
                       {c.value}
                     </p>
                   </div>
-                </div>
-                <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-accent transition-colors" />
-              </a>
+                </a>
+                {c.whatsappHref ? (
+                  <a
+                    href={c.whatsappHref}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Message ${c.label} on WhatsApp`}
+                    title="WhatsApp"
+                    className="shrink-0 h-9 w-9 rounded-full flex items-center justify-center text-muted-foreground hover:text-accent hover:bg-accent/10 transition-colors"
+                  >
+                    <FaWhatsapp className="h-4 w-4" />
+                  </a>
+                ) : (
+                  <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-accent transition-colors" />
+                )}
+              </div>
             </Reveal>
           ))}
         </div>
@@ -215,11 +228,13 @@ function ContactPage() {
                           {t(`contact.offices.${office}Address`)}
                         </span>
                       </li>
-                      <li className="flex items-center gap-2.5">
-                        <Phone className="h-4 w-4 flex-shrink-0 text-emerald-500" />
-                        <span dir="ltr">{t(`contact.offices.${office}Phone`)}</span>
-                      </li>
-                      {office === "jubail" && (
+                      {t(`contact.offices.${office}Phone`) && (
+                        <li className="flex items-center gap-2.5">
+                          <Phone className="h-4 w-4 flex-shrink-0 text-emerald-500" />
+                          <span dir="ltr">{t(`contact.offices.${office}Phone`)}</span>
+                        </li>
+                      )}
+                      {office === "jubail" && t("contact.offices.jubailFax") && (
                         <li className="flex items-center gap-2.5">
                           <Printer className="h-4 w-4 flex-shrink-0 text-emerald-500" />
                           <span dir="ltr">{t("contact.offices.jubailFax")}</span>

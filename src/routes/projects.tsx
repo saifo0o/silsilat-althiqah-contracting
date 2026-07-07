@@ -29,7 +29,6 @@ import {
   AramcoLogo,
   MaadenLogo,
   SipchemLogo,
-  YasrefLogo,
   SecLogo,
 } from "@/components/site/ClientLogos";
 
@@ -105,7 +104,6 @@ function ProjectsPage() {
     if (name.includes("sabic") || name.includes("safco")) return SabicLogo;
     if (name.includes("maaden")) return MaadenLogo;
     if (name.includes("sipchem")) return SipchemLogo;
-    if (name.includes("yasref")) return YasrefLogo;
     if (name.includes("sec") || name.includes("electricity")) return SecLogo;
     return null;
   };
@@ -138,21 +136,6 @@ function ProjectsPage() {
             <p className="mt-6 text-lg text-ink-foreground/75 leading-relaxed">
               {t("projects.subtitle")}
             </p>
-            <div className="mt-8 flex gap-6 text-sm">
-              <div>
-                <p className="font-display text-3xl font-semibold" dir="ltr">
-                  {items.length}+
-                </p>
-                <p className="text-xs uppercase tracking-wider text-ink-foreground/60">{i18n.language === 'ar' ? 'طلب عمل' : 'Orders'}</p>
-              </div>
-              <div className="h-12 w-px bg-white/15" />
-              <div>
-                <p className="font-display text-3xl font-semibold" dir="ltr">
-                  {clients.length}
-                </p>
-                <p className="text-xs uppercase tracking-wider text-ink-foreground/60">{i18n.language === 'ar' ? 'عملاء' : 'Clients'}</p>
-              </div>
-            </div>
           </motion.div>
         </div>
       </section>
@@ -321,10 +304,17 @@ function ProjectsPage() {
                     <p className="font-mono text-xs font-semibold text-muted-foreground tabular-nums">
                       #{String(items.indexOf(p) + 1).padStart(2, "0")}
                     </p>
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-accent-foreground">
-                      <CheckCircle2 className="h-3 w-3 text-accent" />
-                      {t("projects.completed")}
-                    </span>
+                    {p.period === "2026" ? (
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-400/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-amber-600">
+                        <Activity className="h-3 w-3 text-amber-500" />
+                        {t("projects.ongoing")}
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-accent-foreground">
+                        <CheckCircle2 className="h-3 w-3 text-accent" />
+                        {t("projects.completed")}
+                      </span>
+                    )}
                   </div>
                   <h3 className="mt-4 font-display text-base md:text-lg font-semibold leading-snug group-hover:text-accent transition-colors">
                     {p.title}

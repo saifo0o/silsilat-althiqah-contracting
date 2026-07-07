@@ -87,6 +87,9 @@
     "beforeBody": "Severe corrosion and wall loss risking unplanned shutdown.",
     "afterLabel": "AFTER",
     "afterBody": "Composite repair system restored integrity and extended life by 15+ Years",
+    "videoEyebrow": "See Us in Action",
+    "videoTitle": "Engineering, on-site.",
+    "videoSubtitle": "A look at how our crews restore structural integrity on live industrial assets.",
     "projectsEyebrow": "Featured Projects",
     "projectsTitle": "Delivering Complex Solutions",
     "projectsTitle2": "Across Critical Industries",
@@ -300,6 +303,11 @@
         "body": "Approved vendor with SABIC, Aramco, SEC, Maaden, Sahara and the Saudi Irrigation Organization."
       },
       {
+        "year": "2021 - 2026",
+        "title": "Maaden PPC Lining Works",
+        "body": "Continuous major CFRP lining works applied on Maaden Phosphate reactors at Ras Al Khair."
+      },
+      {
         "year": "Today",
         "title": "Specialist contractor",
         "body": "Mobilising for shutdowns, emergencies and engineered rehabilitation across the Kingdom."
@@ -309,24 +317,24 @@
       "title": "Board of Directors",
       "members": [
         {
+          "name": "Yousef Buobaid",
+          "title": "Founding Member, Chairman of the Board and CEO",
+          "email": "yousef@silsilat-sa.com",
+          "imageId": "image2"
+        },
+        {
           "name": "Yousef Al-Najem",
-          "title": "Board Member, Authorized Contact for Oxifree TM198",
+          "title": "Board Member",
           "phone": "+966 56 119 4438",
           "email": "Najem@silsilat-sa.com",
           "imageId": "image1"
         },
         {
           "name": "Abdulaziz Al-Sardi",
-          "title": "Board Member, Authorized Contact for Carbon Fiber",
+          "title": "Board Member",
           "phone": "+966 56 097 6454",
           "email": "alsardi@silsilat-sa.com",
           "imageId": "image0"
-        },
-        {
-          "name": "Yousef Buobaid",
-          "title": "Founding Member, Chairman of the Board and CEO",
-          "email": "yousef@silsilat-sa.com",
-          "imageId": "image2"
         }
       ],
       "footer": "The allocation of authorized contacts for both FRP and Carbon Fiber materials ensures a rapid and direct technical and commercial response to client and partner inquiries regarding these specialized materials."
@@ -351,6 +359,7 @@
       "status": "Status"
     },
     "completed": "Completed",
+    "ongoing": "Ongoing",
     "featured": [
       {
         "title": "Compressor Foundation Rectification",
@@ -491,6 +500,42 @@
         "client": "Ma'aden PPC",
         "location": "Ras Al-Khair",
         "period": "Dec 2019 - Jan 2020"
+      },
+      {
+        "title": "Corrosion Protection using CFRP - PAP B Line",
+        "client": "Ma'aden PPC",
+        "location": "Ras Al-Khair",
+        "period": "2021"
+      },
+      {
+        "title": "Corrosion Protection using CFRP - PAP B Line",
+        "client": "Ma'aden PPC",
+        "location": "Ras Al-Khair",
+        "period": "2022"
+      },
+      {
+        "title": "Corrosion Protection using CFRP - PAP B Line",
+        "client": "Ma'aden PPC",
+        "location": "Ras Al-Khair",
+        "period": "2023"
+      },
+      {
+        "title": "Corrosion Protection using CFRP - PAP B Line",
+        "client": "Ma'aden PPC",
+        "location": "Ras Al-Khair",
+        "period": "2024"
+      },
+      {
+        "title": "Corrosion Protection using CFRP - PAP B Line",
+        "client": "Ma'aden PPC",
+        "location": "Ras Al-Khair",
+        "period": "2025"
+      },
+      {
+        "title": "Corrosion Protection using CFRP - PAP B Line",
+        "client": "Ma'aden PPC",
+        "location": "Ras Al-Khair",
+        "period": "2026"
       }
     ],
     "historyTable": [
@@ -742,50 +787,46 @@
     "hubsTitle": "Industrial Footprint",
     "hubsSubtitle": "Delivering critical services across the Kingdom's primary industrial hubs.",
     "hubsMetrics": {
-      "projectsCount": "Projects Completed",
       "yearsActive": "Years Active",
       "industrialHub": "Industrial Hub"
     },
     "hubDetails": {
       "jubail": {
-        "title": "Jubail Industrial City",
-        "stats": "150+ Projects | 12+ Years",
+        "title": "Jubail",
+        "stats": "12+ Years",
         "description": "The Eastern petrochemical hub, home to SAFCO, SABIC, and S-Chem facilities. Our primary center for concrete rehabilitation, structural repairs, and shutdown CFRP applications."
       },
-      "yanbu": {
-        "title": "Yanbu Industrial City",
-        "stats": "85+ Projects | 10+ Years",
-        "description": "The Western refining hub. We support Yasref, SEC, and other major facilities with high-performance linings, epoxy coatings, and pipeline reinforcement."
+      "dammam": {
+        "title": "Dammam",
+        "stats": "12+ Years",
+        "description": "The major industrial zone in the Eastern Province. We provide industrial protection, structural rehabilitation, and material supply services for factories and workshops."
+      },
+      "khobar": {
+        "title": "Khobar",
+        "stats": "12+ Years",
+        "description": "The administrative and service hub of the Eastern Province. We support technical and engineering offices and infrastructure projects with specialized solutions and services."
+      },
+      "al_ahsa": {
+        "title": "Al-Ahsa",
+        "stats": "8+ Years",
+        "description": "An important agricultural and industrial oasis, home to Saudi Irrigation Organization (SIO) projects. Our works include fiberglass trench restoration and water infrastructure protection."
       },
       "rasalkhair": {
         "title": "Ras Al Khair",
-        "stats": "45+ Projects | 8+ Years",
+        "stats": "8+ Years",
         "description": "The industrial mining city. SILSILAT AL-THIQA delivers specialized composite CFRP lining solutions for Ma'aden phosphate reactors and heavy industrial structures."
       },
       "khafji": {
         "title": "Khafji",
-        "stats": "30+ Projects | 7+ Years",
+        "stats": "7+ Years",
         "description": "The neutral zone oil & gas hub. Key projects include oily water pit rectification, structural integrity analysis, and concrete tank rehabilitation for KJO Aramco."
+      },
+      "ras_aljalamid": {
+        "title": "Ras Al Jalamid",
+        "stats": "5+ Years",
+        "description": "The primary phosphate mining region in the north of the Kingdom. We provide specialized lining and industrial protection services for mines and major processing plants under Ma'aden."
       }
     },
-    "hubs": [
-      {
-        "name": "Jubail Industrial City",
-        "desc": "The Eastern petrochemical hub, home to SAFCO, SABIC, and S-Chem facilities where we carry out concrete rehabilitation and pipe repairs."
-      },
-      {
-        "name": "Yanbu Industrial City",
-        "desc": "The Western refining hub, where Yasref and SEC facilities utilize our high-performance coatings and lining solutions."
-      },
-      {
-        "name": "Ras Al Khair",
-        "desc": "The industrial mining city, where we deliver composite CFRP lining solutions for Ma'aden phosphate reactors."
-      },
-      {
-        "name": "Khafji",
-        "desc": "The neutral zone oil & gas hub, where we've executed oily water pit rectification and elevated tank structural analysis for KJO Aramco."
-      }
-    ],
     "preQualTitle": "Custom Credentials Builder",
     "preQualSubtitle": "Select the documentation packages you require. Our system will compile a customized capabilities dossier instantly.",
     "preQualBuildBtn": "Compile & Download Document",
@@ -838,13 +879,13 @@
     "offices": {
       "jubailTitle": "Head Office — Jubail Industrial City",
       "jubailAddress": "Unit 13, Suhaimi Building #7585, Al-Fayha Commercial Business Center, Al Jubail Industrial 31961, P.O. Box 35016, K.S.A.",
-      "jubailPhone": "+966 13 348 9987 / +966 13 349 9544",
-      "jubailFax": "Fax: +966 13 348 9299",
+      "jubailPhone": "",
+      "jubailFax": "",
       "dammamTitle": "Regional Branch — Dammam",
       "dammamAddress": "Building No. 4011, Al Rabee Al Absi Street, Al-Adamah District, Sub 759, Dammam 32242, K.S.A. (Short Address: EDJA4011)",
-      "dammamPhone": "+966 13 802 4090",
+      "dammamPhone": "",
       "emailTitle": "Email",
-      "email": "yousef@silsilat-sa.com"
+      "email": "info@silsilat-sa.com"
     }
   },
   "footer": {
