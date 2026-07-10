@@ -380,10 +380,13 @@ function ServicesPage() {
                   <div className="space-y-2">
                     <div className="relative aspect-video rounded-sm overflow-hidden border border-border/50 shadow-inner">
                       {services[activeService]?.secondaryImg && (
-                        <img 
-                          src={services[activeService].secondaryImg} 
+                        <img
+                          src={services[activeService].secondaryImg}
                           alt={t(`services.items.${services[activeService].key}.secondaryImageCaption`)}
                           className="w-full h-full object-cover"
+                          width={1280}
+                          height={720}
+                          loading="lazy"
                         />
                       )}
                     </div>
