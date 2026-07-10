@@ -15,6 +15,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SmoothScroll } from "@/components/site/SmoothScroll";
+import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
@@ -192,6 +193,7 @@ function RootComponent() {
           </main>
           <SiteFooter />
         </div>
+        <WhatsAppFloat />
         <Toaster position="top-center" richColors />
       </SmoothScroll>
     </QueryClientProvider>
