@@ -157,14 +157,20 @@ function ContactPage() {
             },
             {
               Icon: Phone,
-              label: i18n.language === "ar" ? "يوسف الناجم" : "Yousef Al-Najem",
+              label:
+                i18n.language === "ar"
+                  ? "يوسف الناجم — متخصص Oxifree TM198"
+                  : "Yousef Al-Najem — Oxifree TM198",
               value: "+966 56 119 4438",
               href: "tel:+966561194438",
               whatsappHref: "https://wa.me/966561194438",
             },
             {
               Icon: Phone,
-              label: i18n.language === "ar" ? "عبدالعزيز السردي" : "Abdulaziz Al-Sardi",
+              label:
+                i18n.language === "ar"
+                  ? "عبدالعزيز السردي — متخصص ألياف الكربون"
+                  : "Abdulaziz Al-Sardi — Carbon Fiber (CFRP)",
               value: "+966 56 097 6454",
               href: "tel:+966560976454",
               whatsappHref: "https://wa.me/966560976454",
