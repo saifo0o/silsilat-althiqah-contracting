@@ -207,29 +207,64 @@ function ServicesPage() {
 
       {/* SALES CALLOUT */}
       <section className="container mx-auto px-4 md:px-6 -mt-12 md:-mt-16 relative z-10">
-        <Reveal>
-          <div className="rounded-2xl bg-card p-8 md:p-10 grid gap-6 md:grid-cols-[1fr_auto] md:items-center shadow-emil">
-            <div>
+        <div className="grid gap-4 md:grid-cols-2">
+          <Reveal>
+            <div className="rounded-2xl bg-card p-6 md:p-8 shadow-emil h-full flex flex-col">
               <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-accent">
                 {t("services.salesEyebrow")}
               </p>
-              <h2 className="mt-3 font-display text-2xl md:text-3xl font-semibold">
+              <h2 className="mt-3 font-display text-xl md:text-2xl font-semibold">
                 {t("services.salesTitle")}
               </h2>
-              <p className="mt-3 text-muted-foreground leading-relaxed max-w-2xl">
+              <p className="mt-3 text-muted-foreground leading-relaxed text-sm flex-1">
                 {t("services.salesBody")}
               </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                <Button asChild size="sm" className="rounded-full">
+                  <a href="mailto:alsardi@silsilat-sa.com">
+                    <Mail className="h-4 w-4 me-2" />
+                    {t("services.salesCta")}
+                  </a>
+                </Button>
+                <Button asChild size="sm" variant="outline" className="rounded-full">
+                  <a href="https://wa.me/966560976454" target="_blank" rel="noreferrer">
+                    {i18n.language === "ar" ? "عبدالعزيز السردي" : "Abdulaziz Al-Sardi"}
+                  </a>
+                </Button>
+              </div>
             </div>
-            <div className="flex md:justify-end">
-              <Button asChild size="lg" className="rounded-full">
-                <a href="mailto:info@silsilat-sa.com">
-                  <Mail className="h-4 w-4 me-2" />
-                  {t("services.salesCta")}
-                </a>
-              </Button>
+          </Reveal>
+          <Reveal delay={80}>
+            <div className="rounded-2xl bg-card p-6 md:p-8 shadow-emil h-full flex flex-col">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-accent">
+                {t("services.salesEyebrow")}
+              </p>
+              <h2 className="mt-3 font-display text-xl md:text-2xl font-semibold">
+                {i18n.language === "ar"
+                  ? "أوكس فري Oxifree TM198"
+                  : "Oxifree TM198 Protective Coating"}
+              </h2>
+              <p className="mt-3 text-muted-foreground leading-relaxed text-sm flex-1">
+                {i18n.language === "ar"
+                  ? "طبقة حماية بوليمرية حرارية قابلة للإزالة تحمي الوصلات والصمامات والفلنجات ومعدات المصانع من التآكل والرطوبة والأملاح — مثالية للبيئات الصناعية والبحرية القاسية."
+                  : "Removable thermoplastic polymeric coating that protects flanges, valves, bolts and plant equipment from corrosion, moisture and salts — engineered for the harshest industrial and marine environments."}
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                <Button asChild size="sm" className="rounded-full">
+                  <a href="mailto:Najem@silsilat-sa.com">
+                    <Mail className="h-4 w-4 me-2" />
+                    {i18n.language === "ar" ? "استفسر عن Oxifree" : "Enquire about Oxifree"}
+                  </a>
+                </Button>
+                <Button asChild size="sm" variant="outline" className="rounded-full">
+                  <a href="https://wa.me/966561194438" target="_blank" rel="noreferrer">
+                    {i18n.language === "ar" ? "يوسف الناجم" : "Yousef Al-Najem"}
+                  </a>
+                </Button>
+              </div>
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </section>
 
       {/* KEY ADVANTAGES SECTION */}
