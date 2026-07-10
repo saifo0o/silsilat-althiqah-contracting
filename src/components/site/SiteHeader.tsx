@@ -334,7 +334,7 @@ export function SiteHeader() {
                       <span className="font-display text-sm font-bold text-ink-foreground tracking-wide">
                         {t("company.name")}
                       </span>
-                      <span className="text-[8px] uppercase tracking-[0.15em] text-ink-foreground/50">
+                      <span className="text-[8px] uppercase tracking-[0.15em] text-ink-foreground/80">
                         {t("company.tagline")}
                       </span>
                     </div>

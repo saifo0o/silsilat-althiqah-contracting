@@ -237,10 +237,12 @@ function AboutPage() {
           <div className="mt-14 max-w-3xl mx-auto">
             <Reveal>
               <div className="rounded-md bg-card p-6 shadow-emil border border-border/50">
-                <img 
-                  src={commercialRegistration} 
-                  alt="Commercial Registration Certificate" 
+                <img
+                  src={commercialRegistration}
+                  alt="Commercial Registration Certificate"
                   className="w-full h-auto rounded-sm"
+                  width={1240}
+                  height={1754}
                   loading="lazy"
                 />
               </div>
