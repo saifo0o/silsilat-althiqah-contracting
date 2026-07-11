@@ -13,7 +13,7 @@ import {
   Building2,
 } from "lucide-react";
 import about from "@/assets/about-engineers.jpg";
-import founderImage from "@/assets/founder.jpg";
+
 import commercialRegistration from "@/assets/commercial-registration.png";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
