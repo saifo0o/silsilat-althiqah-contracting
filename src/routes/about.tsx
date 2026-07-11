@@ -140,7 +140,7 @@ function AboutPage() {
                 <div className="relative aspect-[4/5] w-full max-w-sm overflow-hidden rounded-2xl shadow-emil">
                   <img
                     src={founderImg}
-                    alt={t("about.founder.name")}
+                    alt={t("home.founder.name")}
                     className="h-full w-full object-cover object-top"
                     width={480}
                     height={600}
@@ -151,22 +151,22 @@ function AboutPage() {
             </Reveal>
             <Reveal className="lg:col-span-8" delay={100}>
               <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-accent">
-                {t("about.founder.eyebrow")}
+                {t("home.founder.eyebrow")}
               </p>
               <h2 className="mt-4 font-display text-3xl md:text-4xl font-semibold leading-tight text-balance">
-                {t("about.founder.headline", { defaultValue: i18n.language === "ar" ? "نُعيد للأصول عمرها التشغيلي — لا نستبدلها." : "We extend asset life. We don't replace it." })}
+                {t("home.founder.headline", { defaultValue: i18n.language === "ar" ? "نُعيد للأصول عمرها التشغيلي — لا نستبدلها." : "We extend asset life. We don't replace it." })}
               </h2>
               <blockquote className="mt-6 text-lg leading-relaxed text-muted-foreground border-s-2 border-accent/40 ps-5 rtl:pe-5 rtl:ps-0 rtl:border-e-2 rtl:border-s-0">
-                {t("about.founder.message")}
+                {t("home.founder.message")}
               </blockquote>
               <div className="mt-8 flex items-center gap-3">
                 <div className="h-10 w-0.5 bg-accent" />
                 <div>
                   <p className="font-display text-base font-bold text-foreground">
-                    {t("about.founder.name")}
+                    {t("home.founder.name")}
                   </p>
                   <p className="text-xs text-muted-foreground mt-0.5">
-                    {t("about.founder.title")}
+                    {t("home.founder.title")}
                   </p>
                 </div>
               </div>
