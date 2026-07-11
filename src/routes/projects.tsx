@@ -24,10 +24,10 @@ import caseTransformer from "@/assets/project-transformer.png";
 import caseAcidSewer from "@/assets/project-acid-sewer.png";
 import caseMaadenReactor from "@/assets/project-maaden-reactor.png";
 
-import fieldTankPrep from "@/assets/field-concrete-waterproofing.jpg.asset.json";
-import fieldTankCfrp from "@/assets/field-defect-survey.jpg.asset.json";
-import fieldPipelineWrap from "@/assets/field-cfrp-pipeline-live.jpg.asset.json";
-import fieldCrewFrp from "@/assets/field-pipe-corrosion-before.jpg.asset.json";
+import fieldTankPrep from "@/assets/field-tank-prep.jpg";
+import fieldTankCfrp from "@/assets/field-tank-cfrp.jpg";
+import fieldPipelineWrap from "@/assets/field-pipeline-wrap.jpg";
+import fieldCrewFrp from "@/assets/field-crew-frp.jpg";
 
 import {
   SabicLogo,
@@ -174,7 +174,7 @@ function ProjectsPage() {
           <div className="grid gap-4 md:gap-5 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                img: fieldPipelineWrap.url,
+                img: fieldPipelineWrap,
                 tag: i18n.language === "ar" ? "تغليف أنابيب CFRP" : "CFRP Pipeline Wrap",
                 caption:
                   i18n.language === "ar"
@@ -182,7 +182,7 @@ function ProjectsPage() {
                     : "Live in-service pipeline repair — no hot work, zero production shutdown.",
               },
               {
-                img: fieldCrewFrp.url,
+                img: fieldCrewFrp,
                 tag: i18n.language === "ar" ? "قبل الإصلاح" : "Before Repair",
                 caption:
                   i18n.language === "ar"
@@ -190,7 +190,7 @@ function ProjectsPage() {
                     : "Corroded process pipe prior to intervention — engineered per ASME PCC-2.",
               },
               {
-                img: fieldTankCfrp.url,
+                img: fieldTankCfrp,
                 tag: i18n.language === "ar" ? "مسح العيوب" : "Defect Survey",
                 caption:
                   i18n.language === "ar"
@@ -198,7 +198,7 @@ function ProjectsPage() {
                     : "Documenting defects inside industrial tanks & pipes before designing the repair system.",
               },
               {
-                img: fieldTankPrep.url,
+                img: fieldTankPrep,
                 tag: i18n.language === "ar" ? "عزل خرساني" : "Concrete Waterproofing",
                 caption:
                   i18n.language === "ar"
