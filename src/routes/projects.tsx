@@ -24,10 +24,10 @@ import caseTransformer from "@/assets/project-transformer.png";
 import caseAcidSewer from "@/assets/project-acid-sewer.png";
 import caseMaadenReactor from "@/assets/project-maaden-reactor.png";
 
-import fieldTankPrep from "@/assets/service-concrete.jpg";
-import fieldTankCfrp from "@/assets/service-assessment-detail.png";
-import fieldPipelineWrap from "@/assets/after-pipe.jpg";
-import fieldCrewFrp from "@/assets/before-pipe.jpg";
+import fieldTankPrep from "@/assets/field-concrete-waterproofing.jpg";
+import fieldTankCfrp from "@/assets/field-defect-survey.jpg";
+import fieldPipelineWrap from "@/assets/field-cfrp-pipeline-live.jpg";
+import fieldCrewFrp from "@/assets/field-pipe-corrosion-before.jpg";
 
 import {
   SabicLogo,
