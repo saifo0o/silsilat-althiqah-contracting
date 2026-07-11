@@ -136,36 +136,43 @@ function ServicesPage() {
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
+  useEffect(() => {
+    document.title = t("services.metaTitle");
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute("content", t("services.metaDesc"));
+    }
+  }, [t, i18n.language]);
+
   const getServiceSpecs = (key: string) => {
-    const isAr = i18n.language === "ar";
     switch (key) {
       case "assessment":
         return [
-          { label: isAr ? "نطاق الفحص" : "Inspection Scope", value: isAr ? "تشخيص الأعطال وتقييم الحالة الإنشائية" : "Defect Diagnostics & Structural Assessment" },
-          { label: isAr ? "المنهجية" : "Methodology", value: isAr ? "اختبارات غير متلفة والتحليل الهندسي" : "NDT & Engineering Analysis" },
-          { label: isAr ? "معيار التقييم" : "Assessment Standard", value: "ASME PCC-2 / ACI" },
-          { label: isAr ? "المخرجات" : "Deliverables", value: isAr ? "تقارير سلامة الأصول والتوصيات الهندسية" : "Asset Integrity Reports & Engineering Recommendations" },
+          { label: t("services.specialties.assessment.label1"), value: t("services.specialties.assessment.value1") },
+          { label: t("services.specialties.assessment.label2"), value: t("services.specialties.assessment.value2") },
+          { label: t("services.specialties.assessment.label3"), value: t("services.specialties.assessment.value3") },
+          { label: t("services.specialties.assessment.label4"), value: t("services.specialties.assessment.value4") },
         ];
       case "rehabilitation":
         return [
-          { label: isAr ? "التقنيات المستخدمة" : "Technologies Used", value: isAr ? "ألياف الكربون (CFRP)، حقن الإيبوكسي" : "Carbon Fiber (CFRP), Epoxy Injection" },
-          { label: isAr ? "الاسترداد الإنشائي" : "Structural Recovery", value: isAr ? "استعادة القدرة التحميلية للخرسانة والصلب" : "Load Capacity Restoration for Concrete & Steel" },
-          { label: isAr ? "المواد" : "Materials", value: isAr ? "مركبات عالية القوة ومواد متقدمة" : "High-Strength Composites & Advanced Materials" },
-          { label: isAr ? "وقت التعطل" : "Downtime", value: isAr ? "منخفض جداً، يمكن إجراؤه أثناء التشغيل" : "Minimal, Can Be Executed Live" },
+          { label: t("services.specialties.rehabilitation.label1"), value: t("services.specialties.rehabilitation.value1") },
+          { label: t("services.specialties.rehabilitation.label2"), value: t("services.specialties.rehabilitation.value2") },
+          { label: t("services.specialties.rehabilitation.label3"), value: t("services.specialties.rehabilitation.value3") },
+          { label: t("services.specialties.rehabilitation.label4"), value: t("services.specialties.rehabilitation.value4") },
         ];
       case "protection":
         return [
-          { label: isAr ? "أنظمة الحماية" : "Protection Systems", value: isAr ? "طلاءات إيبوكسي، بطانات مقاومة للأحماض" : "Epoxy Coatings, Acid-Resistant Linings" },
-          { label: isAr ? "المقاومة الكيميائية" : "Chemical Resistance", value: isAr ? "حمض الكبريتيك 98%، حمض الفوسفوريك 54%" : "Sulfuric Acid 98%, Phosphoric Acid 54%" },
-          { label: isAr ? "البيئة" : "Environment", value: isAr ? "غمر كامل، بيئات بحرية، انسكاب كيميائي" : "Full Immersion, Marine, Chemical Spills" },
-          { label: isAr ? "العمر الافتراضي" : "Lifespan", value: isAr ? "15-20+ عام للمنشآت الحرجة" : "15-20+ Years for Critical Assets" },
+          { label: t("services.specialties.protection.label1"), value: t("services.specialties.protection.value1") },
+          { label: t("services.specialties.protection.label2"), value: t("services.specialties.protection.value2") },
+          { label: t("services.specialties.protection.label3"), value: t("services.specialties.protection.value3") },
+          { label: t("services.specialties.protection.label4"), value: t("services.specialties.protection.value4") },
         ];
       case "endurance":
         return [
-          { label: isAr ? "التركيز الأساسي" : "Primary Focus", value: isAr ? "استمرارية التشغيل وإطالة عمر الأصل" : "Operational Continuity & Life Extension" },
-          { label: isAr ? "التدخل" : "Intervention", value: isAr ? "إدارة دورة الحياة، صيانة وقائية" : "Lifecycle Management, Preventative Maintenance" },
-          { label: isAr ? "النتائج" : "Outcomes", value: isAr ? "خفض تكاليف الاستبدال، تقليل الأعطال المفاجئة" : "Reduced Replacement Costs, Fewer Unplanned Outages" },
-          { label: isAr ? "الصناعات المدعومة" : "Supported Industries", value: isAr ? "بتروكيماويات، طاقة، تحلية المياه" : "Petrochemicals, Power, Desalination" },
+          { label: t("services.specialties.endurance.label1"), value: t("services.specialties.endurance.value1") },
+          { label: t("services.specialties.endurance.label2"), value: t("services.specialties.endurance.value2") },
+          { label: t("services.specialties.endurance.label3"), value: t("services.specialties.endurance.value3") },
+          { label: t("services.specialties.endurance.label4"), value: t("services.specialties.endurance.value4") },
         ];
       default:
         return [];
@@ -228,7 +235,7 @@ function ServicesPage() {
                 </Button>
                 <Button asChild size="sm" variant="outline" className="rounded-full">
                   <a href="https://wa.me/966560976454" target="_blank" rel="noreferrer">
-                    {i18n.language === "ar" ? "عبدالعزيز السردي" : "Abdulaziz Al-Sardi"}
+                    {t("services.salesContacts.abd")}
                   </a>
                 </Button>
               </div>
@@ -240,25 +247,21 @@ function ServicesPage() {
                 {t("services.salesEyebrow")}
               </p>
               <h2 className="mt-3 font-display text-xl md:text-2xl font-semibold">
-                {i18n.language === "ar"
-                  ? "أوكس فري Oxifree TM198"
-                  : "Oxifree TM198 Protective Coating"}
+                {t("services.oxifree.title")}
               </h2>
               <p className="mt-3 text-muted-foreground leading-relaxed text-sm flex-1">
-                {i18n.language === "ar"
-                  ? "طبقة حماية بوليمرية حرارية قابلة للإزالة تحمي الوصلات والصمامات والفلنجات ومعدات المصانع من التآكل والرطوبة والأملاح — مثالية للبيئات الصناعية والبحرية القاسية."
-                  : "Removable thermoplastic polymeric coating that protects flanges, valves, bolts and plant equipment from corrosion, moisture and salts — engineered for the harshest industrial and marine environments."}
+                {t("services.oxifree.desc")}
               </p>
               <div className="mt-5 flex flex-wrap gap-2">
                 <Button asChild size="sm" className="rounded-full">
                   <a href="mailto:Najem@silsilat-sa.com">
                     <Mail className="h-4 w-4 me-2" />
-                    {i18n.language === "ar" ? "استفسر عن Oxifree" : "Enquire about Oxifree"}
+                    {t("services.oxifree.enquire")}
                   </a>
                 </Button>
                 <Button asChild size="sm" variant="outline" className="rounded-full">
                   <a href="https://wa.me/966561194438" target="_blank" rel="noreferrer">
-                    {i18n.language === "ar" ? "يوسف الناجم" : "Yousef Al-Najem"}
+                    {t("services.salesContacts.yousef")}
                   </a>
                 </Button>
               </div>
@@ -271,17 +274,13 @@ function ServicesPage() {
       <section className="container mx-auto px-4 md:px-6 pt-16 md:pt-24">
         <div className="max-w-3xl">
           <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-accent">
-            {i18n.language === "ar" ? "منظومة المواد لدينا" : "Our Material Systems"}
+            {t("services.systems.eyebrow")}
           </p>
           <h2 className="mt-4 font-display text-3xl md:text-4xl font-bold tracking-tight text-balance">
-            {i18n.language === "ar"
-              ? "ثلاث منظومات هندسية تُغذّي جميع خدماتنا"
-              : "Three engineered material systems power every service we deliver"}
+            {t("services.systems.title")}
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            {i18n.language === "ar"
-              ? "التقييم والتأهيل والحماية والاستدامة الأربعة تُنفَّذ باستخدام واحدة أو أكثر من منظومات المواد الثلاث أدناه، بحسب طبيعة المنشأة وظروف التشغيل."
-              : "Assessment, Rehabilitation, Protection and Endurance are all delivered using one or more of the three material systems below — selected to match the asset, the environment and the service conditions."}
+            {t("services.systems.desc")}
           </p>
         </div>
 
@@ -289,32 +288,23 @@ function ServicesPage() {
           {[
             {
               tag: "01",
-              name: i18n.language === "ar" ? "ألياف الكربون (CFRP)" : "Carbon Fiber (CFRP)",
-              desc:
-                i18n.language === "ar"
-                  ? "منظومة بوليمر مقوى بألياف الكربون لتأهيل وتقوية الخرسانة والفولاذ وخطوط الأنابيب وفق معايير ACI 440.2R و ASME PCC-2 / ISO 24817."
-                  : "Carbon-fibre reinforced polymer system for rehabilitating concrete, steel and process piping under ACI 440.2R and ASME PCC-2 / ISO 24817.",
-              contactLabel: i18n.language === "ar" ? "عبدالعزيز السردي" : "Abdulaziz Al-Sardi",
+              name: t("services.systems.sys1.name"),
+              desc: t("services.systems.sys1.desc"),
+              contactLabel: t("services.salesContacts.abd"),
               contactHref: "https://wa.me/966560976454",
             },
             {
               tag: "02",
-              name: i18n.language === "ar" ? "أوكس فري Oxifree TM198" : "Oxifree TM198",
-              desc:
-                i18n.language === "ar"
-                  ? "طلاء بوليمري حراري قابل للإزالة يحمي الفلنجات والصمامات والوصلات المعدنية من التآكل والرطوبة والأملاح — دون توقف تشغيلي."
-                  : "Removable thermoplastic polymeric coating that shields flanges, valves and metallic connections from corrosion, moisture and salts — with no shutdown required.",
-              contactLabel: i18n.language === "ar" ? "يوسف الناجم" : "Yousef Al-Najem",
+              name: t("services.systems.sys2.name"),
+              desc: t("services.systems.sys2.desc"),
+              contactLabel: t("services.salesContacts.yousef"),
               contactHref: "https://wa.me/966561194438",
             },
             {
               tag: "03",
-              name: i18n.language === "ar" ? "فايبر جلاس (GFRP)" : "Fibreglass (GFRP)",
-              desc:
-                i18n.language === "ar"
-                  ? "منظومة بوليمر مقوى بألياف الزجاج لتبطين وإصلاح الخزانات والأنابيب والهياكل التي تحتفظ بالسوائل، متوافقة مع API 650 / 653 / 652."
-                  : "Glass-fibre reinforced polymer system for lining and repairing tanks, pipes and liquid-retaining structures — compliant with API 650 / 653 / 652.",
-              contactLabel: i18n.language === "ar" ? "تواصل معنا" : "Contact us",
+              name: t("services.systems.sys3.name"),
+              desc: t("services.systems.sys3.desc"),
+              contactLabel: t("services.salesContacts.contactUs"),
               contactHref: "/contact",
             },
           ].map((sys) => (
@@ -347,29 +337,21 @@ function ServicesPage() {
             <div className="grid md:grid-cols-12 gap-6 items-start">
               <div className="md:col-span-4">
                 <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-accent">
-                  {i18n.language === "ar" ? "من الميدان" : "From the specialist"}
+                  {t("services.field.eyebrow")}
                 </p>
                 <h3 className="mt-3 font-display text-xl font-bold text-foreground">
-                  {i18n.language === "ar"
-                    ? "لماذا CFRP لخطوط أنابيب البتروكيماويات"
-                    : "Why CFRP for petrochemical piping"}
+                  {t("services.field.title")}
                 </h3>
               </div>
               <div className="md:col-span-8 text-sm md:text-base text-muted-foreground leading-relaxed space-y-3">
                 <p>
-                  {i18n.language === "ar"
-                    ? "توفر منظومة CFRP/FRP حلاً متيناً يضمن السلامة الإنشائية للأنبوب — سواء كإصلاح دائم أو مؤقت — وهو أمر بالغ الأهمية في مصانع البتروكيماويات حيث يعني توقف الخط خسائر مالية فادحة."
-                    : "CFRP/FRP delivers a durable solution that restores structural integrity — as either a permanent or bridging repair — which is critical in petrochemical plants where line downtime translates into major financial losses."}
+                  {t("services.field.p1")}
                 </p>
                 <p>
-                  {i18n.language === "ar"
-                    ? "تُصمَّم تدخلاتنا وفق ACI 440.2R للركائز الخرسانية و ASME PCC-2 / ISO 24817 للركائز المعدنية، ويُنفذها فنيون معتمدون من موردين دوليين — بما في ذلك تدخلات طارئة تفادت أعطالاً كارثية."
-                    : "Our interventions are designed to ACI 440.2R for concrete substrates and ASME PCC-2 / ISO 24817 for metallic substrates, and are executed by technicians certified by international suppliers — including emergency mobilisations that have averted catastrophic failures."}
+                  {t("services.field.p2")}
                 </p>
                 <p>
-                  {i18n.language === "ar"
-                    ? "الاستخدامات تشمل: استعادة قوة عناصر إنشائية متدهورة، رفع الهيكل لمعايير التحميل الزلزالي الحديثة، تقوية العناصر السليمة لأحمال متزايدة، وإصلاح تسريبات نشطة في الأنابيب والخزانات دون عزل النظام."
-                    : "Applications include: restoring load capacity of degraded members, upgrading structures to current seismic loading, strengthening intact elements against increased loads, and repairing active leaks on pipes and tanks without isolating the system."}
+                  {t("services.field.p3")}
                 </p>
               </div>
             </div>
@@ -381,7 +363,7 @@ function ServicesPage() {
       {/* KEY ADVANTAGES SECTION */}
       <section className="bg-secondary/20 py-16 md:py-24 border-b border-border">
         <div className="container mx-auto px-4 md:px-6">
-          <SectionHeading eyebrow={i18n.language === 'ar' ? 'فوائدنا' : 'Our Benefits'} title={t("services.advantages.title")} />
+          <SectionHeading eyebrow={t("services.labels.benefits")} title={t("services.advantages.title")} />
           
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {(() => {
@@ -488,7 +470,7 @@ function ServicesPage() {
                     })()}
                   </div>
                   <span className="font-mono text-[9px] uppercase tracking-widest text-emerald-400 font-bold">
-                    {i18n.language === 'ar' ? 'حل تأهيلي هندسي' : 'ENGINEERED REHAB SOLUTION'}
+                    {t("services.labels.rehabSolution")}
                   </span>
                 </div>
               </div>
@@ -509,7 +491,7 @@ function ServicesPage() {
                 <div className="mt-8 grid lg:grid-cols-2 gap-8 items-start">
                   <div>
                     <h4 className="font-display text-xs font-bold uppercase tracking-wider text-foreground mb-4">
-                      {i18n.language === 'ar' ? 'الميزات الرئيسية' : 'Key Features'}
+                      {t("services.labels.keyFeatures")}
                     </h4>
                     <ul className="space-y-3">
                       {((t(`services.items.${services[activeService].key}.features`, { returnObjects: true }) as string[]) || []).map((feature, i) => (
@@ -545,7 +527,7 @@ function ServicesPage() {
                 {/* Technical Specs List */}
                 <div className="mt-8 pt-8 border-t border-border">
                   <h4 className="font-display text-xs font-bold uppercase tracking-wider text-foreground mb-4">
-                    {i18n.language === 'ar' ? 'المواصفات الفنية' : 'Technical Specifications'}
+                    {t("services.labels.techSpecs")}
                   </h4>
                   <div className="grid gap-3 sm:grid-cols-2">
                     {getServiceSpecs(services[activeService].key).map((spec, i) => (
@@ -568,7 +550,7 @@ function ServicesPage() {
                   className="rounded-sm bg-emerald-600 hover:bg-emerald-500 text-white text-xs uppercase font-bold tracking-wider"
                 >
                   <Link to="/contact">
-                    {i18n.language === 'ar' ? 'طلب استفسار فني' : 'Request Technical Inquiry'}{" "}
+                    {t("services.labels.requestInquiry")}{" "}
                     <ArrowRight className="h-3.5 w-3.5 ms-1.5 rtl:rotate-180" />
                   </Link>
                 </Button>

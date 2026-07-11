@@ -137,9 +137,9 @@
       "speedBody": "Mobilised for emergency TAMs and shutdowns — including overnight CFRP lining works."
     },
     "founder": {
-      "eyebrow": "Message from the Founder",
+      "eyebrow": "Message from the Chairman",
       "name": "Youssef Buobaid",
-      "title": "Founder, Chairman & CEO",
+      "title": "Chairman",
       "message": "When we established SILSILAT AL-THIQA in 2013, we set out to serve a growing need at the heart of the Kingdom's industrial sector. Concrete, steel and piping assets were degrading under severe operational and chemical stress, with operators left with no option other than costly demolition and replacement. We chose a different path — advanced composite repair, high-strength CFRP wrapping, and chemical-resistant lining systems that restore structural integrity and extend asset life without prolonged shutdowns. True engineering leadership is measured not only by what we deliver, but by what we enable our clients to achieve: operational continuity, asset protection, and sustainable growth."
     },
     "processEyebrow": "How we work",
@@ -255,6 +255,89 @@
         "High flexibility allowing for inspection, maintenance, and re-application without damaging components or disrupting operations.",
         "Ideal for protecting flanges, bolts, valves, pipelines, and industrial equipment, fully environmentally certified and VOC-free."
       ]
+    },
+    "specialties": {
+      "assessment": {
+        "label1": "Inspection Scope",
+        "value1": "Defect Diagnostics & Structural Assessment",
+        "label2": "Methodology",
+        "value2": "NDT & Engineering Analysis",
+        "label3": "Assessment Standard",
+        "value3": "ASME PCC-2 / ACI",
+        "label4": "Deliverables",
+        "value4": "Asset Integrity Reports & Engineering Recommendations"
+      },
+      "rehabilitation": {
+        "label1": "Technologies Used",
+        "value1": "Carbon Fiber (CFRP), Epoxy Injection",
+        "label2": "Structural Recovery",
+        "value2": "Load Capacity Restoration for Concrete & Steel",
+        "label3": "Materials",
+        "value3": "High-Strength Composites & Advanced Materials",
+        "label4": "Downtime",
+        "value4": "Minimal, Can Be Executed Live"
+      },
+      "protection": {
+        "label1": "Protection Systems",
+        "value1": "Epoxy Coatings, Acid-Resistant Linings",
+        "label2": "Chemical Resistance",
+        "value2": "Sulfuric Acid 98%, Phosphoric Acid 54%",
+        "label3": "Environment",
+        "value3": "Full Immersion, Marine, Chemical Spills",
+        "label4": "Lifespan",
+        "value4": "15-20+ Years for Critical Assets"
+      },
+      "endurance": {
+        "label1": "Primary Focus",
+        "value1": "Operational Continuity & Life Extension",
+        "label2": "Intervention",
+        "value2": "Lifecycle Management, Preventative Maintenance",
+        "label3": "Outcomes",
+        "value3": "Reduced Replacement Costs, Fewer Unplanned Outages",
+        "label4": "Supported Industries",
+        "value4": "Petrochemicals, Power, Desalination"
+      }
+    },
+    "salesContacts": {
+      "abd": "Abdulaziz Al-Sardi",
+      "yousef": "Yousef Al-Najem",
+      "contactUs": "Contact us"
+    },
+    "oxifree": {
+      "title": "Oxifree TM198 Protective Coating",
+      "desc": "Removable thermoplastic polymeric coating that protects flanges, valves, bolts and plant equipment from corrosion, moisture and salts — engineered for the harshest industrial and marine environments.",
+      "enquire": "Enquire about Oxifree"
+    },
+    "systems": {
+      "eyebrow": "Our Material Systems",
+      "title": "Three engineered material systems power every service we deliver",
+      "desc": "Assessment, Rehabilitation, Protection and Endurance are all delivered using one or more of the three material systems below — selected to match the asset, the environment and the service conditions.",
+      "sys1": {
+        "name": "Carbon Fiber (CFRP)",
+        "desc": "Carbon-fibre reinforced polymer system for rehabilitating concrete, steel and process piping under ACI 440.2R and ASME PCC-2 / ISO 24817."
+      },
+      "sys2": {
+        "name": "Oxifree TM198",
+        "desc": "Removable thermoplastic polymeric coating that shields flanges, valves and metallic connections from corrosion, moisture and salts — with no shutdown required."
+      },
+      "sys3": {
+        "name": "Fibreglass (GFRP)",
+        "desc": "Glass-fibre reinforced polymer system for lining and repairing tanks, pipes and liquid-retaining structures — compliant with API 650 / 653 / 652."
+      }
+    },
+    "field": {
+      "eyebrow": "From the specialist",
+      "title": "Why CFRP for petrochemical piping",
+      "p1": "CFRP/FRP delivers a durable solution that restores structural integrity — as either a permanent or bridging repair — which is critical in petrochemical plants where line downtime translates into major financial losses.",
+      "p2": "Our interventions are designed to ACI 440.2R for concrete substrates and ASME PCC-2 / ISO 24817 for metallic substrates, and are executed by technicians certified by international suppliers — including emergency mobilisations that have averted catastrophic failures.",
+      "p3": "Applications include: restoring load capacity of degraded members, upgrading structures to current seismic loading, strengthening intact elements against increased loads, and repairing active leaks on pipes and tanks without isolating the system."
+    },
+    "labels": {
+      "benefits": "Our Benefits",
+      "rehabSolution": "ENGINEERED REHAB SOLUTION",
+      "keyFeatures": "Key Features",
+      "techSpecs": "Technical Specifications",
+      "requestInquiry": "Request Technical Inquiry"
     }
   },
   "about": {
@@ -885,7 +968,11 @@
       "dammamAddress": "Building No. 4011, Al Rabee Al Absi Street, Al-Adamah District, Sub 759, Dammam 32242, K.S.A. (Short Address: EDJA4011)",
       "dammamPhone": "",
       "emailTitle": "Email",
-      "email": "info@silsilat-sa.com"
+      "email": "info@silsilat-sa.com",
+      "supportActive": "SUPPORT ACTIVE",
+      "astTz": "AST UTC+3",
+      "astTitle": "Arabia Standard Time (AST)",
+      "astBody": "Our engineering and estimating office in Jubail operates Sunday to Thursday, from 08:00 AM to 05:00 PM."
     }
   },
   "footer": {

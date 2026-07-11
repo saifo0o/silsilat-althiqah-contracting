@@ -37,7 +37,7 @@ export function WhatsAppFloat() {
   return (
     <div className="fixed bottom-5 end-5 z-[60] flex flex-col items-end gap-3 print:hidden">
       {open && (
-        <div className="w-[300px] rounded-2xl bg-card border border-border shadow-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-2 duration-300">
+        <div className="w-[300px] rounded-2xl bg-card border border-border shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 slide-in-from-bottom-4 duration-300">
           <div className="bg-emerald-600 text-white px-4 py-3 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <FaWhatsapp className="h-5 w-5" />
@@ -90,12 +90,16 @@ export function WhatsAppFloat() {
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label={isAr ? "تواصل عبر واتساب" : "Contact via WhatsApp"}
-        className="relative h-14 w-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-2xl shadow-emerald-500/40 flex items-center justify-center transition-transform hover:scale-105 active:scale-95"
+        className="relative h-14 w-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-[0_8px_30px_rgb(16,185,129,0.3)] hover:shadow-[0_8px_40px_rgb(16,185,129,0.6)] flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:scale-95 group z-10"
       >
         {!open && (
-          <span className="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-40" />
+          <span className="absolute inset-0 rounded-full bg-emerald-400 animate-[ping_3s_ease-in-out_infinite] opacity-30 group-hover:animate-none" />
         )}
-        {open ? <X className="h-6 w-6 relative" /> : <FaWhatsapp className="h-7 w-7 relative" />}
+        {open ? (
+          <X className="h-6 w-6 relative transition-transform duration-300 hover:rotate-90" />
+        ) : (
+          <FaWhatsapp className="h-7 w-7 relative transition-transform duration-300 group-hover:scale-110" />
+        )}
       </button>
     </div>
   );

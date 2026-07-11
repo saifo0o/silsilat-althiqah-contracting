@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ShieldCheck,
   Gauge,
@@ -57,6 +57,12 @@ export const Route = createFileRoute("/about")({
 
 function AboutPage() {
   const { t, i18n } = useTranslation();
+
+  useEffect(() => {
+    document.title = i18n.language === "ar"
+      ? "من نحن — سلسلة الثقة، حلول هندسية وحماية الأصول"
+      : "About — SILSILAT AL-THIQA, Engineering Solutions & Asset Protection";
+  }, [i18n.language]);
 
   const vendorsData = t("clients.vendors", { returnObjects: true });
   const vendors = Array.isArray(vendorsData) ? (vendorsData as Vendor[]) : [];
@@ -156,7 +162,7 @@ function AboutPage() {
               <h2 className="mt-4 font-display text-3xl md:text-4xl font-semibold leading-tight text-balance">
                 {t("home.founder.headline", { defaultValue: i18n.language === "ar" ? "نُعيد للأصول عمرها التشغيلي — لا نستبدلها." : "We extend asset life. We don't replace it." })}
               </h2>
-              <blockquote className="mt-6 text-lg leading-relaxed text-muted-foreground border-s-2 border-accent/40 ps-5 rtl:pe-5 rtl:ps-0 rtl:border-e-2 rtl:border-s-0">
+              <blockquote className="mt-6 text-lg leading-relaxed text-muted-foreground border-s-2 border-accent/40 ps-5">
                 {t("home.founder.message")}
               </blockquote>
               <div className="mt-8 flex items-center gap-3">
@@ -182,7 +188,7 @@ function AboutPage() {
             {/* Mission: Featured 2/3 width card */}
             <Reveal className="lg:col-span-8">
               <div className="rounded-md bg-card p-8 md:p-10 h-full flex flex-col justify-between relative overflow-hidden group shadow-emil hover:shadow-emil-hover transition-[box-shadow,transform] duration-500 ease-[var(--ease-emil)] active:scale-[0.98]">
-                <div className="absolute top-0 right-0 h-32 w-32 bg-gradient-to-bl from-accent/5 to-transparent pointer-events-none" />
+                <div className="absolute top-0 end-0 h-32 w-32 bg-gradient-to-bl from-accent/5 to-transparent pointer-events-none" />
                 <div>
                   <div className="h-12 w-12 rounded-sm bg-accent/10 text-accent-foreground flex items-center justify-center">
                     <ShieldCheck className="h-6 w-6" />

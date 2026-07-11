@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   CheckCircle2,
   MapPin,
@@ -72,6 +72,12 @@ export const Route = createFileRoute("/projects")({
 
 function ProjectsPage() {
   const { t, i18n } = useTranslation();
+
+  useEffect(() => {
+    document.title = i18n.language === "ar"
+      ? "المشاريع المنجزة — سلسلة الثقة"
+      : "Major Orders Completed — SILSILAT AL-THIQA";
+  }, [i18n.language]);
 
   const items = useMemo(() => {
     const itemsData = t("projects.items", { returnObjects: true });
@@ -274,11 +280,11 @@ function ProjectsPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent pointer-events-none" />
                     <span
-                      className={`absolute top-4 left-4 ${project.tagColor} text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-sm`}
+                      className={`absolute top-4 start-4 ${project.tagColor} text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-sm`}
                     >
                       {project.tag}
                     </span>
-                    <div className="absolute bottom-6 left-6 right-6 text-white flex justify-between items-end">
+                    <div className="absolute bottom-6 inset-x-6 text-white flex justify-between items-end">
                       <div>
                         <p className="text-[10px] font-bold text-accent uppercase tracking-widest">{project.client}</p>
                         <h4 className="font-display text-2xl font-bold leading-tight mt-1">
@@ -346,7 +352,7 @@ function ProjectsPage() {
       {/* GENERAL REGISTRY FILTERS */}
       <section className="border-b border-border bg-background sticky top-20 z-30 backdrop-blur-md">
         {/* Covers the 80px gap above when the main header hides on scroll */}
-        <div className="absolute left-0 right-0 h-20 -top-20 bg-background pointer-events-none" />
+        <div className="absolute inset-x-0 h-20 -top-20 bg-background pointer-events-none" />
         <div className="container mx-auto px-4 md:px-6 py-4 flex overflow-x-auto no-scrollbar items-center gap-2 whitespace-nowrap">
           <button
             onClick={() => setFilter("all")}

@@ -272,19 +272,18 @@ function ContactPage() {
                   <div className="flex items-center gap-2">
                     <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
                     <span className="font-mono text-[9px] uppercase tracking-widest text-emerald-400 font-bold">
-                      SUPPORT ACTIVE
+                      {t("contact.offices.supportActive")}
                     </span>
                   </div>
-                  <span className="font-mono text-[9px] text-slate-500">AST UTC+3</span>
+                  <span className="font-mono text-[9px] text-slate-500">{t("contact.offices.astTz")}</span>
                 </div>
 
                 <div className="mt-4">
                   <h4 className="font-display text-sm font-bold text-white">
-                    Arabia Standard Time (AST)
+                    {t("contact.offices.astTitle")}
                   </h4>
                   <p className="mt-1 text-xs text-slate-400 leading-relaxed">
-                    Our engineering and estimating office in Jubail operates Sunday to Thursday,
-                    from 08:00 AM to 05:00 PM.
+                    {t("contact.offices.astBody")}
                   </p>
                 </div>
               </div>
