@@ -437,7 +437,10 @@ export function SiteHeader() {
                 </div>
 
                 {/* Bottom Pinned Actions */}
-                <div className="p-6 border-t border-white/10 bg-black/20 shrink-0 flex flex-col gap-4">
+                <div
+                  className="p-6 border-t border-white/10 bg-black/20 shrink-0 flex flex-col gap-4"
+                  style={{ paddingBottom: "calc(1.5rem + env(safe-area-inset-bottom))" }}
+                >
                   <Button
                     asChild
                     className="w-full bg-accent text-accent-foreground hover:bg-accent/90 rounded-md py-6 text-sm font-bold tracking-widest uppercase"

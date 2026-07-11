@@ -299,7 +299,7 @@ function ClientsPage() {
                 placeholder={t("clients.searchPlaceholder")}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-9 pr-4 py-2 text-xs rounded-sm border border-border bg-card text-foreground placeholder-muted-foreground focus:outline-none focus:border-emerald-500 transition-colors"
+                className="w-full pl-9 pr-4 py-2 text-base md:text-xs rounded-sm border border-border bg-card text-foreground placeholder-muted-foreground focus:outline-none focus:border-emerald-500 transition-colors"
               />
             </div>
           </Reveal>

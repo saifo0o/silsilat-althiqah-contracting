@@ -35,9 +35,12 @@ export function WhatsAppFloat() {
   if (!mounted) return null;
 
   return (
-    <div className="fixed bottom-5 end-5 z-[60] flex flex-col items-end gap-3 print:hidden">
+    <div
+      className="fixed end-5 z-[60] flex flex-col items-end gap-3 print:hidden"
+      style={{ bottom: "calc(1.25rem + env(safe-area-inset-bottom))" }}
+    >
       {open && (
-        <div className="w-[300px] rounded-2xl bg-card border border-border shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 slide-in-from-bottom-4 duration-300">
+        <div className="w-[calc(100vw-2.5rem)] max-w-[300px] rounded-2xl bg-card border border-border shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 slide-in-from-bottom-4 duration-300">
           <div className="bg-emerald-600 text-white px-4 py-3 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <FaWhatsapp className="h-5 w-5" />

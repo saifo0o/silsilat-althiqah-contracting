@@ -350,9 +350,7 @@ function ProjectsPage() {
 
 
       {/* GENERAL REGISTRY FILTERS */}
-      <section className="border-b border-border bg-background sticky top-20 z-30 backdrop-blur-md">
-        {/* Covers the 80px gap above when the main header hides on scroll */}
-        <div className="absolute inset-x-0 h-20 -top-20 bg-background pointer-events-none" />
+      <section className="border-b border-border bg-background">
         <div className="container mx-auto px-4 md:px-6 py-4 flex overflow-x-auto no-scrollbar items-center gap-2 whitespace-nowrap">
           <button
             onClick={() => setFilter("all")}
