@@ -43,7 +43,7 @@ export const Route = createFileRoute("/contact")({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
           name: "Silsilat Althiqah for Engineering Solutions & Asset Protection",
-          url: "https://silsilat-sa.com/contact",
+          url: "https://www.silsilat-sa.com/contact",
           email: "info@silsilat-sa.com",
           openingHoursSpecification: [
             {

@@ -114,6 +114,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap",
       },
+      { rel: "icon", type: "image/png", href: "/icon.png" },
+      { rel: "apple-touch-icon", href: "/icon.png" },
+      { rel: "manifest", href: "/manifest.json" },
     ],
     scripts: [
       {
@@ -123,21 +126,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@graph": [
             {
               "@type": "Organization",
-              "@id": "https://silsilat-sa.com/#organization",
+              "@id": "https://www.silsilat-sa.com/#organization",
               name: "Silsilat Althiqah for Engineering Solutions & Asset Protection",
               alternateName: "Silsilat Althiqah",
-              url: "https://silsilat-sa.com",
-              logo: "https://silsilat-sa.com/favicon.ico",
+              url: "https://www.silsilat-sa.com",
+              logo: "https://www.silsilat-sa.com/icon.png",
               foundingDate: "2013",
               areaServed: "SA",
               sameAs: [],
             },
             {
               "@type": "WebSite",
-              "@id": "https://silsilat-sa.com/#website",
-              url: "https://silsilat-sa.com",
+              "@id": "https://www.silsilat-sa.com/#website",
+              url: "https://www.silsilat-sa.com",
               name: "Silsilat Althiqah",
-              publisher: { "@id": "https://silsilat-sa.com/#organization" },
+              publisher: { "@id": "https://www.silsilat-sa.com/#organization" },
               inLanguage: ["en", "ar"],
             },
           ],
