@@ -13,7 +13,7 @@ import {
   Building2,
 } from "lucide-react";
 import about from "@/assets/about-engineers.jpg";
-import founderImage from "@/assets/founder.jpg";
+
 import commercialRegistration from "@/assets/commercial-registration.png";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
@@ -180,43 +180,6 @@ function AboutPage() {
                 </Reveal>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FOUNDER'S MESSAGE */}
-      <section className="bg-background border-b border-border py-12 md:py-32">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid gap-12 lg:grid-cols-12 items-center">
-            <Reveal className="lg:col-span-5 relative">
-              <div className="aspect-square md:aspect-[4/5] overflow-hidden rounded-sm bg-muted border border-border">
-                <img
-                  src={founderImage}
-                  alt={t("home.founder.name", { defaultValue: "Founders" })}
-                  className="h-full w-full object-cover transition-transform duration-700"
-                />
-              </div>
-              <div className="absolute -bottom-6 -end-6 h-32 w-32 bg-emerald-500/10 rounded-sm -z-10" />
-            </Reveal>
-            <Reveal className="lg:col-span-7 lg:ps-8 text-start" delay={150}>
-              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/5 px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-emerald-600 dark:text-emerald-400">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                {t("home.founder.eyebrow", { defaultValue: "Leadership Message" })}
-              </div>
-              <blockquote className="mt-8">
-                <p className="font-display text-2xl md:text-3xl leading-relaxed text-foreground font-semibold">
-                  "{t("home.founder.message", { defaultValue: "At SILSILAT AL-THIQA, our mission goes beyond contracting; it is about safeguarding the industrial pillars of the Kingdom. We translate deep engineering knowledge into operational endurance." })}"
-                </p>
-              </blockquote>
-              <div className="mt-8 pt-6 border-t border-border flex flex-col">
-                <span className="font-display text-lg font-bold text-foreground">
-                  {t("home.founder.name", { defaultValue: "Youssef Buobaid" })}
-                </span>
-                <span className="mt-1 text-sm text-muted-foreground uppercase tracking-widest font-mono">
-                  {t("home.founder.title", { defaultValue: "Founder, Chairman & CEO" })}
-                </span>
-              </div>
-            </Reveal>
           </div>
         </div>
       </section>

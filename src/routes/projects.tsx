@@ -24,10 +24,10 @@ import caseTransformer from "@/assets/project-transformer.png";
 import caseAcidSewer from "@/assets/project-acid-sewer.png";
 import caseMaadenReactor from "@/assets/project-maaden-reactor.png";
 
-import fieldTankPrep from "@/assets/field-tank-prep.jpg";
-import fieldTankCfrp from "@/assets/field-tank-cfrp.jpg";
-import fieldPipelineWrap from "@/assets/field-pipeline-wrap.jpg";
-import fieldCrewFrp from "@/assets/field-crew-frp.jpg";
+import fieldTankPrep from "@/assets/field-concrete-waterproofing.jpg.asset.json";
+import fieldTankCfrp from "@/assets/field-defect-survey.jpg.asset.json";
+import fieldPipelineWrap from "@/assets/field-cfrp-pipeline-live.jpg.asset.json";
+import fieldCrewFrp from "@/assets/field-pipe-corrosion-before.jpg.asset.json";
 
 import {
   SabicLogo,
@@ -168,7 +168,7 @@ function ProjectsPage() {
           <div className="grid gap-4 md:gap-5 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                img: fieldPipelineWrap,
+                img: fieldPipelineWrap.url,
                 tag: i18n.language === "ar" ? "تغليف أنابيب CFRP" : "CFRP Pipeline Wrap",
                 caption:
                   i18n.language === "ar"
@@ -176,28 +176,28 @@ function ProjectsPage() {
                     : "Live in-service pipeline repair — no hot work, zero production shutdown.",
               },
               {
-                img: fieldTankPrep,
-                tag: i18n.language === "ar" ? "تجهيز خزان" : "Tank Preparation",
+                img: fieldCrewFrp.url,
+                tag: i18n.language === "ar" ? "قبل الإصلاح" : "Before Repair",
                 caption:
                   i18n.language === "ar"
-                    ? "تجهيز سطح خزان مياه صناعي مفتوح قبل تطبيق العزل المائي."
-                    : "Surface preparation of an open industrial water tank prior to waterproofing.",
+                    ? "أنبوب عمليات متآكل قبل التدخل — يخضع للتقييم الهندسي وفق ASME PCC-2."
+                    : "Corroded process pipe prior to intervention — engineered per ASME PCC-2.",
               },
               {
-                img: fieldTankCfrp,
-                tag: i18n.language === "ar" ? "طبقة CFRP" : "CFRP Layer",
+                img: fieldTankCfrp.url,
+                tag: i18n.language === "ar" ? "مسح العيوب" : "Defect Survey",
                 caption:
                   i18n.language === "ar"
-                    ? "طبقة عزل وحماية مركبة بألياف الكربون بعرض 1.28 متر."
-                    : "1.28-metre carbon-fibre composite waterproofing & protection layer.",
+                    ? "توثيق العيوب داخل خزانات وأنابيب صناعية قبل تصميم نظام الإصلاح."
+                    : "Documenting defects inside industrial tanks & pipes before designing the repair system.",
               },
               {
-                img: fieldCrewFrp,
-                tag: i18n.language === "ar" ? "فريق FRP" : "FRP Crew",
+                img: fieldTankPrep.url,
+                tag: i18n.language === "ar" ? "عزل خرساني" : "Concrete Waterproofing",
                 caption:
                   i18n.language === "ar"
-                    ? "فريق سلسلة الثقة أثناء تطبيق نظام تبطين FRP على جدار خرساني."
-                    : "Silsilat Althiqah crew applying an FRP lining system to a concrete wall.",
+                    ? "نظام حماية وعزل مركّب على وصلة خرسانية إنشائية."
+                    : "Composite waterproofing & protection system on a structural concrete joint.",
               },
             ].map((item, idx) => (
               <motion.figure
