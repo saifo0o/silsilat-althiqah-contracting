@@ -130,6 +130,51 @@ function AboutPage() {
         </div>
       </section>
 
+      {/* FOUNDER MESSAGE */}
+      <section className="bg-background border-y border-border">
+        <div className="container mx-auto px-4 md:px-6 py-16 md:py-28">
+          <div className="grid gap-10 lg:grid-cols-12 items-center">
+            <Reveal className="lg:col-span-4">
+              <div className="relative">
+                <div className="absolute -inset-3 rounded-2xl bg-gradient-to-br from-accent/20 to-transparent blur-2xl" />
+                <div className="relative aspect-[4/5] w-full max-w-sm overflow-hidden rounded-2xl shadow-emil">
+                  <img
+                    src={founderImg}
+                    alt={t("about.founder.name")}
+                    className="h-full w-full object-cover object-top"
+                    width={480}
+                    height={600}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </Reveal>
+            <Reveal className="lg:col-span-8" delay={100}>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-accent">
+                {t("about.founder.eyebrow")}
+              </p>
+              <h2 className="mt-4 font-display text-3xl md:text-4xl font-semibold leading-tight text-balance">
+                {t("about.founder.headline", { defaultValue: i18n.language === "ar" ? "نُعيد للأصول عمرها التشغيلي — لا نستبدلها." : "We extend asset life. We don't replace it." })}
+              </h2>
+              <blockquote className="mt-6 text-lg leading-relaxed text-muted-foreground border-s-2 border-accent/40 ps-5 rtl:pe-5 rtl:ps-0 rtl:border-e-2 rtl:border-s-0">
+                {t("about.founder.message")}
+              </blockquote>
+              <div className="mt-8 flex items-center gap-3">
+                <div className="h-10 w-0.5 bg-accent" />
+                <div>
+                  <p className="font-display text-base font-bold text-foreground">
+                    {t("about.founder.name")}
+                  </p>
+                  <p className="text-xs text-muted-foreground mt-0.5">
+                    {t("about.founder.title")}
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* VALUES */}
       <section className="bg-secondary/40 border-y border-border">
         <div className="container mx-auto px-4 md:px-6 py-12 md:py-32 text-start">
